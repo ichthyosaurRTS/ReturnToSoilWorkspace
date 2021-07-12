@@ -97,7 +97,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
                 if (rollChance(10)) spawnJawBeetle(worldIn, pos); //normally 10
-                else if (rollChance(1)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde
+                else if (rollChance(50)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde
                 else if (rollChance(300)) spawnBaruGaru(worldIn, pos);
             }
         }
