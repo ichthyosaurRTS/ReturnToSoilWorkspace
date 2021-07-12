@@ -96,8 +96,9 @@ public class OriginBerryBlock extends RTSCropsBlock {
                 }
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                if (rollChance(15)) spawnJawBeetle(worldIn, pos); //normally 20
-                if (rollChance(100)) spawnBaruGaru(worldIn, pos);
+                if (rollChance(10)) spawnJawBeetle(worldIn, pos); //normally 10
+                else if (rollChance(1)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde
+                else if (rollChance(300)) spawnBaruGaru(worldIn, pos);
             }
         }
     }
@@ -123,6 +124,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
         JawBeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
         if (entity!=null) {
             entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+            entity.setColourIntData();
             world.addFreshEntity(entity);
         }
         world.removeBlock(pos,false);
