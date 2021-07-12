@@ -57,8 +57,8 @@ public class JawBeetleEntity extends MonsterEntity {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 4.0D, false)); //that float is move speed
+        this.goalSelector.addGoal(1, new PanicGoal(this, 4.0D));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 4.0D, false)); //that float is move speed or atleast a mod
         this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));

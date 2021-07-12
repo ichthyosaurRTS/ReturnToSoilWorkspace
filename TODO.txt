@@ -3,6 +3,7 @@ TODO
 
 1  Add jaw beetle drops
 1  BaruGaru drops
+1  BaruGaru health item
 
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)
