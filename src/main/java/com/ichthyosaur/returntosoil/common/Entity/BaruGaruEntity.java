@@ -1,13 +1,19 @@
 package com.ichthyosaur.returntosoil.common.Entity;
 
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -35,8 +41,6 @@ public class BaruGaruEntity extends TameableEntity {
                 .add(Attributes.ARMOR, 10D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3F);
     }
-
-
 
 
     protected void registerGoals() {
@@ -74,11 +78,12 @@ public class BaruGaruEntity extends TameableEntity {
 
                this.segmentList[i] = segment;
 
-               Logger.getLogger("Created segment#"+i);
+               //Logger.getLogger("Created segment#"+i);
            }
            this.builtSegments = true;
        }
     }
+
 
     public void summonSegmentsToHead() {
         for (int i = 0; i < segmentMaxNumber; i++) {
@@ -91,7 +96,24 @@ public class BaruGaruEntity extends TameableEntity {
     }
 
 
-    @Override
+    @MethodsReturnNonnullByDefault
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        Item item = itemstack.getItem();
+        if (this.level.isClientSide) {
+            return ActionResultType.PASS;
+        } else {
+            if (item == Items.PORKCHOP && this.getHealth() < this.getMaxHealth()) {
+                this.heal((float) item.getFoodProperties().getNutrition());
+                itemstack.shrink(1);
+                this.level.broadcastEntityEvent(this, (byte)7);
+                return ActionResultType.SUCCESS;
+                }
+                return super.mobInteract(player, hand);
+        }}
+
+
+        @Override
     public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
         return null;
     }
