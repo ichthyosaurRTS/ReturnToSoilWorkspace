@@ -10,16 +10,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class JawBeetleRenderer extends MobRenderer<JawBeetleEntity, JawBeetleModel<JawBeetleEntity>> {
 
+
     public JawBeetleRenderer(EntityRendererManager manager) {
         super(manager, new JawBeetleModel<>(), 0.7f);
 
     }
 
-    @MethodsReturnNonnullByDefault
-    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/jaw_beetle/jaw_beetle.png");
-
     @Override
-    public ResourceLocation getTextureLocation(JawBeetleEntity p_110775_1_) {
-        return TEXTURE;
+    public ResourceLocation getTextureLocation(JawBeetleEntity entity) {
+        return entity.getResourceLocation();
     }
 }

@@ -1,20 +1,43 @@
 package com.ichthyosaur.returntosoil.common.Entity;
 
+import com.google.common.collect.Maps;
+import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.entity.passive.CowEntity;
+import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.item.DyeColor;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.*;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.server.ServerWorld;
+
+import javax.annotation.Nullable;
+import java.util.Map;
+import java.util.Random;
 
 public class JawBeetleEntity extends MonsterEntity {
 
-
+    //private final int COLOUR_INT;
+    private static final DataParameter<Integer> COLOUR_INT = EntityDataManager.defineId(CatEntity.class, DataSerializers.INT);
 
     public JawBeetleEntity(EntityType<? extends MonsterEntity> p_i48576_1_, World p_i48576_2_) {
         super(p_i48576_1_, p_i48576_2_);
@@ -27,6 +50,11 @@ public class JawBeetleEntity extends MonsterEntity {
                 .add(Attributes.MOVEMENT_SPEED, (double)0.1F);
     }
 
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(COLOUR_INT,1);
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new SwimGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
@@ -34,13 +62,58 @@ public class JawBeetleEntity extends MonsterEntity {
         this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
-
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, VillagerEntity.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PigEntity.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, ChickenEntity.class, true));
     }
 
+    private int getColourInt() {
+     return this.entityData.get(COLOUR_INT);
+    }
+
+    public void setColourIntData() {
+        int i;
+        if (rollChance.roll(200)) i = 0;
+        else if (rollChance.roll(1000)) i = 6;
+        else { Random rand = new Random();
+        i = rand.nextInt(5);
+        i+=1; }
+
+        this.entityData.set(COLOUR_INT, i);
+    }
+
+    public void addAdditionalSaveData(CompoundNBT NBT) {
+        super.addAdditionalSaveData(NBT);
+        NBT.putInt("ColourNumber", this.getColourInt());
+    }
+
+    public void readAdditionalSaveData(CompoundNBT NBT) {
+        super.readAdditionalSaveData(NBT);
+        this.entityData.set(COLOUR_INT, (NBT.getInt("ColourNumber")));
+    }
+
+    public ResourceLocation getResourceLocation() {
+        return COLOUR_BY_INT.getOrDefault(this.getColourInt(),new ResourceLocation(RTSMain.MOD_ID, "textures/entity/jaw_beetle/jaw_beetle_1.png") );
+    }
+
+    public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
+        p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
+        this.setColourIntData();
+        return p_213386_4_;
+    }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
         return SoundEvents.BONE_BLOCK_BREAK;
     }
 
+    public static final Map<Integer, ResourceLocation> COLOUR_BY_INT = Util.make(Maps.newHashMap(), (map) -> {
+        map.put(0, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_0.png"));
+        map.put(1, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_1.png"));
+        map.put(2, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_2.png"));
+        map.put(3, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_3.png"));
+        map.put(4, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_4.png"));
+        map.put(5, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_5.png"));
+        map.put(6, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_6.png"));
+    });
 }
