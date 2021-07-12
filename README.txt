@@ -19,7 +19,6 @@ TODO
 2  Texture variations for jaw beetle/ colourful beetles/ super rare?
 
 2  Texture Fox
-2  Add 4 other fox tails
 2  Finish programming fox
 2  Dragon head weapons (projectiles, floating)
 2  Floaty sky dragon thing
