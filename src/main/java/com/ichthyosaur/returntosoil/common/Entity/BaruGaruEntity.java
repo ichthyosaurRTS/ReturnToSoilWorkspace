@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 public class BaruGaruEntity extends TameableEntity {
 
-    //Lets use uuids next time rather than removing and respawning the segments every time the world restarts
+    //Lets use uuids next time rather than removing and respawning the segments every time the world restarts alright?
     public static final double segmentDistance = 0.7D;
     static final int segmentMaxNumber = 10;
     private BaruGaruSegmentEntity[] segmentList = new BaruGaruSegmentEntity[segmentMaxNumber];
