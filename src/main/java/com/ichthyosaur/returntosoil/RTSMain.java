@@ -48,6 +48,7 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARU.get(), BaruGaruEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.ELDERPOLU.get(), ElderPoluEntity.setCustomAttributes().build());
         });
     }
 
