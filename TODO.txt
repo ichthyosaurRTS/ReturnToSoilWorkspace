@@ -3,6 +3,9 @@ TODO
 
 1  Add jaw beetle drops
 1  BaruGaru drops
+1  Re design elder polu
+1  Find better name for elder polu
+1  Fix flat rotation on elder polu so he can have separate head movement
 
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)

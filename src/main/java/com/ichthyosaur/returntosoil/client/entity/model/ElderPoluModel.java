@@ -46,11 +46,11 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
         texHeight = 64;
 
         all = new ModelRenderer(this);
-        all.setPos(0.0F, 24.0F, 0.0F);
+        all.setPos(0.0F, 18.0F, 0.0F);
 
 
         body = new ModelRenderer(this);
-        body.setPos(0.0F, 0.0F, 0.0F);
+        body.setPos(0.0F, 6.0F, 0.0F);
         all.addChild(body);
         body.texOffs(0, 0).addBox(-4.0F, -9.0F, -4.0F, 8.0F, 9.0F, 8.0F, 0.0F, false);
 
@@ -222,6 +222,8 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
     @Override
     public void setupAnim(ElderPoluEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         //previously the render function, render code was moved to a method below
+        all.xRot = headPitch/100;
+        all.yRot = netHeadYaw/50;
     }
 
     @Override
