@@ -16,6 +16,7 @@ import net.minecraft.world.World;
 
 public class ElderPoluEntity extends MonsterEntity {
 
+    private boolean swimmingAnim;
 
     public ElderPoluEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
@@ -43,12 +44,11 @@ public class ElderPoluEntity extends MonsterEntity {
     }
 
 
-    private void updateSpeed() {
-        if (this.isInWater()) {
-            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, 0.05D, 0.0D));
-        } else {
-            this.setSpeed(0.1F);
-        }
+    private void setSwimmingAnim (boolean bool) {
+        this.swimmingAnim = bool;
+    }
+    public boolean getSwimmingAnim () {
+        return this.swimmingAnim;
     }
 
     public boolean isNoGravity() {
@@ -57,6 +57,7 @@ public class ElderPoluEntity extends MonsterEntity {
 
     @Override
     public void tick() {
+        setSwimmingAnim(isInWater());
         if (this.getTarget() != null && this.isInWater()) {
             Entity entity =  this.getTarget();
             double yDist = entity.getY() - this.getY();
@@ -67,16 +68,8 @@ public class ElderPoluEntity extends MonsterEntity {
             double zMod = getMovement(zDist)*2;
 
             this.setDeltaMovement(this.getDeltaMovement().add(xMod, yMod, zMod));
-
-            double degreeRotation = MathHelper.atan2(xDist, zDist) * (180F / (float)Math.PI);
-            double yRadianRotation = MathHelper.atan2(yDist,MathHelper.sqrt(xDist*xDist + zDist*zDist));
-            double yDegreeRotation = yRadianRotation * (180F / (float)Math.PI);
-
-            this.setRot(((float) ((MathHelper.wrapDegrees(360-degreeRotation)))),(float)(MathHelper.wrapDegrees(360-yDegreeRotation)));
             this.getLookControl().setLookAt(entity.getX(), entity.getY(), entity.getZ());
-
         }
-        else this.setDeltaMovement(this.getDeltaMovement().add(0, 0, 0) );
         super.tick();
     }
 

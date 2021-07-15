@@ -222,9 +222,15 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
     @Override
     public void setupAnim(ElderPoluEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         //previously the render function, render code was moved to a method below
-        all.xRot = headPitch/100;
-        head.yRot = netHeadYaw/50;
-        // THE ENTITY IS RIGHT THERE!!! TRY USING ANIMATIONS NEXT TIME IE ENTITY.ISSWIMMING -> BIND ALL TO HEAD!!!!
+        if (!entity.getSwimmingAnim()) {
+            head.yRot = netHeadYaw/100;
+        } //needs sac sway, breathing
+
+        if (entity.getSwimmingAnim()) { //need passive floaty movement here
+            all.yRot = netHeadYaw/50;
+            all.xRot = headPitch/100;
+            head.yRot = 0;
+        }
     }
 
     @Override
