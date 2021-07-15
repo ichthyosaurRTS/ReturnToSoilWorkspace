@@ -6,10 +6,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.FindWaterGoal;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.fish.TropicalFishEntity;
@@ -26,11 +23,11 @@ public class ElderPoluEntity extends MonsterEntity {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(7, new FindWaterGoal(this));
-        //this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 1.0, 40));
+        this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 1.0, 40));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1D, false)); //that float is move mod
-        //this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.8F));
-        //this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.0f));
+        this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.0f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, VillagerEntity.class, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, TropicalFishEntity.class, true));

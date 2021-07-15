@@ -224,6 +224,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
         //previously the render function, render code was moved to a method below
         all.xRot = headPitch/100;
         head.yRot = netHeadYaw/50;
+        // THE ENTITY IS RIGHT THERE!!! TRY USING ANIMATIONS NEXT TIME IE ENTITY.ISSWIMMING -> BIND ALL TO HEAD!!!!
     }
 
     @Override
