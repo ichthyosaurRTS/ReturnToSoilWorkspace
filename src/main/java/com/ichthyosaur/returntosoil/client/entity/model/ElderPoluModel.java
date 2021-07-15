@@ -223,7 +223,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
     public void setupAnim(ElderPoluEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         //previously the render function, render code was moved to a method below
         all.xRot = headPitch/100;
-        all.yRot = netHeadYaw/50;
+        head.yRot = netHeadYaw/50;
     }
 
     @Override
