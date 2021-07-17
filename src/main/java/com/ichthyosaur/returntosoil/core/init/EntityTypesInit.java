@@ -46,7 +46,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<ElderPoluEntity>> ELDERPOLU = ENTITY_TYPES.register("elder_polu",
             () -> EntityType.Builder.of(ElderPoluEntity::new, EntityClassification.CREATURE)
-                    .sized(0.8f,0.9f)
+                    .sized(0.6f,0.5f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "elder_polu").toString()));
 
 

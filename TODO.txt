@@ -3,28 +3,27 @@ TODO
 
 1  Add jaw beetle drops
 1  BaruGaru drops
-1  Re design elder polu
-1  Elder polu panic
-1  Elder polu animations
-1  Find better name for elder polu
-1  Fix twerking during swimming
+1  Elder Polu panic
+1  Rename Elder Polu
+1  Elder Polu drops
+1  Lily pad lantern crop
 
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)
 2  Add jaw beetle drop uses/ craft items
-
 2  Texture Fox
 2  Finish programming fox
-2  Dragon head weapons (projectiles, floating)
 2  Floaty sky dragon thing
 
-3  Poke-ball type items?
+3  Dragon head weapons (projectiles, floating)
+3  Pocket dimension
 3  Fox  curled up sitting anime
 3  Properly texture origin berry seed
 3  Re-texture jaw_beetle
 3  Re-texture nomad_snail
 3  Re-texture o-berry item
 
+4  Poke-ball type items?
 4  Baru Garu tame item, tame code
 4  Soul refinery pot
 4  Add spell circles

@@ -8,10 +8,8 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<ElderPoluEntity> {
-    private float tailTimer = -3.14F;
     private final ModelRenderer all;
     private final ModelRenderer body;
-    private final ModelRenderer cube_r1;
     private final ModelRenderer legs;
     private final ModelRenderer rightleg;
     private final ModelRenderer rightleg1;
@@ -25,11 +23,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
     private final ModelRenderer tail2;
     private final ModelRenderer head;
     private final ModelRenderer sac;
-    private final ModelRenderer cube_r2;
-    private final ModelRenderer cube_r3;
     private final ModelRenderer skull;
-    private final ModelRenderer cube_r4;
-    private final ModelRenderer cube_r5;
 
     public ElderPoluModel() {
         texWidth = 64;
@@ -42,13 +36,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
         body = new ModelRenderer(this);
         body.setPos(0.0F, 0.0F, 0.0F);
         all.addChild(body);
-        body.texOffs(0, 0).addBox(-4.0F, -9.0F, -4.0F, 8.0F, 9.0F, 8.0F, 0.0F, false);
-
-        cube_r1 = new ModelRenderer(this);
-        cube_r1.setPos(0.0F, -8.0F, 0.0F);
-        body.addChild(cube_r1);
-        setRotationAngle(cube_r1, -0.6981F, 0.0F, 0.0F);
-        cube_r1.texOffs(18, 20).addBox(-2.5F, -1.7F, -4.0F, 5.0F, 4.0F, 6.0F, 0.0F, false);
+        body.texOffs(0, 0).addBox(-4.0F, -9.0F, -4.0F, 8.0F, 10.0F, 8.0F, 0.0F, false);
 
         legs = new ModelRenderer(this);
         legs.setPos(0.0F, 0.0F, 0.0F);
@@ -64,7 +52,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
         rightleg1 = new ModelRenderer(this);
         rightleg1.setPos(1.0F, -3.0F, 1.0F);
         rightleg.addChild(rightleg1);
-        rightleg1.texOffs(16, 36).addBox(-1.0F, -1.0F, -3.1F, 2.0F, 2.0F, 4.0F, 0.0F, false);
+        rightleg1.texOffs(16, 36).addBox(-1.0F, -0.9F, -3.1F, 2.0F, 2.0F, 4.0F, 0.0F, false);
 
         leftleg = new ModelRenderer(this);
         leftleg.setPos(5.0F, -1.0F, 3.0F);
@@ -75,7 +63,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
         leftleg1 = new ModelRenderer(this);
         leftleg1.setPos(-1.0F, 0.0F, 1.0F);
         leftleg.addChild(leftleg1);
-        leftleg1.texOffs(36, 4).addBox(-1.0F, -1.0F, -3.1F, 2.0F, 2.0F, 4.0F, 0.0F, false);
+        leftleg1.texOffs(36, 4).addBox(-1.0F, -0.9F, -3.1F, 2.0F, 2.0F, 4.0F, 0.0F, false);
 
         rightfront = new ModelRenderer(this);
         rightfront.setPos(0.0F, 0.0F, 0.0F);
@@ -115,45 +103,24 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
 
 
         sac = new ModelRenderer(this);
-        sac.setPos(0.0F, 0.0F, 0.0F);
+        sac.setPos(0.0F, -13.0F, -4.0F);
         head.addChild(sac);
-        sac.texOffs(0, 17).addBox(-3.5F, -5.5F, -7.7802F, 7.0F, 4.0F, 5.0F, 0.0F, false);
-
-        cube_r2 = new ModelRenderer(this);
-        cube_r2.setPos(0.0F, -4.5F, -5.0F);
-        sac.addChild(cube_r2);
-        setRotationAngle(cube_r2, 0.0873F, 0.0F, 0.0F);
-        cube_r2.texOffs(0, 26).addBox(-3.0F, -4.5F, -2.0F, 6.0F, 5.0F, 4.0F, 0.0F, false);
-
-        cube_r3 = new ModelRenderer(this);
-        cube_r3.setPos(0.0F, -8.5F, -5.0F);
-        sac.addChild(cube_r3);
-        setRotationAngle(cube_r3, -0.829F, 0.0F, 0.0F);
-        cube_r3.texOffs(34, 20).addBox(-2.0F, -1.5F, -1.5F, 4.0F, 3.0F, 3.0F, 0.0F, false);
+        sac.texOffs(0, 17).addBox(-2.5F, 7.5F, -2.7802F, 5.0F, 5.0F, 4.0F, 0.0F, false);
 
         skull = new ModelRenderer(this);
         skull.setPos(0.0F, 0.0F, 0.0F);
         head.addChild(skull);
-
-
-        cube_r4 = new ModelRenderer(this);
-        cube_r4.setPos(0.0F, -11.3F, -4.2F);
-        skull.addChild(cube_r4);
-        setRotationAngle(cube_r4, -0.2618F, 0.0F, 0.0F);
-        cube_r4.texOffs(35, 0).addBox(-2.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, 0.0F, false);
-
-        cube_r5 = new ModelRenderer(this);
-        cube_r5.setPos(0.0F, -10.5F, -3.5F);
-        skull.addChild(cube_r5);
-        setRotationAngle(cube_r5, -0.3054F, 0.0F, 0.0F);
-        cube_r5.texOffs(28, 37).addBox(-1.5F, -1.5F, -1.5F, 3.0F, 3.0F, 3.0F, 0.0F, false);
+        skull.texOffs(28, 37).addBox(-1.5F, -7.0F, -6.0F, 3.0F, 3.0F, 3.0F, 0.0F, false);
+        skull.texOffs(35, 0).addBox(-2.0F, -6.8F, -5.7F, 4.0F, 1.0F, 1.0F, 0.0F, false);
     }
 
 
     @Override
     public void setupAnim(ElderPoluEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         float rad = (float) Math.PI/180;
+        float mod = (float) Math.sin(entity.tailTimer)/3;
         if (!entity.getSwimmingAnim()) {
+            entity.tailTimer = entity.tailTimer<3.14 ? entity.tailTimer+=0.015 : -3.14F;
             this.all.xRot = 0;
             this.head.yRot = netHeadYaw/200;
             this.rightleg1.xRot = 0;
@@ -164,12 +131,20 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
             this.leftleg1.xRot = (float) Math.sin(limbSwing*1)*limbSwingAmount;
             this.rightfront1.xRot = (float) Math.sin(limbSwing*-1)*limbSwingAmount;
             this.leftfront1.xRot = (float) Math.sin(limbSwing*-1)*limbSwingAmount;
+            this.sac.xRot = 0;
+            this.sac.xRot = mod/10;
+            this.sac.zRot = 0;
+            this.all.yRot = 0;
 
         } //needs sac sway, breathing
         if (entity.getSwimmingAnim()) { //need passive floaty movement here
-            this.tailTimer = this.tailTimer<3.14 ? this.tailTimer+=0.008 : -3.14F;
-            float mod = (float) Math.sin(this.tailTimer)/3;
 
+            entity.tailTimer = entity.tailTimer<3.14 ? entity.tailTimer+=0.008 : -3.14F;
+            this.sac.xRot = 0;
+            this.sac.zRot = 0;
+            this.sac.zRot = (float) Math.sin(entity.tailTimer+1)/20;
+            this.sac.y = -13F;
+            this.sac.y = -13F+(float)Math.sin(entity.tailTimer+1)/10;
             this.all.yRot = netHeadYaw/50;
             this.all.xRot = headPitch/100;
             this.head.yRot = 0;
@@ -178,7 +153,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
             this.leftfront1.xRot = 150*rad+mod;
             this.rightfront1.xRot = 150*rad+mod;
             this.tail.yRot = mod;
-            this.tail2.yRot = (float) (Math.sin(this.tailTimer-1)/3);
+            this.tail2.yRot = (float) (Math.sin(entity.tailTimer-1)/3);
             this.all.xRot += mod/10;
         }
     }
