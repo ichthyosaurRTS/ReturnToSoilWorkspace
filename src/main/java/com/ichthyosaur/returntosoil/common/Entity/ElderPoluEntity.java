@@ -58,6 +58,7 @@ public class ElderPoluEntity extends MonsterEntity {
     @Override
     public void tick() {
         setSwimmingAnim(isInWater());
+        super.tick();
         if (this.getTarget() != null && this.isInWater()) {
             Entity entity =  this.getTarget();
             double yDist = entity.getY() - this.getY();
@@ -68,9 +69,8 @@ public class ElderPoluEntity extends MonsterEntity {
             double zMod = getMovement(zDist)*2;
 
             this.setDeltaMovement(this.getDeltaMovement().add(xMod, yMod, zMod));
-            this.getLookControl().setLookAt(entity.getX(), entity.getY(), entity.getZ());
+            //this.getLookControl().setLookAt(entity.getX(), entity.getY(), entity.getZ());
         }
-        super.tick();
     }
 
     public double getMovement (double distance) {

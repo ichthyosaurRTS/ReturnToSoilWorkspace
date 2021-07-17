@@ -4,6 +4,8 @@ TODO
 1  Add jaw beetle drops
 1  BaruGaru drops
 1  Re design elder polu
+1  Elder polu panic
+1  Elder polu animations
 1  Find better name for elder polu
 1  Fix twerking during swimming
 
