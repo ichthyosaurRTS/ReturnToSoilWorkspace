@@ -152,19 +152,24 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
 
     @Override
     public void setupAnim(ElderPoluEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-        //previously the render function, render code was moved to a method below
+        float rad = (float) Math.PI/180;
         if (!entity.getSwimmingAnim()) {
-            this.head.yRot = netHeadYaw/100;
+            this.all.xRot = 0;
+            this.head.yRot = netHeadYaw/200;
             this.rightleg1.xRot = 0;
             this.leftleg1.xRot = 0;
             this.leftfront1.xRot = 0;
             this.rightfront1.xRot = 0;
-        } //needs sac sway, breathing
+            this.rightleg1.xRot = (float) Math.sin(limbSwing*1)*limbSwingAmount;
+            this.leftleg1.xRot = (float) Math.sin(limbSwing*1)*limbSwingAmount;
+            this.rightfront1.xRot = (float) Math.sin(limbSwing*-1)*limbSwingAmount;
+            this.leftfront1.xRot = (float) Math.sin(limbSwing*-1)*limbSwingAmount;
 
+        } //needs sac sway, breathing
         if (entity.getSwimmingAnim()) { //need passive floaty movement here
             this.tailTimer = this.tailTimer<3.14 ? this.tailTimer+=0.008 : -3.14F;
             float mod = (float) Math.sin(this.tailTimer)/3;
-            float rad = (float) Math.PI/180;
+
             this.all.yRot = netHeadYaw/50;
             this.all.xRot = headPitch/100;
             this.head.yRot = 0;
@@ -174,6 +179,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
             this.rightfront1.xRot = 150*rad+mod;
             this.tail.yRot = mod;
             this.tail2.yRot = (float) (Math.sin(this.tailTimer-1)/3);
+            this.all.xRot += mod/10;
         }
     }
 
