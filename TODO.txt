@@ -6,6 +6,7 @@ TODO
 1  Elder Polu panic
 1  Rename Elder Polu
 1  Elder Polu drops
+1  Elder polu improve texture
 1  Lily pad lantern crop
 
 2  Nomad Snail redesign
