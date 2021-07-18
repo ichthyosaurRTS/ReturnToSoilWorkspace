@@ -8,7 +8,7 @@ TODO
 1  Elder Polu drops
 1  Elder polu improve texture
 1  Lily pad lantern crop
-1  Jaw beetle arms to sin waves & base rot
+1  Jaw beetle arms to sin waves & base rotation
 
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)
