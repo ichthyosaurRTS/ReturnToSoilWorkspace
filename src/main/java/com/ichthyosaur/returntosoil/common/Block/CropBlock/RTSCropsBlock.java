@@ -20,6 +20,7 @@ public class RTSCropsBlock extends CropsBlock {
 
     IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
     BooleanProperty INFESTED = RTSMain.INFESTED;
+    BooleanProperty LIT = BlockStateProperties.LIT;
 
     public RTSCropsBlock(Properties p_i48421_1_) {
         super(p_i48421_1_);
@@ -49,6 +50,16 @@ public class RTSCropsBlock extends CropsBlock {
         boolean infested = state.getValue(INFESTED);
         if (newAge==7&&rollChance(40)) infested = true;
         BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested); //
+        return block;
+    }
+
+    BlockState nextAgeWithRotationWithLit(BlockState state, Integer newAge) {
+        Integer i = state.getValue(ROTATION);
+        boolean infested = state.getValue(INFESTED);
+        boolean lit = state.getValue(LIT);
+        if (newAge==7&&rollChance(40)) infested = true;
+        else lit = newAge == 6;
+        BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested).setValue(LIT,lit); //
         return block;
     }
 

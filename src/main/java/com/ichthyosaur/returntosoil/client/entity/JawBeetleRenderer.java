@@ -12,7 +12,7 @@ public class JawBeetleRenderer extends MobRenderer<JawBeetleEntity, JawBeetleMod
 
 
     public JawBeetleRenderer(EntityRendererManager manager) {
-        super(manager, new JawBeetleModel<>(), 0.7f);
+        super(manager, new JawBeetleModel<>(), 0.4f);
 
     }
 

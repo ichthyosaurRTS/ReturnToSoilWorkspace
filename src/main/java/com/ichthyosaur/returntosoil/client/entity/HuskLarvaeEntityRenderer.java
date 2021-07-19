@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public class HuskLarvaeEntityRenderer extends MobRenderer<HuskLarvaeEntity, HuskLarvaeEntityModel<HuskLarvaeEntity>> {
 
     public HuskLarvaeEntityRenderer(EntityRendererManager manager) {
-        super(manager, new HuskLarvaeEntityModel<>(), 0.7f);
+        super(manager, new HuskLarvaeEntityModel<>(), 0.3f);
 
     }
 

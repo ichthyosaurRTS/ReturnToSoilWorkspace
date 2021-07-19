@@ -8,9 +8,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.fish.AbstractFishEntity;
 import net.minecraft.entity.passive.fish.TropicalFishEntity;
@@ -27,6 +29,7 @@ import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 import java.util.Map;
 
 public class ElderPoluEntity extends MonsterEntity {
@@ -40,11 +43,11 @@ public class ElderPoluEntity extends MonsterEntity {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 1.0, 40));
+        //this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 100.0, 10)); //speed mod and inerval
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1D, false)); //that float is move mod
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-        this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.8F));
-        this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.0f));
+        this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, VillagerEntity.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractFishEntity.class, true));
@@ -55,8 +58,8 @@ public class ElderPoluEntity extends MonsterEntity {
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
-                .add(Attributes.MOVEMENT_SPEED, (double)0.15F)
-                .add(Attributes.FOLLOW_RANGE, 32.0D);
+                .add(Attributes.MOVEMENT_SPEED, (double)0.1F)
+                .add(Attributes.FOLLOW_RANGE, 16.0D);
     }
 
 
@@ -154,8 +157,9 @@ public class ElderPoluEntity extends MonsterEntity {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-        return SoundEvents.SLIME_JUMP;
-    }
+        return SoundEvents.SALMON_HURT;
+    } //this should be attack sound
+
 
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.HONEY_BLOCK_STEP, 0.15F, 0.5F);

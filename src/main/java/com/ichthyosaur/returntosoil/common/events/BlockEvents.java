@@ -19,7 +19,7 @@ public class BlockEvents {
     @SubscribeEvent
     public static void onGrassBreak (BlockEvent.BreakEvent event) {
         BlockState state = event.getState();
-        if (state.getBlock()== Blocks.GRASS && rollChance.roll(30)) {
+        if (state.getBlock()== Blocks.GRASS && rollChance.roll(30) && !event.getPlayer().isCreative()) {
             BlockPos pos = event.getPos();
             ServerWorld worldIn = (ServerWorld) event.getWorld();
             ItemStack originSeed = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);

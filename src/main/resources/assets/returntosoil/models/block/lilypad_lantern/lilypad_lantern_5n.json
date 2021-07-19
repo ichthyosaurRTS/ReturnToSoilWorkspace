@@ -1,0 +1,49 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "returntosoil:blocks/lilypad_lantern/lilypad_lantern_5n",
+		"particle": "returntosoil:blocks/lilypad_lantern/lilypad_lantern_1n"
+	},
+	"elements": [
+		{
+			"from": [5, -1, 5],
+			"to": [11, 5, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 3], "texture": "#1"},
+				"east": {"uv": [0, 3, 3, 6], "texture": "#1"},
+				"south": {"uv": [3, 0, 6, 3], "texture": "#1"},
+				"west": {"uv": [3, 3, 6, 6], "texture": "#1"},
+				"up": {"uv": [3, 9, 0, 6], "texture": "#1"},
+				"down": {"uv": [9, 0, 6, 3], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 5, 7],
+			"to": [9, 6, 9],
+			"faces": {
+				"north": {"uv": [4, 6, 5, 6.5], "texture": "#1"},
+				"east": {"uv": [6, 4, 7, 4.5], "texture": "#1"},
+				"south": {"uv": [6, 4.5, 7, 5], "texture": "#1"},
+				"west": {"uv": [5, 6, 6, 6.5], "texture": "#1"},
+				"up": {"uv": [4, 7, 3, 6], "texture": "#1"},
+				"down": {"uv": [7, 3, 6, 4], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "all",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "body",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0, 1]
+				}
+			]
+		}
+	]
+}

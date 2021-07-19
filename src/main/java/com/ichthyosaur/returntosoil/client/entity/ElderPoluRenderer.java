@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 public class ElderPoluRenderer extends MobRenderer<ElderPoluEntity, ElderPoluModel<ElderPoluEntity>> {
 
     public ElderPoluRenderer(EntityRendererManager manager) {
-        super(manager, new ElderPoluModel<>(), 0.7f);
+        super(manager, new ElderPoluModel<>(), 0.3f);
 
     }
 

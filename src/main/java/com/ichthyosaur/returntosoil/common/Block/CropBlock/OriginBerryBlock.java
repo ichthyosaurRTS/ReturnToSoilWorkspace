@@ -64,7 +64,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
         if (state.getValue(AGE)==7) {
             drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get()));
 
-            if (giveRotation() == 3)
+            if (rollChance(4))
             drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get()));
         }
         return drops;
@@ -97,8 +97,8 @@ public class OriginBerryBlock extends RTSCropsBlock {
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
                 if (rollChance(10)) spawnJawBeetle(worldIn, pos); //normally 10
-                else if (rollChance(50)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde
-                else if (rollChance(300)) spawnBaruGaru(worldIn, pos);
+                else if (rollChance(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde
+                else if (rollChance(500)) spawnBaruGaru(worldIn, pos);
             }
         }
     }

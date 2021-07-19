@@ -3,12 +3,13 @@ TODO
 
 1  Add jaw beetle drops
 1  BaruGaru drops
-1  Elder Polu panic
+1  Elder Polu panic, random swim, drops
 1  Rename Elder Polu
-1  Elder Polu drops
-1  Elder polu improve texture
-1  Lily pad lantern crop
 1  Jaw beetle arms to sin waves & base rotation
+1  Elder Polu fake random swim goal
+1  Lilypad lantern re-texture...?
+1  Lilypad Lantern drops
+1  Elder elder polu
 
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)
