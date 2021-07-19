@@ -18,14 +18,16 @@ TODO
 2  Finish programming fox
 2  Floaty sky dragon thing
 
-3  Dragon head weapons (projectiles, floating)
-3  Pocket dimension
+3  Spawn eggs
+3  Creative tab
 3  Fox  curled up sitting anime
 3  Properly texture origin berry seed
 3  Re-texture jaw_beetle
 3  Re-texture nomad_snail
 3  Re-texture o-berry item
 
+4  Pocket dimension
+4  Dragon head weapons (projectiles, floating)
 4  Poke-ball type items?
 4  Baru Garu tame item, tame code
 4  Soul refinery pot
