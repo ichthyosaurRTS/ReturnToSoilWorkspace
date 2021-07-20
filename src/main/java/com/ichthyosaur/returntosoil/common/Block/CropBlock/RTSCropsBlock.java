@@ -56,8 +56,8 @@ public class RTSCropsBlock extends CropsBlock {
     BlockState nextAgeWithRotationWithLit(BlockState state, Integer newAge) {
         Integer i = state.getValue(ROTATION);
         boolean infested = state.getValue(INFESTED);
-        boolean lit = state.getValue(LIT);
-        if (newAge==7&&rollChance(40)) infested = true;
+        boolean lit = false;
+        if (newAge==7&&rollChance(40)) { infested = true; lit = false; }
         else lit = newAge == 6;
         BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested).setValue(LIT,lit); //
         return block;
