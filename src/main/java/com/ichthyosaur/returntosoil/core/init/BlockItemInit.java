@@ -37,8 +37,8 @@ public class BlockItemInit {
     public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () -> new LilypadLanternSeed(lilypadLanternBlock, new Item.Properties().tab(ItemGroup.TAB_FOOD)));
 
 
-    public static Item roseWingUmbrella = new Item(new Item.Properties().tab(ItemGroup.TAB_MISC));
-    public static final RegistryObject<Item> ROSE_WING_UMBRELLA_ITEM = ITEMS.register("rose_wing_umbrella_item", () -> roseWingUmbrella);
+    public static Item roseBeetleItem= new Item(new Item.Properties().tab(ItemGroup.TAB_MISC));
+    public static final RegistryObject<Item> ROSE_BEETLE_ITEM = ITEMS.register("rose_beetle_item", () -> roseBeetleItem);
 
     //public static final RegistryObject<Item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
     //static Block huskSpawnBlock = new Block(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.DIRT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
