@@ -42,6 +42,7 @@ public class RTSMain
     private void setup(final FMLCommonSetupEvent event) {
 
         event.enqueueWork(() -> {
+
             GlobalEntityTypeAttributes.put(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JAWBEETLE.get(), JawBeetleEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.NOMADSNAIL.get(), NomadSnailEntity.setCustomAttributes().build());

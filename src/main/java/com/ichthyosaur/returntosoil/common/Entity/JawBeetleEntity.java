@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil.common.Entity;
 
 import com.google.common.collect.Maps;
 import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.EntityType;
@@ -11,6 +12,7 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.CatEntity;
@@ -19,6 +21,10 @@ import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeColor;
+import net.minecraft.item.Items;
+import net.minecraft.loot.*;
+import net.minecraft.loot.conditions.KilledByPlayer;
+import net.minecraft.loot.functions.SetCount;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -102,6 +108,11 @@ public class JawBeetleEntity extends MonsterEntity {
         return p_213386_4_;
     }
 
+    protected void dropCustomDeathLoot(DamageSource damage, int i, boolean bool) {
+        super.dropCustomDeathLoot(damage, i, bool);
+        if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(BlockItemInit.roseBeetleItem);
+    }
+
     @Override
     protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
         return SoundEvents.BONE_BLOCK_BREAK;
@@ -116,4 +127,16 @@ public class JawBeetleEntity extends MonsterEntity {
         map.put(5, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_5.png"));
         map.put(6, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_6.png"));
     });
+
+    //This works fine but using custom loot is honestly just easier.
+    /*
+    protected void dropFromLootTable(DamageSource dmgSource, boolean bool) {
+        LootTable loottable = LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(BlockItemInit.roseBeetleItem)
+                        .apply(SetCount.setCount(RandomValueRange.between(0.0F, 1.0F)))).when(KilledByPlayer.killedByPlayer())).build();
+        LootContext.Builder lootcontext$builder = this.createLootContext(bool, dmgSource);
+        LootContext ctx = lootcontext$builder.create(LootParameterSets.ENTITY);
+        loottable.getRandomItems(ctx).forEach(this::spawnAtLocation);
+    } */
+
 }
