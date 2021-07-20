@@ -1,20 +1,56 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "returntosoil:blocks/lilypad_lantern/lilypad_lantern_3n",
-		"particle": "returntosoil:blocks/lilypad_lantern/lilypad_lantern_1n"
+		"1": "returntosoil:blocks/lilypad_lantern/lilypad_lantern_3n",
+		"particle": "returntosoil:blocks/lilypad_lantern/lilypad_lantern_0n"
 	},
 	"elements": [
 		{
 			"from": [5, -1, 5],
 			"to": [10, 4, 10],
 			"faces": {
-				"north": {"uv": [0, 0, 3, 3], "texture": "#0"},
-				"east": {"uv": [0, 3, 3, 6], "texture": "#0"},
-				"south": {"uv": [3, 0, 6, 3], "texture": "#0"},
-				"west": {"uv": [3, 3, 6, 6], "texture": "#0"},
-				"up": {"uv": [3, 9, 0, 6], "texture": "#0"},
-				"down": {"uv": [9, 0, 6, 3], "texture": "#0"}
+				"north": {"uv": [0, 0, 5, 5], "texture": "#1"},
+				"east": {"uv": [0, 0, 5, 5], "texture": "#1"},
+				"south": {"uv": [0, 0, 5, 5], "texture": "#1"},
+				"west": {"uv": [0, 0, 5, 5], "texture": "#1"},
+				"up": {"uv": [5, 15, 0, 10], "texture": "#1"},
+				"down": {"uv": [15, 0, 10, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [10, 0, 4],
+			"to": [13, 0, 7],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"up": {"uv": [13, 11, 10, 8], "texture": "#1"},
+				"down": {"uv": [13, 11, 10, 14], "texture": "#1"}
+			}
+		},
+		{
+			"from": [4, 0, 3],
+			"to": [6, 0, 6],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"up": {"uv": [7, 16, 5, 13], "texture": "#1"},
+				"down": {"uv": [9, 13, 7, 16], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 0, 9],
+			"to": [11, 0, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 5, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 5, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 0], "texture": "#1"},
+				"up": {"uv": [10, 13, 5, 10], "texture": "#1"},
+				"down": {"uv": [15, 5, 10, 8], "texture": "#1"}
 			}
 		}
 	],
@@ -29,6 +65,12 @@
 					"origin": [8, 8, 8],
 					"color": 0,
 					"children": [0]
+				},
+				{
+					"name": "floaties",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [1, 2, 3]
 				}
 			]
 		}
