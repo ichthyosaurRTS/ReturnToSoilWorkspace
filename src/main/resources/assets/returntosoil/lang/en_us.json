@@ -12,5 +12,6 @@
   "entity.returntosoil.baru_garu_segment": "Baru Garu Segment",
   "entity.returntosoil.elder_polu": "Elder Polu",
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
-  "item.returntosoil.rose_beetle_item": "Rose Beetle"
+  "item.returntosoil.rose_beetle_item": "Rose Beetle",
+  "itemGroup.returntosoil": "Return To Soil"
 }
