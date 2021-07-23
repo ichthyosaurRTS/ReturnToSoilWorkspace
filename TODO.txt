@@ -7,7 +7,6 @@ TODO
 1  Rename Elder Polu
 1  Jaw beetle arms to sin waves & base rotation
 1  Elder Polu fake random swim goal
-1  Lilypad lantern 0-5 texture
 1  Lilypad Lantern drops
 1  Elder elder polu
 

@@ -32,6 +32,7 @@ public class ItemEvents {
     public static void holdingRoseBeetleCharm (TickEvent.PlayerTickEvent event) {
 
         PlayerEntity player = event.player;
+        double speedMod = 0.4;
 
         if (rollChance.containsItem(BlockItemInit.roseBeetleItem,player) != 1000) {
             if (player.getHealth() == player.getMaxHealth()) {
@@ -40,8 +41,8 @@ public class ItemEvents {
                 double playerXVector = playerVector.x;
                 double playerZVector = playerVector.z;
                 currentMoveSpeed = ( (float) Math.abs(playerXVector) + (float) Math.abs(playerZVector) )/2;
-                if (playerVector.y > 0 && currentMoveSpeed > 0.05 && (currentMoveSpeed < 2) )
-                    player.setDeltaMovement(player.getDeltaMovement().add(playerXVector * playerVector.y / 2, 0, playerZVector * playerVector.y / 2));
+                if ( (playerVector.y > 0.2 && playerVector.y < 0.25) && (currentMoveSpeed > 0.075 && currentMoveSpeed < 2) )
+                    player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0, speedMod * playerZVector));
             }
         }
     }
