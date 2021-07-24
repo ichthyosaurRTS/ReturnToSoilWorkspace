@@ -9,8 +9,10 @@ TODO
 1  Elder Polu fake random swim goal
 1  Lilypad Lantern drops
 1  Elder elder polu
+1  Proper axe fuel item
+1  Re- texture axe?
 
-1  Add ghost jaw beetle drops
+2  Add ghost jaw beetle drops
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)
 2  Add jaw beetle drop uses/ craft items
@@ -24,6 +26,9 @@ TODO
 3  Re-texture jaw_beetle
 3  Re-texture nomad_snail
 3  Re-texture o-berry item
+3  Custom item tiers
+3  Some kind of tool upgrade/refinement tree; extra dmg or effects on hit?
+3  *teleports behind you* abyss mob?
 
 4  Pocket dimension
 4  Dragon head weapons (projectiles, floating)

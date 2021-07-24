@@ -13,5 +13,7 @@
   "entity.returntosoil.elder_polu": "Elder Polu",
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.rose_beetle_item": "Rose Beetle",
-  "itemGroup.returntosoil": "Return To Soil"
+  "itemGroup.returntosoil": "Return To Soil",
+  "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
+  "item.returntosoil.abyss_scalpel": "Abyss Scalpel"
 }

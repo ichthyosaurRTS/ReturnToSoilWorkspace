@@ -29,7 +29,7 @@ public class ItemEvents {
     //Multiplier item; multiplies your flat speed during upwards y movement; stacks with other items
     //must be full hp to use. has an upper limit.
     @SubscribeEvent
-    public static void holdingRoseBeetleCharm (TickEvent.PlayerTickEvent event) {
+    public static void roseBeetleItem (TickEvent.PlayerTickEvent event) {
 
         PlayerEntity player = event.player;
         double speedMod = 0.4;
@@ -46,7 +46,7 @@ public class ItemEvents {
             }
         }
     }
-
+}
 
 
     //just don't look...
@@ -61,4 +61,4 @@ public class ItemEvents {
     //}
 
 
-}
+

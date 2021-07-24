@@ -160,10 +160,14 @@ public class ElderPoluEntity extends MonsterEntity {
         return SoundEvents.SALMON_HURT;
     } //this should be attack sound
 
-
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.HONEY_BLOCK_STEP, 0.15F, 0.5F);
     }
+
+    /*protected void playStepSound(BlockPos pos, BlockState state) {
+        this.playSound(SoundEvents.SALMON_FLOP, 0.15F, 0.5F);
+    }*/
+
 
     }
 
