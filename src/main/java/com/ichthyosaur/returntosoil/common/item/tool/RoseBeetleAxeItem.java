@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.item.Tool;
+package com.ichthyosaur.returntosoil.common.item.tool;
 
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;

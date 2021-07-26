@@ -1,8 +1,7 @@
-package com.ichthyosaur.returntosoil.common.item.Tool;
+package com.ichthyosaur.returntosoil.common.item.tool;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,21 +35,21 @@ public class AbyssScalpelItem extends ToolItem {
     }
 
 
-    public boolean hurtEnemy(ItemStack p_77644_1_, LivingEntity thisEntity, LivingEntity player) {
-        p_77644_1_.hurtAndBreak(2, thisEntity, (p_220039_0_) -> {
+    public boolean hurtEnemy(ItemStack scalpel, LivingEntity thisEntity, LivingEntity player) {
+        scalpel.hurtAndBreak(2, thisEntity, (p_220039_0_) -> {
             p_220039_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
         });
+
         if (thisEntity != null) {this.itemTarget = thisEntity;}
         int extraUnblockableDmg;
         //this don't look like it'll work
-        if (thisEntity.getClass() == PlayerEntity.class)
+        if (thisEntity instanceof PlayerEntity)
             extraUnblockableDmg = 5;
         else extraUnblockableDmg = 9;
 
         float result = itemTarget.getHealth()-extraUnblockableDmg;
         if (result<0) itemTarget.setHealth(0);
         else itemTarget.setHealth(result);
-
 
         return true;
     }
@@ -65,6 +64,8 @@ public class AbyssScalpelItem extends ToolItem {
     }
     @MethodsReturnNonnullByDefault
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+
+
         if (this.itemTarget != null && this.itemTarget.isAlive()) {
 
             if (canUse) {
@@ -84,11 +85,6 @@ public class AbyssScalpelItem extends ToolItem {
             }
         }
         return ActionResult.fail(player.getItemInHand(hand));
-    }
-
-    @MethodsReturnNonnullByDefault
-    public String getDescriptionId() {
-        return "Nothing personal kid";
     }
 
 }

@@ -4,11 +4,11 @@ import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.LilypadLanternBlock;
 import com.ichthyosaur.returntosoil.common.block.cropblock.OriginBerryBlock;
-import com.ichthyosaur.returntosoil.common.block.machine.RefineryPlantBlock;
+import com.ichthyosaur.returntosoil.common.block.machine.RefineryPlantGrownBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
-import com.ichthyosaur.returntosoil.common.item.Misc.LilypadLanternSeed;
-import com.ichthyosaur.returntosoil.common.item.Tool.AbyssScalpelItem;
-import com.ichthyosaur.returntosoil.common.item.Tool.RoseBeetleAxeItem;
+import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
+import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
+import com.ichthyosaur.returntosoil.common.item.tool.RoseBeetleAxeItem;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -18,7 +18,6 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Set;
 import java.util.function.ToIntFunction;
 
 public class BlockItemInit {
@@ -57,10 +56,10 @@ public class BlockItemInit {
 
 
     //RefineryPlant
-    public static final RegistryObject<Block> REFINERY_PLANT_BLOCK = BLOCKS.register("refinery_plant_block", () ->
-            new RefineryPlantBlock());
-    public static final RegistryObject<Item> REFINERY_PLANT_BLOCK_ITEM = ITEMS.register("refinery_plant_block_item", () ->
-            new BlockItem(REFINERY_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Block> REFINERY_PLANT_GROWN_BLOCK = BLOCKS.register("refinery_plant_grown_block", () ->
+            new RefineryPlantGrownBlock());
+    public static final RegistryObject<Item> REFINERY_PLANT_GROWN_BLOCK_ITEM = ITEMS.register("refinery_plant_grown_block_item", () ->
+            new BlockItem(REFINERY_PLANT_GROWN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));

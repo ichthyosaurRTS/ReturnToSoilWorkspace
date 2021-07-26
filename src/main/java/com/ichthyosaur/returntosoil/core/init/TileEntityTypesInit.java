@@ -17,6 +17,6 @@ public class TileEntityTypesInit {
 
     public static final RegistryObject<TileEntityType<RefineryPlantTileEntity>> REFINERY_PLANT_TILE_ENTITY_TYPE =
             TILE_ENTITY_TYPE.register("refinery_plant", () ->
-                    TileEntityType.Builder.of(RefineryPlantTileEntity::new, BlockItemInit.REFINERY_PLANT_BLOCK.get()).build(null));
+                    TileEntityType.Builder.of(RefineryPlantTileEntity::new, BlockItemInit.REFINERY_PLANT_GROWN_BLOCK.get()).build(null));
 
 }
