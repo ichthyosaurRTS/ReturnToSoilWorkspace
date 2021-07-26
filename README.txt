@@ -2,11 +2,12 @@ Return To Soil
 Farming mod by ichthyosaur
 
 CAUTION
-Experienced programmer: Looking at my code will hurt.
-Beginner programmer: Reference my code and it'll be wrong.
-Not a programmer: Good luck.
+Looking at my code may hurt.
 
 Curious about the roadmap? Read TODO.txt
 
-
+SPECIAL THANKS
+Cy4: Thanks for the modding tutorials! Check them out on youtube.
+BlockBench: Models
+IntelliJ: Writing code
 

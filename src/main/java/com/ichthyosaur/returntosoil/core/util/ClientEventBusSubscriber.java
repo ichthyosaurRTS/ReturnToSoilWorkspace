@@ -2,8 +2,11 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.*;
+import com.ichthyosaur.returntosoil.client.screen.RefineryPlantScreen;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,6 +21,8 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
+
+        ScreenManager.register(ContainerTypesInit.REFINERY_PLANT_CONTAINER_TYPE.get(), RefineryPlantScreen::new);
 
         RenderTypeLookup.setRenderLayer(BlockItemInit.ORIGIN_BERRY_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
