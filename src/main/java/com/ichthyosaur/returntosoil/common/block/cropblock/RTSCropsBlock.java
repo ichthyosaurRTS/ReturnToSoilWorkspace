@@ -1,7 +1,7 @@
-package com.ichthyosaur.returntosoil.common.Block.CropBlock;
+package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.Entity.HuskLarvaeEntity;
+import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;

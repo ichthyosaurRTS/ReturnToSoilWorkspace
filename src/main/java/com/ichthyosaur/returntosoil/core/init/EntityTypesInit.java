@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.core.init;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.Entity.*;
+import com.ichthyosaur.returntosoil.common.entity.*;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;

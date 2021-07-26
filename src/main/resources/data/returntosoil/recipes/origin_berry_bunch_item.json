@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "returntosoil:origin_berry_item"
+    }
+  },
+  "result": {
+    "item": "returntosoil:origin_berry_bunch_item",
+    "count": 1
+  }
+}

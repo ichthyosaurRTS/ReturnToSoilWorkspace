@@ -2,7 +2,7 @@ package com.ichthyosaur.returntosoil.client.entity.ExtraLayer;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruSegmentModel;
-import com.ichthyosaur.returntosoil.common.Entity.BaruGaruSegmentEntity;
+import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.IRenderTypeBuffer;

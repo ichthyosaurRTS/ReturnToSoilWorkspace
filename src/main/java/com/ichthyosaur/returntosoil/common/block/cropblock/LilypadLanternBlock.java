@@ -1,8 +1,7 @@
-package com.ichthyosaur.returntosoil.common.Block.CropBlock;
+package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.Entity.ElderPoluEntity;
-import com.ichthyosaur.returntosoil.common.Entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.entity.ElderPoluEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.AbstractBlock;
@@ -28,7 +27,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.function.ToIntFunction;
 
 public class LilypadLanternBlock extends RTSCropsBlock{
 

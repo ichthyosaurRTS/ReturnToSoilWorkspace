@@ -1,9 +1,8 @@
-package com.ichthyosaur.returntosoil.common.Item.Tool;
+package com.ichthyosaur.returntosoil.common.item.Tool;
 
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
+import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,7 +23,7 @@ import java.util.Set;
 //teleports behind target
 public class AbyssScalpelItem extends ToolItem {
 
-    private Entity itemTarget;
+    private LivingEntity itemTarget;
     private boolean canUse = true;
     private int charges = 0;
 
@@ -32,11 +31,27 @@ public class AbyssScalpelItem extends ToolItem {
         super(p_i48512_1_, p_i48512_2_, p_i48512_3_, p_i48512_4_, p_i48512_5_);
     }
 
-    public boolean hurtEnemy(ItemStack p_77644_1_, LivingEntity entity, LivingEntity player) {
-        p_77644_1_.hurtAndBreak(2, entity, (p_220039_0_) -> {
+    //for later hehe
+    public void inventoryTick(ItemStack p_77663_1_, World p_77663_2_, Entity p_77663_3_, int p_77663_4_, boolean p_77663_5_) {
+    }
+
+
+    public boolean hurtEnemy(ItemStack p_77644_1_, LivingEntity thisEntity, LivingEntity player) {
+        p_77644_1_.hurtAndBreak(2, thisEntity, (p_220039_0_) -> {
             p_220039_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
         });
-        if (entity != null) {this.itemTarget = entity;}
+        if (thisEntity != null) {this.itemTarget = thisEntity;}
+        int extraUnblockableDmg;
+        //this don't look like it'll work
+        if (thisEntity.getClass() == PlayerEntity.class)
+            extraUnblockableDmg = 5;
+        else extraUnblockableDmg = 9;
+
+        float result = itemTarget.getHealth()-extraUnblockableDmg;
+        if (result<0) itemTarget.setHealth(0);
+        else itemTarget.setHealth(result);
+
+
         return true;
     }
 
@@ -54,20 +69,26 @@ public class AbyssScalpelItem extends ToolItem {
 
             if (canUse) {
 
+                world.addParticle(ParticleTypes.WARPED_SPORE, player.getX(), player.getY(), player.getZ(), 0.0D, 0.0D, 0.0D);
+                world.addParticle(ParticleTypes.WARPED_SPORE, player.getX(), player.getY()+0.1, player.getZ(), 0.0D, 0.0D, 0.0D);
+                world.addParticle(ParticleTypes.WARPED_SPORE, player.getX(), player.getY()-0.1, player.getZ(), 0.0D, 0.0D, 0.0D);
+
                 Entity target = this.itemTarget;
                 double behindTargetX = target.getX() - target.getLookAngle().x*2;
                 double behindTargetZ = target.getZ() - target.getLookAngle().z*2;
                 player.moveTo(behindTargetX,target.getY(),behindTargetZ);
 
                 world.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 0.3F, 0.3F, false);
-                world.addParticle(ParticleTypes.WARPED_SPORE, player.getX(), player.getY(), player.getZ(), 0.0D, 0.0D, 0.0D);
-                world.addParticle(ParticleTypes.WARPED_SPORE, player.getX(), player.getY()+0.1, player.getZ(), 0.0D, 0.0D, 0.0D);
-                world.addParticle(ParticleTypes.WARPED_SPORE, player.getX(), player.getY()-0.1, player.getZ(), 0.0D, 0.0D, 0.0D);
 
                 return ActionResult.pass(player.getItemInHand(hand));
             }
         }
         return ActionResult.fail(player.getItemInHand(hand));
+    }
+
+    @MethodsReturnNonnullByDefault
+    public String getDescriptionId() {
+        return "Nothing personal kid";
     }
 
 }

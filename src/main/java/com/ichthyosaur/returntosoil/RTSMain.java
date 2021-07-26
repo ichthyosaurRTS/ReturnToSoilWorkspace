@@ -1,9 +1,10 @@
 package com.ichthyosaur.returntosoil;
 
 
-import com.ichthyosaur.returntosoil.common.Entity.*;
+import com.ichthyosaur.returntosoil.common.entity.*;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.state.BooleanProperty;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +30,7 @@ public class RTSMain
         EntityTypesInit.ENTITY_TYPES.register(bus);
         BlockItemInit.ITEMS.register(bus);
         BlockItemInit.BLOCKS.register(bus);
+        TileEntityTypesInit.TILE_ENTITY_TYPE.register(bus);
 
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

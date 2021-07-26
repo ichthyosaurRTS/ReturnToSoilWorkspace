@@ -2,7 +2,7 @@ package com.ichthyosaur.returntosoil.client.entity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.HuskLarvaeEntityModel;
-import com.ichthyosaur.returntosoil.common.Entity.HuskLarvaeEntity;
+import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;

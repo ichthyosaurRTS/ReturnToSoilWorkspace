@@ -3,7 +3,7 @@ package com.ichthyosaur.returntosoil.client.entity;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.ExtraLayer.BaruGaruSegmentGreenLayer;
 import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruSegmentModel;
-import com.ichthyosaur.returntosoil.common.Entity.BaruGaruSegmentEntity;
+import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

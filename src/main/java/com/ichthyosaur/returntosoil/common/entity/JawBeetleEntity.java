@@ -1,10 +1,9 @@
-package com.ichthyosaur.returntosoil.common.Entity;
+package com.ichthyosaur.returntosoil.common.entity;
 
 import com.google.common.collect.Maps;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
-import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.MobEntity;
@@ -12,19 +11,12 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.DyeColor;
-import net.minecraft.item.Items;
-import net.minecraft.loot.*;
-import net.minecraft.loot.conditions.KilledByPlayer;
-import net.minecraft.loot.functions.SetCount;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -33,8 +25,6 @@ import net.minecraft.util.*;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -110,7 +100,7 @@ public class JawBeetleEntity extends MonsterEntity {
 
     protected void dropCustomDeathLoot(DamageSource damage, int i, boolean bool) {
         super.dropCustomDeathLoot(damage, i, bool);
-        if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(BlockItemInit.roseBeetleItem);
+        if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(BlockItemInit.ROSE_BEETLE_ITEM.get());
     }
 
     @Override

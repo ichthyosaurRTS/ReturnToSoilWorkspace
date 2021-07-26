@@ -1,7 +1,6 @@
-package com.ichthyosaur.returntosoil.common.Item;
+package com.ichthyosaur.returntosoil.common.item;
 
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.LazyValue;
@@ -13,7 +12,7 @@ public enum CustomItemTier implements IItemTier {
     ROSE_BEETLE(3, 2454, 8.0F, 3.0F, 10, () -> {
         return Ingredient.of(ItemTags.LEAVES);
     }),
-    ABYSS_SCRAPINGS(3, 4588, 8.0F, 3.0F, 10, () -> {
+    ABYSS_SCRAPINGS(3, 4588, 8.0F, 1.0F, 10, () -> {
         return Ingredient.of(ItemTags.LEAVES);
     });
 

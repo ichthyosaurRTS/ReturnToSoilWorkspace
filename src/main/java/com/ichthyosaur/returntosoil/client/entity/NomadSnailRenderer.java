@@ -2,7 +2,7 @@ package com.ichthyosaur.returntosoil.client.entity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.NomadSnailModel;
-import com.ichthyosaur.returntosoil.common.Entity.NomadSnailEntity;
+import com.ichthyosaur.returntosoil.common.entity.NomadSnailEntity;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;

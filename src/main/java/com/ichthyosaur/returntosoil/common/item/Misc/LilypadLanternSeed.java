@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.Item.Misc;
+package com.ichthyosaur.returntosoil.common.item.Misc;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;

@@ -30,6 +30,7 @@ TODO
 3  Some kind of tool upgrade/refinement tree; extra dmg or effects on hit?
 3  *teleports behind you* abyss mob?
 
+4  Turn rose beetle into mando backpack lookin
 4  Pocket dimension
 4  Dragon head weapons (projectiles, floating)
 4  Poke-ball type items?

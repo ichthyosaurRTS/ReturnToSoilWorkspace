@@ -1,9 +1,7 @@
 package com.ichthyosaur.returntosoil.client.entity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.JawBeetleModel;
-import com.ichthyosaur.returntosoil.common.Entity.JawBeetleEntity;
-import mcp.MethodsReturnNonnullByDefault;
+import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

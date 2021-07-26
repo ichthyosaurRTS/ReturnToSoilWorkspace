@@ -1,8 +1,8 @@
-package com.ichthyosaur.returntosoil.common.Block.CropBlock;
+package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.Entity.JawBeetleEntity;
-import com.ichthyosaur.returntosoil.common.Entity.BaruGaruEntity;
+import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.AbstractBlock;

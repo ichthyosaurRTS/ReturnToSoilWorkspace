@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.client.entity;
 
 import com.ichthyosaur.returntosoil.client.entity.model.ElderPoluModel;
-import com.ichthyosaur.returntosoil.common.Entity.ElderPoluEntity;
+import com.ichthyosaur.returntosoil.common.entity.ElderPoluEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

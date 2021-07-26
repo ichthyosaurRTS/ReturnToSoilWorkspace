@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.Entity.NomadSnailEntity;
+import com.ichthyosaur.returntosoil.common.entity.NomadSnailEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

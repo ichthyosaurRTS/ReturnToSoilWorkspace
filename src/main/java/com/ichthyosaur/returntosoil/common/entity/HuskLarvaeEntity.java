@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.Entity;
+package com.ichthyosaur.returntosoil.common.entity;
 
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;

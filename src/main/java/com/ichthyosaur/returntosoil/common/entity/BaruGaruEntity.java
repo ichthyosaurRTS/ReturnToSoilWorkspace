@@ -1,10 +1,9 @@
-package com.ichthyosaur.returntosoil.common.Entity;
+package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -16,8 +15,6 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-
-import java.util.logging.Logger;
 
 public class BaruGaruEntity extends TameableEntity {
 

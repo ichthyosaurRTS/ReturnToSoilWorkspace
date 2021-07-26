@@ -9,11 +9,13 @@
   "block.returntosoil.origin_berry_block": "Origin Berry Crop",
   "entity.returntosoil.baru_garu": "Baru Garu",
   "item.returntosoil.origin_berry_item": "Origin Berry",
+  "item.returntosoil.origin_berry_bunch_item": "Origin Berry Bunch",
   "entity.returntosoil.baru_garu_segment": "Baru Garu Segment",
   "entity.returntosoil.elder_polu": "Elder Polu",
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.rose_beetle_item": "Rose Beetle",
   "itemGroup.returntosoil": "Return To Soil",
   "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
-  "item.returntosoil.abyss_scalpel": "Abyss Scalpel"
+  "item.returntosoil.abyss_scalpel": "Abyss Scalpel",
+  "block.returntosoil.refinery_plant_block": "Refinery Plant"
 }

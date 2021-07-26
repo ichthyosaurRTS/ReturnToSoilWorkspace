@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.Entity.HuskLarvaeEntity;
+import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
