@@ -19,4 +19,5 @@ public class TileEntityTypesInit {
             TILE_ENTITY_TYPE.register("refinery_plant", () ->
                     TileEntityType.Builder.of(RefineryPlantTileEntity::new, BlockItemInit.REFINERY_PLANT_GROWN_BLOCK.get()).build(null));
 
+
 }
