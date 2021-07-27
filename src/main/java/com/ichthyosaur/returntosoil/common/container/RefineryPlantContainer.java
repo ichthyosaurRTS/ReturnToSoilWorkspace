@@ -31,7 +31,9 @@ public class RefineryPlantContainer extends Container {
         this.pos = te.getBlockPos();
 
         //Tile entity
-        this.addSlot(new Slot((IInventory) te, 0, 80, 35));
+        this.addSlot(new Slot((IInventory) te, 0, 80, 50));
+        this.addSlot(new Slot((IInventory) te, 1, 110, 10));
+        this.addSlot(new Slot((IInventory) te, 2, 50, 10));
 
         //Player inv
         for (int row = 0; row < 3; row++) {

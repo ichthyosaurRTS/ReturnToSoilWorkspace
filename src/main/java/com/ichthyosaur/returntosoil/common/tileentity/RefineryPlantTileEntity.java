@@ -21,7 +21,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 public class RefineryPlantTileEntity extends LockableTileEntity implements ITickableTileEntity {
 
-    public static int slotNumber = 1;
+    public static int slotNumber = 3;
     protected NonNullList<ItemStack> items = NonNullList.withSize(slotNumber,ItemStack.EMPTY);
 
     public RefineryPlantTileEntity(TileEntityType<?> p_i48289_1_) {

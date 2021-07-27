@@ -73,11 +73,7 @@ public class RefineryPlantGrownBlock extends Block {
             world.setBlock(pos, this.defaultBlockState().setValue(LIT, false), 2);
         }
         world.setBlock(pos, this.defaultBlockState().setValue(LIT, true), 2);
-
-        //temporary for testing
-        ItemStack randomDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
-        popResource(world, pos, randomDrops);
-            return ActionResultType.SUCCESS;*/
+        */
 
         //this should be backwards but crashes if it is....
         if (!world.isClientSide()) {
@@ -106,8 +102,14 @@ public class RefineryPlantGrownBlock extends Block {
 
     @Override
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
-        if (state.getValue(LIT)&&world.isClientSide()) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+        if (state.getValue(LIT)&&world.isClientSide()) {
+            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                 player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
+            world.addParticle(ParticleTypes.NAUTILUS,
+                    player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
+            world.addParticle(ParticleTypes.FLAME,
+                    player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
+        }
     }
 
     protected static final VoxelShape SHAPE = Block.box(2.0D, 6.0D, 2.0D, 14.0D, 16.0D, 14.0D);
