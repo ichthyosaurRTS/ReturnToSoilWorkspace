@@ -8,6 +8,7 @@ import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.IntegerProperty;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +25,7 @@ public class RTSMain
 
     //Who knows where this goes...
     public static final BooleanProperty INFESTED = BooleanProperty.create("infested");
+    public static final IntegerProperty FUEL_LEVEL = IntegerProperty.create("fuel_level",0,4);
 
     public RTSMain() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
