@@ -1,20 +1,25 @@
 TODO
 1:Next 2:Want to 3:Don't want to bother 4: Not ready for 5: Who cares
 
-1  Refinery plant functionality (w/o menu...)
-1  Refinery Plant texture, seeds
-1  Refinery Plant crop+ potting feature
-1  Add basic jaw beetle drops
-1  BaruGaru drops
-1  Elder Polu panic, random swim, drops
-1  Rename Elder Polu
-1  Jaw beetle arms to sin waves & base rotation
-1  Elder Polu fake random swim goal
-1  Lilypad Lantern drops
-1  Elder elder polu
-1  Proper axe fuel item
-1  Re- texture axe?
+1  Refinery Plant Potted:
+     models, textures, gacha list and functions
 
+1  Refinery Plant Crop:
+     crop models, textures and seeds(drop from infested o berry)
+
+1  Elder Polu:
+    panic, random swim (fake?), drops, new name
+
+1  Jaw Beetle:
+    arms to sin waves & base rotation, super rare green jaw beetle drop
+
+1  Rose Beetle Axe:
+    Fuel item
+
+1  Lilypad Lantern drops
+
+
+2  Elder elder polu
 2  Add ghost jaw beetle drops
 2  Nomad Snail redesign
 2  Add observer_shrimp (temporary name)
@@ -23,6 +28,7 @@ TODO
 2  Finish programming fox
 2  Floaty sky dragon thing
 
+3  BaruGaru drops
 3  Spawn eggs
 3  Fox  curled up sitting anime
 3  Properly texture origin berry seed

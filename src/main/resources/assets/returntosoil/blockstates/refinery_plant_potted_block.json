@@ -1,0 +1,21 @@
+{
+  "variants": {
+
+    "fuel_level=1": {
+      "model": "returntosoil:block/refinery_plant/refinery_plant_gl"
+    },
+    "fuel_level=2": {
+      "model": "returntosoil:block/refinery_plant/refinery_plant_gl"
+    },
+    "fuel_level=3": {
+      "model": "returntosoil:block/refinery_plant/refinery_plant_gl"
+    },
+    "fuel_level=4": {
+      "model": "returntosoil:block/refinery_plant/refinery_plant_gl"
+    },
+    "fuel_level=0": {
+      "model": "returntosoil:block/refinery_plant/refinery_plant_g"
+    }
+  }
+
+}

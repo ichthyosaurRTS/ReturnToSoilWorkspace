@@ -35,24 +35,16 @@ import java.util.Random;
 
 public class RefineryPlantPottedBlock extends Block {
 
-    public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 
     //models based on fuel level
     public RefineryPlantPottedBlock() {
         super(Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD));
-        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(FUEL_LEVEL,0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FUEL_LEVEL,0));
     }
-
-    public static BlockState newState(int fuelLevel) {
-        boolean lit = true;
-        if (fuelLevel == 0) lit = false;
-        return new RefineryPlantPottedBlock().getStateDefinition().any().setValue(LIT, lit).setValue(FUEL_LEVEL,fuelLevel);
-    }
-
 
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
-        p_206840_1_.add(LIT).add(FUEL_LEVEL);
+        p_206840_1_.add(FUEL_LEVEL);
     }
 
     @Override
@@ -72,7 +64,6 @@ public class RefineryPlantPottedBlock extends Block {
     }
 
 
-    //pretty sure the block gets replaced with a new one like this...
     @ParametersAreNonnullByDefault
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 
@@ -85,19 +76,8 @@ public class RefineryPlantPottedBlock extends Block {
             if (item == BlockItemInit.ORIGIN_BERRY_BUNCH_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
 
                 int newFuelLevel = state.getValue(FUEL_LEVEL) + 1;
-                //world.setBlock(pos, RefineryPlantPottedBlock.newState(newFuelLevel),2);
-                //world.addBlockEntity(new RefineryPlantTileEntity());
-
-                //RefineryPlantTileEntity newEntity = new RefineryPlantTileEntity(TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get());
-                //newEntity.setLevelAndPosition(world, pos);
-                //world.addBlockEntity(newEntity);
-                //world.setBlockEntity(pos, newEntity);
-                //world.blockEntityChanged(pos, new RefineryPlantTileEntity());
-
-                BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel).setValue(LIT,true);
+                BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel);
                 world.setBlock(pos, news,2);
-
-
 
                 itemstack.shrink(1);
                 return ActionResultType.SUCCESS;
@@ -114,14 +94,12 @@ public class RefineryPlantPottedBlock extends Block {
 
     @Override
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
-        /*if (state.getValue(LIT)&&world.isClientSide()) {
-            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+        if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0) {
+            world.addParticle(ParticleTypes.CLOUD,
                 player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
-            world.addParticle(ParticleTypes.BUBBLE_COLUMN_UP,
+            world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
                     player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
-            world.addParticle(ParticleTypes.FLAME,
-                    player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
-        }*/
+        }
     }
 
     protected static final VoxelShape SHAPE = Block.box(2.0D, 6.0D, 2.0D, 14.0D, 16.0D, 14.0D);

@@ -4,7 +4,6 @@ import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.LilypadLanternBlock;
 import com.ichthyosaur.returntosoil.common.block.cropblock.OriginBerryBlock;
-import com.ichthyosaur.returntosoil.common.block.dep.RefineryPlantGrownBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.RefineryPlantPottedBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
@@ -57,10 +56,10 @@ public class BlockItemInit {
 
 
     //RefineryPlant
-    public static final RegistryObject<Block> REFINERY_PLANT_GROWN_BLOCK = BLOCKS.register("refinery_plant_grown_block", () ->
+    public static final RegistryObject<Block> REFINERY_PLANT_POTTED_BLOCK = BLOCKS.register("refinery_plant_potted_block", () ->
             new RefineryPlantPottedBlock());
-    public static final RegistryObject<Item> REFINERY_PLANT_GROWN_BLOCK_ITEM = ITEMS.register("refinery_plant_grown_block_item", () ->
-            new BlockItem(REFINERY_PLANT_GROWN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> REFINERY_PLANT_POTTED_BLOCK_ITEM = ITEMS.register("refinery_plant_potted_block_item", () ->
+            new BlockItem(REFINERY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));
