@@ -67,7 +67,9 @@ public class RefineryPlantTileEntity extends LockableTileEntity implements ITick
 
     @Override
     public ItemStack removeItem(int p_70298_1_, int p_70298_2_) {
-        return null;
+        ItemStack item = this.items.get(p_70298_1_);
+        this.items.set(p_70298_1_,ItemStack.EMPTY);
+        return item;
     }
 
     @Override
@@ -75,9 +77,13 @@ public class RefineryPlantTileEntity extends LockableTileEntity implements ITick
         return null;
     }
 
+
+    //doesn't account for empty hand taking item
     @Override
-    public void setItem(int p_70299_1_, ItemStack p_70299_2_) {
-        this.items.add(p_70299_1_,p_70299_2_);
+    public void setItem(int p_70299_1_, ItemStack itemStack) {
+        //this.items.add(p_70299_1_,itemStack);
+        this.items.set(p_70299_1_,itemStack);
+
     }
 
     @Override

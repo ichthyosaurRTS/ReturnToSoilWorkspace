@@ -28,12 +28,14 @@ public class RefineryPlantScreen extends ContainerScreen<RefineryPlantContainer>
     @Override
     protected void renderBg(MatrixStack matrixStack, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
         RenderSystem.color4f(1f, 1f, 1f, 1f);
+        assert this.minecraft != null;
         this.minecraft.textureManager.bind(REFINERY_PLANT_GUI);
         int x = (this.width - this.imageWidth) / 2;
         int y = (this.height - this.imageHeight) / 2;
         this.blit(matrixStack, x, y, 0, 0, this.imageWidth, this.imageHeight);
     }
 
+    //sus
     public void render(MatrixStack mstack, int p_230430_2_, int p_230430_3_, float p_230430_4_){
         this.renderBackground(mstack);
         super.render(mstack,  p_230430_2_, p_230430_3_,  p_230430_4_);

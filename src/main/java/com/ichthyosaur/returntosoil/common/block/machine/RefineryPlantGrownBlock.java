@@ -10,6 +10,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
@@ -55,7 +57,6 @@ public class RefineryPlantGrownBlock extends Block {
 
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        te = TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get().create();
         return TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get().create();
     }
 
@@ -63,6 +64,7 @@ public class RefineryPlantGrownBlock extends Block {
     public void onPlace(BlockState p_220082_1_, World p_220082_2_, BlockPos p_220082_3_, BlockState p_220082_4_, boolean p_220082_5_) {
         super.onPlace(p_220082_1_, p_220082_2_, p_220082_3_, p_220082_4_, p_220082_5_);
     }
+
 
     //pretty sure the block gets replaced with a new one like this...
     @ParametersAreNonnullByDefault
@@ -77,11 +79,13 @@ public class RefineryPlantGrownBlock extends Block {
         popResource(world, pos, randomDrops);
             return ActionResultType.SUCCESS;*/
 
-        if (world.isClientSide()) {
+        //this should be backwards but crashes if it is....
+        if (!world.isClientSide()) {
             TileEntity te = world.getBlockEntity(pos);
+            //if (player instanceof ClientPlayerEntity) throw new IllegalStateException("player is client only...?");
             if (te instanceof RefineryPlantTileEntity){
-                INamedContainerProvider inamedcontainerprovider = new RefineryPlantTileEntity(TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get());
-                NetworkHooks.openGui((ServerPlayerEntity) player, this.te);
+                ServerPlayerEntity p = (ServerPlayerEntity) player;
+                NetworkHooks.openGui(p, (RefineryPlantTileEntity) te, pos);
             }
 
             /*INamedContainerProvider inamedcontainerprovider = new RefineryPlantTileEntity(TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get());
@@ -91,10 +95,8 @@ public class RefineryPlantGrownBlock extends Block {
 
             return super.use(state,world,pos,player,p_225533_5_,p_225533_6_);
 
-
         }
-        return ActionResultType.PASS;
-
+        return ActionResultType.FAIL;
     }
 
     public ActionResultType use(World p_227031_1_, PlayerEntity p_227031_2_, Hand p_227031_3_, BlockRayTraceResult p_227031_4_) {

@@ -27,7 +27,7 @@ public class RefineryPlantContainer extends Container {
     public RefineryPlantContainer(final int windowId, final PlayerInventory playerInv, final RefineryPlantTileEntity te){
         super(ContainerTypesInit.REFINERY_PLANT_CONTAINER_TYPE.get(), windowId);
         this.te = te;
-        this.canInteractWithCallable = IWorldPosCallable.create(te.getLevel(),te.getBlockPos());
+        this.canInteractWithCallable = IWorldPosCallable.create(Objects.requireNonNull(te.getLevel()),te.getBlockPos());
         this.pos = te.getBlockPos();
 
         //Tile entity
@@ -35,8 +35,8 @@ public class RefineryPlantContainer extends Container {
 
         //Player inv
         for (int row = 0; row < 3; row++) {
-            for(int col = 0; col<9; col++) {
-                this.addSlot(new Slot(playerInv, col + row * 9 + 9, 8 + col + 18, 166 - (4 - row) * 18 - 10));
+            for (int col = 0; col < 9; col++) {
+                this.addSlot(new Slot(playerInv, col + row * 9 + 9, 8 + col * 18, 166 - (4 - row) * 18 - 10));
             }
         }
         //Player hotbar
@@ -57,9 +57,10 @@ public class RefineryPlantContainer extends Container {
         throw new IllegalStateException("Tile entity is not correct");
     }
 
+    //sus
     @Override
-    public boolean stillValid(PlayerEntity p_75145_1_) {
-        return this.pos.distSqr(3,3,3,false)<5;
+    public boolean stillValid(PlayerEntity player) {
+        return this.pos.distSqr(player.getX(),player.getY(),player.getZ(),false)<5;
     }
 
     @Override
