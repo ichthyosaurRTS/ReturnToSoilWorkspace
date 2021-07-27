@@ -57,10 +57,9 @@ public class RefineryPlantContainer extends Container {
         throw new IllegalStateException("Tile entity is not correct");
     }
 
-    //sus
     @Override
     public boolean stillValid(PlayerEntity player) {
-        return this.pos.distSqr(player.getX(),player.getY(),player.getZ(),false)<5;
+        return this.pos.distSqr(player.getX(),player.getY(),player.getZ(),false)<12;
     }
 
     @Override
