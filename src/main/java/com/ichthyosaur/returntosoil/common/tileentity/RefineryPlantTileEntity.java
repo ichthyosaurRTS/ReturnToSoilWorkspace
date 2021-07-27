@@ -81,7 +81,6 @@ public class RefineryPlantTileEntity extends LockableTileEntity implements ITick
     //doesn't account for empty hand taking item
     @Override
     public void setItem(int p_70299_1_, ItemStack itemStack) {
-        //this.items.add(p_70299_1_,itemStack);
         this.items.set(p_70299_1_,itemStack);
 
     }
