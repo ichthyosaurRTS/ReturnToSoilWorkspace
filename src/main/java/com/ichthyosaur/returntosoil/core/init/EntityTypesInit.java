@@ -44,10 +44,10 @@ public class EntityTypesInit {
                     .sized(1.2f,2.0f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "four_tailed_fox").toString()));
 
-    public static final RegistryObject<EntityType<ElderPoluEntity>> ELDERPOLU = ENTITY_TYPES.register("elder_polu",
-            () -> EntityType.Builder.of(ElderPoluEntity::new, EntityClassification.CREATURE)
+    public static final RegistryObject<EntityType<BallFrogEntity>> BALLFROG = ENTITY_TYPES.register("ball_frog",
+            () -> EntityType.Builder.of(BallFrogEntity::new, EntityClassification.CREATURE)
                     .sized(0.6f,0.5f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "elder_polu").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "ball_frog").toString()));
 
 
 

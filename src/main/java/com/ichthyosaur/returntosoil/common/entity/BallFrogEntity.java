@@ -26,18 +26,18 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class ElderPoluEntity extends MonsterEntity {
+public class BallFrogEntity extends MonsterEntity {
 
     private boolean swimmingAnim;
     public float tailTimer = -3.14F;
     private static final DataParameter<Integer> COLOUR_INT = EntityDataManager.defineId(CatEntity.class, DataSerializers.INT);
 
-    public ElderPoluEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
+    public BallFrogEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
     }
 
     protected void registerGoals() {
-        //this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 100.0, 10)); //speed mod and inerval
+        //this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 100.0, 10)); //speed mod and interval
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1D, false)); //that float is move mod
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.4F));
@@ -134,7 +134,7 @@ public class ElderPoluEntity extends MonsterEntity {
     }
 
     public ResourceLocation getResourceLocation() {
-        return COLOUR_BY_INT.getOrDefault(this.getColourInt(),new ResourceLocation(RTSMain.MOD_ID, "textures/entity/elder_polu/elder_polu_green.png") );
+        return COLOUR_BY_INT.getOrDefault(this.getColourInt(),new ResourceLocation(RTSMain.MOD_ID, "textures/entity/ball_frog/ball_frog_green.png") );
     }
 
     public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
@@ -144,9 +144,9 @@ public class ElderPoluEntity extends MonsterEntity {
     }
 
     public static final Map<Integer, ResourceLocation> COLOUR_BY_INT = Util.make(Maps.newHashMap(), (map) -> {
-        map.put(0, new ResourceLocation("returntosoil:textures/entity/elder_polu/elder_polu_green.png"));
-        map.put(1, new ResourceLocation("returntosoil:textures/entity/elder_polu/elder_polu_crimson.png"));
-        map.put(2, new ResourceLocation("returntosoil:textures/entity/elder_polu/elder_polu_purple.png"));
+        map.put(0, new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green.png"));
+        map.put(1, new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_crimson.png"));
+        map.put(2, new ResourceLocation("returntosoil:textures/entity/ball_frog/elder_polu_purple.png"));
     });
 
     @Override

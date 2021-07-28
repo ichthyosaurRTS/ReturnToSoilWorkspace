@@ -1,12 +1,12 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.ElderPoluEntity;
+import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<ElderPoluEntity> {
+public class BallFrogModel<T extends BallFrogEntity> extends EntityModel<BallFrogEntity> {
     private final ModelRenderer all;
     private final ModelRenderer body;
     private final ModelRenderer legs;
@@ -24,7 +24,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
     private final ModelRenderer sac;
     private final ModelRenderer skull;
 
-    public ElderPoluModel() {
+    public BallFrogModel() {
         texWidth = 64;
         texHeight = 64;
 
@@ -115,7 +115,7 @@ public class ElderPoluModel <T extends ElderPoluEntity> extends EntityModel<Elde
 
 
     @Override
-    public void setupAnim(ElderPoluEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(BallFrogEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         float rad = (float) Math.PI/180;
         float mod = (float) Math.sin(entity.tailTimer)/3;
         if (!entity.getSwimmingAnim()) {

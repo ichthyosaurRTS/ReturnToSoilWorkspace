@@ -3,9 +3,7 @@ package com.ichthyosaur.returntosoil.core.util;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.*;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
-import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,7 +28,7 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), BaruGaruRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.ELDERPOLU.get(), ElderPoluRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BALLFROG.get(), BallFrogRenderer::new);
 
     }
 }

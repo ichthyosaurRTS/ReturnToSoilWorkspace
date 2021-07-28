@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.entity.ElderPoluEntity;
+import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.AbstractBlock;
@@ -73,8 +73,8 @@ public class LilypadLanternBlock extends RTSCropsBlock{
                 }
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                if (rollChance(10)) spawnPolu(worldIn, pos); //normally 10
-                else if (rollChance(80)) for (int j = 0; j < 10; j++) {spawnPolu(worldIn, pos);} //small chance of horde
+                if (rollChance(10)) spawnBallFrog(worldIn, pos); //normally 10
+                else if (rollChance(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde
                 //else if (rollChance(300)) spawnBaruGaru(worldIn, pos);
             }
         }
@@ -111,18 +111,14 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         return false;
     }
 
-    private void spawnPolu(ServerWorld world, BlockPos pos) {
-        ElderPoluEntity entity = EntityTypesInit.ELDERPOLU.get().create(world);
+    private void spawnBallFrog(ServerWorld world, BlockPos pos) {
+        BallFrogEntity entity = EntityTypesInit.BALLFROG.get().create(world);
         if (entity!=null) {
             entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
             entity.setColourIntData();
             world.addFreshEntity(entity);
         }
         world.removeBlock(pos,false);
-    }
-
-    private void spawnElderPolu(ServerWorld world, BlockPos pos) {
-        // for the bigger frog
     }
 
 
