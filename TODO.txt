@@ -5,7 +5,7 @@ TODO
      models, textures, gacha list and functions
 
 1  Refinery Plant Crop:
-     crop models, textures and seeds(drop from infested o berry)
+     crop models, textures and seeds(drop from husk larvae)
 
 1  Elder Polu:
     panic, random swim (fake?), drops, new name

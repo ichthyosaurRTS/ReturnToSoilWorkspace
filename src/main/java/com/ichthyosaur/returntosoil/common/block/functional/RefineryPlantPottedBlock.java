@@ -28,6 +28,8 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -92,17 +94,19 @@ public class RefineryPlantPottedBlock extends Block {
     }
 
 
+    //dunno if i need only in here
     @Override
+    @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
         if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0) {
-            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+            world.addParticle(ParticleTypes.COMPOSTER,
                 player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
             world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
                     player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
         }
     }
 
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 6.0D, 2.0D, 14.0D, 16.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.box(1.0D, 2.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
