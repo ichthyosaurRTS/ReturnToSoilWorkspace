@@ -3,6 +3,8 @@ package com.ichthyosaur.returntosoil.core.util;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 //Now a static util function class
@@ -26,4 +28,5 @@ public class rollChance {
             if (player.inventory.getItem(i).getItem() == item) return i; }
         return 1000;
     }
+
 }
