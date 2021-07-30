@@ -5,7 +5,7 @@ TODO
      gacha list and functions
 
 1  Refinery Plant Crop:
-     crop models, textures and seeds(drop from husk larvae)
+     models 0-7, textures and seeds(drop from husk larvae)
 
 1  Ball Frog:
     panic, random swim (fake?), drops, bouncing movement
@@ -17,6 +17,8 @@ TODO
     Fuel item, re-texture
 
 1  Lilypad Lantern drops
+
+1  General flying serpent segment entity class
 
 
 2  Elder elder polu

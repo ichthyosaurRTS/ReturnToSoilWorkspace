@@ -51,6 +51,10 @@ public class ItemEvents {
                     player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0, speedMod * playerZVector));
             }
         }
+
+        /*if (!player.isCreative()&&player.isAlive()){  this works great
+            player.setHealth(8);
+        }*/
     }
 }
 
