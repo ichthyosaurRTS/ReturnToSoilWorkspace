@@ -6,6 +6,8 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
@@ -58,6 +60,12 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
     public boolean isNoGravity() {
         this.noPhysics = true;
         return true;
+    }
+
+    //may crash it
+    protected SoundEvent getDeathSound() {
+        //return SoundEvents.BAT_DEATH;
+        return null;
     }
 
     protected void registerGoals() {}

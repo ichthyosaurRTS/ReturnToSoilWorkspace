@@ -25,7 +25,7 @@ import java.util.List;
 public class GhostRamHeadEntity extends MonsterEntity {
 
     boolean hasSegments = false;
-    private final double numberOfSegments = 0;
+    private final double numberOfSegments = 2;
 
     public GhostRamHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
@@ -96,7 +96,7 @@ public class GhostRamHeadEntity extends MonsterEntity {
 
         else { segment = EntityTypesInit.GHOSTRAMBUTT.get().create(world); }
 
-        segment.setSpacing(2);
+        segment.setSpacing(1);
         segment.setLeader(leader);
         segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
         world.addFreshEntity(segment);

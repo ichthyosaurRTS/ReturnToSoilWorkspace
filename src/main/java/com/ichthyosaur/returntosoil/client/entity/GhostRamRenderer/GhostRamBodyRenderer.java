@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GhostRamBodyRenderer extends MobRenderer<GhostRamBodyEntity, GhostRamBodyModel<GhostRamBodyEntity>> {
 
-    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/baru_garu_segment/baru_garu_segment.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/ghost_ram/basic_white.png");
 
     public GhostRamBodyRenderer(EntityRendererManager manager) {
         super(manager, new GhostRamBodyModel<>(), 0.7f);
