@@ -126,7 +126,30 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
             newX = parentX + flatDistance;
             newZ = parentZ;
 
+
+            if (flatDegreeRotation < -90) {
+                double theta = flatDegreeRotation * ((float) Math.PI / 180F);  //here we take away however many 90 degree factors we need
+                newZ = parentZ - (Math.cos(theta) * flatDistance);
+                newX = parentX - (Math.sin(theta) * flatDistance); //minus bc in this case, the parent is above/greater than
+            } else if (flatDegreeRotation >= -90 && flatDegreeRotation < 0) {
+                double theta = (flatDegreeRotation - 90)* ((float) Math.PI / 180F);
+                newZ = parentZ + (Math.sin(theta) * flatDistance);
+                newX = parentX - (Math.cos(theta) * flatDistance);
+            } else if (flatDegreeRotation >= 0 && flatDegreeRotation < 90) {
+                double theta = (flatDegreeRotation - 180)* ((float) Math.PI / 180F);
+                newZ = parentZ + (Math.cos(theta) * flatDistance);
+                newX = parentX + (Math.sin(theta) * flatDistance);
+            } else {
+                double theta = (flatDegreeRotation - 270)* ((float) Math.PI / 180F);
+                newZ = parentZ - (Math.sin(theta) * flatDistance);
+                newX = parentX + (Math.cos(theta) * flatDistance);
+            }
+
+
+
             this.moveTo(newX, newY, newZ);
+
+
 
         /*
 
