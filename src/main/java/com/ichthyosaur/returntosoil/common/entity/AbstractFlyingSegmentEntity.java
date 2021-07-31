@@ -1,21 +1,16 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamHeadEntity;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-import java.util.UUID;
 
 public abstract class AbstractFlyingSegmentEntity extends MobEntity {
 
@@ -63,7 +58,6 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
     }
 
     protected SoundEvent getDeathSound() {
-        //return SoundEvents.BAT_DEATH;
         return null;
     }
 
@@ -74,14 +68,20 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
                 .add(Attributes.MAX_HEALTH, 1.0D);
     }
 
+    public boolean isPushedByFluid() {
+        return false;
+    }
 
-    Vector3d oldLeader;
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+
 
     @Override
     public void tick() {
 
         super.tick();
-
 
         if (this.getLeader()==null) this.kill();
         else {
@@ -131,10 +131,6 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
             double flatDistance = Math.cos(vertRadianRotation) * fullWantedDistance;
 
             newY = parentY - vertDistance;
-
-            newX = parentX + flatDistance;
-            newZ = parentZ;
-
 
             if (flatDegreeRotation < -90) {
                 double theta = flatDegreeRotation * ((float) Math.PI / 180F);  //here we take away however many 90 degree factors we need

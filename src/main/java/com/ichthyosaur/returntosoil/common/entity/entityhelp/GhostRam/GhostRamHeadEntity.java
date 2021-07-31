@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam;
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
+import net.minecraft.block.Blocks;
 import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -10,11 +11,11 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.BatEntity;
-import net.minecraft.entity.passive.fish.AbstractFishEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
@@ -31,16 +32,20 @@ public class GhostRamHeadEntity extends MonsterEntity {
     public static final Logger LOGGER = LogManager.getLogger();
 
     boolean hasSegments = false;
-    private final double numberOfSegments = 8;
+    private final double numberOfSegments = 2;
 
     private int chargeTicks = 0;
+    private int idleTicks = 0;
+    private Vector3d newIdlePos;
 
     private double xVector;
     private double yVector;
     private double zVector;
 
-    private double spiralX;
-    private double spiralZ;
+    private double xIdleVector;
+    private double yIdleVector;
+    private double zIdleVector;
+
 
     public GhostRamHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
@@ -49,17 +54,18 @@ public class GhostRamHeadEntity extends MonsterEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 50.0D)
-                .add(Attributes.ATTACK_DAMAGE, 10.0D)
+                .add(Attributes.ATTACK_DAMAGE, 30.0D)
                 .add(Attributes.ARMOR, 20D)
-                .add(Attributes.MOVEMENT_SPEED, (double)0F)
+                .add(Attributes.MOVEMENT_SPEED, (double)0.5F)
                 .add(Attributes.FOLLOW_RANGE, 96.0D);
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.0D, false));
+        //this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.0D, false));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, VillagerEntity.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, WolfEntity.class, true));
     }
 
     public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
@@ -67,6 +73,7 @@ public class GhostRamHeadEntity extends MonsterEntity {
         //createSegments(this,0);
         return p_213386_4_;
     }
+
 
     private void tickUp(){this.chargeTicks+=1;}
     private void tickZero(){this.chargeTicks=0;}
@@ -83,71 +90,129 @@ public class GhostRamHeadEntity extends MonsterEntity {
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
-        if (this.getTarget() != null && this.getTick() < 10) {
-            Entity entity =  this.getTarget();
-            this.lookAt(entity,100,100);
+        if (this.getTarget() != null) {
+            if (this.getTarget().isAlive()) {
 
-            this.tickUp();
-        }
+                if (this.closerThan(this.getTarget(),1)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
 
-        else if (this.getTarget() != null && this.getTick() == 10) {
-            Entity entity =  this.getTarget();
-            this.lookAt(entity,100,100);
+                if (this.getTick() < 10) {
+                    Entity entity =  this.getTarget();
+                    //this.lookAt(entity,100,100);
 
-            this.yVector = this.getLookAngle().y/10;
-            this.xVector = this.getLookAngle().x/10;
-            this.zVector = this.getLookAngle().z/10;
+                    this.tickUp();
+                }
 
-            this.tickUp();
-        }
+                else if (this.getTick() == 10) {
+                    Entity entity =  this.getTarget();
+                    Vector3d entityPos = new Vector3d(entity.getX(), entity.getY(), entity.getZ());
+                    //this ones instant, so good to have at least once in setting the right direction
+                    this.lookAt(EntityAnchorArgument.Type.EYES,entityPos);
 
+                    this.yVector = this.getLookAngle().y/10;
+                    this.xVector = this.getLookAngle().x/10;
+                    this.zVector = this.getLookAngle().z/10;
 
-        else if (this.getTarget() != null && this.getTick()<90){
+                    this.tickUp();
+                }
 
-            //if we hit the y level of target bounce back
-            if (this.getY()<this.getTarget().getY() && this.yVector < 0) {
-                this.yVector = -this.yVector/6;
-                this.xVector = -this.xVector/6;
-                this.zVector = -this.zVector/6;
+                else if (this.getTick()<60){
+                    //if we hit the y level of target slow down
+                    if (this.getY() < this.getTarget().getY()+this.getTarget().getEyeHeight() && this.yVector < 0) {
+                        this.yVector = 0;
+                        this.xVector = this.xVector/3;
+                        this.zVector = this.zVector/3;
+                    }
+
+                    this.lookAt(this.getTarget(),100,100);
+
+                    this.setDeltaMovement(this.getDeltaMovement().add(this.xVector, this.yVector, this.zVector));
+
+                    this.tickUp();
+                }
+
+                else if (this.getTick()<110) {
+
+                    this.setDeltaMovement(this.getDeltaMovement().add(this.xVector/10, 0.01, this.zVector/10));
+
+                    Vector3d aboveVector = new Vector3d(this.getX(),this.getY() +100,this.getZ());
+                    this.lookAt(EntityAnchorArgument.Type.EYES,aboveVector);
+
+                    this.tickUp();
+                }
+
+                else this.tickZero();
             }
 
-            this.setDeltaMovement(this.getDeltaMovement().add(this.xVector, this.yVector, this.zVector));
-            this.tickUp();
+        }
+
+        else {
+            this.setTick(90);
+
+            //ADDITIONAL TARGET FINDING BECAUSE GOALS BASICALLY ONLY DO EYE HEIGHT
+            this.setTarget(this.level.getNearestLoadedEntity(VillagerEntity.class,(new EntityPredicate()).range(96).selector(null),
+                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(48, 96, 48)));
+            this.setTarget(this.level.getNearestLoadedEntity(PlayerEntity.class,(new EntityPredicate()).range(96).selector(null),
+                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(48, 96, 48)));
+            this.setTarget(this.level.getNearestLoadedEntity(WolfEntity.class,(new EntityPredicate()).range(96).selector(null),
+                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(48, 96, 48)));
+
+
+            //IDLE MOVEMENT START
+            if (this.idleTicks == 0) {
+                this.newIdlePos = this.generateAirPos();
+                this.lookAt(EntityAnchorArgument.Type.EYES,this.newIdlePos);
+
+                this.xIdleVector = this.getLookAngle().x/60; //why is this not changing?
+                this.yIdleVector = this.getLookAngle().y/60;
+                this.zIdleVector = this.getLookAngle().z/60;
+                this.getLookControl().setLookAt(this.newIdlePos);
+
+                this.idleTicks+=1;
+            }
+            else if (this.idleTicks < 60) {
+
+                this.setDeltaMovement(this.getDeltaMovement().add(this.xIdleVector, this.yIdleVector, this.zIdleVector));
+                this.getLookControl().setLookAt(this.newIdlePos);
+                this.idleTicks+=1;
+            }
+
+            //no y movement during idle!
+            else if (this.idleTicks < 200) {
+                this.setDeltaMovement(this.getDeltaMovement().x,0,this.getDeltaMovement().z);
+                this.idleTicks+=1;
+            }
+
+            else this.idleTicks = 0;
+            //IDLE MOVEMENT END
+
         }
 
 
-        else if (this.getTarget() != null && this.getTick()<130) {
 
-            if(this.spiralX >= 3.14) this.spiralX = 0;
-            else this.spiralX += 0.5;
+        //LOGGER.info("x look : "+this.getLookAngle().x);
 
-            double flatMod = Math.sin(spiralX);
-
-            this.setDeltaMovement(this.getDeltaMovement().add(flatMod/100, 0.01, flatMod/100));
-
-            Vector3d aboveVector = new Vector3d(this.getX(),this.getY() +100,this.getZ());
-            this.lookAt(EntityAnchorArgument.Type.EYES,aboveVector);
-
-            this.tickUp();
-        }
-
-
-        else if (this.getTarget() != null && this.getTick()>=130) this.tickZero();
-
-
-        else this.setTick(91);
-
-
-        LOGGER.info("x move vector : "+this.xVector);
-        //LOGGER.info("charge ticks: "+this.getTick());
-        //LOGGER.info("target: "+ this.getTarget());
 
     }
 
-    public double getMovement (double distance) {
-        if (distance >= 0) return 0.05;
-        else return -0.05;
+    private Vector3d generateAirPos () {
+        Vector3d newPos = new Vector3d(
+                this.getX() + (rollChance.returnRoll(31)-16),
+                this.getY() + (rollChance.returnRoll(9)-6),
+                this.getZ() + (rollChance.returnRoll(31)-16));
+        BlockPos blockPos = new BlockPos(newPos);
+
+        if (this.level.getBlockState(blockPos).getBlock() == Blocks.AIR) return newPos;
+        else return generateAirPos();
     }
+
+    public boolean isPushedByFluid() {
+        return false;
+    }
+
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
 
     @Override
     public boolean isInvulnerableTo(DamageSource damage) {

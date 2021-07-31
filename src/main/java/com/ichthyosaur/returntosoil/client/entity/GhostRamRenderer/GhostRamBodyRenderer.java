@@ -7,6 +7,7 @@ import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamBo
 import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamHeadEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.SheepWoolLayer;
 import net.minecraft.util.ResourceLocation;
 
 
@@ -15,7 +16,8 @@ public class GhostRamBodyRenderer extends MobRenderer<GhostRamBodyEntity, GhostR
     public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/ghost_ram/basic_white.png");
 
     public GhostRamBodyRenderer(EntityRendererManager manager) {
-        super(manager, new GhostRamBodyModel<>(), 0.7f);
+        super(manager, new GhostRamBodyModel<>(), 0.7f
+        );
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
+import net.minecraft.client.renderer.entity.layers.SheepWoolLayer;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingEntity;
@@ -16,5 +17,6 @@ public class GhostRamBodyEntity extends AbstractFlyingSegmentEntity {
     @Override
     public void tick() {
         super.tick();
+        //this.setDeltaMovement(this.getDeltaMovement().add(0, -0.002, 0));
     }
 }
