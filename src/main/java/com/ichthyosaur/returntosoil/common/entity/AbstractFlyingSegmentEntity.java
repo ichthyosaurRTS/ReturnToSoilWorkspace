@@ -163,12 +163,6 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
             //END OF ROTATION
     }
     }
-
-    int yDistanceOrOne(int yDist){
-        if (
-            Math.abs(yDist)<1 ) return 1;
-        else return yDist;
-    }
 }
 
 
