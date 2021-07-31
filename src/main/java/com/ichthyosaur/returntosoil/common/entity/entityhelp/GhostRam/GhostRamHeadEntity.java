@@ -25,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 import javax.annotation.Nullable;
 import java.util.List;
 
+//powerful attack, slow and easy to avoid
 public class GhostRamHeadEntity extends MonsterEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
@@ -37,6 +38,9 @@ public class GhostRamHeadEntity extends MonsterEntity {
     private double xVector;
     private double yVector;
     private double zVector;
+
+    private double spiralX;
+    private double spiralZ;
 
     public GhostRamHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
@@ -53,6 +57,7 @@ public class GhostRamHeadEntity extends MonsterEntity {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.0D, false));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, VillagerEntity.class, true));
     }
@@ -75,10 +80,6 @@ public class GhostRamHeadEntity extends MonsterEntity {
             this.createSegments(this, (int)0);
             this.hasSegments = true;
         }
-
-        double yDist;
-        double xDist;
-        double zDist;
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
@@ -103,16 +104,26 @@ public class GhostRamHeadEntity extends MonsterEntity {
 
         else if (this.getTarget() != null && this.getTick()<90){
 
-            if (this.distanceToSqr(this.getTarget()) > 1 && this.yVector > 0) this.yVector = -this.yVector;
+            //if we hit the y level of target bounce back
+            if (this.getY()<this.getTarget().getY() && this.yVector < 0) {
+                this.yVector = -this.yVector/6;
+                this.xVector = -this.xVector/6;
+                this.zVector = -this.zVector/6;
+            }
 
             this.setDeltaMovement(this.getDeltaMovement().add(this.xVector, this.yVector, this.zVector));
             this.tickUp();
         }
 
 
+        else if (this.getTarget() != null && this.getTick()<130) {
 
-        else if (this.getTarget() != null && this.getTick()<150) {
-            this.setDeltaMovement(this.getDeltaMovement().add(0, 0.01, 0));
+            if(this.spiralX >= 3.14) this.spiralX = 0;
+            else this.spiralX += 0.5;
+
+            double flatMod = Math.sin(spiralX);
+
+            this.setDeltaMovement(this.getDeltaMovement().add(flatMod/100, 0.01, flatMod/100));
 
             Vector3d aboveVector = new Vector3d(this.getX(),this.getY() +100,this.getZ());
             this.lookAt(EntityAnchorArgument.Type.EYES,aboveVector);
@@ -120,7 +131,9 @@ public class GhostRamHeadEntity extends MonsterEntity {
             this.tickUp();
         }
 
-        else if (this.getTarget() != null && this.getTick()>=150) this.tickZero();
+
+        else if (this.getTarget() != null && this.getTick()>=130) this.tickZero();
+
 
         else this.setTick(91);
 

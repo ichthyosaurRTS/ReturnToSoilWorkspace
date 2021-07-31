@@ -160,7 +160,7 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
             //START OF ROTATION
             this.setRot(((float) ((MathHelper.wrapDegrees(360-flatDegreeRotation)))),(float)(MathHelper.wrapDegrees(360-vertDegreeRotation)));
             this.getLookControl().setLookAt(parentX, parentY, parentZ);
-
+            //END OF ROTATION
     }
     }
 
