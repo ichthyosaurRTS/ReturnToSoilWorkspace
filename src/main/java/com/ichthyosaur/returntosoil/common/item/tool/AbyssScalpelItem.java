@@ -42,7 +42,7 @@ public class AbyssScalpelItem extends ToolItem {
 
         if (thisEntity != null) {this.itemTarget = thisEntity;}
         int extraUnblockableDmg;
-        //this don't look like it'll work
+
         if (thisEntity instanceof PlayerEntity)
             extraUnblockableDmg = 5;
         else extraUnblockableDmg = 9;

@@ -18,7 +18,8 @@ TODO
 
 1  Lilypad Lantern drops
 
-1  General flying serpent segment entity class
+1  General flying serpent segment entity class:
+    Remember parent entity!, max rotation parent to child
 
 
 2  Elder elder polu

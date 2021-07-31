@@ -62,7 +62,6 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
         return true;
     }
 
-    //may crash it
     protected SoundEvent getDeathSound() {
         //return SoundEvents.BAT_DEATH;
         return null;
@@ -110,11 +109,12 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
             //This should really be based on the parent so we can rotated based on their look direction but no worries for now.
             double flatRadianRotation = MathHelper.atan2(xDistance, zDistance);
             double flatDegreeRotation =  flatRadianRotation * (180F / (float) Math.PI);
+            //needs to check look at of parent and see if hes looking too far away as well- change rot based on that
 
             double vertRadianRotation = MathHelper.atan2(yDistance, sqrFlatDistance);
             double vertDegreeRotation = vertRadianRotation * (180F / (float) Math.PI);
             //remember has to be radians to use in equations
-            LOGGER.info("yDegreeRot = " + vertDegreeRotation);
+            //LOGGER.info("yDegreeRot = " + vertDegreeRotation);
 
 
             //The full distance we want (also the hypotenuse to use)
