@@ -111,29 +111,8 @@ public class GhostRamButtModel<T extends GhostRamButtEntity> extends EntityModel
 
     @Override
     public void setupAnim(GhostRamButtEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-        float headX = headPitch * ((float)Math.PI / 180F); //actually refers to segments up down rot
-        this.fakehead.xRot = headX; //headX is radians, headPitch is degrees
-        //z starts 7 back (z=7) at 180 degrees, the head will be brought forward by (180/20 =) 9; otherwise sits into child on upward slope
-        if (headPitch<0) fakehead.z = 7 + (headPitch/10);  //apparently negative head pitch is looking up, and positive z is forwards
-        if (headPitch>0) fakehead.z = 7 - (headPitch/7);  //these 2 just move the segment forward a little on slopes, otherwise they're embedded in blocks
-        else fakehead.z = 7; //remember headPitch is a negative value on the way up!
-
-        if (headPitch<0) fakehead.y =  -10+(headPitch/40); //move it up a little depending on the pitch
-        else if (headPitch>0) fakehead.y =  -10+(headPitch/20);
-        else fakehead.y = -10;
-
-        //logger.info("headx"+headX);
-        //logger.info("headpitch"+headPitch);
-
-        this.legleft.yRot = 0F;
-        this.legright.yRot = 0F;
-
-        float f4 =(float) 0.5* -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + (float)Math.PI) * 0.4F) * limbSwingAmount*10;
-        float f3 =(float) 0.5* -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F) * limbSwingAmount*10;
-        this.legright.yRot += f4;
-        this.legleft.yRot += f3;
-
-        this.shell.zRot = f4/8;
+        this.fakehead.xRot = headPitch * ((float)Math.PI / 180F);
+        this.fakehead.yRot = netHeadYaw * ((float)Math.PI / 180F);
 
     }
 

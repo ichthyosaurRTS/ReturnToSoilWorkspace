@@ -25,7 +25,7 @@ import java.util.List;
 public class GhostRamHeadEntity extends MonsterEntity {
 
     boolean hasSegments = false;
-    private final double numberOfSegments = 4;
+    private final double numberOfSegments = 0;
 
     public GhostRamHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
