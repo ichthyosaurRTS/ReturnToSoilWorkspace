@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityModel<T> {
     Logger logger = Logger.getLogger("logger");;
 
-    private final ModelRenderer all;
+    public final ModelRenderer all;
     private final ModelRenderer ribs;
     private final ModelRenderer rib1;
     private final ModelRenderer cube_r1;

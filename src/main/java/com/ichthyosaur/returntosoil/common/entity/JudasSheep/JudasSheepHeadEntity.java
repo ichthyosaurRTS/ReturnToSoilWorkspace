@@ -50,6 +50,15 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         super(p_i48553_1_, p_i48553_2_);
     }
 
+    @Override
+    public boolean canCollideWith(Entity p_241849_1_) {
+        return false;
+    }
+
+    @Override
+    public void push(Entity p_70108_1_) {
+    }
+
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 50.0D)
@@ -92,7 +101,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         if (this.getTarget() != null) {
             if (this.getTarget().isAlive()) {
 
-                if (this.closerThan(this.getTarget(),1)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
+                if (this.closerThan(this.getTarget(),2)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
 
                 if (this.getTick() < 10) {
                     Entity entity =  this.getTarget();
@@ -149,11 +158,11 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
             //ADDITIONAL TARGET FINDING BECAUSE GOALS BASICALLY ONLY DO EYE HEIGHT
             this.setTarget(this.level.getNearestLoadedEntity(VillagerEntity.class,(new EntityPredicate()).range(96).selector(null),
-                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(48, 96, 48)));
+                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
             this.setTarget(this.level.getNearestLoadedEntity(PlayerEntity.class,(new EntityPredicate()).range(96).selector(null),
-                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(48, 96, 48)));
+                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
             this.setTarget(this.level.getNearestLoadedEntity(WolfEntity.class,(new EntityPredicate()).range(96).selector(null),
-                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(48, 96, 48)));
+                    this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
 
 
             //IDLE MOVEMENT START
@@ -196,7 +205,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     private Vector3d generateAirPos () {
         Vector3d newPos = new Vector3d(
                 this.getX() + (rollChance.returnRoll(31)-16),
-                this.getY() + (rollChance.returnRoll(9)-6),
+                this.getY() + (rollChance.returnRoll(9)-7),
                 this.getZ() + (rollChance.returnRoll(31)-16));
         BlockPos blockPos = new BlockPos(newPos);
 
@@ -227,7 +236,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
             segment.setSpacing(0.8);
         }
 
-        else if (segmentNumber<this.numberOfSegments) {
+        else if (segmentNumber<this.numberOfSegments-1) {
             segment = EntityTypesInit.JUDASSHEEPBODY.get().create(world);
             segment.setSpacing(1);
         }
@@ -241,6 +250,6 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
         world.addFreshEntity(segment);
 
-        if (segmentNumber<this.numberOfSegments) createSegments(segment,segmentNumber+1);
+        if (segmentNumber<this.numberOfSegments-1) createSegments(segment,segmentNumber+1);
     }
 }

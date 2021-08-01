@@ -2,9 +2,9 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.*;
-import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.JudasSheepBodyRenderer;
-import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.JudasSheepButtRenderer;
-import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.JudasSheepHeadRenderer;
+import com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer.JudasSheepBodyRenderer;
+import com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer.JudasSheepButtRenderer;
+import com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer.JudasSheepHeadRenderer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.client.renderer.RenderType;

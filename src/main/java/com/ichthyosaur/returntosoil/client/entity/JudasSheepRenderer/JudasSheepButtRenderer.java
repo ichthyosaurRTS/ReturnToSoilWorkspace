@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer;
+package com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel.JudasSheepButtModel;

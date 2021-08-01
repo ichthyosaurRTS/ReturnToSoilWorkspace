@@ -53,21 +53,21 @@ public class EntityTypesInit {
                     .build(new ResourceLocation(RTSMain.MOD_ID, "ball_frog").toString()));
 
 
-    //Ghost ram start
+    //Judas Sheep start
     public static final RegistryObject<EntityType<JudasSheepHeadEntity>> JUDASSHEEPHEAD = ENTITY_TYPES.register("judas_sheep_head",
             () -> EntityType.Builder.of(JudasSheepHeadEntity::new, EntityClassification.MONSTER)
-                    .sized(0.5f,0.5f)
+                    .sized(0.3f,0.3f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_head").toString()));
 
     public static final RegistryObject<EntityType<JudasSheepBodyEntity>> JUDASSHEEPBODY = ENTITY_TYPES.register("judas_sheep_body",
             () -> EntityType.Builder.of(JudasSheepBodyEntity::new, EntityClassification.MONSTER)
-                    .sized(0.5f,0.5f)
+                    .sized(0.7f,0.7f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_body").toString()));
 
     public static final RegistryObject<EntityType<JudasSheepButtEntity>> JUDASSHEEPBUTT = ENTITY_TYPES.register("judas_sheep_butt",
             () -> EntityType.Builder.of(JudasSheepButtEntity::new, EntityClassification.MONSTER)
-                    .sized(0.5f,0.5f)
+                    .sized(0.3f,0.3f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_butt").toString()));
-    //Ghost ram end
+    //Judas Sheep end
 
 }

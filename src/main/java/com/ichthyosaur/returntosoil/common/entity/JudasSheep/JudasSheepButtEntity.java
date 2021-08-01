@@ -2,13 +2,15 @@ package com.ichthyosaur.returntosoil.common.entity.JudasSheep;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.FlyingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.world.World;
 
 public class JudasSheepButtEntity extends AbstractFlyingSegmentEntity {
 
-    public JudasSheepButtEntity(EntityType<? extends MobEntity> p_i48575_1_, World p_i48575_2_) {
-        super(p_i48575_1_, p_i48575_2_);
+
+    public JudasSheepButtEntity(EntityType<? extends FlyingEntity> p_i48578_1_, World p_i48578_2_) {
+        super(p_i48578_1_, p_i48578_2_);
     }
 
     @Override

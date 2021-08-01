@@ -12,16 +12,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public abstract class AbstractFlyingSegmentEntity extends MobEntity {
+public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
     public Entity leader;
     double segmentSpaceFromLeader = 1.5;
     boolean noPhysics = true;
 
-    protected AbstractFlyingSegmentEntity(EntityType<? extends MobEntity> p_i48575_1_, World p_i48575_2_) {
-        super(p_i48575_1_, p_i48575_2_);
+    protected AbstractFlyingSegmentEntity(EntityType<? extends FlyingEntity> p_i48578_1_, World p_i48578_2_) {
+        super(p_i48578_1_, p_i48578_2_);
     }
+
 
     public void setSpacing (double spacing) {
         this.segmentSpaceFromLeader = spacing;
@@ -47,10 +48,17 @@ public abstract class AbstractFlyingSegmentEntity extends MobEntity {
     public boolean isInvulnerableTo(DamageSource damage) {
         return  damage == DamageSource.IN_WALL ||damage == DamageSource.FALL || super.isInvulnerableTo(damage);
     }
+
+    //Neither of these work
     @Override
     public boolean canBeCollidedWith() {
         return false;
     }
+    @Override
+    public boolean canCollideWith(Entity p_241849_1_) {
+        return false;
+    }
+
 
     public boolean isNoGravity() {
         this.noPhysics = true;
