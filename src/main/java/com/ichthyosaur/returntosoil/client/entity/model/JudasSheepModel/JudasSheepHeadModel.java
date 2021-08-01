@@ -1,16 +1,14 @@
-package com.ichthyosaur.returntosoil.client.entity.model.GhostRamModel;
+package com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel;
 
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamHeadEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
 
 import java.util.logging.Logger;
 
-public class GhostRamHeadModel<T extends GhostRamHeadEntity> extends EntityModel<T> {
+public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityModel<T> {
     Logger logger = Logger.getLogger("logger");;
 
     private final ModelRenderer all;
@@ -25,7 +23,7 @@ public class GhostRamHeadModel<T extends GhostRamHeadEntity> extends EntityModel
     private final ModelRenderer cube_r8;
     private final ModelRenderer cube_r9;
 
-    public GhostRamHeadModel() {
+    public JudasSheepHeadModel() {
         texWidth = 128;
         texHeight = 128;
 
@@ -100,7 +98,7 @@ public class GhostRamHeadModel<T extends GhostRamHeadEntity> extends EntityModel
 
 
     @Override
-    public void setupAnim(GhostRamHeadEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(JudasSheepHeadEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         this.head.xRot = headPitch * ((float)Math.PI / 180F);
         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 

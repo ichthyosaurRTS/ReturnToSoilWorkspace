@@ -2,9 +2,9 @@ package com.ichthyosaur.returntosoil.core.init;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.*;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamBodyEntity;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamButtEntity;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamHeadEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepButtEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -54,20 +54,20 @@ public class EntityTypesInit {
 
 
     //Ghost ram start
-    public static final RegistryObject<EntityType<GhostRamHeadEntity>> GHOSTRAMHEAD = ENTITY_TYPES.register("ghost_ram_head",
-            () -> EntityType.Builder.of(GhostRamHeadEntity::new, EntityClassification.MONSTER)
+    public static final RegistryObject<EntityType<JudasSheepHeadEntity>> JUDASSHEEPHEAD = ENTITY_TYPES.register("judas_sheep_head",
+            () -> EntityType.Builder.of(JudasSheepHeadEntity::new, EntityClassification.MONSTER)
                     .sized(0.5f,0.5f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "ghost_ram_head").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_head").toString()));
 
-    public static final RegistryObject<EntityType<GhostRamBodyEntity>> GHOSTRAMBODY = ENTITY_TYPES.register("ghost_ram_body",
-            () -> EntityType.Builder.of(GhostRamBodyEntity::new, EntityClassification.MONSTER)
+    public static final RegistryObject<EntityType<JudasSheepBodyEntity>> JUDASSHEEPBODY = ENTITY_TYPES.register("judas_sheep_body",
+            () -> EntityType.Builder.of(JudasSheepBodyEntity::new, EntityClassification.MONSTER)
                     .sized(0.5f,0.5f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "ghost_ram_body").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_body").toString()));
 
-    public static final RegistryObject<EntityType<GhostRamButtEntity>> GHOSTRAMBUTT = ENTITY_TYPES.register("ghost_ram_butt",
-            () -> EntityType.Builder.of(GhostRamButtEntity::new, EntityClassification.MONSTER)
+    public static final RegistryObject<EntityType<JudasSheepButtEntity>> JUDASSHEEPBUTT = ENTITY_TYPES.register("judas_sheep_butt",
+            () -> EntityType.Builder.of(JudasSheepButtEntity::new, EntityClassification.MONSTER)
                     .sized(0.5f,0.5f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "ghost_ram_butt").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_butt").toString()));
     //Ghost ram end
 
 }

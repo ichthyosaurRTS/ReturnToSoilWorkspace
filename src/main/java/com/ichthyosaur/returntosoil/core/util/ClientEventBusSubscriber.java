@@ -2,9 +2,9 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.*;
-import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.GhostRamBodyRenderer;
-import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.GhostRamButtRenderer;
-import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.GhostRamHeadRenderer;
+import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.JudasSheepBodyRenderer;
+import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.JudasSheepButtRenderer;
+import com.ichthyosaur.returntosoil.client.entity.GhostRamRenderer.JudasSheepHeadRenderer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.client.renderer.RenderType;
@@ -33,8 +33,8 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BALLFROG.get(), BallFrogRenderer::new);
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GHOSTRAMHEAD.get(), GhostRamHeadRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GHOSTRAMBODY.get(), GhostRamBodyRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GHOSTRAMBUTT.get(), GhostRamButtRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBODY.get(), JudasSheepBodyRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBUTT.get(), JudasSheepButtRenderer::new);
     }
 }

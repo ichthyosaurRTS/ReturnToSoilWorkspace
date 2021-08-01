@@ -2,9 +2,7 @@ package com.ichthyosaur.returntosoil;
 
 
 import com.ichthyosaur.returntosoil.common.entity.*;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamBodyEntity;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamButtEntity;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamHeadEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
@@ -60,9 +58,9 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BALLFROG.get(), BallFrogEntity.setCustomAttributes().build());
 
-            GlobalEntityTypeAttributes.put(EntityTypesInit.GHOSTRAMHEAD.get(), GhostRamHeadEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.GHOSTRAMBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.GHOSTRAMBUTT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBUTT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
         });
     }
 

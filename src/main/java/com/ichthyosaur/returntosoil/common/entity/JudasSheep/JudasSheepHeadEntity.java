@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam;
+package com.ichthyosaur.returntosoil.common.entity.JudasSheep;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
@@ -24,10 +24,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 //powerful attack, slow and easy to avoid
-public class GhostRamHeadEntity extends MonsterEntity {
+public class JudasSheepHeadEntity extends MonsterEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
@@ -47,7 +46,7 @@ public class GhostRamHeadEntity extends MonsterEntity {
     private double zIdleVector;
 
 
-    public GhostRamHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
+    public JudasSheepHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
     }
 
@@ -224,17 +223,17 @@ public class GhostRamHeadEntity extends MonsterEntity {
         World world = this.getCommandSenderWorld();
 
         if (segmentNumber == 0) {
-            segment = EntityTypesInit.GHOSTRAMBODY.get().create(world);
+            segment = EntityTypesInit.JUDASSHEEPBODY.get().create(world);
             segment.setSpacing(0.8);
         }
 
         else if (segmentNumber<this.numberOfSegments) {
-            segment = EntityTypesInit.GHOSTRAMBODY.get().create(world);
+            segment = EntityTypesInit.JUDASSHEEPBODY.get().create(world);
             segment.setSpacing(1);
         }
 
         else {
-            segment = EntityTypesInit.GHOSTRAMBUTT.get().create(world);
+            segment = EntityTypesInit.JUDASSHEEPBUTT.get().create(world);
             segment.setSpacing(1);
         }
 

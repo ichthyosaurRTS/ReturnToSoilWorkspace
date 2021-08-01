@@ -1,16 +1,14 @@
-package com.ichthyosaur.returntosoil.client.entity.model.GhostRamModel;
+package com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel;
 
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
-import com.ichthyosaur.returntosoil.common.entity.entityhelp.GhostRam.GhostRamButtEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
 
 import java.util.logging.Logger;
 
-public class GhostRamButtModel<T extends GhostRamButtEntity> extends EntityModel<T> {
+public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityModel<T> {
     Logger logger = Logger.getLogger("logger");;
 
     private final ModelRenderer all;
@@ -103,7 +101,7 @@ public class GhostRamButtModel<T extends GhostRamButtEntity> extends EntityModel
     private final ModelRenderer legright;
     private final ModelRenderer legleft;
 
-    public GhostRamButtModel() {
+    public JudasSheepBodyModel() {
         texWidth = 64;
         texHeight = 64;
 
@@ -663,11 +661,11 @@ public class GhostRamButtModel<T extends GhostRamButtEntity> extends EntityModel
         legleft.texOffs(0, 23).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, false);
     }
 
-
     @Override
-    public void setupAnim(GhostRamButtEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(JudasSheepBodyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         this.all.xRot = headPitch * ((float)Math.PI / 180F);
         this.all.yRot = netHeadYaw * ((float)Math.PI / 180F);
+
 
     }
 
