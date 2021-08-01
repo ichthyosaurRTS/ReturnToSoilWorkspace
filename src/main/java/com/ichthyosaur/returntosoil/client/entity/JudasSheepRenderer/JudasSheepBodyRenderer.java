@@ -20,19 +20,14 @@ public class JudasSheepBodyRenderer extends MobRenderer<JudasSheepBodyEntity, Ju
 
     public JudasSheepBodyRenderer(EntityRendererManager manager) {
         super(manager, new JudasSheepBodyModel<>(), 0.7f);
-        this.addLayer(new JudasSheepWoolLayer<>(this)
+        //this.addLayer(new JudasSheepWoolLayer<>(this));
 
-        );
+
     }
 
-    //this entity is correct but still returning false...?
-    @Override
-    public boolean shouldRender(JudasSheepBodyEntity p_225626_1_, ClippingHelper p_225626_2_, double p_225626_3_, double p_225626_5_, double p_225626_7_) {
-        LOGGER.info(""+p_225626_1_.hasWool());
-        LOGGER.info(""+p_225626_1_.getY());
-        return super.shouldRender(p_225626_1_, p_225626_2_, p_225626_3_, p_225626_5_, p_225626_7_);
-    }
 
     @Override
-    public ResourceLocation getTextureLocation(JudasSheepBodyEntity p_110775_1_) { return TEXTURE; }
+    public ResourceLocation getTextureLocation(JudasSheepBodyEntity p_110775_1_) {
+        LOGGER.info(""+p_110775_1_.hasWool());
+        return TEXTURE; }
 }

@@ -1,7 +1,9 @@
 package com.ichthyosaur.returntosoil.common.entity.JudasSheep;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
+import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingEntity;
 import net.minecraft.entity.MobEntity;
@@ -22,7 +24,7 @@ public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
     public static final Logger LOGGER = LogManager.getLogger();
     private boolean hasWool = true;
 
-    public JudasSheepBodyEntity(EntityType<? extends FlyingEntity> p_i48578_1_, World p_i48578_2_) {
+    public JudasSheepBodyEntity(EntityType<? extends AbstractFlyingSegmentEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 

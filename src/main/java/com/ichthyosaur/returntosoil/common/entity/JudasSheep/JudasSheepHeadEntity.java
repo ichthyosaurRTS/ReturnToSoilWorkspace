@@ -101,7 +101,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         if (this.getTarget() != null) {
             if (this.getTarget().isAlive()) {
 
-                if (this.closerThan(this.getTarget(),2)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
+                if (this.closerThan(this.getTarget(),1.5)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
 
                 if (this.getTick() < 10) {
                     Entity entity =  this.getTarget();

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class JudasSheepButtEntity extends AbstractFlyingSegmentEntity {
 
 
-    public JudasSheepButtEntity(EntityType<? extends FlyingEntity> p_i48578_1_, World p_i48578_2_) {
+    public JudasSheepButtEntity(EntityType<? extends AbstractFlyingSegmentEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 
