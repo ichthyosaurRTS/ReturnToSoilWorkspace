@@ -162,32 +162,6 @@ public class BallFrogEntity extends MonsterEntity {
         this.playSound(SoundEvents.HONEY_BLOCK_STEP, 0.15F, 0.5F);
     }
 
-    //this works fine whyyyyy
-    /*public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
-        ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
-        if (itemstack.getItem() == Items.SHEARS) {
-            if (!this.level.isClientSide) {
-
-                this.setColourIntData();
-
-                this.level.playSound(null, this, SoundEvents.SHEEP_SHEAR, SoundCategory.AMBIENT, 1.0F, 1.0F);
-
-                ItemEntity itementity = this.spawnAtLocation(Blocks.GRAY_WOOL); //Rotten Wool when I make it
-                if (itementity != null) {
-                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((double)((this.random.nextFloat() - this.random.nextFloat()) * 0.1F), (double)(this.random.nextFloat() * 0.05F), (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.1F)));
-                }
-                itemstack.hurtAndBreak(1, p_230254_1_, (p_213613_1_) -> {
-                    p_213613_1_.broadcastBreakEvent(p_230254_2_);
-                });
-                return ActionResultType.SUCCESS;
-            } else {
-                return ActionResultType.CONSUME;
-            }
-        } else {
-            return super.mobInteract(p_230254_1_, p_230254_2_);
-        }
-    } */
-
     /*protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.SALMON_FLOP, 0.15F, 0.5F);
     }*/

@@ -37,6 +37,8 @@ public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
 
     public int hasWool(){return this.entityData.get(HAS_WOOL);}
 
+    public boolean hasWoolBool(){return this.entityData.get(HAS_WOOL)==1;}
+
     public void setHasWool(int i) {
         this.entityData.set(HAS_WOOL, i);
     }

@@ -62,8 +62,6 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBUTT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
-
-            GlobalEntityTypeAttributes.put(EntityTypesInit.SHEARABLEBODY.get(), ShearableBodyEntity.setCustomAttributes().build());
         });
     }
 

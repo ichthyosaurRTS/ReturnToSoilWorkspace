@@ -30,7 +30,7 @@ public class JudasSheepWoolLayer<T extends JudasSheepBodyEntity> extends LayerRe
         float f1;
         float f2;
 
-        if (p_225628_4_.hasWool()==1 && !p_225628_4_.isInvisible()) {
+        if (p_225628_4_.hasWoolBool() && !p_225628_4_.isInvisible()) {
 
             float[] afloat = SheepEntity.getColorArray(DyeColor.GRAY);
             f = afloat[0];

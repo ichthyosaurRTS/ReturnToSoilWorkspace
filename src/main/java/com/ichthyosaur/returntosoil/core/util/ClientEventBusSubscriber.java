@@ -37,6 +37,5 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBODY.get(), JudasSheepBodyRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBUTT.get(), JudasSheepButtRenderer::new);
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.SHEARABLEBODY.get(), ShearableBodyRenderer::new);
     }
 }

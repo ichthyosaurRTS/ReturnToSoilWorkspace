@@ -70,8 +70,4 @@ public class EntityTypesInit {
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_butt").toString()));
     //Judas Sheep end
 
-    public static final RegistryObject<EntityType<ShearableBodyEntity>> SHEARABLEBODY = ENTITY_TYPES.register("shearable_body",
-            () -> EntityType.Builder.of(ShearableBodyEntity::new, EntityClassification.CREATURE)
-                    .sized(0.6f,0.5f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "shearable_body").toString()));
 }
