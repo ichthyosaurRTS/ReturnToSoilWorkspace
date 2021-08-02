@@ -75,7 +75,7 @@ public class RefineryPlantPottedBlock extends Block {
             return ActionResultType.PASS;
         }
         else {
-            if (item == BlockItemInit.ORIGIN_BERRY_BUNCH_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
+            if (item == BlockItemInit.ORIGIN_JAM_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
 
                 int newFuelLevel = state.getValue(FUEL_LEVEL) + 1;
                 BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel);

@@ -33,8 +33,8 @@ public class BlockItemInit {
             new OriginBerryBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Item> ORIGIN_BERRY_SEED = ITEMS.register("origin_berry_seed", () ->
             new BlockNamedItem(ORIGIN_BERRY_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static Item originBerryBunchItem =  new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL));
-    public static final RegistryObject<Item> ORIGIN_BERRY_BUNCH_ITEM = ITEMS.register("origin_berry_bunch_item", () -> originBerryBunchItem);
+    public static final RegistryObject<Item> ORIGIN_JAM_ITEM = ITEMS.register("origin_jam_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     //lily lantern stuffs

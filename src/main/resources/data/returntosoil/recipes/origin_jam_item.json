@@ -1,0 +1,38 @@
+
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    },
+    {
+      "item": "returntosoil:origin_berry_item"
+    }
+  ],
+  "result": {
+    "item": "returntosoil:origin_jam_item",
+    "count": 1
+  }
+
+}

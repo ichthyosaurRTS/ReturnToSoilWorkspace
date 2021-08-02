@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "returntosoil:items/origin_berry_bunch_item"
-  }
-}
