@@ -9,6 +9,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.boss.dragon.EnderDragonPartEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.WolfEntity;
@@ -37,6 +38,8 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     private int idleTicks = 0;
     private Vector3d newIdlePos;
 
+    private final AbstractFlyingSegmentEntity[] subEntities = new AbstractFlyingSegmentEntity[(int)numberOfSegments];
+
     private double xVector;
     private double yVector;
     private double zVector;
@@ -48,6 +51,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     public JudasSheepHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
+
     }
 
     @Override
@@ -92,8 +96,12 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     public void tick() {
         super.tick();
         if (!hasSegments) {
-            this.createSegments(this, (int)0);
+            this.createSegments(this, 0);
             this.hasSegments = true;
+        }
+
+        for (AbstractFlyingSegmentEntity part:subEntities) {
+            part.tick();
         }
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
@@ -251,6 +259,8 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         segment.setLeader(leader);
         segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
         world.addFreshEntity(segment);
+
+        this.subEntities[segmentNumber] = segment;
 
         if (segmentNumber<this.numberOfSegments-1) createSegments(segment,segmentNumber+1);
     }
