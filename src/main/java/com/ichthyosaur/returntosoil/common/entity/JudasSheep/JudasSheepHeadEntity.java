@@ -101,7 +101,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         if (this.getTarget() != null) {
             if (this.getTarget().isAlive()) {
 
-                if (this.closerThan(this.getTarget(),1.5)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
+
 
                 if (this.getTick() < 10) {
                     Entity entity =  this.getTarget();
@@ -130,6 +130,8 @@ public class JudasSheepHeadEntity extends MonsterEntity {
                         this.xVector = this.xVector/3;
                         this.zVector = this.zVector/3;
                     }
+
+                    if (this.closerThan(this.getTarget(),1.5)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
 
                     this.lookAt(this.getTarget(),100,100);
 
@@ -233,7 +235,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
         if (segmentNumber == 0) {
             segment = EntityTypesInit.JUDASSHEEPBODY.get().create(world);
-            segment.setSpacing(0.8);
+            segment.setSpacing(0.9);
         }
 
         else if (segmentNumber<this.numberOfSegments-1) {

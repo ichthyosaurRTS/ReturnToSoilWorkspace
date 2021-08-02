@@ -1,5 +1,6 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
