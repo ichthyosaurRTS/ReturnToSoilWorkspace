@@ -20,14 +20,11 @@ public class JudasSheepBodyRenderer extends MobRenderer<JudasSheepBodyEntity, Ju
 
     public JudasSheepBodyRenderer(EntityRendererManager manager) {
         super(manager, new JudasSheepBodyModel<>(), 0.7f);
-        //this.addLayer(new JudasSheepWoolLayer<>(this));
-
-
+        this.addLayer(new JudasSheepWoolLayer<>(this));
     }
-
 
     @Override
     public ResourceLocation getTextureLocation(JudasSheepBodyEntity p_110775_1_) {
-        LOGGER.info(""+p_110775_1_.hasWool());
+        //LOGGER.info(""+p_110775_1_.hasWool());
         return TEXTURE; }
 }

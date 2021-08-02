@@ -84,7 +84,9 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
         return true;
     }
 
-
+    @Override
+    public void push(Entity p_70108_1_) {
+    }
 
     @Override
     public void tick() {

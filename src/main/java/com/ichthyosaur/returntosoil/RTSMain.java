@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil;
 
 
 import com.ichthyosaur.returntosoil.common.entity.*;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
 import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
@@ -61,6 +62,8 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBUTT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
+
+            GlobalEntityTypeAttributes.put(EntityTypesInit.SHEARABLEBODY.get(), ShearableBodyEntity.setCustomAttributes().build());
         });
     }
 

@@ -8,7 +8,7 @@ TODO
      models 0-7, textures and seeds(drop from husk larvae)
 
 1  Ball Frog:
-    panic, random swim (fake?), drops, bouncing movement
+    panic, random swim (fake?), drops, bouncing movement, isSwimmimg needs to be a data parameter
 
 1  Jaw Beetle:
     arms to sin waves & base rotation, super rare green jaw beetle drop

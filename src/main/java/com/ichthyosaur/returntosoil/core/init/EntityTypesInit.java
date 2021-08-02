@@ -60,14 +60,18 @@ public class EntityTypesInit {
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_head").toString()));
 
     public static final RegistryObject<EntityType<JudasSheepBodyEntity>> JUDASSHEEPBODY = ENTITY_TYPES.register("judas_sheep_body",
-            () -> EntityType.Builder.of(JudasSheepBodyEntity::new, EntityClassification.MONSTER)
+            () -> EntityType.Builder.of(JudasSheepBodyEntity::new, EntityClassification.CREATURE)
                     .sized(0.7f,0.7f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_body").toString()));
 
     public static final RegistryObject<EntityType<JudasSheepButtEntity>> JUDASSHEEPBUTT = ENTITY_TYPES.register("judas_sheep_butt",
-            () -> EntityType.Builder.of(JudasSheepButtEntity::new, EntityClassification.MONSTER)
+            () -> EntityType.Builder.of(JudasSheepButtEntity::new, EntityClassification.CREATURE)
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_butt").toString()));
     //Judas Sheep end
 
+    public static final RegistryObject<EntityType<ShearableBodyEntity>> SHEARABLEBODY = ENTITY_TYPES.register("shearable_body",
+            () -> EntityType.Builder.of(ShearableBodyEntity::new, EntityClassification.CREATURE)
+                    .sized(0.6f,0.5f)
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "shearable_body").toString()));
 }
