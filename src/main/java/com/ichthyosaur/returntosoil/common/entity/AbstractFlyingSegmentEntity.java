@@ -4,13 +4,17 @@ import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntit
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.UUID;
 
 
 public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
@@ -19,11 +23,25 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
     public Entity leader;
     double segmentSpaceFromLeader = 1.5;
     boolean noPhysics = true;
+    private UUID leaderUUID;
 
     protected AbstractFlyingSegmentEntity(EntityType<? extends FlyingEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 
+    public void addAdditionalSaveData(CompoundNBT NBT) {
+        super.addAdditionalSaveData(NBT);
+        NBT.putDouble("Spacing",this.segmentSpaceFromLeader);
+        if (this.getLeader()!=null) NBT.putUUID("Leader",this.getLeader().getUUID());
+    }
+
+    public void readAdditionalSaveData(CompoundNBT NBT) {
+        super.readAdditionalSaveData(NBT);
+        if (NBT.contains("Spacing")) this.segmentSpaceFromLeader = NBT.getDouble("Spacing");
+        if (NBT.hasUUID("Leader")) {
+            this.leaderUUID = NBT.getUUID("Leader");
+        }
+    }
 
     public void setSpacing (double spacing) {
         this.segmentSpaceFromLeader = spacing;
@@ -94,7 +112,14 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
 
         super.tick();
 
-        if (this.getLeader()==null) this.kill();
+        if (this.getLeader()==null) {
+            if (this.leaderUUID!=null) {
+                ServerWorld worldIn = (ServerWorld) this.getCommandSenderWorld();
+                this.setLeader(worldIn.getEntity(this.leaderUUID));
+            }
+            else this.kill();
+        }
+
         else {
             if (!this.getLeader().isAlive()) this.kill();
 

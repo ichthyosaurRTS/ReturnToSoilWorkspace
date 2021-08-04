@@ -21,10 +21,13 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
+import java.util.Optional;
+import java.util.UUID;
 
 public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
 
@@ -53,6 +56,7 @@ public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
         super.addAdditionalSaveData(NBT);
         NBT.putInt("HasWool", this.hasWool());
     }
+
 
     public void readAdditionalSaveData(CompoundNBT NBT) {
         super.readAdditionalSaveData(NBT);
@@ -92,6 +96,7 @@ public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
     @Override
     public void tick() {
         super.tick();
+
         //LOGGER.info(""+this.isSheared());
     }
 }

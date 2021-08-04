@@ -2,27 +2,30 @@ package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class BaruGaruEntity extends TameableEntity {
 
     //Lets use uuids next time rather than removing and respawning the segments every time the world restarts alright?
     public static final double segmentDistance = 0.7D;
     static final int segmentMaxNumber = 10;
-    private BaruGaruSegmentEntity[] segmentList = new BaruGaruSegmentEntity[segmentMaxNumber];
-    public boolean builtSegments = false; // on tick, will build the body.
+    private UUID[] segmentList = new UUID[segmentMaxNumber];
 
     public BaruGaruEntity(EntityType<? extends TameableEntity> p_i48574_1_, World p_i48574_2_) {
         super(p_i48574_1_, p_i48574_2_);
@@ -51,34 +54,7 @@ public class BaruGaruEntity extends TameableEntity {
 
     public void tick() {
        super.tick();
-
        //if (this.builtSegments&&this.segmentList[0] == null) this.builtSegments = false;
-
-       if(!this.builtSegments) {
-           for (int i = 0; i < segmentMaxNumber; i++) {
-
-               BaruGaruSegmentEntity segment;
-
-               World world = this.getCommandSenderWorld(); //not super sure about this one...
-
-               segment = EntityTypesInit.BARUGARUSEGMENT.get().create(world);
-
-               //if (i == 0) { segment.torsoParent = this; segment.first = true; } //if the 1st segment, make the torso the parent
-               if (i > 0) { segment.parent = this.segmentList[i-1]; segment.first = false;}//if another segment, make the previous segment the parent, set first segment to false
-               else segment.torsoParent = this;
-               segment.mainBody = this;
-
-               segment.tick = true; // only tick after we've added the parent and stuff
-
-               segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
-               world.addFreshEntity(segment);
-
-               this.segmentList[i] = segment;
-
-               //Logger.getLogger("Created segment#"+i);
-           }
-           this.builtSegments = true;
-       }
     }
 
 
@@ -86,7 +62,8 @@ public class BaruGaruEntity extends TameableEntity {
         for (int i = 0; i < segmentMaxNumber; i++) {
             if (this.segmentList[i] == null) {}
             else {
-                BaruGaruSegmentEntity segment = this.segmentList[i];
+                ServerWorld world = (ServerWorld) this.getCommandSenderWorld();
+                BaruGaruSegmentEntity segment = (BaruGaruSegmentEntity) world.getEntity(this.segmentList[i]);
                 segment.moveTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
             }
         }
@@ -108,6 +85,38 @@ public class BaruGaruEntity extends TameableEntity {
                 }
                 return super.mobInteract(player, hand);
         }}
+
+    public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
+        p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
+        createSegments(this,0);
+        return p_213386_4_;
+    }
+
+    private void createSegments(Entity leader, int number){
+
+        if(number<segmentMaxNumber) {
+
+            BaruGaruSegmentEntity segment;
+
+            World world = this.getCommandSenderWorld();
+
+            segment = EntityTypesInit.BARUGARUSEGMENT.get().create(world);
+
+            //if (i == 0) { segment.torsoParent = this; segment.first = true; } //if the 1st segment, make the torso the parent
+            segment.mainBody = this;
+            segment.leader = leader;
+
+            segment.moveTo((double) this.getX() + 0.5D, (double) this.getY(), (double) this.getZ() - 0.5D, 0.0F, 0.0F);
+            world.addFreshEntity(segment);
+
+            this.segmentList[number] = segment.getUUID();
+
+            createSegments(segment, number+1);
+            //Logger.getLogger("Created segment#"+i);
+        }
+
+    }
+
 
 
         @Override

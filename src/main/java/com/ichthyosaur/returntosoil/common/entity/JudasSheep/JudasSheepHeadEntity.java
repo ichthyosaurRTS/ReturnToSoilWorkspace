@@ -31,14 +31,13 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    boolean hasSegments = false;
     private final double numberOfSegments = 2;
 
     private int chargeTicks = 0;
     private int idleTicks = 0;
     private Vector3d newIdlePos;
 
-    private final AbstractFlyingSegmentEntity[] subEntities = new AbstractFlyingSegmentEntity[(int)numberOfSegments];
+    //private final AbstractFlyingSegmentEntity[] subEntities = new AbstractFlyingSegmentEntity[(int)numberOfSegments];
 
     private double xVector;
     private double yVector;
@@ -80,9 +79,10 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, WolfEntity.class, true));
     }
 
+
     public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
         p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
-        //createSegments(this,0);
+        createSegments(this,0);
         return p_213386_4_;
     }
 
@@ -95,14 +95,10 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     @Override
     public void tick() {
         super.tick();
-        if (!hasSegments) {
-            this.createSegments(this, 0);
-            this.hasSegments = true;
-        }
 
-        for (AbstractFlyingSegmentEntity part:subEntities) {
-            part.tick();
-        }
+        //for (AbstractFlyingSegmentEntity part:subEntities) {
+            //part.tick();
+        //}
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
@@ -260,7 +256,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
         world.addFreshEntity(segment);
 
-        this.subEntities[segmentNumber] = segment;
+        //this.subEntities[segmentNumber] = segment;
 
         if (segmentNumber<this.numberOfSegments-1) createSegments(segment,segmentNumber+1);
     }

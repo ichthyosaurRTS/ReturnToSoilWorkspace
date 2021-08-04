@@ -40,6 +40,12 @@ public class BallFrogEntity extends MonsterEntity {
         super(p_i48553_1_, p_i48553_2_);
     }
 
+    //this does world fyi
+    //@Override
+    //public EntitySize getDimensions(Pose p_213305_1_) {
+    //    return new EntitySize(3,3,true);
+    //}
+
     protected void registerGoals() {
         //this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 100.0, 10)); //speed mod and interval
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1D, false)); //that float is move mod

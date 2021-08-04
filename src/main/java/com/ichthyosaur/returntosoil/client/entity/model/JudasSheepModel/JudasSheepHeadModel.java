@@ -21,9 +21,11 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
     private final ModelRenderer cube_r2;
     private final ModelRenderer cube_r3;
     private final ModelRenderer cube_r4;
-    private final ModelRenderer horns;
     private final ModelRenderer cube_r5;
     private final ModelRenderer cube_r6;
+    private final ModelRenderer horns;
+    private final ModelRenderer cube_r7;
+    private final ModelRenderer cube_r8;
 
     public JudasSheepHeadModel() {
         texWidth = 128;
@@ -62,61 +64,73 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
         bottomjaw = new ModelRenderer(this);
         bottomjaw.setPos(0.0F, -1.5F, 5.5F);
         all.addChild(bottomjaw);
-        bottomjaw.texOffs(34, 24).addBox(-5.0F, -0.4F, -11.5F, 10.0F, 5.0F, 6.0F, 0.0F, false);
-        bottomjaw.texOffs(27, 35).addBox(-4.0F, 6.6F, -11.5F, 8.0F, 1.0F, 7.0F, 0.0F, false);
-        bottomjaw.texOffs(52, 50).addBox(-4.0F, 5.6F, -11.5F, 1.0F, 1.0F, 7.0F, 0.0F, false);
-        bottomjaw.texOffs(52, 50).addBox(3.0F, 5.6F, -11.5F, 1.0F, 1.0F, 7.0F, 0.0F, false);
+        bottomjaw.texOffs(29, 8).addBox(-5.0F, -0.4F, -11.5F, 10.0F, 5.0F, 6.0F, 0.0F, false);
+        bottomjaw.texOffs(35, 19).addBox(-4.0F, 6.6F, -11.5F, 8.0F, 1.0F, 7.0F, 0.0F, false);
+        bottomjaw.texOffs(34, 52).addBox(-4.0F, 5.6F, -11.5F, 1.0F, 1.0F, 7.0F, 0.0F, false);
+        bottomjaw.texOffs(34, 52).addBox(3.0F, 5.6F, -11.5F, 1.0F, 1.0F, 7.0F, 0.0F, false);
         bottomjaw.texOffs(0, 40).addBox(-2.0F, -2.5F, -10.5F, 4.0F, 6.0F, 7.0F, 0.0F, false);
-        bottomjaw.texOffs(50, 8).addBox(-2.0F, 0.5F, -15.5F, 4.0F, 5.0F, 6.0F, 0.0F, false);
-        bottomjaw.texOffs(0, 8).addBox(-4.0F, 1.5F, -13.0F, 8.0F, 3.0F, 13.0F, 0.0F, false);
-        bottomjaw.texOffs(29, 8).addBox(-2.5F, 6.5F, -14.0F, 5.0F, 2.0F, 11.0F, 0.0F, false);
-        bottomjaw.texOffs(0, 0).addBox(-2.5F, 5.5F, -15.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-        bottomjaw.texOffs(0, 0).addBox(1.5F, 5.5F, -15.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-        bottomjaw.texOffs(0, 8).addBox(1.0F, 0.5F, -16.5F, 1.0F, 7.0F, 1.0F, 0.0F, false);
-        bottomjaw.texOffs(4, 8).addBox(-1.0F, 3.5F, -16.5F, 2.0F, 2.0F, 1.0F, 0.0F, false);
-        bottomjaw.texOffs(0, 8).addBox(-2.0F, 0.5F, -16.5F, 1.0F, 7.0F, 1.0F, 0.0F, false);
+        bottomjaw.texOffs(18, 52).addBox(-2.0F, 0.5F, -13.5F, 4.0F, 5.0F, 4.0F, 0.0F, false);
+        bottomjaw.texOffs(25, 31).addBox(-2.5F, 6.5F, -12.0F, 5.0F, 2.0F, 9.0F, 0.0F, false);
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setPos(0.0F, 5.5F, -2.0F);
         bottomjaw.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.1309F, 0.0F, 0.0F);
-        cube_r2.texOffs(22, 43).addBox(-3.0F, -1.5F, -3.0F, 6.0F, 4.0F, 6.0F, 0.0F, false);
+        cube_r2.texOffs(22, 42).addBox(-3.0F, -1.5F, -3.0F, 6.0F, 4.0F, 6.0F, 0.0F, false);
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setPos(0.0F, 1.5F, -12.0F);
+        cube_r3.setPos(0.0F, 7.5F, -14.0F);
         bottomjaw.addChild(cube_r3);
-        setRotationAngle(cube_r3, 0.6109F, 0.0F, 0.0F);
-        cube_r3.texOffs(51, 37).addBox(-1.5F, -2.0F, -2.5F, 3.0F, 3.0F, 6.0F, 0.0F, false);
+        setRotationAngle(cube_r3, -0.1309F, 0.0F, 0.0F);
+        cube_r3.texOffs(58, 15).addBox(-1.5F, -1.5F, -1.5F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        cube_r3.texOffs(58, 15).addBox(0.5F, -1.5F, -1.5F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        cube_r3.texOffs(58, 15).addBox(-1.5F, -0.5F, -1.5F, 1.0F, 1.0F, 4.0F, 0.0F, false);
+        cube_r3.texOffs(58, 15).addBox(0.5F, -0.5F, -1.5F, 1.0F, 1.0F, 4.0F, 0.0F, false);
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setPos(4.5F, 4.6F, -8.5F);
+        cube_r4.setPos(0.0F, 3.5F, -15.0F);
         bottomjaw.addChild(cube_r4);
-        setRotationAngle(cube_r4, 0.1745F, 0.0F, 0.0F);
-        cube_r4.texOffs(26, 55).addBox(-0.7F, -1.0F, -2.8F, 1.0F, 2.0F, 6.0F, 0.0F, false);
-        cube_r4.texOffs(26, 55).addBox(-9.3F, -1.0F, -2.8F, 1.0F, 2.0F, 6.0F, 0.0F, false);
+        setRotationAngle(cube_r4, 0.1309F, 0.0F, 0.0F);
+        cube_r4.texOffs(0, 0).addBox(-1.5F, 1.5F, -1.5F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        cube_r4.texOffs(0, 0).addBox(0.5F, 1.5F, -1.5F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        cube_r4.texOffs(57, 27).addBox(0.5F, -1.5F, -1.5F, 1.0F, 3.0F, 4.0F, 0.0F, false);
+        cube_r4.texOffs(57, 27).addBox(-1.5F, -1.5F, -1.5F, 1.0F, 3.0F, 4.0F, 0.0F, false);
+
+        cube_r5 = new ModelRenderer(this);
+        cube_r5.setPos(0.0F, 1.5F, -12.0F);
+        bottomjaw.addChild(cube_r5);
+        setRotationAngle(cube_r5, 0.9163F, 0.0F, 0.0F);
+        cube_r5.texOffs(0, 53).addBox(-1.5F, -1.0F, -1.0F, 3.0F, 3.0F, 5.0F, 0.0F, false);
+
+        cube_r6 = new ModelRenderer(this);
+        cube_r6.setPos(4.5F, 4.6F, -8.5F);
+        bottomjaw.addChild(cube_r6);
+        setRotationAngle(cube_r6, 0.1745F, 0.0F, 0.0F);
+        cube_r6.texOffs(55, 2).addBox(-0.7F, -1.0F, -2.8F, 1.0F, 2.0F, 6.0F, 0.0F, false);
+        cube_r6.texOffs(55, 2).addBox(-9.3F, -1.0F, -2.8F, 1.0F, 2.0F, 6.0F, 0.0F, false);
 
         horns = new ModelRenderer(this);
         horns.setPos(0.0F, 7.0F, 0.0F);
         all.addChild(horns);
 
 
-        cube_r5 = new ModelRenderer(this);
-        cube_r5.setPos(0.0F, -10.0F, 6.0F);
-        horns.addChild(cube_r5);
-        setRotationAngle(cube_r5, 0.2182F, 0.0F, 0.0F);
-        cube_r5.texOffs(0, 53).addBox(-12.5F, 2.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
-        cube_r5.texOffs(0, 53).addBox(8.5F, 2.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
-        cube_r5.texOffs(16, 53).addBox(-12.5F, 4.0F, -6.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
-        cube_r5.texOffs(16, 53).addBox(8.5F, 4.0F, -6.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
-        cube_r5.texOffs(0, 0).addBox(-12.5F, -2.0F, -2.0F, 25.0F, 4.0F, 4.0F, 0.0F, false);
+        cube_r7 = new ModelRenderer(this);
+        cube_r7.setPos(0.0F, -10.0F, 6.0F);
+        horns.addChild(cube_r7);
+        setRotationAngle(cube_r7, 0.2182F, 0.0F, 0.0F);
+        cube_r7.texOffs(46, 42).addBox(-12.5F, 2.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
+        cube_r7.texOffs(46, 42).addBox(8.5F, 2.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
+        cube_r7.texOffs(50, 52).addBox(-12.5F, 4.0F, -6.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
+        cube_r7.texOffs(50, 52).addBox(8.5F, 4.0F, -6.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
+        cube_r7.texOffs(0, 0).addBox(-12.5F, -2.0F, -2.0F, 25.0F, 4.0F, 4.0F, 0.0F, false);
 
-        cube_r6 = new ModelRenderer(this);
-        cube_r6.setPos(10.5F, -4.0F, 0.5F);
-        horns.addChild(cube_r6);
-        setRotationAngle(cube_r6, -0.2182F, 0.0F, 0.0F);
-        cube_r6.texOffs(39, 46).addBox(-22.5F, -2.0F, -3.5F, 3.0F, 4.0F, 7.0F, 0.0F, false);
-        cube_r6.texOffs(39, 46).addBox(-1.5F, -2.0F, -3.5F, 3.0F, 4.0F, 7.0F, 0.0F, false);}
-
+        cube_r8 = new ModelRenderer(this);
+        cube_r8.setPos(10.5F, -4.0F, 0.5F);
+        horns.addChild(cube_r8);
+        setRotationAngle(cube_r8, -0.2182F, 0.0F, 0.0F);
+        cube_r8.texOffs(44, 27).addBox(-22.5F, -2.0F, -3.5F, 3.0F, 4.0F, 7.0F, 0.0F, false);
+        cube_r8.texOffs(44, 27).addBox(-1.5F, -2.0F, -3.5F, 3.0F, 4.0F, 7.0F, 0.0F, false);
+    }
 
 
     @Override
