@@ -2,7 +2,9 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
+import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.ItemStack;
@@ -16,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 import java.util.logging.Logger;
 
-public class RTSCropsBlock extends CropsBlock {
+public abstract class RTSCropsBlock extends CropsBlock {
 
     IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
     BooleanProperty INFESTED = RTSMain.INFESTED;
@@ -36,43 +38,49 @@ public class RTSCropsBlock extends CropsBlock {
         return i;
     }
 
-    BlockState nextAgeWithoutRotation(BlockState state, Integer newAge) {
+    public BlockState nextAgeWithoutRotation(BlockState state, Integer newAge) {
         boolean infested = state.getValue(INFESTED);
-        if (newAge==7&&rollChance(40)) infested = true;
+        if (newAge==7&&rollChance.roll(40)) infested = true;
         BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(INFESTED,infested); //
         return block;
     }
 
     // Returns a new state with the same rotation and infestation but different age
     // This is where the infestation occurs, transitioning from 6-7
-    BlockState nextAgeWithRotation(BlockState state, Integer newAge) {
+    public BlockState nextAgeWithRotation(BlockState state, Integer newAge) {
         Integer i = state.getValue(ROTATION);
         boolean infested = state.getValue(INFESTED);
-        if (newAge==7&&rollChance(40)) infested = true;
+        if (newAge==7&&rollChance.roll(40)) infested = true; //normally 40
         BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested); //
         return block;
     }
 
-    BlockState nextAgeWithRotationWithLit(BlockState state, Integer newAge) {
+    public BlockState nextAgeWithRotationWithLit(BlockState state, Integer newAge) {
         Integer i = state.getValue(ROTATION);
         boolean infested = state.getValue(INFESTED);
         boolean lit = false;
-        if (newAge==7&&rollChance(40)) { infested = true; lit = false; }
+        if (newAge==7&&rollChance.roll(40)) { infested = true; lit = false; }
         else lit = newAge == 6;
         BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested).setValue(LIT,lit); //
         return block;
     }
 
-    Boolean rollChance (int denominator) {
-        Random rand = new Random();
-        return rand.nextInt(denominator) == 0;
-    }
 
     // From silverfish block
-    public void spawnLarvae(ServerWorld p_235505_1_, BlockPos p_235505_2_) {
+    public static void spawnLarvae(ServerWorld p_235505_1_, BlockPos p_235505_2_) {
         HuskLarvaeEntity huskLarvaeEntity = EntityTypesInit.HUSKLARVAE.get().create(p_235505_1_);
         huskLarvaeEntity.moveTo((double)p_235505_2_.getX() + 0.5D, (double)p_235505_2_.getY(), (double)p_235505_2_.getZ() + 0.5D, 0.0F, 0.0F);
         p_235505_1_.addFreshEntity(huskLarvaeEntity);
+    }
+
+    public static void spawnJawBeetle(ServerWorld world, BlockPos pos) {
+        JawBeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
+        if (entity!=null) {
+            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+            entity.setColourIntData();
+            world.addFreshEntity(entity);
+        }
+        world.removeBlock(pos,false);
     }
 
     // despite being deprecated, still works fine..?

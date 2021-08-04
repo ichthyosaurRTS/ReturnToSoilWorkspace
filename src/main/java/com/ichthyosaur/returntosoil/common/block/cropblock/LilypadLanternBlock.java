@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -73,8 +74,8 @@ public class LilypadLanternBlock extends RTSCropsBlock{
                 }
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                if (rollChance(10)) spawnBallFrog(worldIn, pos); //normally 10
-                else if (rollChance(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde
+                if (rollChance.roll(10)) spawnBallFrog(worldIn, pos); //normally 10
+                else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde
                 //else if (rollChance(300)) spawnBaruGaru(worldIn, pos);
             }
         }
@@ -88,7 +89,7 @@ public class LilypadLanternBlock extends RTSCropsBlock{
 
         if (state.getValue(AGE)==6) {}//for glowing fruit
         else if (state.getValue(AGE)==7)  {
-            if (rollChance(4)) drops.add(new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get())); }//+non glowing fruit
+            if (rollChance.roll(4)) drops.add(new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get())); }//+non glowing fruit
         else drops.add(new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get()));
 
         return drops;
@@ -111,7 +112,7 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         return false;
     }
 
-    private void spawnBallFrog(ServerWorld world, BlockPos pos) {
+    private static void spawnBallFrog(ServerWorld world, BlockPos pos) {
         BallFrogEntity entity = EntityTypesInit.BALLFROG.get().create(world);
         if (entity!=null) {
             entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);

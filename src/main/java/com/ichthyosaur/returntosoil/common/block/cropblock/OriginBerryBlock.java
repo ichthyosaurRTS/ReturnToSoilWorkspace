@@ -5,6 +5,7 @@ import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -64,7 +65,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
         if (state.getValue(AGE)==7) {
             drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get()));
 
-            if (rollChance(4))
+            if (rollChance.roll(4))
             drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get()));
         }
         return drops;
@@ -81,27 +82,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
         return this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
     }
 
-    // Grows in here too, like a cactus...
-    @ParametersAreNonnullByDefault
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        if (worldIn.getRawBrightness(pos, 0) >= 9) {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge()) {
-                float f = getGrowthSpeed(this, worldIn, pos);
-                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
-                    {
-                    worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-                }
-            }
-            if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                if (rollChance(10)) spawnJawBeetle(worldIn, pos); //normally 10
-                else if (rollChance(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde
-                else if (rollChance(500)) spawnBaruGaru(worldIn, pos);
-            }
-        }
-    }
+
 
     // When infested or less than 7 old, randomly ticks. Guess there's some unneeded code upstairs...
     public boolean isRandomlyTicking(BlockState state) {
@@ -119,18 +100,34 @@ public class OriginBerryBlock extends RTSCropsBlock {
         world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
     }
 
-
-    private void spawnJawBeetle(ServerWorld world, BlockPos pos) {
-        JawBeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
-        if (entity!=null) {
-            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
-            entity.setColourIntData();
-            world.addFreshEntity(entity);
+    //think tis has to be in this class bc of whether it uses rotation or not
+    @ParametersAreNonnullByDefault
+    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+        if (worldIn.getRawBrightness(pos, 0) >= 9) {
+            int i = this.getAge(state);
+            if (i < this.getMaxAge()) {
+                float f = getGrowthSpeed(this, worldIn, pos);
+                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
+                {
+                    worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
+                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+                }
+            }
+            else if (i == this.getMaxAge() && state.getValue(INFESTED)){
+                this.rollPestSpawn(worldIn, pos);
+            }
         }
-        world.removeBlock(pos,false);
     }
 
-    private void spawnBaruGaru(ServerWorld world, BlockPos pos) {
+    private void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+        if (rollChance.roll(10)) spawnJawBeetle(worldIn, pos); //normally 10
+        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
+        else if (rollChance.roll(500)) spawnBaruGaru(worldIn, pos); // normally 500
+    }
+
+
+    private static void spawnBaruGaru(ServerWorld world, BlockPos pos) {
         BaruGaruEntity entity = EntityTypesInit.BARUGARU.get().create(world);
         if (entity!=null) {
             entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);

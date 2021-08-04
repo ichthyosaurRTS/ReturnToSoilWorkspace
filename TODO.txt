@@ -23,8 +23,10 @@ TODO
 1  Ghost Ram:
     proper model, proper texture; shear use; remember target; 'breathing' anim; fix strange out of position bug; burn in daylight?
 
-1  General flying serpent segment entity class:
+1  General Abstract flying serpent segment entity class:
     Remember parent entity, max rotation parent to child
+
+1  General stored flying segment class
 
 
 2  Elder elder polu
