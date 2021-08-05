@@ -1,8 +1,6 @@
-package com.ichthyosaur.returntosoil.common.entity.JudasSheep;
+package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
-import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.item.ItemEntity;
@@ -21,13 +19,10 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
-import java.util.Optional;
-import java.util.UUID;
 
 public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
 

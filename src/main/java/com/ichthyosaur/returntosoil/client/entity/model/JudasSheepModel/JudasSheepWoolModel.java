@@ -1,9 +1,7 @@
 package com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel;
 
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
-import net.minecraft.client.renderer.entity.model.QuadrupedModel;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepBodyEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.passive.SheepEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.LogManager;

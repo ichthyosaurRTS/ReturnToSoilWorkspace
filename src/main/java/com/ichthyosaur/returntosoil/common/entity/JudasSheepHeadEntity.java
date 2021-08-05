@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.entity.JudasSheep;
+package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
@@ -10,7 +10,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.boss.dragon.EnderDragonPartEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.WolfEntity;
@@ -211,7 +210,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
             //IDLE MOVEMENT START
             if (this.idleTicks == 0) {
-                this.newIdlePos = this.generateAirPos();
+                this.newIdlePos = this.generateAirPos(0);
                 this.lookAt(EntityAnchorArgument.Type.EYES,this.newIdlePos);
 
                 this.xIdleVector = this.getLookAngle().x/60; //why is this not changing?
@@ -239,22 +238,20 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
         }
 
-
-
-        //LOGGER.info("x look : "+this.getLookAngle().x);
-
-
     }
 
-    private Vector3d generateAirPos () {
+    private Vector3d generateAirPos (int numberOfTries) {
+
+        if (numberOfTries == 3) return this.position();
+
         Vector3d newPos = new Vector3d(
                 this.getX() + (rollChance.returnRoll(31)-16),
                 this.getY() + (rollChance.returnRoll(9)-7),
                 this.getZ() + (rollChance.returnRoll(31)-16));
         BlockPos blockPos = new BlockPos(newPos);
 
-        if (this.level.getBlockState(blockPos).getBlock() == Blocks.AIR) return newPos;
-        else return generateAirPos();
+        if (this.level.getBlockState(blockPos).getBlock() == Blocks.AIR || this.level.getBlockState(blockPos).getBlock() == Blocks.WATER) return newPos;
+        else return generateAirPos(numberOfTries + 1);
     }
 
     public boolean isPushedByFluid() {

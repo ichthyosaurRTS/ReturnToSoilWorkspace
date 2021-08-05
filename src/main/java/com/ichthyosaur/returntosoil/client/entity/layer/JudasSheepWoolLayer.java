@@ -1,14 +1,11 @@
-package com.ichthyosaur.returntosoil.client.entity.ExtraLayer;
+package com.ichthyosaur.returntosoil.client.entity.layer;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruSegmentModel;
 import com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel.JudasSheepBodyModel;
 import com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel.JudasSheepWoolModel;
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepBodyEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.passive.SheepEntity;

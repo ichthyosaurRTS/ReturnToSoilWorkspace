@@ -1,10 +1,9 @@
-package com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer;
+package com.ichthyosaur.returntosoil.client.entity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.client.entity.ExtraLayer.JudasSheepWoolLayer;
+import com.ichthyosaur.returntosoil.client.entity.layer.JudasSheepWoolLayer;
 import com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel.JudasSheepBodyModel;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
-import net.minecraft.client.renderer.culling.ClippingHelper;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepBodyEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

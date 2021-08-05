@@ -2,9 +2,8 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.*;
-import com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer.JudasSheepBodyRenderer;
-import com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer.JudasSheepButtRenderer;
-import com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer.JudasSheepHeadRenderer;
+import com.ichthyosaur.returntosoil.client.entity.JudasSheepBodyRenderer;
+import com.ichthyosaur.returntosoil.client.entity.JudasSheepHeadRenderer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.client.renderer.RenderType;
@@ -35,7 +34,6 @@ public class ClientEventBusSubscriber {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBODY.get(), JudasSheepBodyRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBUTT.get(), JudasSheepButtRenderer::new);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GENERALFLYINGSEGMENT.get(), GeneralFlyingSegmentRenderer::new);
     }

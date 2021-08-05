@@ -1,8 +1,8 @@
-package com.ichthyosaur.returntosoil.client.entity.JudasSheepRenderer;
+package com.ichthyosaur.returntosoil.client.entity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel.JudasSheepHeadModel;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepHeadEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.client.entity.ExtraLayer;
+package com.ichthyosaur.returntosoil.client.entity.layer;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruSegmentModel;

@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel;
 
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepHeadEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;

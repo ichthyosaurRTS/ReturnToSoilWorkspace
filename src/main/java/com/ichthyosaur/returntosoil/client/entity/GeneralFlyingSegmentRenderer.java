@@ -1,12 +1,9 @@
 package com.ichthyosaur.returntosoil.client.entity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.client.entity.ExtraLayer.JudasSheepWoolLayer;
-import com.ichthyosaur.returntosoil.client.entity.GeneralFlyingSegmentLayers.GeneralFlyingSegmentLayer;
+import com.ichthyosaur.returntosoil.client.entity.layer.GeneralFlyingSegmentLayer;
 import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
-import com.ichthyosaur.returntosoil.client.entity.model.JudasSheepModel.JudasSheepBodyModel;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

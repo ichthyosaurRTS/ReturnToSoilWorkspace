@@ -2,9 +2,8 @@ package com.ichthyosaur.returntosoil.core.init;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.*;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepBodyEntity;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepButtEntity;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepHeadEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepBodyEntity;
+import com.ichthyosaur.returntosoil.common.entity.JudasSheepHeadEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -64,10 +63,6 @@ public class EntityTypesInit {
                     .sized(0.7f,0.7f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_body").toString()));
 
-    public static final RegistryObject<EntityType<JudasSheepButtEntity>> JUDASSHEEPBUTT = ENTITY_TYPES.register("judas_sheep_butt",
-            () -> EntityType.Builder.of(JudasSheepButtEntity::new, EntityClassification.CREATURE)
-                    .sized(0.3f,0.3f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_butt").toString()));
     //Judas Sheep end
 
     public static final RegistryObject<EntityType<GeneralFlyingSegmentEntity>> GENERALFLYINGSEGMENT = ENTITY_TYPES.register("general_flying_segment",

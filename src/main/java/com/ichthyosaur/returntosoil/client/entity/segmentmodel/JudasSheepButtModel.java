@@ -1,11 +1,7 @@
-package com.ichthyosaur.returntosoil.client.entity.GeneralFlyingSegmentLayers;
+package com.ichthyosaur.returntosoil.client.entity.segmentmodel;
 
 import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheep.JudasSheepButtEntity;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 public class JudasSheepButtModel <T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
