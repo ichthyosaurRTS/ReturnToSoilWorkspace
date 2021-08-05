@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.entity.JudasSheep;
 
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
+import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Blocks;
@@ -281,8 +282,9 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         }
 
         else {
-            segment = EntityTypesInit.JUDASSHEEPBUTT.get().create(world);
+            segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
             segment.setSpacing(1.3);
+            ((GeneralFlyingSegmentEntity) segment).setModelString("JudasSheepButt");
         }
 
         segment.setLeader(leader);

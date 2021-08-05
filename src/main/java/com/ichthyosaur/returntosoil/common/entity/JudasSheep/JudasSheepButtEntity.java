@@ -16,6 +16,5 @@ public class JudasSheepButtEntity extends AbstractFlyingSegmentEntity {
     @Override
     public void tick() {
         super.tick();
-        //this.setDeltaMovement(this.getDeltaMovement().add(0, -0.002, 0));
     }
 }

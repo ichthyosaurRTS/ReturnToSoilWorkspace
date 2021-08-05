@@ -204,7 +204,6 @@ public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityM
         this.all.xRot = headPitch * ((float)Math.PI / 180F);
         this.all.yRot = netHeadYaw * ((float)Math.PI / 180F);
 
-
     }
 
     @Override

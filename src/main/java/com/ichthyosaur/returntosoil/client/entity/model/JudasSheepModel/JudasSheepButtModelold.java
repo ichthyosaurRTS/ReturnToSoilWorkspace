@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 
 import java.util.logging.Logger;
 
-public class JudasSheepButtModel<T extends JudasSheepButtEntity> extends EntityModel<T> {
+public class JudasSheepButtModelold<T extends JudasSheepButtEntity> extends EntityModel<T > {
     Logger logger = Logger.getLogger("logger");;
 
     private final ModelRenderer all;
@@ -27,7 +27,7 @@ public class JudasSheepButtModel<T extends JudasSheepButtEntity> extends EntityM
     private final ModelRenderer cube_r6;
     private final ModelRenderer cube_r7;
 
-    public JudasSheepButtModel() {
+    public JudasSheepButtModelold() {
         texWidth = 32;
         texHeight = 32;
 

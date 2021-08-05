@@ -70,4 +70,9 @@ public class EntityTypesInit {
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_butt").toString()));
     //Judas Sheep end
 
+    public static final RegistryObject<EntityType<GeneralFlyingSegmentEntity>> GENERALFLYINGSEGMENT = ENTITY_TYPES.register("general_flying_segment",
+            () -> EntityType.Builder.of(GeneralFlyingSegmentEntity::new, EntityClassification.CREATURE)
+                    .sized(0.3f,0.3f)
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "general_flying_segment").toString()));
+
 }
