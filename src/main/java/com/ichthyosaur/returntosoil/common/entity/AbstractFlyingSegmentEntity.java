@@ -35,6 +35,10 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
         if (this.getLeader()!=null) NBT.putUUID("Leader",this.getLeader().getUUID());
     }
 
+    public boolean removeWhenFarAway(double p_213397_1_) {
+        return false;
+    }
+
     public void readAdditionalSaveData(CompoundNBT NBT) {
         super.readAdditionalSaveData(NBT);
         if (NBT.contains("Spacing")) this.segmentSpaceFromLeader = NBT.getDouble("Spacing");

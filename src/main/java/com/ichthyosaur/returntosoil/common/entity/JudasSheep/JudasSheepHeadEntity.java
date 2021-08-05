@@ -56,6 +56,10 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     }
 
+    public boolean removeWhenFarAway(double p_213397_1_) {
+        return false;
+    }
+
     @Override
     public boolean canCollideWith(Entity p_241849_1_) {
         return false;

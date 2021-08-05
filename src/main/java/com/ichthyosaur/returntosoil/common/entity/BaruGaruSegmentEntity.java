@@ -32,6 +32,10 @@ public class BaruGaruSegmentEntity extends CreatureEntity {
         super(p_i48553_1_, p_i48553_2_);
     }
 
+    public boolean removeWhenFarAway(double p_213397_1_) {
+        return false;
+    }
+
     public void addAdditionalSaveData(CompoundNBT NBT) {
         super.addAdditionalSaveData(NBT);
         if (this.leader!=null) NBT.putUUID("Leader",this.leader.getUUID());
