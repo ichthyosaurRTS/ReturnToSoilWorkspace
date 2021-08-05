@@ -117,19 +117,21 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     private void setTick(int tick){this.chargeTicks=tick;}
 
 
+    private void tickParts(){
+        ServerWorld world = (ServerWorld) this.getCommandSenderWorld();
+        for (UUID partUUID:subEntities) {
+            if (world.getEntity(partUUID)!=null) world.getEntity(partUUID).tick();
+            //LOGGER.info("NOW TICKING: "+world.getEntity(partUUID));
+            }
+    }
 
     @Override
     public void tick() {
         super.tick();
 
         if (!this.level.isClientSide()&&this.subEntities[0]!=null) {
-            ServerWorld world = (ServerWorld) this.getCommandSenderWorld();
-            for (UUID partUUID:subEntities) {
-                if (world.getEntity(partUUID)!=null) world.getEntity(partUUID).tick();
-                LOGGER.info("NOW TICKING: "+world.getEntity(partUUID));
-        }}
-
-
+            this.tickParts();
+        }
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
