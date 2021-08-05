@@ -52,6 +52,28 @@ public class BaruGaruEntity extends TameableEntity {
 
     }
 
+    public void addAdditionalSaveData(CompoundNBT NBT) {
+        super.addAdditionalSaveData(NBT);
+
+        for (int i = 0; i < this.segmentList.length; i++) {
+            if (this.segmentList[i] != null) {
+                NBT.putUUID("subEntity"+i, this.segmentList[i]);
+            }
+        }
+
+    }
+
+
+    public void readAdditionalSaveData(CompoundNBT NBT) {
+        super.readAdditionalSaveData(NBT);
+
+        if(this.segmentList[0] == null && NBT.contains("subEntity0")) {
+            for (int i = 0; i < this.segmentList.length; i++) {
+                this.segmentList[i] = NBT.getUUID("subEntity"+i); }
+        }
+
+    }
+
     public void tick() {
        super.tick();
        //if (this.builtSegments&&this.segmentList[0] == null) this.builtSegments = false;

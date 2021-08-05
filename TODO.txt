@@ -21,7 +21,7 @@ TODO
 1  Rotation 0-15 to 0-3
 
 1  Ghost Ram:
-    proper model, proper texture; shear use; remember target; 'breathing' anim; fix strange out of position bug; burn in daylight?
+       'breathing' anim; fix strange out of position bug; burn in daylight; wool model overlap fix; tick parts
 
 1  General Abstract flying serpent segment entity class:
     Remember parent entity, max rotation parent to child

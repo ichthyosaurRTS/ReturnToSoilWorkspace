@@ -21,10 +21,12 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 //powerful attack, slow and easy to avoid
 public class JudasSheepHeadEntity extends MonsterEntity {
@@ -37,7 +39,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     private int idleTicks = 0;
     private Vector3d newIdlePos;
 
-    //private final AbstractFlyingSegmentEntity[] subEntities = new AbstractFlyingSegmentEntity[(int)numberOfSegments];
+    private final UUID[] subEntities = new UUID[(int)numberOfSegments];
 
     private double xVector;
     private double yVector;
@@ -86,19 +88,48 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         return p_213386_4_;
     }
 
+    public void addAdditionalSaveData(CompoundNBT NBT) {
+        super.addAdditionalSaveData(NBT);
+
+        for (int i = 0; i < this.subEntities.length; i++) {
+            if (this.subEntities[i] != null) {
+                NBT.putUUID("subEntity"+i, this.subEntities[i]);
+            }
+        }
+
+    }
+
+
+    public void readAdditionalSaveData(CompoundNBT NBT) {
+        super.readAdditionalSaveData(NBT);
+
+        if(this.subEntities[0] == null && NBT.contains("subEntity0")) {
+            for (int i = 0; i < this.subEntities.length; i++) {
+                this.subEntities[i] = NBT.getUUID("subEntity"+i); }
+        }
+
+    }
+
 
     private void tickUp(){this.chargeTicks+=1;}
     private void tickZero(){this.chargeTicks=0;}
     private int getTick(){return this.chargeTicks;}
     private void setTick(int tick){this.chargeTicks=tick;}
 
+
+
     @Override
     public void tick() {
         super.tick();
 
-        //for (AbstractFlyingSegmentEntity part:subEntities) {
-            //part.tick();
-        //}
+        if (!this.level.isClientSide()&&this.subEntities[0]!=null) {
+            ServerWorld world = (ServerWorld) this.getCommandSenderWorld();
+            for (UUID partUUID:subEntities) {
+                if (world.getEntity(partUUID)!=null) world.getEntity(partUUID).tick();
+                LOGGER.info("NOW TICKING: "+world.getEntity(partUUID));
+        }}
+
+
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
@@ -249,14 +280,14 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
         else {
             segment = EntityTypesInit.JUDASSHEEPBUTT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.3);
         }
 
         segment.setLeader(leader);
         segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
         world.addFreshEntity(segment);
 
-        //this.subEntities[segmentNumber] = segment;
+        this.subEntities[segmentNumber] = segment.getUUID();
 
         if (segmentNumber<this.numberOfSegments-1) createSegments(segment,segmentNumber+1);
     }

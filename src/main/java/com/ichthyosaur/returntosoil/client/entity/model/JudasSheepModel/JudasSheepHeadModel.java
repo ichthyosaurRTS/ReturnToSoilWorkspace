@@ -12,11 +12,9 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
     Logger logger = Logger.getLogger("logger");;
 
     private final ModelRenderer all;
+    private final ModelRenderer movedforward;
     private final ModelRenderer block;
     private final ModelRenderer cube_r1;
-    private final ModelRenderer nose;
-    private final ModelRenderer topjaw;
-    private final ModelRenderer eyesocket;
     private final ModelRenderer bottomjaw;
     private final ModelRenderer cube_r2;
     private final ModelRenderer cube_r3;
@@ -35,9 +33,14 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
         all.setPos(0.0F, 17.0F, -1.0F);
 
 
+        movedforward = new ModelRenderer(this);
+        movedforward.setPos(0.0F, 0.0F, -4.0F);
+        all.addChild(movedforward);
+
+
         block = new ModelRenderer(this);
         block.setPos(0.0F, 7.0F, 0.0F);
-        all.addChild(block);
+        movedforward.addChild(block);
 
 
         cube_r1 = new ModelRenderer(this);
@@ -46,24 +49,9 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
         setRotationAngle(cube_r1, 0.1745F, 0.0F, 0.0F);
         cube_r1.texOffs(0, 24).addBox(-4.5F, -3.5F, -4.5F, 9.0F, 8.0F, 8.0F, 0.0F, false);
 
-        nose = new ModelRenderer(this);
-        nose.setPos(0.0F, 7.0F, 0.0F);
-        all.addChild(nose);
-
-
-        topjaw = new ModelRenderer(this);
-        topjaw.setPos(0.0F, 7.0F, 0.0F);
-        all.addChild(topjaw);
-
-
-        eyesocket = new ModelRenderer(this);
-        eyesocket.setPos(0.0F, 7.0F, 0.0F);
-        all.addChild(eyesocket);
-
-
         bottomjaw = new ModelRenderer(this);
         bottomjaw.setPos(0.0F, -1.5F, 5.5F);
-        all.addChild(bottomjaw);
+        movedforward.addChild(bottomjaw);
         bottomjaw.texOffs(29, 8).addBox(-5.0F, -0.4F, -11.5F, 10.0F, 5.0F, 6.0F, 0.0F, false);
         bottomjaw.texOffs(35, 19).addBox(-4.0F, 6.6F, -11.5F, 8.0F, 1.0F, 7.0F, 0.0F, false);
         bottomjaw.texOffs(34, 52).addBox(-4.0F, 5.6F, -11.5F, 1.0F, 1.0F, 7.0F, 0.0F, false);
@@ -111,7 +99,7 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
 
         horns = new ModelRenderer(this);
         horns.setPos(0.0F, 7.0F, 0.0F);
-        all.addChild(horns);
+        movedforward.addChild(horns);
 
 
         cube_r7 = new ModelRenderer(this);
@@ -131,6 +119,7 @@ public class JudasSheepHeadModel<T extends JudasSheepHeadEntity> extends EntityM
         cube_r8.texOffs(44, 27).addBox(-22.5F, -2.0F, -3.5F, 3.0F, 4.0F, 7.0F, 0.0F, false);
         cube_r8.texOffs(44, 27).addBox(-1.5F, -2.0F, -3.5F, 3.0F, 4.0F, 7.0F, 0.0F, false);
     }
+
 
 
     @Override

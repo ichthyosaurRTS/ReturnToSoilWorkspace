@@ -14,17 +14,17 @@ public class JudasSheepWoolModel<T extends JudasSheepBodyEntity> extends JudasSh
 
     public static final Logger LOGGER = LogManager.getLogger();
 
+    private final ModelRenderer wool;
+
     public JudasSheepWoolModel() {
-        super();
+        //super();
         texWidth = 128;
         texHeight = 128;
 
-
-        ModelRenderer wool = new ModelRenderer(this);
+        wool = new ModelRenderer(this);
         wool.setPos(0.0F, 0.0F, 0.0F);
         all.addChild(wool);
-        wool.texOffs(0, 0).addBox(-10.0F, -8.0F, -11.0F, 20.0F, 14.0F, 24.0F, 0.0F, false);
-
+        wool.texOffs(0, 0).addBox(-10.0F, -9.0F, -11.0F, 20.0F, 18.0F, 21.0F, 0.0F, false);
     }
 
 }

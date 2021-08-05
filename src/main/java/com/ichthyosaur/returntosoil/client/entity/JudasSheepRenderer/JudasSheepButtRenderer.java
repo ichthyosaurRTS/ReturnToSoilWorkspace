@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class JudasSheepButtRenderer extends MobRenderer<JudasSheepButtEntity, JudasSheepButtModel<JudasSheepButtEntity>> {
 
-    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/judas_sheep/judas_sheep_body.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/judas_sheep/judas_sheep_butt.png");
 
     public JudasSheepButtRenderer(EntityRendererManager manager) {
         super(manager, new JudasSheepButtModel<>(), 0.7f);

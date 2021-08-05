@@ -35,7 +35,7 @@ public class BaruGaruSegmentEntity extends CreatureEntity {
     public void addAdditionalSaveData(CompoundNBT NBT) {
         super.addAdditionalSaveData(NBT);
         if (this.leader!=null) NBT.putUUID("Leader",this.leader.getUUID());
-        NBT.putUUID("mainBody", this.mainBody.getUUID());
+        if (this.mainBody!=null) NBT.putUUID("mainBody", this.mainBody.getUUID());
     }
 
     public void readAdditionalSaveData(CompoundNBT NBT) {
@@ -83,6 +83,9 @@ public class BaruGaruSegmentEntity extends CreatureEntity {
             if (this.leader == null)
                 if (this.leaderUUID == null) this.kill();
                 else this.leader = world.getEntity(this.leaderUUID);
+        }
+
+        if (this.mainBody != null && this.leader != null) {
 
             double xPos = this.getX();
             double zPos = this.getZ();
@@ -166,7 +169,8 @@ public class BaruGaruSegmentEntity extends CreatureEntity {
             }
         }
     }
-        }
+    }
+
 
 
 
