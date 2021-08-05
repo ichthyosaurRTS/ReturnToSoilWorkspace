@@ -115,8 +115,9 @@ public class JudasSheepButtModel <T extends GeneralFlyingSegmentEntity> extends 
         hips.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.1309F, 0.1309F, 0.0F);
         cube_r7.texOffs(9, 14).addBox(-1.5F, -0.5F, -2.5F, 2.0F, 2.0F, 5.0F, 0.0F, false);
-    }
 
+
+    }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.xRot = x;

@@ -17,8 +17,6 @@ public class BallFrogRenderer extends MobRenderer<BallFrogEntity, BallFrogModel<
 
     }
 
-    //Doesn't actually transfer across whether swimming
-    //I THINK IT CAN ONLY RETRIEVE DATA IN THE FORM OF DATA PARAMETERS!!!!!
 
     @Override
     public ResourceLocation getTextureLocation(BallFrogEntity entity) {

@@ -24,6 +24,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
 
     protected void defineSynchedData() {
         super.defineSynchedData();
+
         this.entityData.define(ENTITY_MODEL,"empty");
     }
 

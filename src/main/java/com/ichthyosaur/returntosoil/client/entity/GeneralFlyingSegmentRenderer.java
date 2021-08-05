@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 public class GeneralFlyingSegmentRenderer extends MobRenderer<GeneralFlyingSegmentEntity, EmptyModel<GeneralFlyingSegmentEntity>> {
 
     public GeneralFlyingSegmentRenderer(EntityRendererManager manager) {
-        super(manager, new EmptyModel<>(), 0.7f);
+        super(manager, new EmptyModel<>(), 0.3f);
         this.addLayer(new GeneralFlyingSegmentLayer<>(this));
     }
 
