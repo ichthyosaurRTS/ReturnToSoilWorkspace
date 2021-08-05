@@ -33,13 +33,13 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    private final double numberOfSegments = 2;
+    private final double numberOfSegments = 3;
+    private final UUID[] subEntities = new UUID[(int)numberOfSegments];
+
 
     private int chargeTicks = 0;
     private int idleTicks = 0;
     private Vector3d newIdlePos;
-
-    private final UUID[] subEntities = new UUID[(int)numberOfSegments];
 
     private double xVector;
     private double yVector;
@@ -52,7 +52,6 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     public JudasSheepHeadEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
-
     }
 
     public boolean removeWhenFarAway(double p_213397_1_) {
@@ -102,7 +101,6 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         }
 
     }
-
 
     public void readAdditionalSaveData(CompoundNBT NBT) {
         super.readAdditionalSaveData(NBT);
@@ -172,7 +170,11 @@ public class JudasSheepHeadEntity extends MonsterEntity {
                         this.zVector = this.zVector/3;
                     }
 
-                    if (this.closerThan(this.getTarget(),1.5)) this.getTarget().hurt(DamageSource.mobAttack(this),20);
+                    //CHARGE DAMAGE SECTION
+                    if (this.closerThan(this.getTarget(),1.5)) {
+                        this.getTarget().setDeltaMovement(this.getTarget().getDeltaMovement().add(this.xVector*500,1,this.zVector*500));
+                        this.getTarget().hurt(DamageSource.mobAttack(this),20);
+                    }
 
                     this.lookAt(this.getTarget(),100,100);
 

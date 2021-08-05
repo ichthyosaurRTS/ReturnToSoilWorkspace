@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityModel<T> {
     Logger logger = Logger.getLogger("logger");;
 
+    private double counter = -3.14;
+
     public final ModelRenderer all;
     private final ModelRenderer spine;
     private final ModelRenderer cube_r1;
@@ -204,6 +206,19 @@ public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityM
         this.all.xRot = headPitch * ((float)Math.PI / 180F);
         this.all.yRot = netHeadYaw * ((float)Math.PI / 180F);
 
+        this.all.y = (float)19;
+        this.rightleg.xRot = 0.7854F;
+        this.leftleg.xRot = 0.7854F;
+
+        if (this.counter < 3.14) {
+            this.counter += 0.001;
+
+            this.rightleg.xRot = (float) (0.7854F +(Math.sin(this.counter+1)/2));
+            this.leftleg.xRot = (float) (0.7854F +(Math.sin(this.counter+1.5)/2));
+
+            if (!entity.hasWoolBool()) this.all.y = (float) (19+(Math.sin(this.counter) * 2));
+        }
+        else this.counter = -3.14;
     }
 
     @Override
