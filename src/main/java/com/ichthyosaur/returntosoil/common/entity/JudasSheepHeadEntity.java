@@ -281,7 +281,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
         else if (segmentNumber == 1) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1.5);
+            segment.setSpacing(1.8);
             ((GeneralFlyingSegmentEntity) segment).setModelString("JudasSheepRibs");
             ((GeneralFlyingSegmentEntity) segment).setSize(2);
         }

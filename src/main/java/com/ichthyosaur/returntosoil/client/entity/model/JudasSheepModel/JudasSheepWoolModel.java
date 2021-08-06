@@ -14,17 +14,20 @@ public class JudasSheepWoolModel<T extends JudasSheepBodyEntity> extends JudasSh
     private final ModelRenderer wool;
 
     public JudasSheepWoolModel() {
+
         texWidth = 128;
         texHeight = 128;
+
 
         wool = new ModelRenderer(this);
         wool.setPos(0.0F, 0.0F, 0.0F);
         all.addChild(wool);
-        wool.texOffs(0, 0).addBox(-10.0F, -8.0F, -11.0F, 20.0F, 17.0F, 21.0F, 0.0F, false);
-        wool.texOffs(0, 17).addBox(10.0F, 9.0F, -11.0F, 0.0F, 2.0F, 21.0F, 0.0F, false);
-        wool.texOffs(0, 40).addBox(-10.0F, 9.0F, -11.0F, 20.0F, 2.0F, 0.0F, 0.0F, false);
-        wool.texOffs(0, 40).addBox(-10.0F, 9.0F, 10.0F, 20.0F, 2.0F, 0.0F, 0.0F, false);
-        wool.texOffs(0, 17).addBox(-10.0F, 9.0F, -11.0F, 0.0F, 2.0F, 21.0F, 0.0F, false);
-    }
+        all.addChild(wool);
+        wool.texOffs(0, 0).addBox(-12.5F, -12.4F, -13.0F, 25.0F, 20.0F, 26.0F, 0.0F, false);
+        wool.texOffs(0, 57).addBox(-12.5F, 7.6F, -13.0F, 25.0F, 3.0F, 0.0F, 0.0F, false);
+        wool.texOffs(0, 49).addBox(-12.5F, 7.6F, 13.0F, 25.0F, 3.0F, 0.0F, 0.0F, false);
+        wool.texOffs(0, 34).addBox(12.5F, 7.6F, -13.0F, 0.0F, 3.0F, 26.0F, 0.0F, false);
+        wool.texOffs(0, 27).addBox(-12.5F, 7.6F, -13.0F, 0.0F, 3.0F, 26.0F, 0.0F, false);
 
+    }
 }

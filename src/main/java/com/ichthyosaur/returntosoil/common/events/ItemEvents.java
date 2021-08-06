@@ -28,9 +28,6 @@ import java.util.logging.Logger;
 @Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemEvents {
 
-//Logger logger = Logger.getLogger("logger");;
-//logger.info(""+playerVector.x);
-
 
     //Multiplier item; multiplies your flat speed during upwards y movement; stacks with other items
     //must be full hp to use. has an upper limit.
@@ -52,6 +49,7 @@ public class ItemEvents {
             }
         }
 
+        //
         /*if (!player.isCreative()&&player.isAlive()){  this works great
             player.setHealth(8);
         }*/
