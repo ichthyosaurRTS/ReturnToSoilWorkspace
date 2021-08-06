@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.common.entity;
 import com.google.common.collect.Maps;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
@@ -32,23 +33,18 @@ import java.util.Map;
 
 public class BallFrogEntity extends MonsterEntity {
 
-    private boolean swimmingAnim;
-    public float tailTimer = -3.14F;
+    private double jumpTimer;
     private static final DataParameter<Integer> COLOUR_INT = EntityDataManager.defineId(CatEntity.class, DataSerializers.INT);
+    private static final DataParameter<Boolean> INFLATED = EntityDataManager.defineId(BallFrogEntity.class, DataSerializers.BOOLEAN);
 
     public BallFrogEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
     }
 
-    //this does world fyi
-    //@Override
-    //public EntitySize getDimensions(Pose p_213305_1_) {
-    //    return new EntitySize(3,3,true);
-    //}
 
     protected void registerGoals() {
         //this.goalSelector.addGoal(8, new RandomSwimmingGoal(this, 100.0, 10)); //speed mod and interval
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1D, false)); //that float is move mod
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1D, false)); //that float is move mod
         this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1f));
@@ -62,16 +58,21 @@ public class BallFrogEntity extends MonsterEntity {
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
-                .add(Attributes.MOVEMENT_SPEED, (double)0.1F)
+                .add(Attributes.MOVEMENT_SPEED, (double)0.0F)
                 .add(Attributes.FOLLOW_RANGE, 16.0D);
     }
 
 
-    private void setSwimmingAnim (boolean bool) {
-        this.swimmingAnim = bool;
+    private void setInflated (boolean bool) {
+        this.entityData.set(INFLATED, bool);
     }
-    public boolean getSwimmingAnim () {
-        return this.swimmingAnim;
+    public boolean getInflated () {
+        return this.entityData.get(INFLATED);
+    }
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource damage) {
+        return  damage == DamageSource.FALL || super.isInvulnerableTo(damage);
     }
 
     public boolean isNoGravity() {
@@ -80,7 +81,7 @@ public class BallFrogEntity extends MonsterEntity {
 
     @Override
     public void tick() {
-        this.setSwimmingAnim(isInWater());
+        this.setInflated(!isInWater());
         super.tick();
         if (this.getTarget() != null)  this.lookAt(this.getTarget(),100,100);
 
@@ -94,6 +95,18 @@ public class BallFrogEntity extends MonsterEntity {
             double zMod = getMovement(zDist)*2;
 
             this.setDeltaMovement(this.getDeltaMovement().add(xMod, yMod, zMod));
+        }
+        else if (this.getTarget() != null) {
+
+            Block below = this.getCommandSenderWorld().getBlockState(this.blockPosition().below()).getBlock();
+            Block below2 = this.getCommandSenderWorld().getBlockState(this.blockPosition().below().below()).getBlock();
+
+            if ( (below != Blocks.AIR || below2 != Blocks.AIR) && this.jumpTimer>=16) {
+            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/10, 0.6, this.getLookAngle().z/10));
+            this.jumpTimer=0;
+            }
+            else if ((below != Blocks.AIR || below2 != Blocks.AIR)) this.jumpTimer+=1;
+            LOGGER.info(""+this.jumpTimer);
         }
     }
 
@@ -118,9 +131,10 @@ public class BallFrogEntity extends MonsterEntity {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(COLOUR_INT,1);
+        this.entityData.define(INFLATED,false);
     }
 
-    private int getColourInt() {
+    public int getColourInt() {
         return this.entityData.get(COLOUR_INT);
     }
 
@@ -143,21 +157,11 @@ public class BallFrogEntity extends MonsterEntity {
         this.entityData.set(COLOUR_INT, (NBT.getInt("ColourNumber")));
     }
 
-    public ResourceLocation getResourceLocation() {
-        return COLOUR_BY_INT.getOrDefault(this.getColourInt(),new ResourceLocation(RTSMain.MOD_ID, "textures/entity/ball_frog/ball_frog_green.png") );
-    }
-
     public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
         p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
         this.setColourIntData();
         return p_213386_4_;
     }
-
-    public static final Map<Integer, ResourceLocation> COLOUR_BY_INT = Util.make(Maps.newHashMap(), (map) -> {
-        map.put(0, new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green.png"));
-        map.put(1, new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_crimson.png"));
-        map.put(2, new ResourceLocation("returntosoil:textures/entity/ball_frog/elder_polu_purple.png"));
-    });
 
     @Override
     protected SoundEvent getHurtSound(DamageSource p_184601_1_) {

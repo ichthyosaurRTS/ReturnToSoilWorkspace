@@ -48,7 +48,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<BallFrogEntity>> BALLFROG = ENTITY_TYPES.register("ball_frog",
             () -> EntityType.Builder.of(BallFrogEntity::new, EntityClassification.CREATURE)
-                    .sized(0.6f,0.5f)
+                    .sized(0.4f,0.4f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "ball_frog").toString()));
 
 
