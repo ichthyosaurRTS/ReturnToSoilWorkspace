@@ -10,10 +10,14 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 //For small hit-boxes, using layers to reduce entity ids
 public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
+
+    public static final Logger LOGGER = LogManager.getLogger();
 
     private static final DataParameter<String> ENTITY_MODEL = EntityDataManager.defineId(GeneralFlyingSegmentEntity.class, DataSerializers.STRING);
     private float EntitySize = 0; //if zero then don't change the size
@@ -34,8 +38,11 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
     @Override
     public EntitySize getDimensions(Pose p_213305_1_) {
         if (this.EntitySize != 0) {
-            return new EntitySize(this.EntitySize,this.EntitySize,true);
+            return new EntitySize(this.EntitySize,this.EntitySize,false);
         }
+        //temporary since above not working
+        if (this.entityData.get(ENTITY_MODEL).equals("JudasSheepRibs")) return new EntitySize(2,2,false);
+
         else return super.getDimensions(p_213305_1_);
     }
 
@@ -54,4 +61,11 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
     }
 
     public String getModelString(){return this.entityData.get(ENTITY_MODEL);}
+
+    @Override
+    public void tick() {
+        super.tick();
+        this.refreshDimensions();
+        //LOGGER.info(""+this.EntitySize);
+    }
 }

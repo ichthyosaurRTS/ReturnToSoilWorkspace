@@ -15,8 +15,6 @@ public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityM
 
     public final ModelRenderer all;
     private final ModelRenderer spine;
-    private final ModelRenderer cube_r1;
-    private final ModelRenderer cube_r2;
     private final ModelRenderer ribs;
     private final ModelRenderer rib1;
     private final ModelRenderer rib2;
@@ -46,18 +44,8 @@ public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityM
         spine.texOffs(0, 0).addBox(-3.0F, -10.0F, -8.0F, 6.0F, 5.0F, 15.0F, 0.0F, false);
         spine.texOffs(27, 0).addBox(-2.0F, 1.0F, -8.0F, 4.0F, 2.0F, 7.0F, 0.0F, false);
         spine.texOffs(0, 20).addBox(-1.0F, 0.0F, -10.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
-
-        cube_r1 = new ModelRenderer(this);
-        cube_r1.setPos(0.0F, -7.0F, 7.5F);
-        spine.addChild(cube_r1);
-        setRotationAngle(cube_r1, -0.2618F, 0.0F, 0.0F);
-        cube_r1.texOffs(18, 25).addBox(-1.5F, -2.0F, -1.5F, 3.0F, 3.0F, 8.0F, 0.0F, false);
-
-        cube_r2 = new ModelRenderer(this);
-        cube_r2.setPos(0.0F, -7.0F, -7.5F);
-        spine.addChild(cube_r2);
-        setRotationAngle(cube_r2, 0.2618F, 0.0F, 0.0F);
-        cube_r2.texOffs(0, 20).addBox(-2.0F, -2.0F, -6.5F, 4.0F, 4.0F, 9.0F, 0.0F, false);
+        spine.texOffs(0, 20).addBox(-2.0F, -9.1F, -11.0F, 4.0F, 4.0F, 9.0F, 0.0F, false);
+        spine.texOffs(18, 25).addBox(-1.5F, -8.5F, 2.0F, 3.0F, 3.0F, 8.0F, 0.0F, false);
 
         ribs = new ModelRenderer(this);
         ribs.setPos(0.0F, 5.0F, 0.0F);
@@ -206,7 +194,6 @@ public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityM
         this.all.xRot = headPitch * ((float)Math.PI / 180F);
         this.all.yRot = netHeadYaw * ((float)Math.PI / 180F);
 
-        this.all.y = (float)19;
         this.rightleg.xRot = 0.7854F;
         this.leftleg.xRot = 0.7854F;
 
@@ -215,8 +202,6 @@ public class JudasSheepBodyModel<T extends JudasSheepBodyEntity> extends EntityM
 
             this.rightleg.xRot = (float) (0.7854F +(Math.sin(this.counter+1)/2));
             this.leftleg.xRot = (float) (0.7854F +(Math.sin(this.counter+1.5)/2));
-
-            if (!entity.hasWoolBool()) this.all.y = (float) (19+(Math.sin(this.counter) * 2));
         }
         else this.counter = -3.14;
     }

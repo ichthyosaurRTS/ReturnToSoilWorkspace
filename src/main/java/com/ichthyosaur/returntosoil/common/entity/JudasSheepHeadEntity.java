@@ -33,7 +33,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    private final double numberOfSegments = 3;
+    private final double numberOfSegments = 4;
     private final UUID[] subEntities = new UUID[(int)numberOfSegments];
 
 
@@ -279,9 +279,16 @@ public class JudasSheepHeadEntity extends MonsterEntity {
             segment.setSpacing(0.9);
         }
 
-        else if (segmentNumber<this.numberOfSegments-1) {
+        else if (segmentNumber == 1) {
+            segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
+            segment.setSpacing(1.5);
+            ((GeneralFlyingSegmentEntity) segment).setModelString("JudasSheepRibs");
+            ((GeneralFlyingSegmentEntity) segment).setSize(2);
+        }
+
+        else if (segmentNumber == 2) {
             segment = EntityTypesInit.JUDASSHEEPBODY.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(2);
         }
 
         else {
