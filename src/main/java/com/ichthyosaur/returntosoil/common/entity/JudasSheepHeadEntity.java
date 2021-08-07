@@ -34,7 +34,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     public static final Logger LOGGER = LogManager.getLogger();
 
     private final double numberOfSegments = 4;
-    private final UUID[] subEntities = new UUID[(int)numberOfSegments];
+    private final UUID[] subEntitiesUUID = new UUID[(int)numberOfSegments];
 
     private Entity[] segmentEntities = new Entity[(int)numberOfSegments];
 
@@ -95,9 +95,9 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     public void addAdditionalSaveData(CompoundNBT NBT) {
         super.addAdditionalSaveData(NBT);
 
-        for (int i = 0; i < this.subEntities.length; i++) {
-            if (this.subEntities[i] != null) {
-                NBT.putUUID("subEntity"+i, this.subEntities[i]);
+        for (int i = 0; i < this.subEntitiesUUID.length; i++) {
+            if (this.subEntitiesUUID[i] != null) {
+                NBT.putUUID("subEntity"+i, this.subEntitiesUUID[i]);
             }
         }
 
@@ -106,9 +106,9 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     public void readAdditionalSaveData(CompoundNBT NBT) {
         super.readAdditionalSaveData(NBT);
 
-        if(this.subEntities[0] == null && NBT.contains("subEntity0")) {
-            for (int i = 0; i < this.subEntities.length; i++) {
-                this.subEntities[i] = NBT.getUUID("subEntity"+i); }
+        if(this.subEntitiesUUID[0] == null && NBT.contains("subEntity0")) {
+            for (int i = 0; i < this.subEntitiesUUID.length; i++) {
+                this.subEntitiesUUID[i] = NBT.getUUID("subEntity"+i); }
         }
 
     }
@@ -122,10 +122,10 @@ public class JudasSheepHeadEntity extends MonsterEntity {
 
     private void tickParts() {
 
-        if (this.segmentEntities[0] == null && this.subEntities[0] != null) {
-            this.segmentEntities = rollChance.createSegmentList(this.subEntities, (ServerWorld) this.getCommandSenderWorld());
+        if (this.segmentEntities[0] == null && this.subEntitiesUUID[0] != null) {
+            this.segmentEntities = rollChance.createSegmentList(this.subEntitiesUUID, (ServerWorld) this.getCommandSenderWorld());
         }
-        else if (this.subEntities[0] == null) {}
+        else if (this.subEntitiesUUID[0] == null) {}
         else {
             for (Entity entity : this.segmentEntities) { if (entity != null) entity.tick();
             LOGGER.info("Now ticking: "+entity );}
@@ -137,7 +137,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     public void tick() {
         super.tick();
 
-        if (!this.level.isClientSide()&&this.subEntities[0]!=null) {
+        if (!this.level.isClientSide()&&this.subEntitiesUUID[0]!=null) {
             this.tickParts();
         }
 
@@ -306,7 +306,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         segment.moveTo((double)this.getX() + 0.5D, (double)this.getY(), (double)this.getZ() - 0.5D  , 0.0F, 0.0F);
         world.addFreshEntity(segment);
 
-        this.subEntities[segmentNumber] = segment.getUUID();
+        this.subEntitiesUUID[segmentNumber] = segment.getUUID();
 
         if (segmentNumber<this.numberOfSegments-1) createSegments(segment,segmentNumber+1);
     }
