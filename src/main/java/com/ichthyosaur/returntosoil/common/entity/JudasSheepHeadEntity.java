@@ -128,7 +128,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
         else if (this.subEntitiesUUID[0] == null) {}
         else {
             for (Entity entity : this.segmentEntities) { if (entity != null) entity.tick();
-            LOGGER.info("Now ticking: "+entity );}
+            }
         }
 
     }
