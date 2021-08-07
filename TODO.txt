@@ -21,7 +21,7 @@ TODO
 1  Rotation 0-15 to 0-3
 
 1  Judas Sheep:
-    fix strange out of position bug; fix open texture; Add large middle segment
+    fix strange out of position bug; add child entity list function
 
 1  General Abstract flying serpent segment entity class:
     Max rotation parent to child

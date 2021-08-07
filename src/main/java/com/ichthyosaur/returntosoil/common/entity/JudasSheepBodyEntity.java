@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.common.entity;
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,6 +17,7 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -45,6 +47,17 @@ public class JudasSheepBodyEntity extends AbstractFlyingSegmentEntity {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(HAS_WOOL,1);
+    }
+
+    @Override
+    protected boolean isSunBurnTick() {
+        return super.isSunBurnTick();
+
+    }
+
+    @Override
+    public boolean isSilent() {
+        return true;
     }
 
     public void addAdditionalSaveData(CompoundNBT NBT) {

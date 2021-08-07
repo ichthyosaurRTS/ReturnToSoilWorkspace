@@ -36,6 +36,7 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     private final double numberOfSegments = 4;
     private final UUID[] subEntities = new UUID[(int)numberOfSegments];
 
+    private Entity[] segmentEntities = new Entity[(int)numberOfSegments];
 
     private int chargeTicks = 0;
     private int idleTicks = 0;
@@ -119,12 +120,17 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     private void setTick(int tick){this.chargeTicks=tick;}
 
 
-    private void tickParts(){
-        ServerWorld world = (ServerWorld) this.getCommandSenderWorld();
-        for (UUID partUUID:subEntities) {
-            if (world.getEntity(partUUID)!=null) world.getEntity(partUUID).tick();
-            //LOGGER.info("NOW TICKING: "+world.getEntity(partUUID));
-            }
+    private void tickParts() {
+
+        if (this.segmentEntities[0] == null && this.subEntities[0] != null) {
+            this.segmentEntities = rollChance.createSegmentList(this.subEntities, (ServerWorld) this.getCommandSenderWorld());
+        }
+        else if (this.subEntities[0] == null) {}
+        else {
+            for (Entity entity : this.segmentEntities) { if (entity != null) entity.tick();
+            LOGGER.info("Now ticking: "+entity );}
+        }
+
     }
 
     @Override
@@ -283,7 +289,6 @@ public class JudasSheepHeadEntity extends MonsterEntity {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
             segment.setSpacing(1.8);
             ((GeneralFlyingSegmentEntity) segment).setModelString("JudasSheepRibs");
-            ((GeneralFlyingSegmentEntity) segment).setSize(2);
         }
 
         else if (segmentNumber == 2) {
