@@ -30,7 +30,7 @@ public class BallFrogLayer<T extends BallFrogEntity> extends LayerRenderer<T, Ba
                 TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green_inflated.png");
             }
             else if (p_225628_4_.getColourInt()==1) {
-                TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green_inflated.png");
+                TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_blue_inflated.png");
             }
             if (p_225628_4_.getColourInt()==2) {
                 TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green_inflated.png");
@@ -44,7 +44,7 @@ public class BallFrogLayer<T extends BallFrogEntity> extends LayerRenderer<T, Ba
                 TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green_deflated.png");
             }
             else if (p_225628_4_.getColourInt()==1) {
-                TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green_deflated.png");
+                TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_blue_deflated.png");
             }
             else if (p_225628_4_.getColourInt()==2) {
                 TEXTURE = new ResourceLocation("returntosoil:textures/entity/ball_frog/ball_frog_green_deflated.png");

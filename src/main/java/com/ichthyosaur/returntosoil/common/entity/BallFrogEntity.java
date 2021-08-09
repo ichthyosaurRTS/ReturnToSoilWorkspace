@@ -6,6 +6,7 @@ import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -24,6 +25,8 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -33,9 +36,14 @@ import java.util.Map;
 
 public class BallFrogEntity extends MonsterEntity {
 
+    private int idleTicks;
     private double jumpTimer;
     private static final DataParameter<Integer> COLOUR_INT = EntityDataManager.defineId(CatEntity.class, DataSerializers.INT);
     private static final DataParameter<Boolean> INFLATED = EntityDataManager.defineId(BallFrogEntity.class, DataSerializers.BOOLEAN);
+    private double xIdleVector;
+    private double yIdleVector;
+    private double zIdleVector;
+    private Vector3d newIdlePos;
 
     public BallFrogEntity(EntityType<? extends MonsterEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
@@ -83,31 +91,45 @@ public class BallFrogEntity extends MonsterEntity {
     public void tick() {
         this.setInflated(!isInWater());
         super.tick();
-        if (this.getTarget() != null)  this.lookAt(this.getTarget(),100,100);
+        if (this.getTarget() != null) this.lookAt(this.getTarget(), 100, 100);
 
         if (this.getTarget() != null && this.isInWater()) {
-            Entity entity =  this.getTarget();
+            Entity entity = this.getTarget();
             double yDist = entity.getY() - this.getY();
-            double yMod = getMovement(yDist); if (Math.abs(yDist) < 0.5) yMod = 0;
+            double yMod = getMovement(yDist);
+            if (Math.abs(yDist) < 0.5) yMod = 0;
             double xDist = entity.getX() - this.getX();
-            double xMod = getMovement(xDist)*2;
+            double xMod = getMovement(xDist) * 2;
             double zDist = entity.getZ() - this.getZ();
-            double zMod = getMovement(zDist)*2;
+            double zMod = getMovement(zDist) * 2;
 
             this.setDeltaMovement(this.getDeltaMovement().add(xMod, yMod, zMod));
-        }
-        else if (this.getTarget() != null) {
+        } else if (this.getTarget() != null) {
 
             Block below = this.getCommandSenderWorld().getBlockState(this.blockPosition().below()).getBlock();
             Block below2 = this.getCommandSenderWorld().getBlockState(this.blockPosition().below().below()).getBlock();
 
-            if ( (below != Blocks.AIR || below2 != Blocks.AIR) && this.jumpTimer>=16) {
-            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/10, 0.6, this.getLookAngle().z/10));
-            this.jumpTimer=0;
-            }
-            else if ((below != Blocks.AIR || below2 != Blocks.AIR)) this.jumpTimer+=1;
-            LOGGER.info(""+this.jumpTimer);
+            if ((below != Blocks.AIR || below2 != Blocks.AIR) && this.jumpTimer >= 16) {
+                this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x / 10, 0.6, this.getLookAngle().z / 10));
+                this.jumpTimer = 0;
+            } else if ((below != Blocks.AIR || below2 != Blocks.AIR)) this.jumpTimer += 1;
+            LOGGER.info("" + this.jumpTimer);
+
         }
+    }
+
+    private Vector3d generateWaterPos (int numberOfTries) {
+
+        if (numberOfTries == 3) return this.position();
+
+        Vector3d newPos = new Vector3d(
+                this.getX() + (rollChance.returnRoll(31)-16),
+                this.getY() + (rollChance.returnRoll(9)-5),
+                this.getZ() + (rollChance.returnRoll(31)-16));
+        BlockPos blockPos = new BlockPos(newPos);
+
+        if (this.level.getBlockState(blockPos).getBlock() == Blocks.WATER || this.level.getBlockState(blockPos).getBlock() == Blocks.WATER) return newPos;
+        else return generateWaterPos(numberOfTries + 1);
     }
 
     public double getMovement (double distance) {
