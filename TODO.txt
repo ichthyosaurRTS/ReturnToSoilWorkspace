@@ -4,11 +4,14 @@ TODO
 1  Refinery Plant Potted:
      gacha list and functions
 
+1  Spring crop and potted
+
+1  Water Bearing cactus crop and potted
+
+1  Droplet crop
+
 1  Refinery Plant Crop:
      models 0-7, textures and seeds(drop from husk larvae)
-
-1  Ball Frog:
-    panic, random swim (fake?), drops, other 2 textures
 
 1  Jaw Beetle:
     arms to sin waves & base rotation, super rare green jaw beetle drop
@@ -20,13 +23,12 @@ TODO
 
 1  Rotation 0-15 to 0-3
 
-1  Judas Sheep:
-    fix strange out of position bug;
-
 1  General Abstract flying serpent segment entity class:
     Max rotation parent to child
 
-
+2  Judas Sheep out of position bug
+2  Rotation 015 to 03
+2  Ball Frog (random swim)
 2  Elder elder polu
 2  Add ghost jaw beetle drops
 2  Nomad Snail redesign

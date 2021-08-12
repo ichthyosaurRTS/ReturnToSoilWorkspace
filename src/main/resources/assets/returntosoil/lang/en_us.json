@@ -17,5 +17,9 @@
   "itemGroup.returntosoil": "Return To Soil",
   "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
   "item.returntosoil.abyss_scalpel": "Abyss Scalpel",
-  "block.returntosoil.refinery_plant_potted_block": "Refinery Plant"
+  "block.returntosoil.refinery_plant_potted_block": "Refinery Plant",
+  "entity.returntosoil.judas_sheep_head": "Judas Sheep",
+  "entity.returntosoil.judas_sheep_body": "Judas Sheep Body",
+  "entity.returntosoil.general_flying_segment": "Body Part",
+  "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed"
 }

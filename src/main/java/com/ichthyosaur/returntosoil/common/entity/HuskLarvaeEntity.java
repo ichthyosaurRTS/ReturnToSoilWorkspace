@@ -1,5 +1,7 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
+import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -28,6 +30,11 @@ public class HuskLarvaeEntity extends TameableEntity{
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 4.0D)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.1F);
+    }
+
+    protected void dropCustomDeathLoot(DamageSource damage, int i, boolean bool) {
+        super.dropCustomDeathLoot(damage, i, bool);
+        if (rollChance.roll(10)) this.spawnAtLocation(BlockItemInit.REFINERY_PLANT_SEED.get());
     }
 
 
