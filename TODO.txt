@@ -10,9 +10,6 @@ TODO
 
 1  Droplet crop
 
-1  Refinery Plant Crop:
-     models 0-7, textures and seeds(drop from husk larvae)
-
 1  Jaw Beetle:
     arms to sin waves & base rotation, super rare green jaw beetle drop
 
@@ -37,6 +34,7 @@ TODO
 2  Texture Fox
 2  Finish programming fox
 2  Floaty sky dragon thing
+2  Advanced refinery plant (with container for hopper)
 
 3  BaruGaru drops
 3  Spawn eggs

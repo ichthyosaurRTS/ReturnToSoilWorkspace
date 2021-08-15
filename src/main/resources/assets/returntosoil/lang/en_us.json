@@ -21,5 +21,7 @@
   "entity.returntosoil.judas_sheep_head": "Judas Sheep",
   "entity.returntosoil.judas_sheep_body": "Judas Sheep Body",
   "entity.returntosoil.general_flying_segment": "Body Part",
-  "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed"
+  "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed",
+  "block.returntosoil.spring_leaf_potted_block": "Spring Leaf",
+  "block.returntosoil.spring_leaf_potted_block_item": "Spring Leaf"
 }

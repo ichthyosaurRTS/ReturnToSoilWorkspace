@@ -6,6 +6,7 @@ import com.ichthyosaur.returntosoil.common.block.cropblock.LilypadLanternBlock;
 import com.ichthyosaur.returntosoil.common.block.cropblock.OriginBerryBlock;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RefineryPlantBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.RefineryPlantPottedBlock;
+import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
@@ -58,13 +59,19 @@ public class BlockItemInit {
 
     //RefineryPlant
     public static final RegistryObject<Block> REFINERY_PLANT_POTTED_BLOCK = BLOCKS.register("refinery_plant_potted_block", () ->
-            new RefineryPlantPottedBlock());
+            new RefineryPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
     public static final RegistryObject<Item> REFINERY_PLANT_POTTED_BLOCK_ITEM = ITEMS.register("refinery_plant_potted_block_item", () ->
             new BlockItem(REFINERY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Block> REFINERY_PLANT_BLOCK = BLOCKS.register("refinery_plant_block", () ->
             new RefineryPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Item> REFINERY_PLANT_SEED = ITEMS.register("refinery_plant_seed", () ->
             new BlockNamedItem(REFINERY_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
+    //SpringLeaf
+    public static final RegistryObject<Block> SPRING_LEAF_POTTED_BLOCK = BLOCKS.register("spring_leaf_potted_block", () ->
+            new SpringLeafPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+    public static final RegistryObject<Item> SPRING_LEAF_POTTED_BLOCK_ITEM = ITEMS.register("spring_leaf_potted_block_item", () ->
+            new BlockItem(SPRING_LEAF_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));
     //static Block huskSpawnBlock = new Block(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.DIRT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));

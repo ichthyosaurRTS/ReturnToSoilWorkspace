@@ -40,8 +40,8 @@ public class RefineryPlantPottedBlock extends Block {
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 
     //models based on fuel level
-    public RefineryPlantPottedBlock() {
-        super(Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD));
+    public RefineryPlantPottedBlock(Properties prop) {
+        super(prop);
         this.registerDefaultState(this.stateDefinition.any().setValue(FUEL_LEVEL,0));
     }
 

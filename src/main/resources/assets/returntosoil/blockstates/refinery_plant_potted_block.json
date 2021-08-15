@@ -1,6 +1,5 @@
 {
   "variants": {
-
     "fuel_level=0": {
       "model": "returntosoil:block/refinery_plant/refinery_plant_potted_0n"
     },
