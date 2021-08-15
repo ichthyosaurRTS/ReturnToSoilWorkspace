@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "returntosoil:block/spring_leaf/spring_leaf_potted"
+    "facing=north": {
+      "model": "returntosoil:block/spring_leaf/spring_leaf_potted",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "returntosoil:block/spring_leaf/spring_leaf_potted",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "returntosoil:block/spring_leaf/spring_leaf_potted",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "returntosoil:block/spring_leaf/spring_leaf_potted",
+      "y": 270
     }
   }
 }

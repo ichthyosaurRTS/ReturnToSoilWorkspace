@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "returntosoil:spring_leaf_potted_block_item"
+        }
+      ]
+    }
+  ]
+}
