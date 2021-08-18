@@ -250,7 +250,7 @@ public class JawBeetleModel <T extends JawBeetleEntity> extends EntityModel<JawB
 
         //this could be ever so slightly shorter....
 
-        if (Increasing) ArmsCounter+=0.001;
+        /*if (Increasing) ArmsCounter+=0.001;
         else ArmsCounter-=0.001;
         if (ArmsCounter>0.07) {Increasing = false;}
         else if (ArmsCounter<-0.07) {Increasing = true;}
@@ -276,7 +276,7 @@ public class JawBeetleModel <T extends JawBeetleEntity> extends EntityModel<JawB
         else {
             if (Increasing2) {leftarm2nd_r1.xRot += 0.01;}
             else {leftarm.xRot -= 0.01;}
-        }
+        }*/
 
         //when the entity dies all the legs break!! Rather than just directly referencing a building up float,
         //we have to set the default position every update and then add the extra rotation

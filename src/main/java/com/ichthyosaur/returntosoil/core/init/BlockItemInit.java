@@ -5,6 +5,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.LilypadLanternBlock;
 import com.ichthyosaur.returntosoil.common.block.cropblock.OriginBerryBlock;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RefineryPlantBlock;
+import com.ichthyosaur.returntosoil.common.block.cropblock.SpringLeafBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.RefineryPlantPottedBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
@@ -51,6 +52,9 @@ public class BlockItemInit {
     public static final RegistryObject<Item> ROSE_BEETLE_AXE = ITEMS.register("rose_beetle_axe", () ->
             new RoseBeetleAxeItem(CustomItemTier.ROSE_BEETLE, 2.5F, 1.0F, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
+    //Ghost beetle stuffs
+    public static final RegistryObject<Item> GHOST_BEETLE_ITEM = ITEMS.register("ghost_beetle_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Standalone; Nothing personal kid
     public static final RegistryObject<Item> ABYSS_SCALPEL = ITEMS.register("abyss_scalpel", () ->
@@ -72,6 +76,13 @@ public class BlockItemInit {
             new SpringLeafPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
     public static final RegistryObject<Item> SPRING_LEAF_POTTED_BLOCK_ITEM = ITEMS.register("spring_leaf_potted_block_item", () ->
             new BlockItem(SPRING_LEAF_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Block> SPRING_LEAF_BLOCK = BLOCKS.register("spring_leaf_block", () ->
+            new SpringLeafBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final RegistryObject<Item> SPRING_LEAF_SEED = ITEMS.register("spring_leaf_seed", () ->
+            new BlockNamedItem(SPRING_LEAF_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> SPRING_LEAF_BEAN_ITEM = ITEMS.register("spring_leaf_bean_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));
     //static Block huskSpawnBlock = new Block(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.DIRT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));

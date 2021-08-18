@@ -36,14 +36,6 @@ public class OriginBerryBlock extends RTSCropsBlock {
     //BooleanProperty INFESTED = RTSMain.INFESTED;
 
 
-    // I'm lazy alright?
-    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
-
-    @ParametersAreNonnullByDefault
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE;
-    }
-
     public OriginBerryBlock (AbstractBlock.Properties properties) {
         super(properties);
         this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);

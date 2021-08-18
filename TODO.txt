@@ -4,44 +4,48 @@ TODO
 1  Refinery Plant Potted:
      gacha list and functions
 
-1  Spring crop and potted
+1  Spring crop
 
 1  Water Bearing cactus crop and potted
 
 1  Droplet crop
 
-1  Jaw Beetle:
-    arms to sin waves & base rotation, super rare green jaw beetle drop
+1  Incubator crop + mob
+
+1  Composter crop + mob
 
 1  Rose Beetle Axe:
     Fuel item, re-texture
 
-1  Lilypad Lantern drops
+1  Lilypad Lantern drops + bottling
 
 1  Rotation 0-15 to 0-3
 
-1  General Abstract flying serpent segment entity class:
-    Max rotation parent to child
+1  Firefly dragons, Floating squid,
 
-2  Judas Sheep out of position bug
-2  Rotation 015 to 03
-2  Ball Frog (random swim)
-2  Elder elder polu
-2  Add ghost jaw beetle drops
-2  Nomad Snail redesign
-2  Add observer_shrimp (temporary name)
-2  Add jaw beetle drop uses/ craft items
-2  Texture Fox
-2  Finish programming fox
-2  Floaty sky dragon thing
+
+2  Firefly dragon
+2  Composter plant + mob
+2  Incubator plant + mob
+2  Nomad Snail delete?
+2  Add green jaw beetle drop uses/ craft items + fix arm rot
+2  Four tailed fox
+2  Sky whale
+2  Serpent fish
+2  Grain crop
 2  Advanced refinery plant (with container for hopper)
 
+3  General Abstract flying serpent segment entity class: Max rotation parent to child
+3  Elder elder polu
+3  Add observer_shrimp (temporary name)
+3  Add ghost jaw beetle drops
+3  Judas Sheep out of position bug
+3  Rotation 015 to 03
+3  Ball Frog (random swim)
 3  BaruGaru drops
 3  Spawn eggs
 3  Fox  curled up sitting anime
-3  Properly texture origin berry seed
 3  Re-texture jaw_beetle
-3  Re-texture nomad_snail
 3  Re-texture o-berry item
 3  Custom item tiers
 3  Some kind of tool upgrade/refinement tree; extra dmg or effects on hit?
@@ -52,6 +56,5 @@ TODO
 4  Dragon head weapons (projectiles, floating)
 4  Poke-ball type items?
 4  Baru Garu tame item, tame code
-4  Soul refinery pot
 4  Add spell circles
 4  LOVE mod

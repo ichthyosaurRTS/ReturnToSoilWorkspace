@@ -18,6 +18,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -38,21 +39,35 @@ public class ItemEvents {
         double speedMod = 0.4;
 
         if (rollChance.containsItem(BlockItemInit.ROSE_BEETLE_ITEM.get(),player) != 1000) {
-            if (player.getHealth() == player.getMaxHealth()) {
-                Vector3d playerVector = player.getDeltaMovement();
-                float currentMoveSpeed;
-                double playerXVector = playerVector.x;
-                double playerZVector = playerVector.z;
-                currentMoveSpeed = ( (float) Math.abs(playerXVector) + (float) Math.abs(playerZVector) )/2;
-                if ( (playerVector.y > 0.2 && playerVector.y < 0.25) && (currentMoveSpeed > 0.075 && currentMoveSpeed < 2) )
-                    player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0, speedMod * playerZVector));
-            }
+            Vector3d playerVector = player.getDeltaMovement();
+            float currentMoveSpeed;
+            double playerXVector = playerVector.x;
+            double playerZVector = playerVector.z;
+            currentMoveSpeed = ( (float) Math.abs(playerXVector) + (float) Math.abs(playerZVector) )/2;
+            if ( (playerVector.y > 0.2 && playerVector.y < 0.25) && (currentMoveSpeed > 0.075 && currentMoveSpeed < 2) )
+                player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0, speedMod * playerZVector));
         }
 
         //
         /*if (!player.isCreative()&&player.isAlive()){  this works great
             player.setHealth(8);
         }*/
+    }
+
+    @SubscribeEvent
+    public static void ghostBeetleItem (LivingEvent.LivingJumpEvent event) {
+        if (event.getEntityLiving() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+            double speedMod = 2;
+
+            if (rollChance.containsItem(BlockItemInit.GHOST_BEETLE_ITEM.get(),player) != 1000
+            && player.getCommandSenderWorld().getDayTime() > 18000) {
+                Vector3d playerVector = player.getDeltaMovement();
+                double playerXVector = playerVector.x;
+                double playerZVector = playerVector.z;
+                player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0.10, speedMod * playerZVector));
+            }
+        }
     }
 }
 

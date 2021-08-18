@@ -101,6 +101,7 @@ public class JawBeetleEntity extends MonsterEntity {
     protected void dropCustomDeathLoot(DamageSource damage, int i, boolean bool) {
         super.dropCustomDeathLoot(damage, i, bool);
         if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(BlockItemInit.ROSE_BEETLE_ITEM.get());
+        else if (this.entityData.get(COLOUR_INT) == 6 && rollChance.roll(2)) this.spawnAtLocation(BlockItemInit.GHOST_BEETLE_ITEM.get());
     }
 
     @Override

@@ -14,6 +14,7 @@
   "entity.returntosoil.ball_frog": "Ball Frog",
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.rose_beetle_item": "Rose Beetle",
+  "item.returntosoil.ghost_beetle_item": "Ghost Beetle",
   "itemGroup.returntosoil": "Return To Soil",
   "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
   "item.returntosoil.abyss_scalpel": "Abyss Scalpel",
@@ -23,5 +24,7 @@
   "entity.returntosoil.general_flying_segment": "Body Part",
   "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed",
   "block.returntosoil.spring_leaf_potted_block": "Spring Leaf",
-  "block.returntosoil.spring_leaf_potted_block_item": "Spring Leaf"
+  "block.returntosoil.spring_leaf_potted_block_item": "Spring Leaf",
+  "item.returntosoil.spring_leaf_bean_item": "Spring Leaf Bean",
+  "item.returntosoil.spring_leaf_seed": "Spring Leaf Seed"
 }

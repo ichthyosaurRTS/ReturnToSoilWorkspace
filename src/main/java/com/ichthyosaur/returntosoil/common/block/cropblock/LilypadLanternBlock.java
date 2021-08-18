@@ -36,8 +36,6 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false).setValue(LIT,false);
     }
 
-    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
-
     protected boolean mayPlaceOn(BlockState p_200014_1_, IBlockReader p_200014_2_, BlockPos p_200014_3_) {
         FluidState fluidstate = p_200014_2_.getFluidState(p_200014_3_);
         FluidState fluidstate1 = p_200014_2_.getFluidState(p_200014_3_.above());
