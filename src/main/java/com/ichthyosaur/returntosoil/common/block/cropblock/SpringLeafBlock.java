@@ -83,6 +83,8 @@ public class SpringLeafBlock extends RefineryPlantBlock{
 
                 ItemStack definiteDrops = new ItemStack(BlockItemInit.SPRING_LEAF_POTTED_BLOCK_ITEM.get(), 1);
                 popResource(world, pos, definiteDrops);
+                ItemStack berry = new ItemStack(BlockItemInit.SPRING_LEAF_BEAN_ITEM.get(), 1);
+                popResource(world, pos, berry);
 
                 world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
 

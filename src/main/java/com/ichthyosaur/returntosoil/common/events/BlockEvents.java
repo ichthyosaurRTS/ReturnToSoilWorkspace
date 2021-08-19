@@ -36,12 +36,14 @@ public class BlockEvents {
         LivingEntity entity = event.getEntityLiving();
         World world = entity.getCommandSenderWorld();
         BlockState inState = entity.getFeetBlockState(); // probs wont work
-        BlockState belowState = world.getBlockState(new BlockPos (entity.getPosition(1).x(),
-                entity.getPosition(1).y()-1, entity.getPosition(1).z()));
+        BlockPos below = new BlockPos (entity.getPosition(1).x(),
+        entity.getPosition(1).y()-1, entity.getPosition(1).z());
+        BlockState belowState = world.getBlockState(below);
 
         if (inState.getBlock() == BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get() ||
                 belowState.getBlock() == BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get() )
         {
+            //world.setBlock(below, belowState.setValue(COOL_DOWN,newFuelLevel););
             entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
         }
     }
