@@ -30,10 +30,10 @@ public class ClientEventBusSubscriber {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), JawBeetleRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.NOMADSNAIL.get(), NomadSnailRenderer::new);
+        //RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.NOMADSNAIL.get(), NomadSnailRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), BaruGaruRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxRenderer::new);
+        //RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BALLFROG.get(), BallFrogRenderer::new);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadRenderer::new);

@@ -25,10 +25,10 @@ public class EntityTypesInit {
                     .sized(1.0f,1.0f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "jaw_beetle").toString()));
 
-    public static final RegistryObject<EntityType<NomadSnailEntity>> NOMADSNAIL = ENTITY_TYPES.register("nomad_snail",
+    /*public static final RegistryObject<EntityType<NomadSnailEntity>> NOMADSNAIL = ENTITY_TYPES.register("nomad_snail",
             () -> EntityType.Builder.of(NomadSnailEntity::new, EntityClassification.AMBIENT)
                     .sized(0.8f,0.8f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "nomad_snail").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "nomad_snail").toString()));*/
 
     public static final RegistryObject<EntityType<BaruGaruEntity>> BARUGARU = ENTITY_TYPES.register("baru_garu",
             () -> EntityType.Builder.of(BaruGaruEntity::new, EntityClassification.AMBIENT)
@@ -41,10 +41,10 @@ public class EntityTypesInit {
                     .sized(0.5f,1f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "baru_garu_segment").toString()));
 
-    public static final RegistryObject<EntityType<FourTailedFoxEntity>> FOURTAILEDFOX = ENTITY_TYPES.register("four_tailed_fox",
+    /*public static final RegistryObject<EntityType<FourTailedFoxEntity>> FOURTAILEDFOX = ENTITY_TYPES.register("four_tailed_fox",
             () -> EntityType.Builder.of(FourTailedFoxEntity::new, EntityClassification.AMBIENT)
                     .sized(1.2f,2.0f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "four_tailed_fox").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "four_tailed_fox").toString()));*/
 
     public static final RegistryObject<EntityType<BallFrogEntity>> BALLFROG = ENTITY_TYPES.register("ball_frog",
             () -> EntityType.Builder.of(BallFrogEntity::new, EntityClassification.CREATURE)
