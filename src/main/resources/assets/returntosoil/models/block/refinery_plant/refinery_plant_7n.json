@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"5": "returntosoil:blocks/refinery_plant/refinery_plant_7n",
-		"particle": "returntosoil:blocks/refinery_plant/refinery_plant_0n"
+		"particle": "returntosoil:blocks/refinery_plant/refinery_plant_7ni"
 	},
 	"elements": [
 		{

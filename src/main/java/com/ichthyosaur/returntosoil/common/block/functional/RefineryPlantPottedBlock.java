@@ -99,9 +99,9 @@ public class RefineryPlantPottedBlock extends Block {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
         if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0) {
-            world.addParticle(ParticleTypes.COMPOSTER,
-                player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
-            world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
+            //world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
+                    //player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
+            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                     player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
         }
     }
