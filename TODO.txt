@@ -4,8 +4,6 @@ TODO
 1  Refinery Plant Potted:
      gacha list and functions
 
-1  Spring crop
-
 1  Water Bearing cactus crop and potted
 
 1  Droplet crop
