@@ -3,12 +3,14 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
+import com.ichthyosaur.returntosoil.common.tileentity.RefineryPlantTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -58,7 +60,11 @@ public class OriginBerryBlock extends RTSCropsBlock {
             drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get()));
 
             if (rollChance.roll(4))
-            drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get()));
+                drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get()));
+
+            //small gacha chance
+            else if (rollChance.roll(100))
+                drops.add(RefineryPlantTileEntity.randomSeedResult());
         }
         return drops;
     }
@@ -123,6 +129,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
         BaruGaruEntity entity = EntityTypesInit.BARUGARU.get().create(world);
         if (entity!=null) {
             entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+            entity.finalizeSpawn(world, world.getCurrentDifficultyAt(pos), SpawnReason.NATURAL,null,null);
             world.addFreshEntity(entity);
         }
         world.removeBlock(pos,false);
@@ -131,14 +138,16 @@ public class OriginBerryBlock extends RTSCropsBlock {
     // qol interact so you don't have to replant although that might be fun in its own way
     @ParametersAreNonnullByDefault
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
-        if (state.getValue(AGE)!=7&&!state.getValue(INFESTED)) {
+        if (state.getValue(AGE)!=7||state.getValue(INFESTED)) {
             return ActionResultType.PASS;
         }
         else {
-            if (giveRotation() == 3) {
+            if (rollChance.roll(4)) {
                 ItemStack randomDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
                 popResource(world, pos, randomDrops);
             }
+            else if (rollChance.roll(100))
+                popResource(world, pos, RefineryPlantTileEntity.randomSeedResult());
 
             ItemStack definiteDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get(),1);
             popResource(world, pos, definiteDrops);

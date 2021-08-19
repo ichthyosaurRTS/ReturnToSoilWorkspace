@@ -42,7 +42,7 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
             BlockState state = world.getBlockState(pos);
             if (state.getValue(FUEL_LEVEL)>0) {
                 if (this.refineProgress >= 5000) {
-                    Block.popResource(world, pos.above(), randomDropResult());
+                    Block.popResource(world, pos.above(), randomSeedResult());
 
                     this.refineProgress = 0;
                     int newFuelLevel = state.getValue(FUEL_LEVEL) - 1;
@@ -58,7 +58,7 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
     }
 
 
-    private ItemStack randomDropResult() {
+    public static ItemStack randomSeedResult() {
 
         int i = (int) rollChance.returnRoll(100);
         //we bump this up as we add shit
