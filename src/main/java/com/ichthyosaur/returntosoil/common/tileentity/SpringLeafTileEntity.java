@@ -34,13 +34,15 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
     public void tick() {
         World world = this.level;
         BlockPos pos = this.getBlockPos();
-        BlockState state = world.getBlockState(pos);
+        BlockState state = this.getBlockState();
         int coolDown = state.getValue(COOL_DOWN);
 
         if (this.getBlockState().getValue(COOL_DOWN) > 0) {
 
-            if (this.count > 30) {
+            if (this.count > 300) {
                 BlockState news = state.setValue(COOL_DOWN,coolDown-1);
+                world.setBlock(pos, news,2);
+                this.count = 0;
             }
             else this.count+=1;
         }
