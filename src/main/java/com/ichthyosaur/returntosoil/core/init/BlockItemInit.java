@@ -2,10 +2,7 @@ package com.ichthyosaur.returntosoil.core.init;
 
 import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.block.cropblock.LilypadLanternBlock;
-import com.ichthyosaur.returntosoil.common.block.cropblock.OriginBerryBlock;
-import com.ichthyosaur.returntosoil.common.block.cropblock.RefineryPlantBlock;
-import com.ichthyosaur.returntosoil.common.block.cropblock.SpringLeafBlock;
+import com.ichthyosaur.returntosoil.common.block.cropblock.*;
 import com.ichthyosaur.returntosoil.common.block.functional.RefineryPlantPottedBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
@@ -81,6 +78,10 @@ public class BlockItemInit {
     public static final RegistryObject<Item> SPRING_LEAF_BERRY_ITEM = ITEMS.register("spring_leaf_berry_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
+    public static final RegistryObject<Block> VESSEL_CROP_BLOCK = BLOCKS.register("vessel_crop_block", () ->
+            new VesselCropBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.HONEY_BLOCK)));
+    public static final RegistryObject<Item> VESSEL_SEED = ITEMS.register("vessel_seed", () ->
+            new BlockNamedItem(VESSEL_CROP_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));
     //static Block huskSpawnBlock = new Block(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.DIRT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));

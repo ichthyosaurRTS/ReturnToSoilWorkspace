@@ -8,9 +8,11 @@ import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -37,6 +39,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
     public RTSCropsBlock(Properties p_i48421_1_) {
         super(p_i48421_1_);
+        this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
     }
 
     // Provides a random rotation int of 0, 1, 2 or 3
@@ -82,6 +85,16 @@ public abstract class RTSCropsBlock extends CropsBlock {
         HuskLarvaeEntity huskLarvaeEntity = EntityTypesInit.HUSKLARVAE.get().create(p_235505_1_);
         huskLarvaeEntity.moveTo((double)p_235505_2_.getX() + 0.5D, (double)p_235505_2_.getY(), (double)p_235505_2_.getZ() + 0.5D, 0.0F, 0.0F);
         p_235505_1_.addFreshEntity(huskLarvaeEntity);
+    }
+
+    @ParametersAreNonnullByDefault
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
+    }
+
+    // Necessary! Who knows what for... Maybe the defaultBlockState function?
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(BlockStateProperties.AGE_7,BlockStateProperties.ROTATION_16, RTSMain.INFESTED);
     }
 
     public static void spawnJawBeetle(ServerWorld world, BlockPos pos) {
