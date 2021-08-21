@@ -66,6 +66,7 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
             switch (i) {
                 case 1:  return new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get(),1);
                 case 2:  return new ItemStack(BlockItemInit.SPRING_LEAF_SEED.get(),1);
+                case 3:  return new ItemStack(BlockItemInit.VESSEL_SEED.get(),1);
                 }
         }
         else if (i < 40) return new ItemStack(Items.WHEAT_SEEDS,1);
