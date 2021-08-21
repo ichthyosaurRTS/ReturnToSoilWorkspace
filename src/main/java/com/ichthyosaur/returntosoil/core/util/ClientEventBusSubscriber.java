@@ -27,7 +27,7 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.SPRING_LEAF_BLOCK.get(), RenderType.cutout());
 
-        RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_CROP_BLOCK.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), JawBeetleRenderer::new);

@@ -1,6 +1,8 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -11,9 +13,9 @@ import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class VesselCropBlock extends RTSCropsBlock {
+public class VesselSacBlock extends RTSCropsBlock {
 
-    public VesselCropBlock(Properties p_i48437_1_) {
+    public VesselSacBlock(Properties p_i48437_1_) {
         super(p_i48437_1_);
     }
 
@@ -35,7 +37,7 @@ public class VesselCropBlock extends RTSCropsBlock {
 
     @Override
     public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
-        if (p_196260_2_.getBlockState(p_196260_3_.above()).getBlock() instanceof LeavesBlock) return true;
+        if (p_196260_2_.getBlockState(p_196260_3_.above()).getBlock() instanceof VesselVineBlock) return true;
         else return false;
     }
 }
