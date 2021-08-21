@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -62,10 +63,9 @@ public abstract class RTSCropsBlock extends CropsBlock {
     // Returns a new state with the same rotation and infestation but different age
     // This is where the infestation occurs, transitioning from 6-7
     public BlockState nextAgeWithRotation(BlockState state, Integer newAge) {
-        Integer i = state.getValue(ROTATION);
         boolean infested = state.getValue(INFESTED);
         if (newAge==7&&rollChance.roll(40)) infested = true; //normally 40
-        BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested); //
+        BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested); //
         return block;
     }
 
@@ -97,6 +97,11 @@ public abstract class RTSCropsBlock extends CropsBlock {
         builder.add(BlockStateProperties.AGE_7,BlockStateProperties.ROTATION_16, RTSMain.INFESTED);
     }
 
+    // When infested or less than 7 old, randomly ticks. Guess there's some unneeded code upstairs...
+    public boolean isRandomlyTicking(BlockState state) {
+        return state.getValue(INFESTED)||state.getValue(AGE)<7;
+    }
+
     public static void spawnJawBeetle(ServerWorld world, BlockPos pos) {
         JawBeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
         if (entity!=null) {
@@ -114,6 +119,49 @@ public abstract class RTSCropsBlock extends CropsBlock {
         if (p_220062_1_.getValue(INFESTED)) {
             spawnLarvae(p_220062_2_, p_220062_3_);
         }
+    }
+
+    @ParametersAreNonnullByDefault
+    public void growCrops(World world, BlockPos pos, BlockState state) {
+        int i = this.getAge(state) + this.getBonemealAgeIncrease(world);
+        int j = this.getMaxAge();
+        if (i > j) {
+            i = j;
+        }
+        world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
+    }
+
+    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
+        return false;
+    }
+
+    //think tis has to be in this class bc of whether it uses rotation or not
+    @ParametersAreNonnullByDefault
+    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+        if (worldIn.getRawBrightness(pos, 0) >= 9) {
+            int i = this.getAge(state);
+            if (i < this.getMaxAge()) {
+                float f = getGrowthSpeed(this, worldIn, pos);
+                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
+                {
+                    worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
+                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+                }
+            }
+            else if (i == this.getMaxAge() && state.getValue(INFESTED)) this.rollPestSpawn(worldIn, pos);
+        }
+    }
+
+    private void rollPestSpawn (ServerWorld worldIn, BlockPos pos){
+        if (this instanceof RefineryPlantBlock)
+            RefineryPlantBlock.rollPestSpawn(worldIn, pos);
+        else if (this instanceof SpringLeafBlock)
+            SpringLeafBlock.rollPestSpawn(worldIn, pos);
+        else if (this instanceof VesselSacBlock)
+            VesselSacBlock.rollPestSpawn(worldIn, pos);
+
+        else OriginBerryBlock.rollPestSpawn(worldIn, pos);
     }
 
 }

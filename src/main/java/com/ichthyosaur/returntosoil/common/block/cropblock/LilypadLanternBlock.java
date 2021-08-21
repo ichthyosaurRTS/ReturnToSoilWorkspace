@@ -73,11 +73,14 @@ public class LilypadLanternBlock extends RTSCropsBlock{
                 }
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                if (rollChance.roll(10)) spawnBallFrog(worldIn, pos); //normally 10
-                else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde
-                //else if (rollChance(300)) spawnBaruGaru(worldIn, pos);
+                LilypadLanternBlock.rollPestSpawn(worldIn, pos);
             }
         }
+    }
+
+    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+        if (rollChance.roll(10)) spawnBallFrog(worldIn, pos); //normally 10
+        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde normally 80
     }
 
     public boolean canSurvive(BlockState state, IWorldReader worldReader, BlockPos pos) {
@@ -112,9 +115,6 @@ public class LilypadLanternBlock extends RTSCropsBlock{
 
     }
 
-    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
-        return false;
-    }
 
     private static void spawnBallFrog(ServerWorld world, BlockPos pos) {
         BallFrogEntity entity = EntityTypesInit.BALLFROG.get().create(world);

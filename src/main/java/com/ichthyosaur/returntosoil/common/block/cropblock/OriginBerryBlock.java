@@ -69,56 +69,11 @@ public class OriginBerryBlock extends RTSCropsBlock {
         return drops;
     }
 
-    // Necessary! Who knows what for... Maybe the defaultBlockState function?
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.AGE_7,BlockStateProperties.ROTATION_16, RTSMain.INFESTED);
+    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
+        return true;
     }
 
-    // Called when block put down
-    @ParametersAreNonnullByDefault
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
-    }
-
-
-
-    // When infested or less than 7 old, randomly ticks. Guess there's some unneeded code upstairs...
-    public boolean isRandomlyTicking(BlockState state) {
-        return state.getValue(INFESTED)||state.getValue(AGE)<7;
-    }
-
-    // This seems to be triggered much more consistently..? like *20 or so more than randomTicks
-    @ParametersAreNonnullByDefault
-    public void growCrops(World world, BlockPos pos, BlockState state) {
-        int i = this.getAge(state) + this.getBonemealAgeIncrease(world);
-        int j = this.getMaxAge();
-        if (i > j) {
-            i = j;
-        }
-        world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
-    }
-
-    //think tis has to be in this class bc of whether it uses rotation or not
-    @ParametersAreNonnullByDefault
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        if (worldIn.getRawBrightness(pos, 0) >= 9) {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge()) {
-                float f = getGrowthSpeed(this, worldIn, pos);
-                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
-                {
-                    worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-                }
-            }
-            else if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                this.rollPestSpawn(worldIn, pos);
-            }
-        }
-    }
-
-    private void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
         if (rollChance.roll(10)) spawnJawBeetle(worldIn, pos); //normally 10
         else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
         else if (rollChance.roll(500)) spawnBaruGaru(worldIn, pos); // normally 500

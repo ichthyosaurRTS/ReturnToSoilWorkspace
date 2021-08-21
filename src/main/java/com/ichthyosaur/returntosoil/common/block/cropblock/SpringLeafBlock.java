@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SpringLeafBlock extends RefineryPlantBlock{
+public class SpringLeafBlock extends RTSCropsBlock{
 
     public SpringLeafBlock(Properties properties) {
         super(properties);
@@ -45,27 +45,8 @@ public class SpringLeafBlock extends RefineryPlantBlock{
         return drops;
     }
 
-    @ParametersAreNonnullByDefault
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        if (worldIn.getRawBrightness(pos, 0) >= 9) {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge()) {
-                float f = getGrowthSpeed(this, worldIn, pos);
-                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
-                {
-                    worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-                }
-            }
-            else if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                this.rollPestSpawn(worldIn, pos);
-            }
-        }
-    }
-
     //needs custom mob
-    private void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
         if (rollChance.roll(10)) spawnJawBeetle(worldIn, pos); //normally 10
         else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
     }

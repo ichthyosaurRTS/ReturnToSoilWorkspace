@@ -1,0 +1,49 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"2": "returntosoil:blocks/vessel_crop/vessel_vine_5n",
+		"particle": "returntosoil:blocks/vessel_crop/vessel_vine_5n"
+	},
+	"elements": [
+		{
+			"from": [8.5, 0, 3],
+			"to": [8.5, 16, 14],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 8], "texture": "#2"},
+				"east": {"uv": [0, 8, 5.5, 16], "texture": "#2"},
+				"south": {"uv": [0, 0, 0, 8], "texture": "#2"},
+				"west": {"uv": [5.5, 8, 11, 16], "texture": "#2"},
+				"up": {"uv": [0, 5.5, 0, 0], "texture": "#2"},
+				"down": {"uv": [0, 0, 0, 5.5], "texture": "#2"}
+			}
+		},
+		{
+			"from": [3, 0, 8.5],
+			"to": [14, 16, 8.5],
+			"faces": {
+				"north": {"uv": [0, 0, 5.5, 8], "texture": "#2"},
+				"east": {"uv": [0, 0, 0, 8], "texture": "#2"},
+				"south": {"uv": [5.5, 0, 11, 8], "texture": "#2"},
+				"west": {"uv": [0, 0, 0, 8], "texture": "#2"},
+				"up": {"uv": [5.5, 0, 0, 0], "texture": "#2"},
+				"down": {"uv": [5.5, 0, 0, 0], "texture": "#2"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "all",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "vine all",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0, 1]
+				}
+			]
+		}
+	]
+}
