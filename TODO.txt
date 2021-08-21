@@ -8,7 +8,8 @@ TODO
 
 1  Droplet crop
 
-1  Vessel crop + mob
+1  Vessel crop + mob:
+    3x3 ball on end, spawn next block before 7
 
 1  Composter crop + mob
 

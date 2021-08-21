@@ -48,8 +48,21 @@
       "model": "returntosoil:block/vessel_crop/vessel_sac_2n",
       "y": 0
     },
-    "age=3": {
-      "model": "returntosoil:block/vessel_crop/vessel_sac_3n"
+    "age=3,rotation=3": {
+      "model": "returntosoil:block/vessel_crop/vessel_sac_3n",
+      "y": 180
+    },
+    "age=3,rotation=0": {
+      "model": "returntosoil:block/vessel_crop/vessel_sac_3n",
+      "y": 90
+    },
+    "age=3,rotation=1": {
+      "model": "returntosoil:block/vessel_crop/vessel_sac_3n",
+      "y": 270
+    },
+    "age=3,rotation=2": {
+      "model": "returntosoil:block/vessel_crop/vessel_sac_3n",
+      "y": 0
     },
     "age=4,rotation=3": {
       "model": "returntosoil:block/vessel_crop/vessel_sac_4n",
