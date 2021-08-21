@@ -11,6 +11,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -47,9 +48,6 @@ public class VesselVineBlock extends RTSCropsBlock {
         }
     }
 
-    public boolean isRandomlyTicking(BlockState state) {
-        return true;
-    }
 
     @Override
     @ParametersAreNonnullByDefault
@@ -61,17 +59,50 @@ public class VesselVineBlock extends RTSCropsBlock {
                 float f = getGrowthSpeed(this, worldIn, pos);
                 if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
                 {
-                    worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
+                    if (i+1 < this.getMaxAge() ) worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
+
+                    else if (i+1 == this.getMaxAge() && worldIn.getBlockState(pos.below()).getBlock() instanceof AirBlock) {
+
+                        worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
+
+                        if (rollChance.roll(4)){
+                            BlockState blockState = BlockItemInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
+                            worldIn.setBlock(pos.below(),blockState,2);
+                        }
+                        else worldIn.setBlock(pos.below(), this.nextAgeWithRotation(state,0), 2);
+                    }
+
                     net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
                 }
             }
-            else if (i == this.getMaxAge() && worldIn.getBlockState(pos.below()).getBlock() instanceof AirBlock)
-                if (rollChance.roll(4)){
-                    BlockState blockState = BlockItemInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
-                    worldIn.setBlock(pos.below(),blockState,2);
-                }
-                    else worldIn.setBlock(pos.below(), this.nextAgeWithRotation(state,0), 2);
         }
+    }
+
+    @Override
+    @ParametersAreNonnullByDefault
+    public void growCrops(World world, BlockPos pos, BlockState state) {
+        int i = this.getAge(state) + this.getBonemealAgeIncrease(world);
+        int j = this.getMaxAge();
+        if (i > j) {
+            i = j;
+        }
+        if (i < this.getMaxAge() ) world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
+
+        else if (i == this.getMaxAge() && world.getBlockState(pos.below()).getBlock() instanceof AirBlock) {
+
+            world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
+
+            if (rollChance.roll(4)){
+                BlockState blockState = BlockItemInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
+                world.setBlock(pos.below(),blockState,2);
+            }
+            else world.setBlock(pos.below(), this.nextAgeWithRotation(state,0), 2);
+        }
+    }
+
+    // When infested or less than 7 old, randomly ticks. Guess there's some unneeded code upstairs...
+    public boolean isRandomlyTicking(BlockState state) {
+        return state.getValue(AGE)<7;
     }
 
     @Override
@@ -82,7 +113,8 @@ public class VesselVineBlock extends RTSCropsBlock {
     @Override
     public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
         BlockState above = p_196260_2_.getBlockState(p_196260_3_.above());
-        if (above.getBlock() instanceof LeavesBlock) return true;
+        Block aboveBlock = above.getBlock();
+        if (aboveBlock instanceof LeavesBlock) return true;
         else if (above.getBlock() instanceof VesselVineBlock)
             return above.getValue(AGE) == 7;
         else return false;
