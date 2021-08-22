@@ -45,6 +45,10 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
         }
     }
 
+    public boolean isInvulnerableTo(DamageSource damage) {
+        return  damage == DamageSource.FALL || damage == DamageSource.IN_WALL ||damage == DamageSource.CRAMMING || super.isInvulnerableTo(damage);
+    }
+
     public void setSpacing (double spacing) {
         this.segmentSpaceFromLeader = spacing;
     }
@@ -63,11 +67,6 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
     public boolean hurt(DamageSource source, float amount) {
         if (source == DamageSource.OUT_OF_WORLD||this.getLeader()==null) return super.hurt(source,amount);
         return this.getLeader().hurt(source,amount);
-    }
-
-    @Override
-    public boolean isInvulnerableTo(DamageSource damage) {
-        return  damage == DamageSource.IN_WALL ||damage == DamageSource.FALL || super.isInvulnerableTo(damage);
     }
 
     //Neither of these work

@@ -22,6 +22,9 @@ TODO
 
 1  Firefly dragons, Floating squid,
 
+1  Joyful Eel:
+    Rename, idle movement
+
 
 2  Firefly dragon
 2  Composter plant + mob
@@ -33,6 +36,8 @@ TODO
 2  Serpent fish
 2  Grain crop
 2  Advanced refinery plant (with container for hopper)
+2  Joyful Eel drops
+
 
 3  General Abstract flying serpent segment entity class: Max rotation parent to child
 3  Elder elder polu

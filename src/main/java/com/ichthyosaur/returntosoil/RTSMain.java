@@ -63,6 +63,8 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
 
             GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
+
+            GlobalEntityTypeAttributes.put(EntityTypesInit.JOYFULEELHEAD.get(), JoyfulEelHeadEntity.setCustomAttributes().build());
         });
     }
 
