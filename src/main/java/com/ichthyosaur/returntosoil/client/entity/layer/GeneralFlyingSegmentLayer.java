@@ -33,9 +33,6 @@ public class GeneralFlyingSegmentLayer<T extends GeneralFlyingSegmentEntity> ext
     private static final ResourceLocation EEL_TAIL2_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_tail2.png");
     private final JoyfulEelTail2Model<T> joyfulEelTail2Model = new JoyfulEelTail2Model<T>();
 
-    private static final ResourceLocation EEL_HEAD_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_head.png");
-    private final JoyfulEelHead2Model<T> joyfulEelHead2Model = new JoyfulEelHead2Model<T>();
-
 
     public GeneralFlyingSegmentLayer(IEntityRenderer<T, EmptyModel<T>> renderer) {
         super(renderer);
@@ -64,9 +61,6 @@ public class GeneralFlyingSegmentLayer<T extends GeneralFlyingSegmentEntity> ext
         }
         if (p_225628_4_.getModelString().equals("JoyfulEelTail2")) {
             coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelTail2Model, EEL_TAIL2_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
-        }
-        if (p_225628_4_.getModelString().equals("JoyfulEelHead")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelHead2Model, EEL_HEAD_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
 
     }

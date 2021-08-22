@@ -1,14 +1,10 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.JoyfulEelHeadEntity;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheepHeadEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 public class JoyfulEelHeadModel<T extends JoyfulEelHeadEntity> extends EntityModel<JoyfulEelHeadEntity> {
 
@@ -20,7 +16,7 @@ public class JoyfulEelHeadModel<T extends JoyfulEelHeadEntity> extends EntityMod
             texHeight = 32;
 
             all = new ModelRenderer(this);
-            all.setPos(0.0F, 23.0F, 1.0F);
+            all.setPos(0.0F, 21.0F, 1.0F);
 
 
             fakehead = new ModelRenderer(this);
