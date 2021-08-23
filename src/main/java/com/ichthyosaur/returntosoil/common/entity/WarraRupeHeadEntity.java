@@ -99,8 +99,8 @@ public class WarraRupeHeadEntity extends CreatureEntity {
                 double d3 = (double)MathHelper.sqrt(xDistance * xDistance + zDistance * zDistance);
                 float f = (float)(MathHelper.atan2(zDistance, xDistance) * (double)(180F / (float)Math.PI)) - 90.0F;
                 float f1 = (float)(-(MathHelper.atan2(yDistance, d3) * (double)(180F / (float)Math.PI)));
-                this.xRot = this.rotlerp(this.xRot, f1, 90);
-                this.yRot = this.rotlerp(this.yRot, f, 100);
+                this.xRot = this.rotlerp(this.xRot, f1, 10);
+                this.yRot = this.rotlerp(this.yRot, f, 10); //that last one is definitely turn speed/ rot speed
 
                 //this.setRot(((float) ((MathHelper.wrapDegrees(360-flatDegreeRotation)))),(float)(MathHelper.wrapDegrees(360-vertDegreeRotation)));
 
