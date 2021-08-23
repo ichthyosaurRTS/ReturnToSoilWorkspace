@@ -62,6 +62,10 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
 
     public String getModelString(){return this.entityData.get(ENTITY_MODEL);}
 
+    @Override
+    public boolean shouldRenderAtSqrDistance(double p_70112_1_) {
+        return p_70112_1_<4000;
+    }
 
     @Override
     public void tick() {

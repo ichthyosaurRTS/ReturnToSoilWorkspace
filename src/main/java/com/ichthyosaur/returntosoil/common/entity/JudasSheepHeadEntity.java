@@ -134,6 +134,11 @@ public class JudasSheepHeadEntity extends MonsterEntity {
     }
 
     @Override
+    public boolean shouldRenderAtSqrDistance(double p_70112_1_) {
+        return p_70112_1_<4000;
+    }
+
+    @Override
     public void tick() {
         super.tick();
 

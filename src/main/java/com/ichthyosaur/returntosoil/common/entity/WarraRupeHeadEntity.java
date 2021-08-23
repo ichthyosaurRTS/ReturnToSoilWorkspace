@@ -51,6 +51,11 @@ public class WarraRupeHeadEntity extends CreatureEntity {
     }
 
     @Override
+    public boolean shouldRenderAtSqrDistance(double p_70112_1_) {
+        return p_70112_1_<4000;
+    }
+
+    @Override
     public void tick() {
         super.tick();
 
@@ -104,7 +109,11 @@ public class WarraRupeHeadEntity extends CreatureEntity {
 
                 //this.setRot(((float) ((MathHelper.wrapDegrees(360-flatDegreeRotation)))),(float)(MathHelper.wrapDegrees(360-vertDegreeRotation)));
 
-                this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/30, this.getLookAngle().y/30, this.getLookAngle().z/30));
+                double speedMod;
+                if (this.getLastHurtByMob() != null) speedMod = 15;
+                else speedMod = 30;
+
+                this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/speedMod, this.getLookAngle().y/speedMod, this.getLookAngle().z/speedMod));
 
             }
 
@@ -118,7 +127,6 @@ public class WarraRupeHeadEntity extends CreatureEntity {
 
                 this.targetPosition = new BlockPos(this.getX() + modX, this.getY() + modY, this.getZ() + modZ);
             }
-            //this.targetPosition = new BlockPos(this.targetPosition.getX()+rollChance.returnRoll(2)-1.5,this.targetPosition.getY(),this.targetPosition.getZ()+rollChance.returnRoll(2)-1.5);
 
         }
 
