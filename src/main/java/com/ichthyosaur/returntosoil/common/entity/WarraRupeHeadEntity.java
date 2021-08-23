@@ -7,6 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
+import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
@@ -17,18 +18,22 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class JoyfulEelHeadEntity extends CreatureEntity {
+public class WarraRupeHeadEntity extends CreatureEntity {
+
+    public static final Logger LOGGER = LogManager.getLogger();
 
     private BlockPos targetPosition;
 
     private final UUID[] subEntitiesUUID = new UUID[6];
     private Entity[] segmentEntities = new Entity[6];
 
-    public JoyfulEelHeadEntity(EntityType<? extends CreatureEntity> p_i48575_1_, World p_i48575_2_) {
+    public WarraRupeHeadEntity(EntityType<? extends CreatureEntity> p_i48575_1_, World p_i48575_2_) {
         super(p_i48575_1_, p_i48575_2_);
     }
 
@@ -41,13 +46,8 @@ public class JoyfulEelHeadEntity extends CreatureEntity {
     }
 
     @Override
-    public int getMaxHeadYRot() {
-        return 180;
-    }
-
-    @Override
     public int getMaxHeadXRot() {
-        return 180;
+        return 90;
     }
 
     @Override
@@ -68,31 +68,58 @@ public class JoyfulEelHeadEntity extends CreatureEntity {
                 this.targetPosition = null;
             }
 
-            if (this.targetPosition == null || this.random.nextInt(30) == 0 || this.targetPosition.closerThan(this.position(), 4.0D)) {
+            else if (this.targetPosition != null) {
+
+                double xPos = this.getX();
+                double yPos = this.getY();
+                double zPos = this.getZ();
+
+                double parentX = this.targetPosition.getX();
+                double parentY = this.targetPosition.getY();
+                double parentZ = this.targetPosition.getZ();
+
+
+                double xDistance = parentX - xPos;
+                double yDistance = parentY - yPos;
+                double zDistance = parentZ - zPos;
+
+                double sqrFlatDistance = Math.sqrt(xDistance * xDistance + zDistance * zDistance);
+
+                //This should really be based on the parent so we can rotated based on their look direction but no worries for now.
+                double flatRadianRotation = MathHelper.atan2(xDistance, zDistance);
+                double flatDegreeRotation =  flatRadianRotation * (180F / (float) Math.PI);
+                //needs to check look at of parent and see if hes looking too far away as well- change rot based on that
+
+                double vertRadianRotation = MathHelper.atan2(yDistance, sqrFlatDistance);
+                double vertDegreeRotation = vertRadianRotation * (180F / (float) Math.PI);
+                //remember has to be radians to use in equations
+
+                //START OF ROTATION
+
+                double d3 = (double)MathHelper.sqrt(xDistance * xDistance + zDistance * zDistance);
+                float f = (float)(MathHelper.atan2(zDistance, xDistance) * (double)(180F / (float)Math.PI)) - 90.0F;
+                float f1 = (float)(-(MathHelper.atan2(yDistance, d3) * (double)(180F / (float)Math.PI)));
+                this.xRot = this.rotlerp(this.xRot, f1, 90);
+                this.yRot = this.rotlerp(this.yRot, f, 100);
+
+                //this.setRot(((float) ((MathHelper.wrapDegrees(360-flatDegreeRotation)))),(float)(MathHelper.wrapDegrees(360-vertDegreeRotation)));
+
+                this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/30, this.getLookAngle().y/30, this.getLookAngle().z/30));
+
+            }
+
+            if (this.targetPosition == null || this.random.nextInt(200) == 0 || this.targetPosition.closerThan(this.position(), 2.0D)) {
                 Double modX = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modX = -modX;
-                Double modY = (double)this.random.nextInt(4)+2;
+                Double modY = (double)this.random.nextInt(10);
                 if (rollChance.roll(2)) modY = -modY;
                 Double modZ = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modZ = -modZ;
 
                 this.targetPosition = new BlockPos(this.getX() + modX, this.getY() + modY, this.getZ() + modZ);
             }
-            else this.targetPosition = new BlockPos(this.targetPosition.getX()+rollChance.returnRoll(3)-2,this.targetPosition.getY()+rollChance.returnRoll(3)-2,this.targetPosition.getZ()+rollChance.returnRoll(3)-2);
+            //this.targetPosition = new BlockPos(this.targetPosition.getX()+rollChance.returnRoll(2)-1.5,this.targetPosition.getY(),this.targetPosition.getZ()+rollChance.returnRoll(2)-1.5);
 
-
-            this.getLookControl().setLookAt(this.targetPosition.getX(),this.targetPosition.getY(),this.targetPosition.getZ(),100,100);
-
-            double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();
-            double d0 = (double)this.targetPosition.getY() + 0.1D - this.getY();
-            double d1 = (double)this.targetPosition.getZ() + 0.5D - this.getZ();
-            Vector3d vector3d = this.getDeltaMovement();
-            Vector3d vector3d1 = vector3d.add(((Math.signum(d2) * 0.5D - vector3d.x) * (double)0.1F )/2, ((Math.signum(d0) * (double)0.7F - vector3d.y) * (double)0.1F )/ 2, ((Math.signum(d1) * 0.5D - vector3d.z) * (double)0.1F )/2);
-            this.setDeltaMovement(vector3d1);
-            float f = (float)(MathHelper.atan2(vector3d1.z, vector3d1.x) * (double)(180F / (float)Math.PI)) - 90.0F;
-            float f1 = MathHelper.wrapDegrees(f - this.yRot);
-            this.zza = 0.5F;
-            this.yRot += f1;
         }
 
         if (this.getTarget() != null) {
@@ -140,6 +167,19 @@ public class JoyfulEelHeadEntity extends CreatureEntity {
         }
     }
 
+    private float rotlerp(float p_70663_1_, float p_70663_2_, float p_70663_3_) {
+        float f = MathHelper.wrapDegrees(p_70663_2_ - p_70663_1_);
+        if (f > p_70663_3_) {
+            f = p_70663_3_;
+        }
+
+        if (f < -p_70663_3_) {
+            f = -p_70663_3_;
+        }
+
+        return p_70663_1_ + f;
+    }
+
     @Override
     public boolean isInvulnerableTo(DamageSource damage) {
         return  damage == DamageSource.FALL || damage == DamageSource.IN_WALL ||damage == DamageSource.CRAMMING || super.isInvulnerableTo(damage);
@@ -151,38 +191,38 @@ public class JoyfulEelHeadEntity extends CreatureEntity {
 
         if (segmentNumber == 0) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(0.6);
-            segment.setModelString("JoyfulEelNeck");
+            segment.setSpacing(0.5);
+            segment.setModelString("WarraRupeNeck");
         }
 
         else if (segmentNumber == 1) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
             segment.setSpacing(0.7);
-            segment.setModelString("JoyfulEelBody1");
+            segment.setModelString("WarraRupeBody1");
         }
 
         else if (segmentNumber == 2) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(0.6);
-            segment.setModelString("JoyfulEelBody2");
+            segment.setSpacing(0.7);
+            segment.setModelString("WarraRupeBody2");
         }
 
         else if (segmentNumber == 3) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(0.5);
-            segment.setModelString("JoyfulEelTail1");
+            segment.setSpacing(0.4);
+            segment.setModelString("WarraRupeTail1");
         }
 
         else if (segmentNumber == 4) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
             segment.setSpacing(0.4);
-            segment.setModelString("JoyfulEelTail1");
+            segment.setModelString("WarraRupeTail1");
         }
 
         else {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
             segment.setSpacing(0.4);
-            segment.setModelString("JoyfulEelTail2");
+            segment.setModelString("WarraRupeTail2");
         }
 
         segment.setLeader(leader);

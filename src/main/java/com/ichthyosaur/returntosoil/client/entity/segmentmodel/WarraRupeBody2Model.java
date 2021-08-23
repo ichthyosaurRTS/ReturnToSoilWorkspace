@@ -4,7 +4,7 @@ import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class JoyfulEelBody2Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
+public class WarraRupeBody2Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
 
     private final ModelRenderer all;
     private final ModelRenderer head;
@@ -18,7 +18,7 @@ public class JoyfulEelBody2Model<T extends GeneralFlyingSegmentEntity> extends E
     private final ModelRenderer wingright2;
     private final ModelRenderer cube_r4;
 
-    public JoyfulEelBody2Model() {
+    public WarraRupeBody2Model() {
         texWidth = 64;
         texHeight = 64;
 

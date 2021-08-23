@@ -4,14 +4,14 @@ import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class JoyfulEelTail2Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
+public class WarraRupeTail2Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
 
     private final ModelRenderer all;
     private final ModelRenderer head;
     private final ModelRenderer cube_r1;
     private final ModelRenderer cube_r2;
 
-    public JoyfulEelTail2Model() {
+    public WarraRupeTail2Model() {
         texWidth = 64;
         texHeight = 64;
 

@@ -42,6 +42,6 @@ public class ClientEventBusSubscriber {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GENERALFLYINGSEGMENT.get(), GeneralFlyingSegmentRenderer::new);
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JOYFULEELHEAD.get(), JoyfulEelHeadRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadRenderer::new);
     }
 }

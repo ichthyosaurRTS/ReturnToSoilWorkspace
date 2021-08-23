@@ -18,20 +18,20 @@ public class GeneralFlyingSegmentLayer<T extends GeneralFlyingSegmentEntity> ext
     private static final ResourceLocation SHEEP_RIBS_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/judas_sheep/judas_sheep_ribs.png");
     private final JudasSheepRibsModel<T> sheepRibsModel = new JudasSheepRibsModel<T>();
 
-    private static final ResourceLocation EEL_NECK_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_neck.png");
-    private final JoyfulEelNeckModel<T> joyfulEelNeckModel = new JoyfulEelNeckModel<T>();
+    private static final ResourceLocation WARRA_RUPE_NECK_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/warra_rupe/warra_rupe_neck.png");
+    private final WarraRupeNeckModel<T> warraRupeNeckModel = new WarraRupeNeckModel<T>();
 
-    private static final ResourceLocation EEL_BODY1_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_body1.png");
-    private final JoyfulEelBody1Model<T> joyfulEelBody1Model = new JoyfulEelBody1Model<T>();
+    private static final ResourceLocation WARRA_RUPE_BODY1_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/warra_rupe/warra_rupe_body1.png");
+    private final WarraRupeBody1Model<T> warraRupeBody1Model = new WarraRupeBody1Model<T>();
 
-    private static final ResourceLocation EEL_BODY2_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_body2.png");
-    private final JoyfulEelBody2Model<T> joyfulEelBody2Model = new JoyfulEelBody2Model<T>();
+    private static final ResourceLocation WARRA_RUPE_BODY2_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/warra_rupe/warra_rupe_body2.png");
+    private final WarraRupeBody2Model<T> warraRupeBody2Model = new WarraRupeBody2Model<T>();
 
-    private static final ResourceLocation EEL_TAIL1_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_tail1.png");
-    private final JoyfulEelTail1Model<T> joyfulEelTail1Model = new JoyfulEelTail1Model<T>();
+    private static final ResourceLocation WARRA_RUPE_TAIL1_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/warra_rupe/warra_rupe_tail1.png");
+    private final WarraRupeTail1Model<T> warraRupeTail1Model = new WarraRupeTail1Model<T>();
 
-    private static final ResourceLocation EEL_TAIL2_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/joyful_eel/joyful_eel_tail2.png");
-    private final JoyfulEelTail2Model<T> joyfulEelTail2Model = new JoyfulEelTail2Model<T>();
+    private static final ResourceLocation WARRA_RUPE_TAIL2_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/warra_rupe/warra_rupe_tail2.png");
+    private final WarraRupeTail2Model<T> warraRupeTail2Model = new WarraRupeTail2Model<T>();
 
 
     public GeneralFlyingSegmentLayer(IEntityRenderer<T, EmptyModel<T>> renderer) {
@@ -47,20 +47,20 @@ public class GeneralFlyingSegmentLayer<T extends GeneralFlyingSegmentEntity> ext
             coloredCutoutModelCopyLayerRender(this.getParentModel(), sheepRibsModel, SHEEP_RIBS_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
 
-        if (p_225628_4_.getModelString().equals("JoyfulEelNeck")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelNeckModel, EEL_NECK_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
+        if (p_225628_4_.getModelString().equals("WarraRupeNeck")) {
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), warraRupeNeckModel, WARRA_RUPE_NECK_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
-        if (p_225628_4_.getModelString().equals("JoyfulEelBody1")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelBody1Model, EEL_BODY1_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
+        if (p_225628_4_.getModelString().equals("WarraRupeBody1")) {
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), warraRupeBody1Model, WARRA_RUPE_BODY1_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
-        if (p_225628_4_.getModelString().equals("JoyfulEelBody2")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelBody2Model, EEL_BODY2_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
+        if (p_225628_4_.getModelString().equals("WarraRupeBody2")) {
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), warraRupeBody2Model, WARRA_RUPE_BODY2_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
-        if (p_225628_4_.getModelString().equals("JoyfulEelTail1")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelTail1Model, EEL_TAIL1_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
+        if (p_225628_4_.getModelString().equals("WarraRupeTail1")) {
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), warraRupeTail1Model, WARRA_RUPE_TAIL1_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
-        if (p_225628_4_.getModelString().equals("JoyfulEelTail2")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), joyfulEelTail2Model, EEL_TAIL2_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
+        if (p_225628_4_.getModelString().equals("WarraRupeTail2")) {
+            coloredCutoutModelCopyLayerRender(this.getParentModel(), warraRupeTail2Model, WARRA_RUPE_TAIL2_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
         }
 
     }

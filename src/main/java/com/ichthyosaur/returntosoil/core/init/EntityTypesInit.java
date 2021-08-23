@@ -70,9 +70,9 @@ public class EntityTypesInit {
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "general_flying_segment").toString()));
 
-    public static final RegistryObject<EntityType<JoyfulEelHeadEntity>> JOYFULEELHEAD = ENTITY_TYPES.register("joyful_eel_head",
-            () -> EntityType.Builder.of(JoyfulEelHeadEntity::new, EntityClassification.CREATURE)
+    public static final RegistryObject<EntityType<WarraRupeHeadEntity>> WARRARUPEHEAD = ENTITY_TYPES.register("warra_rupe_head",
+            () -> EntityType.Builder.of(WarraRupeHeadEntity::new, EntityClassification.CREATURE)
                     .sized(0.3f,0.3f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "joyful_eel_head").toString()));
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "warra_rupe_head").toString()));
 
 }

@@ -64,7 +64,7 @@ public class RTSMain
 
             GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
 
-            GlobalEntityTypeAttributes.put(EntityTypesInit.JOYFULEELHEAD.get(), JoyfulEelHeadEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadEntity.setCustomAttributes().build());
         });
     }
 
