@@ -83,23 +83,9 @@ public class WarraRupeHeadEntity extends CreatureEntity {
                 double parentY = this.targetPosition.getY();
                 double parentZ = this.targetPosition.getZ();
 
-
                 double xDistance = parentX - xPos;
                 double yDistance = parentY - yPos;
                 double zDistance = parentZ - zPos;
-
-                double sqrFlatDistance = Math.sqrt(xDistance * xDistance + zDistance * zDistance);
-
-                //This should really be based on the parent so we can rotated based on their look direction but no worries for now.
-                double flatRadianRotation = MathHelper.atan2(xDistance, zDistance);
-                double flatDegreeRotation =  flatRadianRotation * (180F / (float) Math.PI);
-                //needs to check look at of parent and see if hes looking too far away as well- change rot based on that
-
-                double vertRadianRotation = MathHelper.atan2(yDistance, sqrFlatDistance);
-                double vertDegreeRotation = vertRadianRotation * (180F / (float) Math.PI);
-                //remember has to be radians to use in equations
-
-                //START OF ROTATION
 
                 double d3 = (double)MathHelper.sqrt(xDistance * xDistance + zDistance * zDistance);
                 float f = (float)(MathHelper.atan2(zDistance, xDistance) * (double)(180F / (float)Math.PI)) - 90.0F;
@@ -107,14 +93,11 @@ public class WarraRupeHeadEntity extends CreatureEntity {
                 this.xRot = this.rotlerp(this.xRot, f1, 10);
                 this.yRot = this.rotlerp(this.yRot, f, 10); //that last one is definitely turn speed/ rot speed
 
-                //this.setRot(((float) ((MathHelper.wrapDegrees(360-flatDegreeRotation)))),(float)(MathHelper.wrapDegrees(360-vertDegreeRotation)));
-
                 double speedMod;
                 if (this.getLastHurtByMob() != null) speedMod = 15;
                 else speedMod = 30;
 
                 this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/speedMod, this.getLookAngle().y/speedMod, this.getLookAngle().z/speedMod));
-
             }
 
             if (this.targetPosition == null || this.random.nextInt(200) == 0 || this.targetPosition.closerThan(this.position(), 2.0D)) {
@@ -127,7 +110,6 @@ public class WarraRupeHeadEntity extends CreatureEntity {
 
                 this.targetPosition = new BlockPos(this.getX() + modX, this.getY() + modY, this.getZ() + modZ);
             }
-
         }
 
         if (this.getTarget() != null) {
