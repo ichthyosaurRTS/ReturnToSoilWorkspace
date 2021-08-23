@@ -29,7 +29,7 @@ public class WarraRupeBody1Model<T extends GeneralFlyingSegmentEntity> extends E
 
 
             head = new ModelRenderer(this);
-            head.setPos(0.0F, 0.0F, 0.0F);
+            head.setPos(0.0F, 0.0F, -3.0F);
             all.addChild(head);
 
 

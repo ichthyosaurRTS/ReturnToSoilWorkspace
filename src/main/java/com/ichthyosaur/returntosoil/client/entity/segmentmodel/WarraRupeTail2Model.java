@@ -22,7 +22,7 @@ public class WarraRupeTail2Model<T extends GeneralFlyingSegmentEntity> extends E
         EmptyAll.addChild(all);
 
         head = new ModelRenderer(this);
-        head.setPos(0.0F, 0.0F, 0.0F);
+        head.setPos(0.0F, 0.0F, -3.0F);
         all.addChild(head);
         head.texOffs(0, 15).addBox(-2.0F, -3.0F, -5.0F, 4.0F, 3.0F, 10.0F, 0.0F, false);
         head.texOffs(18, 15).addBox(-1.5F, -2.0F, 2.0F, 3.0F, 1.0F, 8.0F, 0.0F, false);

@@ -114,7 +114,7 @@ public class WarraRupeHeadEntity extends CreatureEntity {
 
         if (this.getTarget() != null) {
 
-            this.lookAt(this.getTarget(),100,100);
+            this.lookAt(this.getTarget(),10,100);
             this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/30, this.getLookAngle().y/30, this.getLookAngle().z/30));
         }
     }
@@ -181,7 +181,7 @@ public class WarraRupeHeadEntity extends CreatureEntity {
 
         if (segmentNumber == 0) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(0.5);
+            segment.setSpacing(0.7);
             segment.setModelString("WarraRupeNeck");
         }
 

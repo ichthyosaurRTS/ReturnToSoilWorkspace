@@ -19,7 +19,7 @@ public class WarraRupeTail1Model<T extends GeneralFlyingSegmentEntity> extends E
         EmptyAll.addChild(all);
 
         head = new ModelRenderer(this);
-        head.setPos(0.0F, 0.0F, 0.0F);
+        head.setPos(0.0F, 0.0F, -2.0F);
         all.addChild(head);
         head.texOffs(0, 0).addBox(-2.5F, -4.0F, -5.0F, 5.0F, 4.0F, 10.0F, 0.0F, false);}
 
