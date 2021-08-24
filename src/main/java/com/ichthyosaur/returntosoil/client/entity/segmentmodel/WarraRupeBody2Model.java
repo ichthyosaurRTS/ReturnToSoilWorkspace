@@ -101,7 +101,6 @@ public class WarraRupeBody2Model<T extends GeneralFlyingSegmentEntity> extends E
         if (this.wing_tick > 6.28) this.wing_tick = 0;
         else this.wing_tick += 0.01;
 
-        LOGGER.info(""+this.wing_tick);
 
         this.wingleft.zRot = 0;
         this.wingright.zRot = 0;

@@ -19,7 +19,7 @@ public class BallFrogDeflatedModel<T extends BallFrogEntity> extends BallFrogMod
         texHeight = 32;
 
         all = new ModelRenderer(this);
-        all.setPos(0.0F, 0.0F, 0.0F);
+        all.setPos(0.0F, 5.0F, 0.0F);
         EmptyAll.addChild(all);
 
 

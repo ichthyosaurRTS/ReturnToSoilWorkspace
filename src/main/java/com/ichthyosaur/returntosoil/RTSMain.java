@@ -58,6 +58,7 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentEntity.setCustomAttributes().build());
             //GlobalEntityTypeAttributes.put(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BALLFROG.get(), BallFrogEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.TALLSNAIL.get(), TallSnailEntity.setCustomAttributes().build());
 
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());

@@ -248,36 +248,6 @@ public class JawBeetleModel <T extends JawBeetleEntity> extends EntityModel<JawB
 
         this.head.yRot = netHeadYaw * ((float)Math.PI / 1000F);
 
-        //this could be ever so slightly shorter....
-
-        /*if (Increasing) ArmsCounter+=0.001;
-        else ArmsCounter-=0.001;
-        if (ArmsCounter>0.07) {Increasing = false;}
-        else if (ArmsCounter<-0.07) {Increasing = true;}
-
-        if (Increasing2) ArmsCounter2+=0.001;
-        else ArmsCounter2-=0.001;
-        if (ArmsCounter2>0.07) {Increasing2 = false;}
-        else if (ArmsCounter2<-0.07) {Increasing2 = true;}
-
-        if (ArmsCounter < 0 ) {
-            if (Increasing) {rightarm.xRot += 0.01;}
-            else {rightarm2nd_r1.xRot -= 0.01;}
-        }
-        else {
-            if (Increasing) {rightarm2nd_r1.xRot += 0.01;}
-            else {rightarm.xRot -= 0.01;}
-        }
-
-        if (ArmsCounter2 < 0) {
-            if (Increasing2) {leftarm.xRot += 0.01;}
-            else {leftarm2nd_r1.xRot -= 0.01;}
-        }
-        else {
-            if (Increasing2) {leftarm2nd_r1.xRot += 0.01;}
-            else {leftarm.xRot -= 0.01;}
-        }*/
-
         //when the entity dies all the legs break!! Rather than just directly referencing a building up float,
         //we have to set the default position every update and then add the extra rotation
 

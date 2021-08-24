@@ -15,7 +15,6 @@ import org.apache.logging.log4j.Logger;
 @OnlyIn(Dist.CLIENT)
 public class EmptyModel <T extends GeneralFlyingSegmentEntity> extends EntityModel<T> {
 
-    public static final Logger LOGGER = LogManager.getLogger();
     public final ModelRenderer EmptyAll;
 
     public EmptyModel() {

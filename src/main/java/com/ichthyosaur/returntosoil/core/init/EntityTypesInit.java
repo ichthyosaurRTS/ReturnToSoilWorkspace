@@ -48,7 +48,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<BallFrogEntity>> BALLFROG = ENTITY_TYPES.register("ball_frog",
             () -> EntityType.Builder.of(BallFrogEntity::new, EntityClassification.CREATURE)
-                    .sized(0.4f,0.4f)
+                    .sized(0.6f,0.6f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "ball_frog").toString()));
 
 
@@ -62,7 +62,6 @@ public class EntityTypesInit {
             () -> EntityType.Builder.of(JudasSheepBodyEntity::new, EntityClassification.CREATURE)
                     .sized(0.7f,0.7f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "judas_sheep_body").toString()));
-
     //Judas Sheep end
 
     public static final RegistryObject<EntityType<GeneralFlyingSegmentEntity>> GENERALFLYINGSEGMENT = ENTITY_TYPES.register("general_flying_segment",
@@ -75,4 +74,8 @@ public class EntityTypesInit {
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "warra_rupe_head").toString()));
 
+    public static final RegistryObject<EntityType<TallSnailEntity>> TALLSNAIL = ENTITY_TYPES.register("tall_snail",
+            () -> EntityType.Builder.of(TallSnailEntity::new, EntityClassification.MONSTER)
+                    .sized(0.5f,0.5f)
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "tall_snail").toString()));
 }
