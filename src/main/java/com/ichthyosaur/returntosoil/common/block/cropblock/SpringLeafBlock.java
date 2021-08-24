@@ -1,6 +1,9 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
+import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.entity.TallSnailEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -45,10 +48,19 @@ public class SpringLeafBlock extends RTSCropsBlock{
         return drops;
     }
 
-    //needs custom mob
+
     public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
-        if (rollChance.roll(10)) spawnJawBeetle(worldIn, pos); //normally 10
-        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
+        if (rollChance.roll(10)) spawnTallSnail(worldIn, pos); //normally 10
+        else if (rollChance.roll(80)) for (int j = 0; j < 3; j++) {spawnTallSnail(worldIn, pos);} //small chance of horde normally 80
+    }
+
+    public static void spawnTallSnail(ServerWorld world, BlockPos pos) {
+        TallSnailEntity entity = EntityTypesInit.TALLSNAIL.get().create(world);
+        if (entity!=null) {
+            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+            world.addFreshEntity(entity);
+        }
+        world.removeBlock(pos,false);
     }
 
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
