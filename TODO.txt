@@ -20,10 +20,11 @@ TODO
 
 1  Ball Frog drops
 
+1  Vessel mob
+
 2  Spawn eggs for non-contract mobs
 2  Firefly dragon
 2  Composter plant + mob
-2  Incubator plant + mob
 2  Add green jaw beetle drop uses/ craft items + fix arm rot
 2  Four tailed fox
 2  Sky whale

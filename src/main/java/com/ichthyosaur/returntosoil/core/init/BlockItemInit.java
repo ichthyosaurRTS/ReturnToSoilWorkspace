@@ -7,6 +7,7 @@ import com.ichthyosaur.returntosoil.common.block.functional.RefineryPlantPottedB
 import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
+import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
 import com.ichthyosaur.returntosoil.common.item.tool.RoseBeetleAxeItem;
 import net.minecraft.block.*;
@@ -84,6 +85,8 @@ public class BlockItemInit {
             new VesselSacBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().sound(SoundType.HONEY_BLOCK)));
     public static final RegistryObject<Item> VESSEL_SEED = ITEMS.register("vessel_seed", () ->
             new BlockNamedItem(VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
+            new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));
     //static Block huskSpawnBlock = new Block(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.DIRT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));

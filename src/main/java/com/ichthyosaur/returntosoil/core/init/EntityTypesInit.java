@@ -51,6 +51,11 @@ public class EntityTypesInit {
                     .sized(0.6f,0.6f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "ball_frog").toString()));
 
+    public static final RegistryObject<EntityType<VesselEntity>> VESSEL = ENTITY_TYPES.register("vessel",
+            () -> EntityType.Builder.of(VesselEntity::new, EntityClassification.CREATURE)
+                    .sized(0.6f,0.6f)
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "vessel").toString()));
+
 
     //Judas Sheep start
     public static final RegistryObject<EntityType<JudasSheepHeadEntity>> JUDASSHEEPHEAD = ENTITY_TYPES.register("judas_sheep_head",
