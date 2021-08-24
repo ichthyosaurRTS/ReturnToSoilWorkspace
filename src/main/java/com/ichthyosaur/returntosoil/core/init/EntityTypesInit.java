@@ -53,7 +53,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<VesselEntity>> VESSEL = ENTITY_TYPES.register("vessel",
             () -> EntityType.Builder.of(VesselEntity::new, EntityClassification.CREATURE)
-                    .sized(0.6f,0.6f)
+                    .sized(0.5f,0.4f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "vessel").toString()));
 
 

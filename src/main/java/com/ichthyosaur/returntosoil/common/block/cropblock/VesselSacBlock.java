@@ -45,8 +45,6 @@ public class VesselSacBlock extends RTSCropsBlock {
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         List<ItemStack> drops = new ArrayList<>();
 
-        if (state.getValue(INFESTED)) return drops;
-
         if (state.getValue(AGE)==7) {
             drops.add(new ItemStack(BlockItemInit.VESSEL_SAC_ITEM.get()));
         }
@@ -65,7 +63,5 @@ public class VesselSacBlock extends RTSCropsBlock {
         else return false;
     }
 
-    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
-        worldIn.removeBlock(pos,false);
-    }
+    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) { } //nothing bc its already got a mob in there
 }
