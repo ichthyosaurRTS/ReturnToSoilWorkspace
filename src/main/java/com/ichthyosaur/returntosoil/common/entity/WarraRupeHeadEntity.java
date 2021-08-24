@@ -10,6 +10,9 @@ import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -134,6 +137,7 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
         createSegments(this,0);
         return p_213386_4_;
     }
+
 
     public void addAdditionalSaveData(CompoundNBT NBT) {
         super.addAdditionalSaveData(NBT);

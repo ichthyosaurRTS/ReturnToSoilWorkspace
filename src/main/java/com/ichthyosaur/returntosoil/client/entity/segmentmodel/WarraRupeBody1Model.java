@@ -2,9 +2,19 @@ package com.ichthyosaur.returntosoil.client.entity.segmentmodel;
 
 import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
+import com.ichthyosaur.returntosoil.common.entity.WarraRupeHeadEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.math.MathHelper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class WarraRupeBody1Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
+
+        private double wing_tick = 0;
+        public static final Logger LOGGER = LogManager.getLogger();
 
         private final ModelRenderer all;
         private final ModelRenderer head;
@@ -92,5 +102,21 @@ public class WarraRupeBody1Model<T extends GeneralFlyingSegmentEntity> extends E
         modelRenderer.yRot = y;
         modelRenderer.zRot = z;
     }
+
+    public void setupAnim(GeneralFlyingSegmentEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+
+	    super.setupAnim(entity,limbSwing, limbSwingAmount, ageInTicks,  netHeadYaw,  headPitch);
+
+        if (this.wing_tick > 6.28) this.wing_tick = 0;
+        else this.wing_tick += 0.01;
+
+        LOGGER.info(""+this.wing_tick);
+
+        this.wingleft.zRot = 0;
+        this.wingright.zRot = 0;
+        this.wingleft.zRot = (float) (180/Math.PI * Math.sin(this.wing_tick)) /50;
+        this.wingright.zRot = (float) (180/Math.PI * -Math.sin(this.wing_tick)) /50;
+    }
+
 }
 

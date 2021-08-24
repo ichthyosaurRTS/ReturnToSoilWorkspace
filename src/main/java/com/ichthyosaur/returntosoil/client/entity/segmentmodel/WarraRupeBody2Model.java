@@ -6,6 +6,8 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 
 public class WarraRupeBody2Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
 
+    private double wing_tick = 3.14;
+
     private final ModelRenderer all;
     private final ModelRenderer head;
     private final ModelRenderer body;
@@ -90,6 +92,21 @@ public class WarraRupeBody2Model<T extends GeneralFlyingSegmentEntity> extends E
         modelRenderer.xRot = x;
         modelRenderer.yRot = y;
         modelRenderer.zRot = z;
+    }
+
+    public void setupAnim(GeneralFlyingSegmentEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+
+        super.setupAnim(entity,limbSwing, limbSwingAmount, ageInTicks,  netHeadYaw,  headPitch);
+
+        if (this.wing_tick > 6.28) this.wing_tick = 0;
+        else this.wing_tick += 0.01;
+
+        LOGGER.info(""+this.wing_tick);
+
+        this.wingleft.zRot = 0;
+        this.wingright.zRot = 0;
+        this.wingleft.zRot = (float) (180/Math.PI * Math.sin(this.wing_tick)) /50;
+        this.wingright.zRot = (float) (180/Math.PI * -Math.sin(this.wing_tick)) /50;
     }
 }
 
