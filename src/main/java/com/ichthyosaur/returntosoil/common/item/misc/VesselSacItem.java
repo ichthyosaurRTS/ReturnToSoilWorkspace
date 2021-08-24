@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil.common.item.misc;
 
 import com.ichthyosaur.returntosoil.common.entity.VesselEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import net.minecraft.block.AirBlock;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -35,14 +36,18 @@ public class VesselSacItem extends Item {
 
         if (entity!=null && !p_77659_1_.isClientSide()) {
 
-            entity.setOwner(p_77659_2_);
-            entity.moveTo((double)blockpos.getX()+0.5, (double)blockpos.getY() + 1, (double)blockpos.getZ()+0.5, 0.0F, 0.0F);
-            entity.finalizeSpawn((ServerWorld)p_77659_1_, p_77659_1_.getCurrentDifficultyAt(blockpos), SpawnReason.NATURAL,null,null);
-            p_77659_1_.addFreshEntity(entity);
+            if (!(p_77659_1_.getBlockState(blockpos).getBlock() instanceof AirBlock)) {
 
-            itemstack.shrink(1);
+                entity.setOwner(p_77659_2_);
+                entity.moveTo((double) blockpos.getX() + 0.5, (double) blockpos.getY() + 1, (double) blockpos.getZ() + 0.5, 0.0F, 0.0F);
+                entity.finalizeSpawn((ServerWorld) p_77659_1_, p_77659_1_.getCurrentDifficultyAt(blockpos), SpawnReason.NATURAL, null, null);
+                p_77659_1_.addFreshEntity(entity);
 
-            return ActionResult.success(itemstack);
+                itemstack.shrink(1);
+
+                return ActionResult.success(itemstack);
+            }
+            else  return ActionResult.fail(itemstack);
         }
 
         else  return ActionResult.fail(itemstack);

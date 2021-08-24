@@ -48,7 +48,7 @@ public class VesselEntity extends CreatureEntity {
 
         if (!this.level.isClientSide()) {
             ServerWorld worldIn = (ServerWorld) this.level;
-            LOGGER.info(""+this.getOwner());
+
             if (this.getOwner() == null) {
                 if (this.ownerUUID != null) {
                     if (worldIn.getEntity(this.ownerUUID) != null) {
@@ -63,16 +63,16 @@ public class VesselEntity extends CreatureEntity {
     @Override
     public void die(DamageSource p_70645_1_) {
 
-        if (this.getOwner() == this || !this.getOwner().isAlive()) { }
-        else if (this.getOwner() != null) this.getOwner().moveTo(this.getPosition(1));
+        if (this.getOwner() == null) { }
+        else if (this.getOwner() != null && this.getOwner().isAlive()) this.getOwner().moveTo(this.getPosition(1));
         super.die(p_70645_1_);
     }
 
     @Override
     public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
 
-        if (this.getOwner() == this || !this.getOwner().isAlive()) return super.hurt(p_70097_1_, p_70097_2_);
-        else if (this.getOwner() != null) this.getOwner().hurt(p_70097_1_, p_70097_2_);
+        if (this.getOwner() == null ) return super.hurt(p_70097_1_, p_70097_2_);
+        else if (this.getOwner() != null && this.getOwner().isAlive()) this.getOwner().hurt(p_70097_1_, p_70097_2_*2);
         return super.hurt(p_70097_1_, p_70097_2_);
     }
 
@@ -83,7 +83,7 @@ public class VesselEntity extends CreatureEntity {
 
     public LivingEntity getOwner() {
         if (this.owner != null) return this.owner;
-        else return this;
+        else return null;
     }
 
     public void addAdditionalSaveData(CompoundNBT NBT) {
