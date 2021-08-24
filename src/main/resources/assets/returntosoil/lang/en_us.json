@@ -27,5 +27,6 @@
   "block.returntosoil.spring_leaf_potted_block_item": "Spring Leaf",
   "item.returntosoil.spring_leaf_berry_item": "Spring Leaf Berry",
   "item.returntosoil.spring_leaf_seed": "Spring Leaf Seed",
-  "item.returntosoil.vessel_seed": "Vessel Seed"
+  "item.returntosoil.vessel_seed": "Vessel Seed",
+  "entity.returntosoil.warra_rupe_head": "Warra Rupe"
 }

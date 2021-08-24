@@ -118,7 +118,7 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
                 ServerWorld worldIn = (ServerWorld) this.getCommandSenderWorld();
                 this.setLeader(worldIn.getEntity(this.leaderUUID));
             }
-            else this.kill();
+            else this.kill(); //should probably use this.remove(false) here but it needs to tick to retrieve data i think
         }
 
         else {

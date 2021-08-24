@@ -18,13 +18,14 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.entity.PartEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class WarraRupeHeadEntity extends CreatureEntity {
+public class WarraRupeHeadEntity extends AbstractContractEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
@@ -33,7 +34,7 @@ public class WarraRupeHeadEntity extends CreatureEntity {
     private final UUID[] subEntitiesUUID = new UUID[6];
     private Entity[] segmentEntities = new Entity[6];
 
-    public WarraRupeHeadEntity(EntityType<? extends CreatureEntity> p_i48575_1_, World p_i48575_2_) {
+    public WarraRupeHeadEntity(EntityType<? extends AbstractContractEntity> p_i48575_1_, World p_i48575_2_) {
         super(p_i48575_1_, p_i48575_2_);
     }
 
@@ -43,6 +44,14 @@ public class WarraRupeHeadEntity extends CreatureEntity {
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.5F)
                 .add(Attributes.FOLLOW_RANGE, 96.0D);
+    }
+
+    public boolean isAggressiveInWild() {
+        return false;
+    }
+
+    public int getRemainingPersistentAngerTime() {
+        return 0;
     }
 
     @Override

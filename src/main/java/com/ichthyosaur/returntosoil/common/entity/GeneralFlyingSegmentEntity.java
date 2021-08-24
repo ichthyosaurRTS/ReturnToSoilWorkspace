@@ -60,6 +60,13 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
         this.entityData.set(ENTITY_MODEL, (NBT.getString("EntityModel")));
     }
 
+    @Override
+    protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
+        if (this.getLeader() instanceof GeneralFlyingSegmentEntity) return ((GeneralFlyingSegmentEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
+        else if (this.getLeader() instanceof AbstractContractEntity) return ((AbstractContractEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
+        else return super.mobInteract(p_230254_1_, p_230254_2_);
+    }
+
     public String getModelString(){return this.entityData.get(ENTITY_MODEL);}
 
     @Override

@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
 import java.util.UUID;
 
 //powerful attack, slow and easy to avoid
+//not currently a contract entity, bc i don't like it
 public class JudasSheepHeadEntity extends MonsterEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
