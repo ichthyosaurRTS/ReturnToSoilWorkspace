@@ -1,6 +1,5 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
-import com.ichthyosaur.returntosoil.common.container.HoldingStaffContainer;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -32,17 +31,20 @@ public class HoldingStaffTileEntity  extends LockableLootTileEntity {
         return null;
     }
 
+    @Override
+    protected Container createMenu(int p_213906_1_, PlayerInventory p_213906_2_) {
+        return null;
+    }
+
 
     public int getSizeInventory() {
         return 1;
     }
-
     public boolean hasItem() {
         if (this.getItems().get(0).equals(ItemStack.EMPTY)) return false;
         else return true;
     }
-
-    public Item holdingItem(){return this.getItems().get(0).getItem();}
+    public Item holdingItem() {return this.getItems().get(0).getItem();}
 
     public void giveItem(Item item) {this.setItems(NonNullList.withSize(1, new ItemStack(item)));}
 
@@ -55,20 +57,18 @@ public class HoldingStaffTileEntity  extends LockableLootTileEntity {
     }
 
 
+
+
+
     @Override
     protected NonNullList<ItemStack> getItems() {
         return this.items;
     }
-
     @Override
     protected void setItems(NonNullList<ItemStack> itemsIn) {
         this.items = itemsIn;
     }
 
-    @Override
-    protected Container createMenu(int id, PlayerInventory player) {
-        return new HoldingStaffContainer(id, player, this);
-    }
 
     @Override
     public CompoundNBT save(CompoundNBT compound) {
