@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.core.init;
 import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.*;
+import com.ichthyosaur.returntosoil.common.block.functional.HoldingStaffBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.RefineryPlantPottedBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
@@ -87,6 +88,11 @@ public class BlockItemInit {
             new BlockNamedItem(VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
             new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
+    public static final RegistryObject<Block> HOLDING_STAFF_BLOCK = BLOCKS.register("holding_staff_block", () ->
+            new HoldingStaffBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().sound(SoundType.WOOD)));
+    public static final RegistryObject<Item> HOLDING_STAFF_ITEM = ITEMS.register("holding_staff_item", () ->
+            new BlockNamedItem(HOLDING_STAFF_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //public static final RegistryObject<item> HUSK_BUG_MEAT_ITEM = ITEMS.register("husk_bug_meat_item", () -> new item(new item.Properties().tab(ItemGroup.TAB_MISC)));
     //static Block huskSpawnBlock = new Block(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.DIRT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
