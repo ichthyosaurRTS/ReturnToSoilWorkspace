@@ -1,10 +1,9 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "accel_potted_1n",
 	"texture_size": [32, 32],
 	"textures": {
 		"3": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_potted_0n",
-		"particle": "potted/potted 1n blue"
+		"particle": "potted/potted1nblue"
 	},
 	"elements": [
 		{

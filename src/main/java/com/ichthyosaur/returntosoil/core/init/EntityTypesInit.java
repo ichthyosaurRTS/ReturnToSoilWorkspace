@@ -25,10 +25,6 @@ public class EntityTypesInit {
                     .sized(1.0f,1.0f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "jaw_beetle").toString()));
 
-    /*public static final RegistryObject<EntityType<NomadSnailEntity>> NOMADSNAIL = ENTITY_TYPES.register("nomad_snail",
-            () -> EntityType.Builder.of(NomadSnailEntity::new, EntityClassification.AMBIENT)
-                    .sized(0.8f,0.8f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "nomad_snail").toString()));*/
 
     public static final RegistryObject<EntityType<BaruGaruEntity>> BARUGARU = ENTITY_TYPES.register("baru_garu",
             () -> EntityType.Builder.of(BaruGaruEntity::new, EntityClassification.AMBIENT)

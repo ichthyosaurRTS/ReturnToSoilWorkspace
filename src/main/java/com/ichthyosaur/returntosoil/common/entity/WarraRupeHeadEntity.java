@@ -77,8 +77,8 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
         if (this.getTarget() == null || !this.getTarget().isAlive()) {
-        this.setTarget(this.level.getNearestLoadedEntity(BatEntity.class,(new EntityPredicate()).range(96).selector(null),
-                this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
+        //this.setTarget(this.level.getNearestLoadedEntity(BatEntity.class,(new EntityPredicate()).range(96).selector(null),
+                //this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
 
             //Bat code (some)
             if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
@@ -112,7 +112,8 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
                 this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/speedMod, this.getLookAngle().y/speedMod, this.getLookAngle().z/speedMod));
             }
 
-            if (this.targetPosition == null || this.random.nextInt(200) == 0 || this.targetPosition.closerThan(this.position(), 2.0D)) {
+            if (this.targetPosition == null || this.random.nextInt(200) == 0 || this.targetPosition.closerThan(this.position(), 2.0D) ||
+            this.getDeltaMovement().x()<0.01&&this.getDeltaMovement().z()<0.01&&this.getDeltaMovement().y()<0.01) {
                 Double modX = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modX = -modX;
                 Double modY = (double)this.random.nextInt(10);
