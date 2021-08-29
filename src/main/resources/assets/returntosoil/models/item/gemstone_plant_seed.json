@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "returntosoil:items/origin_berry_seed"
+    "layer0": "returntosoil:items/gemstone_plant_seed"
   }
 }
