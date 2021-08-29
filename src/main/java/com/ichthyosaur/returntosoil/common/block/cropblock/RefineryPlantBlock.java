@@ -68,7 +68,7 @@ public class RefineryPlantBlock extends RTSCropsBlock{
 
                 itemstack.shrink(1);
 
-                ItemStack definiteDrops = new ItemStack(BlockItemInit.REFINERY_PLANT_POTTED_BLOCK_ITEM.get(), 1);
+                ItemStack definiteDrops = new ItemStack(BlockItemInit.REFINERY_PLANT_POTTED_ITEM.get(), 1);
                 popResource(world, pos, definiteDrops);
 
                 world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);

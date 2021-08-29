@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 
-public class SpringLeafPottedBlock extends Block {
+public class SpringLeafPottedBlock extends RTSPottedBlock {
 
     //remember these have to be psf or mod breaks~
     public static final DirectionProperty FACING = BlockStateProperties.FACING;

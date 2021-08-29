@@ -35,7 +35,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class RefineryPlantPottedBlock extends Block {
+public class RefineryPlantPottedBlock extends RTSPottedBlock {
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 

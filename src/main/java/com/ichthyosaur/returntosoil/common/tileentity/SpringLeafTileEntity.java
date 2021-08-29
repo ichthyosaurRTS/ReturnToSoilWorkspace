@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.Property;
@@ -36,7 +37,7 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
         BlockPos pos = this.getBlockPos();
         BlockState state = this.getBlockState();
         int coolDown = state.getValue(COOL_DOWN);
-
+        
         if (this.getBlockState().getValue(COOL_DOWN) > 0) {
 
             if (this.count > 300) {

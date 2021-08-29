@@ -60,6 +60,8 @@ public class HoldingStaffBlock extends Block {
                     LOGGER.info("staff is holding: "+HSte.holdingItem());
                 }
 
+                else  if (HSte.hasItem()) { }
+
                 else  if (item == Items.AIR) {
                     //HSte.dropItem();
                 }
@@ -76,6 +78,7 @@ public class HoldingStaffBlock extends Block {
         }
     }
 
+
     public ActionResultType use(World p_227031_1_, PlayerEntity p_227031_2_, Hand p_227031_3_, BlockRayTraceResult p_227031_4_) {
         return this.getBlock().use(p_227031_1_.getBlockState(p_227031_4_.getBlockPos()), p_227031_1_, p_227031_4_.getBlockPos(), p_227031_2_, p_227031_3_, p_227031_4_);
     }
@@ -91,7 +94,7 @@ public class HoldingStaffBlock extends Block {
             super.playerDestroy(p_180657_1_, p_180657_2_, p_180657_3_, p_180657_4_, p_180657_5_, p_180657_6_);
     }
 
-    protected static final VoxelShape SHAPE = Block.box(4.0D, 2.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 2.0D, 4.0D, 12.0D, 10.0D, 12.0D);
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;

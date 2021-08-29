@@ -1,5 +1,6 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
+import com.google.common.collect.ImmutableList;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -8,12 +9,19 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.BeaconTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.List;
+
+//how tf do we sync any data with the render?????????
 public class HoldingStaffTileEntity  extends LockableLootTileEntity {
 
     protected NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
@@ -36,17 +44,19 @@ public class HoldingStaffTileEntity  extends LockableLootTileEntity {
         return null;
     }
 
-
     public int getSizeInventory() {
         return 1;
     }
     public boolean hasItem() {
-        if (this.getItems().get(0).equals(ItemStack.EMPTY)) return false;
+        if (this.getItems().get(0).equals(ItemStack.EMPTY) || this.getItems().get(0).getItem().equals(Items.AIR)) return false;
         else return true;
     }
     public Item holdingItem() {return this.getItems().get(0).getItem();}
 
-    public void giveItem(Item item) {this.setItems(NonNullList.withSize(1, new ItemStack(item)));}
+    public void giveItem(Item item) {
+        this.setItems(NonNullList.withSize(1, new ItemStack(item)));
+
+    }
 
     public void dropItem() {
 
@@ -57,9 +67,6 @@ public class HoldingStaffTileEntity  extends LockableLootTileEntity {
     }
 
 
-
-
-
     @Override
     protected NonNullList<ItemStack> getItems() {
         return this.items;
@@ -68,7 +75,6 @@ public class HoldingStaffTileEntity  extends LockableLootTileEntity {
     protected void setItems(NonNullList<ItemStack> itemsIn) {
         this.items = itemsIn;
     }
-
 
     @Override
     public CompoundNBT save(CompoundNBT compound) {

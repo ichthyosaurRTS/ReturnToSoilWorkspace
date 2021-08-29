@@ -74,7 +74,7 @@ public class SpringLeafBlock extends RTSCropsBlock{
 
                 itemstack.shrink(1);
 
-                ItemStack definiteDrops = new ItemStack(BlockItemInit.SPRING_LEAF_POTTED_BLOCK_ITEM.get(), 1);
+                ItemStack definiteDrops = new ItemStack(BlockItemInit.SPRING_LEAF_POTTED_ITEM.get(), 1);
                 popResource(world, pos, definiteDrops);
                 ItemStack berry = new ItemStack(BlockItemInit.SPRING_LEAF_BERRY_ITEM.get(), 1);
                 popResource(world, pos, berry);

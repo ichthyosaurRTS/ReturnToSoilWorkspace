@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "fuel_level=0": {
+      "model": "returntosoil:block/warden_plant/warden_plant_potted_0n"
+    },
+    "fuel_level=1": {
+      "model": "returntosoil:block/warden_plant/warden_plant_potted_1n"
+    },
+    "fuel_level=2": {
+      "model": "returntosoil:block/warden_plant/warden_plant_potted_2n"
+    }
+  }
+
+}
