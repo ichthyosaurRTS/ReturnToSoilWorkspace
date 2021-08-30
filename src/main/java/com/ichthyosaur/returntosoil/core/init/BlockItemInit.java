@@ -25,6 +25,8 @@ public class BlockItemInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, RTSMain.MOD_ID);
 
 
+    //Crops-----------------------------------------------------------
+
     //Origin berry
     public static final Food ORIGIN_BERRY_FOOD = (new Food.Builder()).nutrition(2).saturationMod(0.1F).build();
     public static final RegistryObject<Item> ORIGIN_BERRY_ITEM = ITEMS.register("origin_berry_item", () ->
@@ -53,7 +55,8 @@ public class BlockItemInit {
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
             new LilypadLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel(litBlockEmission(12))));
-    public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () -> new LilypadLanternSeed(LILYPAD_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () ->
+            new LilypadLanternSeed(LILYPAD_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //RefineryPlant
     public static final RegistryObject<Block> REFINERY_PLANT_POTTED_BLOCK = BLOCKS.register("refinery_plant_potted_block", () ->
@@ -93,7 +96,7 @@ public class BlockItemInit {
     public static final RegistryObject<Item> ERMTHRUS_LANTERN_SEED = ITEMS.register("ermthrus_lantern_seed", () ->
             new BlockNamedItem(ERMTHRUS_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Block> ERMTHRUS_LANTERN_POTTED_BLOCK = BLOCKS.register("ermthrus_lantern_potted_block", () ->
-            new ErmthrusLanternPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+            new ErmthrusLanternPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(12))));
     public static final RegistryObject<Item> ERMTHRUS_LANTERN_POTTED_ITEM = ITEMS.register("ermthrus_lantern_potted_item", () ->
             new BlockItem(ERMTHRUS_LANTERN_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
@@ -103,7 +106,7 @@ public class BlockItemInit {
     public static final RegistryObject<Item> WARDEN_PLANT_SEED = ITEMS.register("warden_plant_seed", () ->
             new BlockNamedItem(WARDEN_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Block> WARDEN_PLANT_POTTED_BLOCK = BLOCKS.register("warden_plant_potted_block", () ->
-            new WardenPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+            new WardenPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(6))));
     public static final RegistryObject<Item> WARDEN_PLANT_POTTED_ITEM = ITEMS.register("warden_plant_potted_item", () ->
             new BlockItem(WARDEN_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
@@ -122,7 +125,7 @@ public class BlockItemInit {
     public static final RegistryObject<Item> HEAVY_PLANT_SEED = ITEMS.register("heavy_plant_seed", () ->
             new BlockNamedItem(HEAVY_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Block> HEAVY_PLANT_POTTED_BLOCK = BLOCKS.register("heavy_plant_potted_block", () ->
-            new HeavyPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks()));
+            new HeavyPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(lit(3))));
     public static final RegistryObject<Item> HEAVY_PLANT_POTTED_ITEM = ITEMS.register("heavy_plant_potted_item", () ->
             new BlockItem(HEAVY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
@@ -157,6 +160,16 @@ public class BlockItemInit {
     private static ToIntFunction<BlockState> litBlockEmission(int lightLevel) {
         return (state) -> {
             return state.getValue(BlockStateProperties.LIT) ? lightLevel : 0;
+        };
+    }
+    private static ToIntFunction<BlockState> notZeroFuelEmission(int lightLevel) {
+        return (state) -> {
+            return state.getValue(RTSMain.FUEL_LEVEL)>0 ? lightLevel : 0;
+        };
+    }
+    private static ToIntFunction<BlockState> lit(int lightLevel) {
+        return (state) -> {
+            return lightLevel;
         };
     }
 

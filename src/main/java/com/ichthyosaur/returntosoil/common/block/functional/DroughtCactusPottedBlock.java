@@ -49,7 +49,11 @@ public class DroughtCactusPottedBlock extends RTSPottedBlock implements IBucketP
     public void randomTick(BlockState p_225542_1_, ServerWorld p_225542_2_, BlockPos p_225542_3_, Random p_225542_4_) {
         super.randomTick(p_225542_1_, p_225542_2_, p_225542_3_, p_225542_4_);
 
-        if (rollChance.roll(2) && p_225542_1_.getValue(FUEL_LEVEL)==0) p_225542_2_.setBlock(p_225542_3_,p_225542_1_.setValue(FUEL_LEVEL,1),2);
+        if (rollChance.roll(2) && p_225542_1_.getValue(FUEL_LEVEL)==0 && p_225542_2_.getBlockState(findBelowFluidPos(p_225542_3_,p_225542_2_)).getFluidState() != Fluids.EMPTY.defaultFluidState())
+            p_225542_2_.setBlock(p_225542_3_,p_225542_1_.setValue(FUEL_LEVEL,1),2);
+
+        else if (p_225542_1_.getValue(FUEL_LEVEL)==0 && p_225542_2_.getBlockState(findBelowFluidPos(p_225542_3_,p_225542_2_)).getFluidState() == Fluids.EMPTY.defaultFluidState())
+            p_225542_2_.setBlock(p_225542_3_,p_225542_1_.setValue(FUEL_LEVEL,0),2);
     }
 
 
