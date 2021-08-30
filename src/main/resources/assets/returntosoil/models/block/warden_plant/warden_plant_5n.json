@@ -4,7 +4,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"3": "returntosoil:blocks/warden_plant/warden_plant_5n",
-		"particle": "block/texture"
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

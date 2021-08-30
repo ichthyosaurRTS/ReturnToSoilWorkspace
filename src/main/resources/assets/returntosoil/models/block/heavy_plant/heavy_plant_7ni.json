@@ -4,7 +4,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "returntosoil:blocks/heavy_plant/heavy_plant_7ni",
-		"particle": "returntosoil:blocks/heavy_plant/heavy_plant_7ni"
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

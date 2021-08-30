@@ -4,7 +4,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"4": "returntosoil:blocks/gemstone_plant/gemstone_plant_4n",
-		"particle": "block/texture"
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

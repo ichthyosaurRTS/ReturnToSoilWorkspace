@@ -81,7 +81,7 @@ public class BlockItemInit {
     public static final RegistryObject<Item> DROUGHT_CACTUS_SEED = ITEMS.register("drought_cactus_seed", () ->
             new BlockNamedItem(DROUGHT_CACTUS_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Block> DROUGHT_CACTUS_POTTED_BLOCK = BLOCKS.register("drought_cactus_potted_block", () ->
-            new DroughtCactusPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+            new DroughtCactusPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks()));
     public static final RegistryObject<Item> DROUGHT_CACTUS_POTTED_ITEM = ITEMS.register("drought_cactus_potted_item", () ->
             new BlockItem(DROUGHT_CACTUS_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 

@@ -2,7 +2,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"5": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_7ni",
-		"particle": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_7ni"
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

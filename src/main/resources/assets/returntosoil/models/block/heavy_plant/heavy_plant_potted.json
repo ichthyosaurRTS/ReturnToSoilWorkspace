@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"2": "returntosoil:blocks/heavy_plant/heavy_plant_potted",
-		"particle": "returntosoil:blocks/clear"
+		"particle": "returntosoil:blocks/heavy_plant/heavy_plant_potted"
 	},
 	"elements": [
 		{

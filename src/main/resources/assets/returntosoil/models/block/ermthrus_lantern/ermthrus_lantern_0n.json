@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"2": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_0n",
-		"particle": "crop/accel_0n"
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

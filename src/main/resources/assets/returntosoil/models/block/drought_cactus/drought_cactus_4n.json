@@ -3,7 +3,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"4": "returntosoil:blocks/drought_cactus/drought_cactus_4n",
-		"particle": "crop/drought_cactus_6n"
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

@@ -2,7 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"9": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_2n"
+		"9": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_2n",
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{

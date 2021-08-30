@@ -2,7 +2,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"2": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_potted_2n",
-		"particle": "potted/potted1nblue"
+		"particle": "returntosoil:blocks/ermthrus_lantern/ermthrus_lantern_potted_0n"
 	},
 	"elements": [
 		{

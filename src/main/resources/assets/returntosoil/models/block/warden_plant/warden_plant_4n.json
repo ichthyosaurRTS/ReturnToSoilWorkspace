@@ -3,7 +3,8 @@
 	"parent": "eyeball_potted_1n",
 	"texture_size": [64, 64],
 	"textures": {
-		"7": "returntosoil:blocks/warden_plant/warden_plant_4n"
+		"7": "returntosoil:blocks/warden_plant/warden_plant_4n",
+		"particle": "returntosoil:blocks/3by3green"
 	},
 	"elements": [
 		{
