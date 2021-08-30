@@ -1,5 +1,16 @@
 {
   "item.returntosoil.husk_bug_meat_item": "Husk Bug Meat",
+
+  "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
+  "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed",
+  "item.returntosoil.spring_leaf_seed": "Spring Leaf Seed",
+  "item.returntosoil.vessel_seed": "Vessel Seed",
+  "item.returntosoil.heavy_plant_seed": "Heavy Seed",
+  "item.returntosoil.gemstone_plant_seed": "Gemstone Seed",
+  "item.returntosoil.ermthrus_lantern_seed": "Ermthrus Seed",
+  "item.returntosoil.warden_plant_seed": "Warden Seed",
+  "item.returntosoil.drought_cactus_seed": "Drought Seed",
+
   "block.returntosoil.husk_spawn_block": "Husk Bug Spawn Block",
   "item.returntosoil.husk_spawn_block_item": "Husk Bug Spawn Block Item",
   "entity.returntosoil.husk_larvae": "Husk Bug Larvae",
@@ -12,7 +23,6 @@
   "item.returntosoil.origin_jam_item": "Ori-Jam",
   "entity.returntosoil.baru_garu_segment": "Baru Garu Segment",
   "entity.returntosoil.ball_frog": "Ball Frog",
-  "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.rose_beetle_item": "Rose Beetle",
   "item.returntosoil.ghost_beetle_item": "Ghost Beetle",
   "itemGroup.returntosoil": "Return To Soil",
@@ -22,12 +32,16 @@
   "entity.returntosoil.judas_sheep_head": "Judas Sheep",
   "entity.returntosoil.judas_sheep_body": "Judas Sheep Body",
   "entity.returntosoil.general_flying_segment": "Body Part",
-  "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed",
   "block.returntosoil.spring_leaf_potted_block": "Spring Leaf",
+
   "block.returntosoil.spring_leaf_potted_block_item": "Spring Leaf",
+
+  "block.returntosoil.heavy_plant_potted_block": "Heavy Plant",
+  "block.returntosoil.warden_plant_potted_block": "Warden Plant",
+  "block.returntosoil.ermthrus_lantern_potted_block": "Ermthrus Lantern",
+  "block.returntosoil.drought_cactus_potted_block": "Drought Cactus",
+
   "item.returntosoil.spring_leaf_berry_item": "Spring Leaf Berry",
-  "item.returntosoil.spring_leaf_seed": "Spring Leaf Seed",
-  "item.returntosoil.vessel_seed": "Vessel Seed",
   "entity.returntosoil.warra_rupe_head": "Warra Rupe",
   "item.returntosoil.vessel_sac_item": "Vessel Sac",
   "item.returntosoil.holding_staff_item": "Holding Staff"

@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
+//Rarity abyss (4) ; only grows in rain...?
 public class HeavyPlantBlock extends RTSCropsBlock{
     public HeavyPlantBlock(Properties p_i48421_1_) {
         super(p_i48421_1_);
