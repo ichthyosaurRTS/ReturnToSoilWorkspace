@@ -15,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 import java.util.HashSet;
@@ -63,9 +64,9 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
 
     private void throwTargetsUp(){
 
-        if(this.targetList.size()>0){
+        if(this.targetList.size()>0 ){
             for (LivingEntity entity: this.targetList) {
-                if (entity.distanceToSqr(entity) < 2)
+                if (entity.distanceToSqr(new Vector3d(this.getBlockPos().getX(),this.getBlockPos().getY(), this.getBlockPos().getZ())) < 2)
                 {
                     entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
                     this.getLevel().setBlock(this.getBlockPos(),this.getBlockState().setValue(COOL_DOWN,4),2);
