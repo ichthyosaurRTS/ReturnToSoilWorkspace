@@ -6,6 +6,8 @@ import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
@@ -15,6 +17,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.HashSet;
 
@@ -43,13 +46,10 @@ public class WardenPlantTileEntity extends TileEntity implements ITickableTileEn
 
 
 
-        if (this.spiritLevel < 1 && !(this.level.isClientSide)) {world.setBlock(pos, state.setValue(FUEL_LEVEL, 0), 2);
-        RTSMain.LOGGER.info("spirit lower than 1!");}
+        if (this.spiritLevel < 1 && !(this.level.isClientSide)) {world.setBlock(pos, state.setValue(FUEL_LEVEL, 0), 2); }
 
         else if (this.spiritLevel > 0){
 
-            RTSMain.LOGGER.info(""+this.spiritLevel);
-            RTSMain.LOGGER.info(""+this.mode);
 
             if (this.speedDenominator > 10) {
                 this.spiritLevel -= 1;
@@ -97,17 +97,20 @@ public class WardenPlantTileEntity extends TileEntity implements ITickableTileEn
                         }
                         //Destroying infested
                         else {
-                            if (targetState.getValue(RTSMain.INFESTED)) {
-                                world.destroyBlock(targetPos, false);
+                            if (targetState.getValue(RTSMain.INFESTED) && !world.isClientSide()) {
+                                if (rollChance.roll(10)) {
+                                    world.getBlockState(targetPos).spawnAfterBreak((ServerWorld) world,targetPos,ItemStack.EMPTY);
+                                    world.destroyBlock(targetPos, false);
 
-                                world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                                        targetPos.getX()+0.4, targetPos.getY()+0.6, targetPos.getZ()+0.6, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                                        targetPos.getX()+0.6, targetPos.getY()+0.4, targetPos.getZ()+0.4, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                                        targetPos.getX()+0.4, targetPos.getY()+0.6, targetPos.getZ()+0.4, 0.0D, 0.0D, 0.0D);
+                                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
+                                            targetPos.getX()+0.4, targetPos.getY()+0.6, targetPos.getZ()+0.6, 0.0D, 0.0D, 0.0D);
+                                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
+                                            targetPos.getX()+0.6, targetPos.getY()+0.4, targetPos.getZ()+0.4, 0.0D, 0.0D, 0.0D);
+                                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
+                                            targetPos.getX()+0.4, targetPos.getY()+0.6, targetPos.getZ()+0.4, 0.0D, 0.0D, 0.0D);
 
-                            }
+                                }
+                                  }
                         }
                     }
                 }

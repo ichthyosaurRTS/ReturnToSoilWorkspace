@@ -64,7 +64,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
     // This is where the infestation occurs, transitioning from 6-7
     public BlockState nextAgeWithRotation(BlockState state, Integer newAge) {
         boolean infested = state.getValue(INFESTED);
-        if (newAge==7&&rollChance.roll(4)) infested = true; //normally 40
+        if (newAge==7&&rollChance.roll(40)) infested = true; //normally 40
         BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested); //
         return block;
     }

@@ -63,14 +63,15 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
 
     private void throwTargetsUp(){
 
+        if(this.targetList.size()>0){
             for (LivingEntity entity: this.targetList) {
                 if (entity.distanceToSqr(entity) < 2)
                 {
                     entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
                     this.getLevel().setBlock(this.getBlockPos(),this.getBlockState().setValue(COOL_DOWN,4),2);
-                    this.targetList.remove(entity);
                 }
-
+                this.targetList.remove(entity);
+            }
         }
     }
 
