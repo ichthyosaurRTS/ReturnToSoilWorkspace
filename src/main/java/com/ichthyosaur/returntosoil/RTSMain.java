@@ -28,7 +28,6 @@ public class RTSMain
     public static final BooleanProperty INFESTED = BooleanProperty.create("infested");
     public static final IntegerProperty FUEL_LEVEL = IntegerProperty.create("fuel_level",0,4);
     public static final IntegerProperty COOL_DOWN = IntegerProperty.create("cool_down",0,60);
-    public static final IntegerProperty SPIRIT_LEVEL = IntegerProperty.create("spirit_level",0,10000);
 
     public RTSMain() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

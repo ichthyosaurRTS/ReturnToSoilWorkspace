@@ -56,7 +56,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
     public BlockState nextAgeWithoutRotation(BlockState state, Integer newAge) {
         boolean infested = state.getValue(INFESTED);
         if (newAge==7&&rollChance.roll(40)) infested = true;
-        BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(INFESTED,infested); //
+        BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested); //
         return block;
     }
 
@@ -64,18 +64,17 @@ public abstract class RTSCropsBlock extends CropsBlock {
     // This is where the infestation occurs, transitioning from 6-7
     public BlockState nextAgeWithRotation(BlockState state, Integer newAge) {
         boolean infested = state.getValue(INFESTED);
-        if (newAge==7&&rollChance.roll(40)) infested = true; //normally 40
+        if (newAge==7&&rollChance.roll(4)) infested = true; //normally 40
         BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested); //
         return block;
     }
 
     public BlockState nextAgeWithRotationWithLit(BlockState state, Integer newAge) {
-        Integer i = state.getValue(ROTATION);
         boolean infested = state.getValue(INFESTED);
-        boolean lit = false;
+        boolean lit;
         if (newAge==7&&rollChance.roll(40)) { infested = true; lit = false; }
         else lit = newAge == 6;
-        BlockState block = this.defaultBlockState().setValue(AGE, newAge).setValue(ROTATION, i).setValue(INFESTED,infested).setValue(LIT,lit); //
+        BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested).setValue(LIT,lit); //
         return block;
     }
 

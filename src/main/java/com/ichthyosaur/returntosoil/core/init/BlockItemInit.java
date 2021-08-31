@@ -6,6 +6,7 @@ import com.ichthyosaur.returntosoil.common.block.cropblock.*;
 import com.ichthyosaur.returntosoil.common.block.functional.*;
 import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
@@ -137,6 +138,10 @@ public class BlockItemInit {
 
 
     // Items ------------------------------------------------------------------
+
+    //Spirit fuel
+    public static final RegistryObject<Item> BOTTLED_SPIRIT_ITEM = ITEMS.register("bottled_spirit_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Jaw beetle stuffs; needs a new armour material
     public static final RegistryObject<Item> ROSE_BEETLE_ITEM = ITEMS.register("rose_beetle_item", () ->

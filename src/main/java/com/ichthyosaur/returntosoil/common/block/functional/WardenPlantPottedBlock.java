@@ -2,15 +2,20 @@ package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.tileentity.WardenPlantTileEntity;
+import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
@@ -47,13 +52,25 @@ public class WardenPlantPottedBlock extends RTSPottedBlock{
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 
-        ((WardenPlantTileEntity)world.getBlockEntity(pos)).spiritLevelAdd(500);
-        if (state.getValue(FUEL_LEVEL) == 0) world.setBlock(pos, state.setValue(FUEL_LEVEL,2), 2);
-        else if (state.getValue(FUEL_LEVEL) == 1) world.setBlock(pos, state.setValue(FUEL_LEVEL,2), 2);
-        else if (state.getValue(FUEL_LEVEL) == 2) world.setBlock(pos, state.setValue(FUEL_LEVEL,1), 2);
+        ItemStack itemstack = player.getItemInHand(hand);
+        Item item = itemstack.getItem();
+        WardenPlantTileEntity te = (WardenPlantTileEntity) world.getBlockEntity(pos);
 
-        return super.use(state, world, pos, player, p_225533_5_, p_225533_6_);
+        if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && te.getSpiritLevel()<8000) {
+            itemstack.shrink(1);
+            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
+            player.inventory.add(returnDrop);
+            te.spiritLevelAdd(500);
+
+            //player.playSound(SoundEvents.TRIDENT_RETURN,1,1 );
+            player.playSound(SoundEvents.SALMON_FLOP,1,1 );
+
+            return ActionResultType.SUCCESS;
+        }
+        else { te.switchMode();
+            return ActionResultType.SUCCESS;}
+
     }
 }

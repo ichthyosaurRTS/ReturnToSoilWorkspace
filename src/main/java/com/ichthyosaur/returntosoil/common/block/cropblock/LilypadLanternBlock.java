@@ -10,16 +10,23 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootContext;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -124,6 +131,26 @@ public class LilypadLanternBlock extends RTSCropsBlock{
             world.addFreshEntity(entity);
         }
         world.removeBlock(pos,false);
+    }
+
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
+        if (state.getValue(AGE)!=6) {
+            return ActionResultType.PASS;
+        }
+        else {
+            ItemStack itemstack = player.getItemInHand(hand);
+            Item item = itemstack.getItem();
+            if (item == Items.GLASS_BOTTLE) {
+                itemstack.shrink(1);
+                ItemStack definiteDrops = new ItemStack(BlockItemInit.BOTTLED_SPIRIT_ITEM.get(), 1);
+                player.inventory.add(definiteDrops);
+                world.setBlock(pos, state.setValue(AGE,7).setValue(LIT,false), 1);
+
+                player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP,1,1 );
+                return ActionResultType.SUCCESS;
+            }
+            else  return ActionResultType.PASS;
+        }
     }
 
 

@@ -51,7 +51,8 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
             }
             else this.count+=1;
         }
-            this.throwTargetsUp();
+
+        else if (!this.targetList.isEmpty()) this.throwTargetsUp();
 
     }
 
