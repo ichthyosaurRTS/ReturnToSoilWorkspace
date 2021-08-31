@@ -1,30 +1,15 @@
 package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.client.entity.BaruGaruSegmentRenderer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
-import net.minecraft.client.renderer.entity.PlayerRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.List;
-import java.util.logging.Logger;
 
 @Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemEvents {
@@ -54,22 +39,32 @@ public class ItemEvents {
         }*/
     }
 
-    @SubscribeEvent
-    public static void ghostBeetleItem (LivingEvent.LivingJumpEvent event) {
-        if (event.getEntityLiving() instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-            double speedMod = 2;
 
-            if (rollChance.containsItem(BlockItemInit.GHOST_BEETLE_ITEM.get(),player) != 1000
-            && player.getCommandSenderWorld().getDayTime() > 18000) {
-                Vector3d playerVector = player.getDeltaMovement();
-                double playerXVector = playerVector.x;
-                double playerZVector = playerVector.z;
-                player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0.10, speedMod * playerZVector));
+
+    @SubscribeEvent
+    public static void invItemTick (TickEvent.PlayerTickEvent event) {
+        PlayerEntity player = event.player;
+        ServerWorld world;
+        if (!player.level.isClientSide())  world = (ServerWorld) player.level;
+            for(int i = 0; i < 36; i++) {
+                Item item = player.inventory.getItem(i).getItem();
+
+                if (item == BlockItemInit.HEAVY_PLANT_SEED.get() || item == BlockItemInit.HEAVY_PLANT_POTTED_ITEM.get()) {heavyVector(player);}
+
             }
-        }
     }
+
+    private static void heavyVector(PlayerEntity player){
+        float yVector;
+        if ((player.getDeltaMovement().y) < 0) yVector = (float) (player.getDeltaMovement().y*1.5);
+        else yVector = (float)-0.1;
+        if ((player.getDeltaMovement().y) < -5) {}
+        else player.setDeltaMovement(player.getDeltaMovement().x/2,player.getDeltaMovement().y+yVector,player.getDeltaMovement().z/2);
+    }
+
 }
+
+
 
 
 
