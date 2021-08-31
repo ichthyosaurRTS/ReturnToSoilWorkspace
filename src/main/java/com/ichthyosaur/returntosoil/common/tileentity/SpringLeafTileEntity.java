@@ -17,10 +17,14 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SpringLeafTileEntity extends TileEntity implements ITickableTileEntity {
+import java.util.HashSet;
+import java.util.Set;
+
+public class SpringLeafTileEntity extends TileEntity implements ITickableTileEntity, IHoldsTarget {
 
     private static final IntegerProperty COOL_DOWN = RTSMain.COOL_DOWN;
     private int count;
+    private HashSet<LivingEntity> targetList = new HashSet<LivingEntity>();
 
     public SpringLeafTileEntity(TileEntityType<?> p_i48289_1_) {
         super(p_i48289_1_);
@@ -47,5 +51,28 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
             }
             else this.count+=1;
         }
+            this.throwTargetsUp();
+
     }
+
+    @Override
+    public void setTarget(LivingEntity entity) {
+        if (!this.targetList.contains(entity)) this.targetList.add(entity);
+    }
+
+    private void throwTargetsUp(){
+
+            for (LivingEntity entity: this.targetList) {
+                if (entity.distanceToSqr(entity) < 2)
+                {
+                    entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
+                    this.getLevel().setBlock(this.getBlockPos(),this.getBlockState().setValue(COOL_DOWN,4),2);
+                    this.targetList.remove(entity);
+                }
+
+        }
+    }
+
 }
+
+

@@ -2,6 +2,9 @@ package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.SpringLeafBlock;
+import com.ichthyosaur.returntosoil.common.block.functional.RTSPottedBlock;
+import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
+import com.ichthyosaur.returntosoil.common.tileentity.IHoldsTarget;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
@@ -15,6 +18,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -37,19 +41,18 @@ public class BlockEvents {
             Block.popResource(worldIn, pos, originSeed);
         }
     }
-    //technically a living entity event but oh well
+
     @SubscribeEvent
-    public static void springLeaf (LivingEvent.LivingJumpEvent event) {
+    public static void springTargetSet (LivingEvent event) {
         LivingEntity entity = event.getEntityLiving();
         World world = entity.getCommandSenderWorld();
-        BlockState inState = entity.getFeetBlockState(); // probs wont work
+        BlockState inState = entity.getFeetBlockState();
         BlockPos in = new BlockPos (entity.getPosition(1));
 
-        if ( inState.getBlock() == BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get() )
+        if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock)
         {
-            BlockState fullSpring = inState.setValue(COOL_DOWN,4).setValue(FACING,inState.getValue(FACING));
-            world.setBlock(in, fullSpring,2);
-            entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
+            if (world.getBlockEntity(in) instanceof IHoldsTarget)
+            ((IHoldsTarget)world.getBlockEntity(in)).setTarget(entity);
         }
     }
 }
