@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.tileentity.HoldingStaffTileEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.RefineryPlantTileEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.SpringLeafTileEntity;
+import com.ichthyosaur.returntosoil.common.tileentity.WardenPlantTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -24,6 +25,10 @@ public class TileEntityTypesInit {
     public static final RegistryObject<TileEntityType<SpringLeafTileEntity>> SPRING_LEAF_TILE_ENTITY_TYPE =
             TILE_ENTITY_TYPE.register("spring_leaf", () ->
                     TileEntityType.Builder.of(SpringLeafTileEntity::new, BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<WardenPlantTileEntity>> WARDEN_PLANT_TILE_ENTITY_TYPE =
+            TILE_ENTITY_TYPE.register("warden_plant", () ->
+                    TileEntityType.Builder.of(WardenPlantTileEntity::new, BlockItemInit.WARDEN_PLANT_POTTED_BLOCK.get()).build(null));
 
     public static final RegistryObject<TileEntityType<HoldingStaffTileEntity>> HOLDING_STAFF_TILE_ENTITY_TYPE = TILE_ENTITY_TYPE
             .register("holding_staff",
