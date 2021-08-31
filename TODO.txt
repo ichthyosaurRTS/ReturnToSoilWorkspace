@@ -3,9 +3,9 @@ TODO
 
 1  Ermthrus re texture?
 
-1  Heavy remodel 7ni, 1-6
+1  Warden(te), and Ermthrus(te) potted code and drops
 
-1  Warden(te), Cactus(pv), Heavy(pv) and Ermthrus(te) potted code and drops
+1  Repulsor Crop
 
 1  Lilypad Lantern drops + bottling
 
