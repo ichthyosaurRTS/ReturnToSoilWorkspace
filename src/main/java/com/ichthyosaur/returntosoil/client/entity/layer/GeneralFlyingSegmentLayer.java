@@ -12,12 +12,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class GeneralFlyingSegmentLayer<T extends GeneralFlyingSegmentEntity> extends LayerRenderer<T, EmptyModel<T>> {
 
-    private static final ResourceLocation SHEEP_BUTT_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/judas_sheep/judas_sheep_butt.png");
-    private final JudasSheepButtModel<T> sheepButtModel = new JudasSheepButtModel<T>();
-
-    private static final ResourceLocation SHEEP_RIBS_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/judas_sheep/judas_sheep_ribs.png");
-    private final JudasSheepRibsModel<T> sheepRibsModel = new JudasSheepRibsModel<T>();
-
     private static final ResourceLocation WARRA_RUPE_NECK_TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/warra_rupe/warra_rupe_neck.png");
     private final WarraRupeNeckModel<T> warraRupeNeckModel = new WarraRupeNeckModel<T>();
 
@@ -39,13 +33,6 @@ public class GeneralFlyingSegmentLayer<T extends GeneralFlyingSegmentEntity> ext
     }
 
     public void render(MatrixStack p_225628_1_, IRenderTypeBuffer p_225628_2_, int p_225628_3_, T p_225628_4_, float p_225628_5_, float p_225628_6_, float p_225628_7_, float p_225628_8_, float p_225628_9_, float p_225628_10_) {
-
-        if (p_225628_4_.getModelString().equals("JudasSheepButt")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), sheepButtModel, SHEEP_BUTT_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
-        }
-        if (p_225628_4_.getModelString().equals("JudasSheepRibs")) {
-            coloredCutoutModelCopyLayerRender(this.getParentModel(), sheepRibsModel, SHEEP_RIBS_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);
-        }
 
         if (p_225628_4_.getModelString().equals("WarraRupeNeck")) {
             coloredCutoutModelCopyLayerRender(this.getParentModel(), warraRupeNeckModel, WARRA_RUPE_NECK_TEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_, p_225628_7_, 1, 1, 1);

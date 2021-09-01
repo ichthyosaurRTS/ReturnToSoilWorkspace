@@ -2,10 +2,7 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.*;
-import com.ichthyosaur.returntosoil.client.entity.JudasSheepBodyRenderer;
-import com.ichthyosaur.returntosoil.client.entity.JudasSheepHeadRenderer;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
-import com.ichthyosaur.returntosoil.common.tileentity.HoldingStaffTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
@@ -49,16 +46,10 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), JawBeetleRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), BaruGaruRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentRenderer::new);
-        //RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BALLFROG.get(), BallFrogRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.TALLSNAIL.get(), TallSnailRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VESSEL.get(), VesselRenderer::new);
-
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JUDASSHEEPBODY.get(), JudasSheepBodyRenderer::new);
-
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GENERALFLYINGSEGMENT.get(), GeneralFlyingSegmentRenderer::new);
-
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadRenderer::new);
     }
 }

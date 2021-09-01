@@ -2,7 +2,6 @@ package com.ichthyosaur.returntosoil;
 
 
 import com.ichthyosaur.returntosoil.common.entity.*;
-import com.ichthyosaur.returntosoil.common.entity.JudasSheepHeadEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
@@ -55,16 +54,10 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.JAWBEETLE.get(), JawBeetleEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARU.get(), BaruGaruEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentEntity.setCustomAttributes().build());
-            //GlobalEntityTypeAttributes.put(EntityTypesInit.FOURTAILEDFOX.get(), FourTailedFoxEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BALLFROG.get(), BallFrogEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.TALLSNAIL.get(), TallSnailEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.VESSEL.get(), VesselEntity.setCustomAttributes().build());
-
-            GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPHEAD.get(), JudasSheepHeadEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.JUDASSHEEPBODY.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
-
             GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
-
             GlobalEntityTypeAttributes.put(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadEntity.setCustomAttributes().build());
         });
     }

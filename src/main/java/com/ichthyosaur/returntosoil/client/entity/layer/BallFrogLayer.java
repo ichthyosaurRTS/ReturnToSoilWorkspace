@@ -1,13 +1,9 @@
 package com.ichthyosaur.returntosoil.client.entity.layer;
 
-import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.model.BallFrogModel.BallFrogDeflatedModel;
 import com.ichthyosaur.returntosoil.client.entity.model.BallFrogModel.BallFrogInflatedModel;
 import com.ichthyosaur.returntosoil.client.entity.model.BallFrogModel.BallFrogModel;
-import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
-import com.ichthyosaur.returntosoil.client.entity.segmentmodel.JudasSheepButtModel;
 import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
-import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;

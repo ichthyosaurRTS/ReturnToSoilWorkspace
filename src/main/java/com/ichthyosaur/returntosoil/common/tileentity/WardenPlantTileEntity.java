@@ -92,7 +92,7 @@ public class WardenPlantTileEntity extends TileEntity implements ITickableTileEn
                         targetState = world.getBlockState(targetPos);
                         if (this.mode == 2) {
                             if (targetState.getValue(BlockStateProperties.AGE_7)==6|| targetState.getValue(BlockStateProperties.AGE_7)==5
-                            && rollChance.roll(50)) {
+                            && rollChance.roll(100)) {
                                 world.setBlock(targetPos,targetState.setValue(RTSMain.INFESTED, true),2);}
                         }
                         //Destroying infested; rool usually 10

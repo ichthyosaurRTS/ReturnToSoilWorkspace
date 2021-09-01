@@ -22,6 +22,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -71,19 +72,20 @@ public class RefineryPlantPottedBlock extends RTSPottedBlock {
 
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (world.isClientSide()) {
-            return ActionResultType.PASS;
-        }
-        else {
-            if (item == BlockItemInit.ORIGIN_JAM_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
 
-                int newFuelLevel = state.getValue(FUEL_LEVEL) + 1;
-                BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel);
-                world.setBlock(pos, news,2);
 
-                itemstack.shrink(1);
-                return ActionResultType.SUCCESS;
-            }
+        if (item == BlockItemInit.ORIGIN_JAM_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
+
+            int newFuelLevel = state.getValue(FUEL_LEVEL) + 1;
+            BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel);
+            world.setBlock(pos, news,2);
+            itemstack.shrink(1);
+
+            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
+            player.inventory.add(returnDrop);
+            player.playSound(SoundEvents.SALMON_FLOP,1,1 );
+            return ActionResultType.SUCCESS;
+
         }
 
         return ActionResultType.PASS;
@@ -99,8 +101,6 @@ public class RefineryPlantPottedBlock extends RTSPottedBlock {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
         if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0) {
-            //world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                    //player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
             world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                     player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
         }

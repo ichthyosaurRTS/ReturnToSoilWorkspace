@@ -51,7 +51,7 @@ public class BlockEvents {
         BlockState inState = entity.getFeetBlockState();
         BlockPos in = new BlockPos (entity.getPosition(1));
 
-        if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock && !world.isClientSide())
+        if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock)
         {
             if (world.getBlockEntity(in) instanceof IHoldsTarget)
             ((IHoldsTarget) Objects.requireNonNull(world.getBlockEntity(in))).setTarget(entity);

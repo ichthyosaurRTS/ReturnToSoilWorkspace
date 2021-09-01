@@ -18,6 +18,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.Tags;
 
+import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class RefineryPlantTileEntity extends TileEntity implements ITickableTileEntity {
 
@@ -61,15 +66,18 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
     public static ItemStack randomSeedResult() {
 
         int i = (int) rollChance.returnRoll(100);
-        //we bump this up as we add shit
-        if (i < 4) {
+        if (i < 5) {
             switch (i) {
                 case 1:  return new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get(),1);
                 case 2:  return new ItemStack(BlockItemInit.SPRING_LEAF_SEED.get(),1);
                 case 3:  return new ItemStack(BlockItemInit.VESSEL_SEED.get(),1);
+                case 4:  return new ItemStack(BlockItemInit.DROUGHT_CACTUS_BLOCK.get(), 1);
                 }
         }
-        else if (i < 40) return new ItemStack(Items.WHEAT_SEEDS,1);
+        else if (i == 5) return getSpiritSeed();
+        else if (i == 6) if (rollChance.roll(10)) return getAbyssSeed(); else return randomSeedResult();
+        else if (i < 40) return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
+        else if (i < 60) return new ItemStack(Items.WHEAT_SEEDS,1);
         else if (i < 75) return new ItemStack(Items.SWEET_BERRIES,1);
         else if (i < 80) return new ItemStack(Items.BEETROOT_SEEDS,1);
         else if (i < 85) return new ItemStack(Items.CARROT,1);
@@ -79,6 +87,21 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
 
         return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
     }
+
+    private static ItemStack getSpiritSeed(){
+        HashMap<Integer,Item> seeds = new HashMap<>();
+        seeds.put(1,BlockItemInit.ERMTHRUS_LANTERN_SEED.get());
+        seeds.put(2,BlockItemInit.WARDEN_PLANT_SEED.get());
+        seeds.put(3,BlockItemInit.GEMSTONE_PLANT_SEED.get());
+        return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
+    }
+
+    private static ItemStack getAbyssSeed(){
+        HashMap<Integer,Item> seeds = new HashMap<>();
+        seeds.put(1,BlockItemInit.HEAVY_PLANT_SEED.get());
+        return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
+    }
+
 
     private Item randomItem(int count){
         Item item = Item.byId((int)rollChance.returnRoll(3000));
