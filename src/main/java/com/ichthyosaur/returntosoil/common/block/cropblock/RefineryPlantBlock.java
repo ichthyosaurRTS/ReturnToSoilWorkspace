@@ -27,7 +27,7 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class RefineryPlantBlock extends RTSCropsBlock{
+public class RefineryPlantBlock extends RTSCropsBlock implements IPottable{
 
     // I'm lazy alright?
 
@@ -45,10 +45,6 @@ public class RefineryPlantBlock extends RTSCropsBlock{
         return this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
     }
 
-    public boolean isRandomlyTicking(BlockState state) {
-        return state.getValue(INFESTED)||state.getValue(AGE)<7;
-    }
-
 
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
@@ -56,31 +52,10 @@ public class RefineryPlantBlock extends RTSCropsBlock{
         else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
     }
 
-    //potting function needed
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-        if (state.getValue(AGE)!=7||state.getValue(INFESTED)) {
-            return ActionResultType.PASS;
-        }
-        else {
-            ItemStack itemstack = player.getItemInHand(hand);
-            Item item = itemstack.getItem();
-            if (item == Items.FLOWER_POT) {
 
-                itemstack.shrink(1);
-
-                ItemStack definiteDrops = new ItemStack(BlockItemInit.REFINERY_PLANT_POTTED_ITEM.get(), 1);
-                popResource(world, pos, definiteDrops);
-
-                world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
-
-                return ActionResultType.SUCCESS;
-            }
-            else  return ActionResultType.PASS;
-        }
-    }
-
-    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
-        return false;
+    @Override
+    public ItemStack getPotItem() {
+        return new ItemStack(BlockItemInit.REFINERY_PLANT_POTTED_ITEM.get());
     }
 
 }

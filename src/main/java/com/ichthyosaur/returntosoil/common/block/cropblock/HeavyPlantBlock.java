@@ -19,27 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Rarity abyss (4) ; only grows in rain...?
-public class HeavyPlantBlock extends RTSCropsBlock{
+public class HeavyPlantBlock extends RTSCropsBlock implements IPottable{
     public HeavyPlantBlock(Properties p_i48421_1_) {
         super(p_i48421_1_);
-    }
-
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-        if (state.getValue(AGE)!=7||state.getValue(INFESTED)) {
-            return ActionResultType.PASS;
-        }
-        else {
-            ItemStack itemstack = player.getItemInHand(hand);
-            Item item = itemstack.getItem();
-            if (item == Items.FLOWER_POT) {
-                itemstack.shrink(1);
-                ItemStack definiteDrops = new ItemStack(BlockItemInit.HEAVY_PLANT_POTTED_ITEM.get(), 1);
-                popResource(world, pos, definiteDrops);
-                world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
-                return ActionResultType.SUCCESS;
-            }
-            else  return ActionResultType.PASS;
-        }
     }
 
     @ParametersAreNonnullByDefault
@@ -50,5 +32,10 @@ public class HeavyPlantBlock extends RTSCropsBlock{
             drops.add(new ItemStack(BlockItemInit.HEAVY_FRUIT_ITEM.get()));
         }
         return drops;
+    }
+
+    @Override
+    public ItemStack getPotItem() {
+        return new ItemStack(BlockItemInit.HEAVY_PLANT_POTTED_ITEM.get());
     }
 }

@@ -93,6 +93,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
 
     // qol interact so you don't have to replant although that might be fun in its own way
     @ParametersAreNonnullByDefault
+    @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
         if (state.getValue(AGE)!=7||state.getValue(INFESTED)) {
             return ActionResultType.PASS;

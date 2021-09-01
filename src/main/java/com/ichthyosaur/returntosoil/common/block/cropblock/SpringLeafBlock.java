@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SpringLeafBlock extends RTSCropsBlock{
+public class SpringLeafBlock extends RTSCropsBlock implements IPottable{
 
     public SpringLeafBlock(Properties properties) {
         super(properties);
@@ -51,40 +51,12 @@ public class SpringLeafBlock extends RTSCropsBlock{
 
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
-        if (rollChance.roll(10)) spawnTallSnail(worldIn, pos); //normally 10
-        else if (rollChance.roll(80)) for (int j = 0; j < 3; j++) {spawnTallSnail(worldIn, pos);} //small chance of horde normally 80
+        if (rollChance.roll(10)) spawnMobEntity(worldIn, pos,EntityTypesInit.TALLSNAIL.get().create(worldIn)); //normally 10
+        else if (rollChance.roll(80)) for (int j = 0; j < 3; j++) spawnMobEntity(worldIn, pos,EntityTypesInit.TALLSNAIL.get().create(worldIn)); //small chance of horde normally 80
     }
 
-    public static void spawnTallSnail(ServerWorld world, BlockPos pos) {
-        TallSnailEntity entity = EntityTypesInit.TALLSNAIL.get().create(world);
-        if (entity!=null) {
-            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
-            world.addFreshEntity(entity);
-        }
-        world.removeBlock(pos,false);
-    }
-
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-        if (state.getValue(AGE)!=7||state.getValue(INFESTED)) {
-            return ActionResultType.PASS;
-        }
-        else {
-            ItemStack itemstack = player.getItemInHand(hand);
-            Item item = itemstack.getItem();
-            if (item == Items.FLOWER_POT) {
-
-                itemstack.shrink(1);
-
-                ItemStack definiteDrops = new ItemStack(BlockItemInit.SPRING_LEAF_POTTED_ITEM.get(), 1);
-                popResource(world, pos, definiteDrops);
-                ItemStack berry = new ItemStack(BlockItemInit.SPRING_LEAF_BERRY_ITEM.get(), 1);
-                popResource(world, pos, berry);
-
-                world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
-
-                return ActionResultType.SUCCESS;
-            }
-            else  return ActionResultType.PASS;
-        }
+    @Override
+    public ItemStack getPotItem() {
+        return new ItemStack(BlockItemInit.SPRING_LEAF_POTTED_ITEM.get());
     }
 }

@@ -3,21 +3,29 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -54,6 +62,25 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
         Logger.getLogger("setting rotation to "+i);
         return i;
+    }
+
+    @Override
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
+
+        if (this instanceof IPottable) {
+            if (state.getValue(AGE)==7&&!state.getValue(INFESTED))  {
+                ItemStack itemstack = player.getItemInHand(hand);
+                Item item = itemstack.getItem();
+                if (item == Items.FLOWER_POT) {
+                    itemstack.shrink(1);
+                    popResource(world, pos, ((IPottable) this).getPotItem());
+                    world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
+                    return ActionResultType.SUCCESS;
+                }
+            }
+        }
+
+        return super.use(state, world, pos, player, hand, p_225533_6_);
     }
 
     public BlockState nextAgeWithoutRotation(BlockState state, Integer newAge) {
