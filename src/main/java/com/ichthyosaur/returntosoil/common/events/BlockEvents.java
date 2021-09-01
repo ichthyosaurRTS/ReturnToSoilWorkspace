@@ -47,11 +47,11 @@ public class BlockEvents {
     @SubscribeEvent
     public static void springTargetSet (LivingEvent event) {
         LivingEntity entity = event.getEntityLiving();
-        World world = entity.getCommandSenderWorld();
+        World world = entity.level;
         BlockState inState = entity.getFeetBlockState();
         BlockPos in = new BlockPos (entity.getPosition(1));
 
-        if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock)
+        if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock && !world.isClientSide())
         {
             if (world.getBlockEntity(in) instanceof IHoldsTarget)
             ((IHoldsTarget) Objects.requireNonNull(world.getBlockEntity(in))).setTarget(entity);
