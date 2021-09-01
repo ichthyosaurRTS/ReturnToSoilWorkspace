@@ -25,6 +25,8 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Objects;
+
 @Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockEvents {
 
@@ -52,7 +54,7 @@ public class BlockEvents {
         if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock)
         {
             if (world.getBlockEntity(in) instanceof IHoldsTarget)
-            ((IHoldsTarget)world.getBlockEntity(in)).setTarget(entity);
+            ((IHoldsTarget) Objects.requireNonNull(world.getBlockEntity(in))).setTarget(entity);
         }
     }
 }

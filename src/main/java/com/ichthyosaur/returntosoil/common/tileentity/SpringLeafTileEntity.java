@@ -19,6 +19,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class SpringLeafTileEntity extends TileEntity implements ITickableTileEntity, IHoldsTarget {
@@ -59,21 +60,20 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
 
     @Override
     public void setTarget(LivingEntity entity) {
-        if (!this.targetList.contains(entity)) this.targetList.add(entity);
+        this.targetList.add(entity);
     }
 
     private void throwTargetsUp(){
 
-        if(this.targetList.size()>0 ){
-            for (LivingEntity entity: this.targetList) {
-                if (entity.distanceToSqr(new Vector3d(this.getBlockPos().getX(),this.getBlockPos().getY(), this.getBlockPos().getZ())) < 2)
-                {
-                    entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
-                    this.getLevel().setBlock(this.getBlockPos(),this.getBlockState().setValue(COOL_DOWN,4),2);
-                }
-                this.targetList.remove(entity);
+
+        for (LivingEntity entity: this.targetList) {
+            if (entity.distanceToSqr(new Vector3d(this.getBlockPos().getX(),this.getBlockPos().getY(), this.getBlockPos().getZ())) < 2)
+            {
+                entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+5,entity.getDeltaMovement().z());
+                Objects.requireNonNull(this.getLevel()).setBlock(this.getBlockPos(),this.getBlockState().setValue(COOL_DOWN,4),2);
             }
         }
+        this.targetList.clear();
     }
 
 }
