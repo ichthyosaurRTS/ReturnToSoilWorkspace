@@ -37,6 +37,16 @@ public class HuskLarvaeEntity extends TameableEntity{
         if (rollChance.roll(10)) this.spawnAtLocation(BlockItemInit.REFINERY_PLANT_SEED.get());
     }
 
+    @Override
+    public void checkDespawn() {
+        super.checkDespawn();
+        if (this.tickCount > 3000) this.kill();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.SALMON_DEATH;
+    }
 
     @Override
     protected void registerGoals() {

@@ -57,7 +57,7 @@ public class WardenPlantTileEntity extends TileEntity implements ITickableTileEn
             }
             else this.speedDenominator+=1;
 
-            if (this.coolDown > 1000) {
+            if (this.coolDown > 1000) { //usually 1000 ticks
                 this.coolDown = 0;
                 this.doWardenFunction();
             }
@@ -95,20 +95,12 @@ public class WardenPlantTileEntity extends TileEntity implements ITickableTileEn
                             && rollChance.roll(50)) {
                                 world.setBlock(targetPos,targetState.setValue(RTSMain.INFESTED, true),2);}
                         }
-                        //Destroying infested
+                        //Destroying infested; rool usually 10
                         else {
                             if (targetState.getValue(RTSMain.INFESTED) && !world.isClientSide()) {
                                 if (rollChance.roll(10)) {
                                     world.getBlockState(targetPos).spawnAfterBreak((ServerWorld) world,targetPos,ItemStack.EMPTY);
                                     world.destroyBlock(targetPos, false);
-
-                                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                                            targetPos.getX()+0.4, targetPos.getY()+0.6, targetPos.getZ()+0.6, 0.0D, 0.0D, 0.0D);
-                                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                                            targetPos.getX()+0.6, targetPos.getY()+0.4, targetPos.getZ()+0.4, 0.0D, 0.0D, 0.0D);
-                                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
-                                            targetPos.getX()+0.4, targetPos.getY()+0.6, targetPos.getZ()+0.4, 0.0D, 0.0D, 0.0D);
-
                                 }
                                   }
                         }
