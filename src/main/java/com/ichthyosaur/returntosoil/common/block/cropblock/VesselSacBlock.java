@@ -63,5 +63,6 @@ public class VesselSacBlock extends RTSCropsBlock {
         else return false;
     }
 
-    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) { } //nothing bc its already got a mob in there
+    @Override
+    public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) { } //nothing bc its already got a mob in there
 }

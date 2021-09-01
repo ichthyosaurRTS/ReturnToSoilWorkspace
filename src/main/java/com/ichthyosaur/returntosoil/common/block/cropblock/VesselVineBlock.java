@@ -111,6 +111,10 @@ public class VesselVineBlock extends RTSCropsBlock {
     }
 
     @Override
+    public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+    }
+
+    @Override
     public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
         BlockState above = p_196260_2_.getBlockState(p_196260_3_.above());
         Block aboveBlock = above.getBlock();

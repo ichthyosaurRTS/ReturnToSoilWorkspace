@@ -49,7 +49,8 @@ public class SpringLeafBlock extends RTSCropsBlock{
     }
 
 
-    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+    @Override
+    public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
         if (rollChance.roll(10)) spawnTallSnail(worldIn, pos); //normally 10
         else if (rollChance.roll(80)) for (int j = 0; j < 3; j++) {spawnTallSnail(worldIn, pos);} //small chance of horde normally 80
     }

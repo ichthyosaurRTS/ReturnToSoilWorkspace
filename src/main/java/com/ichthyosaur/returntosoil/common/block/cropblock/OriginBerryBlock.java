@@ -73,7 +73,8 @@ public class OriginBerryBlock extends RTSCropsBlock {
         return true;
     }
 
-    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+    @Override
+    public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
         if (rollChance.roll(10)) spawnJawBeetle(worldIn, pos); //normally 10
         else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
         else if (rollChance.roll(500)) spawnBaruGaru(worldIn, pos); // normally 500

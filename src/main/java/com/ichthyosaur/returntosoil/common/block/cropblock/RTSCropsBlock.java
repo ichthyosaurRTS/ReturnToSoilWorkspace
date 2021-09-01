@@ -8,6 +8,9 @@ import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
@@ -111,6 +114,15 @@ public abstract class RTSCropsBlock extends CropsBlock {
         world.removeBlock(pos,false);
     }
 
+    public static void spawnMobEntity(ServerWorld world, BlockPos pos, MobEntity entity) {
+        if (entity!=null) {
+            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+            world.addFreshEntity(entity);
+            entity.finalizeSpawn(world, world.getCurrentDifficultyAt(pos), SpawnReason.NATURAL,null,null);
+        }
+        world.removeBlock(pos,false);
+    }
+
     // despite being deprecated, still works fine..?
     @ParametersAreNonnullByDefault
     public void spawnAfterBreak(BlockState p_220062_1_, ServerWorld p_220062_2_, BlockPos p_220062_3_, ItemStack p_220062_4_) {
@@ -152,15 +164,11 @@ public abstract class RTSCropsBlock extends CropsBlock {
         }
     }
 
-    private void rollPestSpawn (ServerWorld worldIn, BlockPos pos){
-        if (this instanceof RefineryPlantBlock)
-            RefineryPlantBlock.rollPestSpawn(worldIn, pos);
-        else if (this instanceof SpringLeafBlock)
-            SpringLeafBlock.rollPestSpawn(worldIn, pos);
-        else if (this instanceof VesselSacBlock)
-            VesselSacBlock.rollPestSpawn(worldIn, pos);
-
-        else OriginBerryBlock.rollPestSpawn(worldIn, pos);
+    public void rollPestSpawn (ServerWorld worldIn, BlockPos pos) {
+        if (rollChance.roll(10)) spawnJawBeetle(worldIn, pos); //normally 10
+        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {
+            spawnJawBeetle(worldIn, pos);
+        } //small chance of horde normally 80
     }
 
 }

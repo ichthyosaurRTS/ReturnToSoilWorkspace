@@ -80,12 +80,13 @@ public class LilypadLanternBlock extends RTSCropsBlock{
                 }
             }
             if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                LilypadLanternBlock.rollPestSpawn(worldIn, pos);
+                this.rollPestSpawn(worldIn, pos);
             }
         }
     }
 
-    public static void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
+    @Override
+    public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
         if (rollChance.roll(10)) spawnBallFrog(worldIn, pos); //normally 10
         else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde normally 80
     }

@@ -52,7 +52,7 @@ public class ErmthrusLanternPottedBlock extends RTSPottedBlock{
             itemstack.shrink(1);
             ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
             player.inventory.add(returnDrop);
-            te.spiritLevelAdd(5000);//normall 500
+            te.spiritLevelAdd(500);//normall 500
 
             player.playSound(SoundEvents.SALMON_FLOP, 1, 1);
 
