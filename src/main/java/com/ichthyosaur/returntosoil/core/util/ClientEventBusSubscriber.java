@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.client.entity.*;
+import com.ichthyosaur.returntosoil.client.entity.renderer.*;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;

@@ -21,7 +21,7 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.HashSet;
 
-//powered, can infest plants early or blow up infested
+//powered, can infest plants early or blow up infested; 5x5 area
 public class WardenPlantTileEntity extends TileEntity implements ITickableTileEntity,IHoldsSpirit{
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;

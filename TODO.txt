@@ -10,10 +10,8 @@ TODO
 
 1  Firefly dragons, Floating squid
 
-1  Ball Frog drops
-
-
-2
+2  2nd spirit producing crop
+2  spirit collector and distributor
 2  Droplet crop
 2  Spawn eggs for non-contract mobs
 2  Firefly dragon

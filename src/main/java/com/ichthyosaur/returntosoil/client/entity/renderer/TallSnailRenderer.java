@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.client.entity;
+package com.ichthyosaur.returntosoil.client.entity.renderer;
 
 import com.ichthyosaur.returntosoil.client.entity.layer.BallFrogLayer;
 import com.ichthyosaur.returntosoil.client.entity.model.BallFrogModel.BallFrogModel;
