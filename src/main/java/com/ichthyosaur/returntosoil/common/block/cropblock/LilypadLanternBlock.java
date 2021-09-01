@@ -43,7 +43,6 @@ public class LilypadLanternBlock extends RTSCropsBlock{
 
     public LilypadLanternBlock (AbstractBlock.Properties properties) {
         super(properties);
-        this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false).setValue(LIT,false);
     }
 
     protected boolean mayPlaceOn(BlockState p_200014_1_, IBlockReader p_200014_2_, BlockPos p_200014_3_) {
@@ -57,38 +56,10 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         return SHAPE;
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.AGE_7,BlockStateProperties.ROTATION_16, RTSMain.INFESTED, BlockStateProperties.LIT);
-    }
-
-    @ParametersAreNonnullByDefault
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false).setValue(LIT,false);
-    }
-
-    @ParametersAreNonnullByDefault
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        if (worldIn.getRawBrightness(pos, 0) >= 9) {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge()) {
-                float f = getGrowthSpeed(this, worldIn, pos);
-                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int)(25.0F / f) + 1) == 0)) //that last bool is the grow chance
-                {
-                    worldIn.setBlock(pos, this.nextAgeWithRotationWithLit(state,i+1), 2);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-                }
-            }
-            if (i == this.getMaxAge() && state.getValue(INFESTED)){
-                this.rollPestSpawn(worldIn, pos);
-            }
-        }
-    }
-
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
-        if (rollChance.roll(10)) spawnBallFrog(worldIn, pos); //normally 10
-        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnBallFrog(worldIn, pos);} //small chance of horde normally 80
+        if (rollChance.roll(10)) spawnMobEntity(worldIn, pos,EntityTypesInit.BALLFROG.get().create(worldIn)); //normally 10
+        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) spawnMobEntity(worldIn, pos,EntityTypesInit.BALLFROG.get().create(worldIn)); //small chance of horde normally 80
     }
 
     public boolean canSurvive(BlockState state, IWorldReader worldReader, BlockPos pos) {
@@ -106,29 +77,6 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         return drops;
     }
 
-    @ParametersAreNonnullByDefault
-    public void growCrops(World world, BlockPos pos, BlockState state) {
-        int i = this.getAge(state) + this.getBonemealAgeIncrease(world);
-        int j = this.getMaxAge();
-        if (i > j) {
-            i = j;
-        }
-        if (world.getBlockState(pos.below()).is(Blocks.FARMLAND)) {world.removeBlock(pos,false);
-            popResource(world, pos, new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get(),1));} //destroy the block if on farmland
-        else world.setBlock(pos, this.nextAgeWithRotationWithLit(state,i), 2);
-
-    }
-
-
-    private static void spawnBallFrog(ServerWorld world, BlockPos pos) {
-        BallFrogEntity entity = EntityTypesInit.BALLFROG.get().create(world);
-        if (entity!=null) {
-            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
-            entity.setColourIntData();
-            world.addFreshEntity(entity);
-        }
-        world.removeBlock(pos,false);
-    }
 
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
         if (state.getValue(AGE)!=6) {
@@ -141,7 +89,7 @@ public class LilypadLanternBlock extends RTSCropsBlock{
                 itemstack.shrink(1);
                 ItemStack definiteDrops = new ItemStack(BlockItemInit.BOTTLED_SPIRIT_ITEM.get(), 1);
                 player.inventory.add(definiteDrops);
-                world.setBlock(pos, state.setValue(AGE,7).setValue(LIT,false), 1);
+                world.setBlock(pos, state.setValue(AGE,7), 1);
 
                 player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP,1,1 );
                 return ActionResultType.SUCCESS;
@@ -150,8 +98,4 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         }
     }
 
-
-    public boolean isRandomlyTicking(BlockState state) {
-        return state.getValue(INFESTED)||state.getValue(AGE)<7;
-    }
 }

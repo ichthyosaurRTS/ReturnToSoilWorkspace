@@ -60,7 +60,7 @@ public class BlockItemInit {
 
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
-            new LilypadLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel(litBlockEmission(12))));
+            new LilypadLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel(ageSixEmission(12))));
     public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () ->
             new LilypadLanternSeed(LILYPAD_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> LILYPAD_FLOWER_ITEM = ITEMS.register("lilypad_flower_item", () ->
@@ -187,6 +187,11 @@ public class BlockItemInit {
     private static ToIntFunction<BlockState> notZeroFuelEmission(int lightLevel) {
         return (state) -> {
             return state.getValue(RTSMain.FUEL_LEVEL)>0 ? lightLevel : 0;
+        };
+    }
+    private static ToIntFunction<BlockState> ageSixEmission(int lightLevel) {
+        return (state) -> {
+            return state.getValue(BlockStateProperties.AGE_7)==6 ? lightLevel : 0;
         };
     }
     private static ToIntFunction<BlockState> lit(int lightLevel) {
