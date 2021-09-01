@@ -32,7 +32,7 @@ import org.lwjgl.system.CallbackI;
 
 import java.util.Random;
 
-public class ErmthrusLanternPottedBlock extends RTSPottedBlock{
+public class ErmthrusLanternPottedBlock extends RTSPoweredPottedBlock{
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
@@ -40,26 +40,6 @@ public class ErmthrusLanternPottedBlock extends RTSPottedBlock{
     public ErmthrusLanternPottedBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);
         this.registerDefaultState(this.stateDefinition.any().setValue(FUEL_LEVEL,0).setValue(FACING, Direction.NORTH));
-    }
-
-    @Override
-    public ActionResultType use(BlockState p_225533_1_, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-        ItemStack itemstack = player.getItemInHand(hand);
-        Item item = itemstack.getItem();
-        ErmthrusLanternTileEntity te = (ErmthrusLanternTileEntity) world.getBlockEntity(pos);
-
-        if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && te.getSpiritLevel()<8000) {
-            itemstack.shrink(1);
-            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
-            player.inventory.add(returnDrop);
-            te.spiritLevelAdd(500);//normall 500
-
-            player.playSound(SoundEvents.SALMON_FLOP, 1, 1);
-
-            return ActionResultType.SUCCESS;
-
-        }
-        return ActionResultType.PASS;
     }
 
 

@@ -21,7 +21,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class WardenPlantPottedBlock extends RTSPottedBlock{
+public class WardenPlantPottedBlock extends RTSPoweredPottedBlock{
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 
@@ -58,19 +58,11 @@ public class WardenPlantPottedBlock extends RTSPottedBlock{
         Item item = itemstack.getItem();
         WardenPlantTileEntity te = (WardenPlantTileEntity) world.getBlockEntity(pos);
 
-        if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && te.getSpiritLevel()<8000) {
-            itemstack.shrink(1);
-            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
-            player.inventory.add(returnDrop);
-            te.spiritLevelAdd(500);
-
-            //player.playSound(SoundEvents.TRIDENT_RETURN,1,1 );
-            player.playSound(SoundEvents.SALMON_FLOP,1,1 );
-
+        if (item != BlockItemInit.BOTTLED_SPIRIT_ITEM.get()) {
+            te.switchMode();
             return ActionResultType.SUCCESS;
         }
-        else { te.switchMode();
-            return ActionResultType.SUCCESS;}
+        else return super.use(state, world, pos, player, hand, p_225533_6_);
 
     }
 }
