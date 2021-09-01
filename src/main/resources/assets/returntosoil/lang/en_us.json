@@ -46,6 +46,13 @@
   "block.returntosoil.spring_leaf_potted_block": "Spring Leaf",
 
   "item.returntosoil.bottled_spirit_item": "Bottled Spirit",
+  "item.returntosoil.lilypad_flower_item": "Small Flower",
+  "item.returntosoil.drought_tuber_item": "Drought Tuber",
+  "item.returntosoil.glassy_eyeball_item": "Glassy Eyeball",
+  "item.returntosoil.glassy_eyeball_item.desc": "It's dead",
+  "item.returntosoil.red_gemstone_item": "Red Gemstone",
+  "item.returntosoil.heavy_fruit_item": "Heavy Fruit",
+  "item.returntosoil.heavy_fruit_item.desc": "Reminds you of a bowling ball",
 
   "block.returntosoil.heavy_plant_potted_block": "Heavy Plant",
   "block.returntosoil.warden_plant_potted_block": "Warden Plant",

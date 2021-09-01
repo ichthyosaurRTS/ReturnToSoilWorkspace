@@ -63,6 +63,8 @@ public class BlockItemInit {
             new LilypadLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel(litBlockEmission(12))));
     public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () ->
             new LilypadLanternSeed(LILYPAD_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> LILYPAD_FLOWER_ITEM = ITEMS.register("lilypad_flower_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //RefineryPlant
     public static final RegistryObject<Block> REFINERY_PLANT_POTTED_BLOCK = BLOCKS.register("refinery_plant_potted_block", () ->
@@ -93,6 +95,8 @@ public class BlockItemInit {
             new DroughtCactusPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks()));
     public static final RegistryObject<Item> DROUGHT_CACTUS_POTTED_ITEM = ITEMS.register("drought_cactus_potted_item", () ->
             new BlockItem(DROUGHT_CACTUS_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> DROUGHT_TUBER_ITEM = ITEMS.register("drought_tuber_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Rarity Spirit (2)----------------------------------------------------------------------
 
@@ -115,12 +119,16 @@ public class BlockItemInit {
             new WardenPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(6))));
     public static final RegistryObject<Item> WARDEN_PLANT_POTTED_ITEM = ITEMS.register("warden_plant_potted_item", () ->
             new BlockItem(WARDEN_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> GLASSY_EYEBALL_ITEM = ITEMS.register("glassy_eyeball_item", () ->
+            new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
 
     //Gemstone plant
     public static final RegistryObject<Block> GEMSTONE_PLANT_BLOCK = BLOCKS.register("gemstone_plant_block", () ->
             new GemstonePlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Item> GEMSTONE_PLANT_SEED = ITEMS.register("gemstone_plant_seed", () ->
             new RTSDescBNItem(GEMSTONE_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
+    public static final RegistryObject<Item> RED_GEMSTONE_ITEM = ITEMS.register("red_gemstone_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     //Rarity Abyss (3)-----------------------------------------------------------------------
@@ -134,6 +142,8 @@ public class BlockItemInit {
             new HeavyPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks().lightLevel(lit(3))));
     public static final RegistryObject<Item> HEAVY_PLANT_POTTED_ITEM = ITEMS.register("heavy_plant_potted_item", () ->
             new BlockItem(HEAVY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> HEAVY_FRUIT_ITEM = ITEMS.register("heavy_fruit_item", () ->
+            new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
 
 
 
@@ -142,6 +152,8 @@ public class BlockItemInit {
     //Spirit fuel
     public static final RegistryObject<Item> BOTTLED_SPIRIT_ITEM = ITEMS.register("bottled_spirit_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
+    //
 
     //Jaw beetle stuffs; needs a new armour material
     public static final RegistryObject<Item> ROSE_BEETLE_ITEM = ITEMS.register("rose_beetle_item", () ->

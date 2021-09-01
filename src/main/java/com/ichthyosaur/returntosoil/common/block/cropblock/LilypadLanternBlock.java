@@ -99,13 +99,9 @@ public class LilypadLanternBlock extends RTSCropsBlock{
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         List<ItemStack> drops = new ArrayList<>();
 
-        if (state.getValue(INFESTED)) return drops;
-
-        if (state.getValue(AGE)==6) {}//for glowing fruit
-        else if (state.getValue(AGE)==7)  {
-            if (rollChance.roll(4)) drops.add(new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get())); }//+non glowing fruit
-        else drops.add(new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get()));
-
+        if (state.getValue(AGE)==7&&!state.getValue(INFESTED)) {
+            drops.add(new ItemStack(BlockItemInit.LILYPAD_FLOWER_ITEM.get()));
+        }
         return drops;
     }
 

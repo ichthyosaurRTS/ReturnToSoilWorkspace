@@ -49,7 +49,8 @@ public class ItemEvents {
             for(int i = 0; i < 36; i++) {
                 Item item = player.inventory.getItem(i).getItem();
 
-                if (item == BlockItemInit.HEAVY_PLANT_SEED.get() || item == BlockItemInit.HEAVY_PLANT_POTTED_ITEM.get()) {heavyVector(player);}
+                if (item == BlockItemInit.HEAVY_PLANT_SEED.get() || item == BlockItemInit.HEAVY_PLANT_POTTED_ITEM.get()
+                        || item == BlockItemInit.HEAVY_FRUIT_ITEM.get()) {heavyVector(player);}
 
             }
     }
