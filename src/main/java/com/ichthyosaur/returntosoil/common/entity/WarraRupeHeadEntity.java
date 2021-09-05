@@ -59,7 +59,7 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
 
     @Override
     public int getMaxHeadXRot() {
-        return 90;
+        return 180;
     }
 
     @Override
@@ -102,8 +102,9 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
                 double d3 = (double)MathHelper.sqrt(xDistance * xDistance + zDistance * zDistance);
                 float f = (float)(MathHelper.atan2(zDistance, xDistance) * (double)(180F / (float)Math.PI)) - 90.0F;
                 float f1 = (float)(-(MathHelper.atan2(yDistance, d3) * (double)(180F / (float)Math.PI)));
-                this.xRot = this.rotlerp(this.xRot, f1, 10);
-                this.yRot = this.rotlerp(this.yRot, f, 10); //that last one is definitely turn speed/ rot speed
+                this.xRot = this.rotlerp(this.xRot, f1, 2);
+                this.yRot = this.rotlerp(this.yRot, f, 10);//that last one is definitely turn speed/ rot speed
+                this.getLookControl().setLookAt(parentX, parentY, parentZ, 10, 180);
 
                 double speedMod;
                 if (this.getLastHurtByMob() != null) speedMod = 15;

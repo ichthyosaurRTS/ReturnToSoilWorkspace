@@ -113,6 +113,8 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
 
         super.tick();
 
+
+
         if (this.getLeader()==null) {
             if (this.leaderUUID!=null) {
                 ServerWorld worldIn = (ServerWorld) this.getCommandSenderWorld();
@@ -194,6 +196,8 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
             this.setRot(((float) ((MathHelper.wrapDegrees(360-flatDegreeRotation)))),(float)(MathHelper.wrapDegrees(360-vertDegreeRotation)));
             this.getLookControl().setLookAt(parentX, parentY, parentZ);
             //END OF ROTATION
+
+
     }
     }
 }
