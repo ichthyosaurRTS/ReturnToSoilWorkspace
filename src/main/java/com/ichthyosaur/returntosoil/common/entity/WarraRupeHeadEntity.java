@@ -1,5 +1,6 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
+import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.command.arguments.EntityAnchorArgument;
@@ -33,6 +34,7 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
     public static final Logger LOGGER = LogManager.getLogger();
 
     private BlockPos targetPosition;
+
 
     private final UUID[] subEntitiesUUID = new UUID[6];
     private Entity[] segmentEntities = new Entity[6];
@@ -69,6 +71,7 @@ public class WarraRupeHeadEntity extends AbstractContractEntity {
 
     @Override
     public void tick() {
+
         super.tick();
 
         if (!this.level.isClientSide()&&this.subEntitiesUUID[0]!=null) {

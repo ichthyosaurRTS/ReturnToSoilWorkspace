@@ -58,4 +58,5 @@ public class EntityTypesInit {
             () -> EntityType.Builder.of(TallSnailEntity::new, EntityClassification.MONSTER)
                     .sized(0.5f,0.5f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "tall_snail").toString()));
+
 }

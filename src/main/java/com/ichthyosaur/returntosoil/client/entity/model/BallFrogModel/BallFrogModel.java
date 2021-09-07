@@ -1,5 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model.BallFrogModel;
 
+import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -21,6 +22,7 @@ public class BallFrogModel<T extends BallFrogEntity> extends EntityModel<T> {
 
     @Override
     public void setupAnim(BallFrogEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+        
 
         if (!entity.getInflated()) { //need passive floaty movement here
             this.EmptyAll.xRot = headPitch * ((float)Math.PI / 180F);

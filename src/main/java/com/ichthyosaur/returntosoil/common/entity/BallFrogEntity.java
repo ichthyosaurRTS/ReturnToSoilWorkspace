@@ -118,6 +118,8 @@ public class BallFrogEntity extends MonsterEntity {
         }
     }
 
+    //lasthitbymob is only server side!
+
     private Vector3d generateWaterPos (int numberOfTries) {
 
         if (numberOfTries == 3) return this.position();

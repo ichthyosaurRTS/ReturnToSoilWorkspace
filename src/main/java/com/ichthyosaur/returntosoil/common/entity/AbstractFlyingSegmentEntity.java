@@ -114,7 +114,6 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
         super.tick();
 
 
-
         if (this.getLeader()==null) {
             if (this.leaderUUID!=null) {
                 ServerWorld worldIn = (ServerWorld) this.getCommandSenderWorld();
