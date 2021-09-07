@@ -75,6 +75,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
         return p_70112_1_<4000;
     }
 
+
     @Override
     public void tick() {
         super.tick();
@@ -82,6 +83,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
         if (!hasRefreshed) {
         this.refreshDimensions();
         this.hasRefreshed = true;
+        this.checkAndResetUpdateChunkPos();
         }
         //LOGGER.info(""+this.EntitySize);
     }

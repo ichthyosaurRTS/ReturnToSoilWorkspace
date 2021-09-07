@@ -6,11 +6,13 @@ import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -39,13 +41,19 @@ public class GawanHeadEntity extends AbstractContractEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
-                .add(Attributes.ATTACK_DAMAGE, 2.0D)
+                .add(Attributes.ATTACK_DAMAGE, 8.0D)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.5F)
                 .add(Attributes.FOLLOW_RANGE, 96.0D);
     }
 
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1D, false));
+    }
+
     public boolean isAggressiveInWild() {
-        return false;
+        return !(this.level.getDifficulty()== Difficulty.PEACEFUL);
     }
 
     public int getRemainingPersistentAngerTime() {
@@ -72,8 +80,9 @@ public class GawanHeadEntity extends AbstractContractEntity {
         }
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
+
         if (this.getTarget() == null || !this.getTarget().isAlive()) {
-        this.setTarget(this.level.getNearestLoadedEntity(BatEntity.class,(new EntityPredicate()).range(96).selector(null),
+        this.setTarget(this.level.getNearestLoadedEntity(WarraRupeHeadEntity.class,(new EntityPredicate()).range(96).selector(null),
                 this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
 
 
@@ -129,7 +138,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
         if (this.getTarget() != null) {
 
             this.lookAt(this.getTarget(),10,100);
-            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/30, this.getLookAngle().y/30, this.getLookAngle().z/30));
+            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/20, this.getLookAngle().z/20));
         }
     }
 
@@ -183,11 +192,6 @@ public class GawanHeadEntity extends AbstractContractEntity {
         }
 
         return p_70663_1_ + f;
-    }
-
-    @Override
-    protected boolean shouldDespawnInPeaceful() {
-        return !this.isTame();
     }
 
     @Override
