@@ -37,7 +37,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
 
     @Override
     public EntitySize getDimensions(Pose p_213305_1_) {
-        if (this.entityData.get(ENTITY_MODEL).equals("JudasSheepRibs")) return new EntitySize(2,2,false);
+        if (this.entityData.get(ENTITY_MODEL).contains("Gawan")) return new EntitySize(1,1,false);
 
 
         else return super.getDimensions(p_213305_1_);
