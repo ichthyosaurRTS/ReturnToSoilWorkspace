@@ -21,7 +21,9 @@ public class GawanNeckModel<T extends GeneralFlyingSegmentEntity> extends EmptyM
         texHeight = 256;
 
         all = new ModelRenderer(this);
-        all.setPos(0.0F, 24.0F, 43.0F);
+        all.setPos(0.0F, 8.0F, 43.0F);
+
+        EmptyAll.addChild(all);
 
 
         neck = new ModelRenderer(this);

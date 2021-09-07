@@ -15,7 +15,9 @@ public class GawanBody2Model<T extends GeneralFlyingSegmentEntity> extends Empty
         texHeight = 256;
 
         all = new ModelRenderer(this);
-        all.setPos(0.0F, 24.0F, 4.0F);
+        all.setPos(0.0F, 8.0F, 4.0F);
+
+        EmptyAll.addChild(all);
 
 
         body2 = new ModelRenderer(this);

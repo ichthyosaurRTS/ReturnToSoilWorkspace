@@ -1,10 +1,12 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
+import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
@@ -24,6 +26,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
     public static final Logger LOGGER = LogManager.getLogger();
 
     private BlockPos targetPosition;
+    private int headTicker;
 
 
     private final UUID[] subEntitiesUUID = new UUID[7];
@@ -70,10 +73,10 @@ public class GawanHeadEntity extends AbstractContractEntity {
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
         if (this.getTarget() == null || !this.getTarget().isAlive()) {
-        //this.setTarget(this.level.getNearestLoadedEntity(BatEntity.class,(new EntityPredicate()).range(96).selector(null),
-                //this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
+        this.setTarget(this.level.getNearestLoadedEntity(BatEntity.class,(new EntityPredicate()).range(96).selector(null),
+                this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
 
-            //Bat code (some)
+
             if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
                 this.targetPosition = null;
             }
@@ -95,13 +98,15 @@ public class GawanHeadEntity extends AbstractContractEntity {
                 double d3 = (double)MathHelper.sqrt(xDistance * xDistance + zDistance * zDistance);
                 float f = (float)(MathHelper.atan2(zDistance, xDistance) * (double)(180F / (float)Math.PI)) - 90.0F;
                 float f1 = (float)(-(MathHelper.atan2(yDistance, d3) * (double)(180F / (float)Math.PI)));
+
+                this.getLookControl().setLookAt(parentX, parentY, parentZ, 5, 180);
                 this.xRot = this.rotlerp(this.xRot, f1, 2);
-                this.yRot = this.rotlerp(this.yRot, f, 10);//that last one is definitely turn speed/ rot speed
-                this.getLookControl().setLookAt(parentX, parentY, parentZ, 10, 180);
+                this.yRot = this.rotlerp(this.yRot, f, 5);
+
 
                 double speedMod;
-                if (this.getLastHurtByMob() != null) speedMod = 15;
-                else speedMod = 30;
+                if (this.getLastHurtByMob() != null) speedMod = 40;
+                else speedMod = 40;
 
                 this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/speedMod, this.getLookAngle().y/speedMod, this.getLookAngle().z/speedMod));
             }
@@ -110,12 +115,14 @@ public class GawanHeadEntity extends AbstractContractEntity {
             this.getDeltaMovement().x()<0.01&&this.getDeltaMovement().z()<0.01&&this.getDeltaMovement().y()<0.01) {
                 Double modX = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modX = -modX;
-                Double modY = (double)this.random.nextInt(3);
+                Double modY = (double)this.random.nextInt(2);
                 if (rollChance.roll(2)) modY = -modY;
                 Double modZ = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modZ = -modZ;
 
                 this.targetPosition = new BlockPos(this.getX() + modX, this.getY() + modY, this.getZ() + modZ);
+
+
             }
         }
 
@@ -179,6 +186,11 @@ public class GawanHeadEntity extends AbstractContractEntity {
     }
 
     @Override
+    protected boolean shouldDespawnInPeaceful() {
+        return !this.isTame();
+    }
+
+    @Override
     public boolean isInvulnerableTo(DamageSource damage) {
         return  damage == DamageSource.FALL || damage == DamageSource.IN_WALL ||damage == DamageSource.CRAMMING || super.isInvulnerableTo(damage);
     }
@@ -189,37 +201,37 @@ public class GawanHeadEntity extends AbstractContractEntity {
 
         if (segmentNumber == 0) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.1);
             segment.setModelString("GawanNeck");
         }
 
         else if (segmentNumber == 1) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.2);
             segment.setModelString("GawanBody1");
         }
 
         else if (segmentNumber == 2) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.6);
             segment.setModelString("GawanBody2");
         }
 
         else if (segmentNumber == 3) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.6);
             segment.setModelString("GawanBody3");
         }
 
         else if (segmentNumber == 4) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.6);
             segment.setModelString("GawanBody4");
         }
 
         else if (segmentNumber == 5) {
             segment = EntityTypesInit.GENERALFLYINGSEGMENT.get().create(world);
-            segment.setSpacing(1);
+            segment.setSpacing(1.6);
             segment.setModelString("GawanBody5");
         }
 

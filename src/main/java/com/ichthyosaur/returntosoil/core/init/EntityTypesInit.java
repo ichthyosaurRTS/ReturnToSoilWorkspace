@@ -61,7 +61,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<GawanHeadEntity>> GAWANHEAD = ENTITY_TYPES.register("gawan_head",
             () -> EntityType.Builder.of(GawanHeadEntity::new, EntityClassification.MONSTER)
-                    .sized(0.8f,0.8f)
+                    .sized(0.4f,0.4f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "gawan_head").toString()));
 
 }
