@@ -141,6 +141,8 @@ public class GawanHeadModel<T extends GawanHeadEntity> extends EntityModel<Gawan
     public void setupAnim(GawanHeadEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         this.head.xRot = headPitch * ((float)Math.PI / 180F);
         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
+
+        this.jaw.xRot = entity.getMouthDegree()/1000F;
     }
 
         @Override

@@ -7,8 +7,12 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -27,6 +31,8 @@ public class GawanHeadEntity extends AbstractContractEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
+    private static final DataParameter<Integer> MOUTH_DEGREE = EntityDataManager.defineId(GawanHeadEntity.class, DataSerializers.INT);
+
     private BlockPos targetPosition;
     private int headTicker;
 
@@ -44,12 +50,6 @@ public class GawanHeadEntity extends AbstractContractEntity {
                 .add(Attributes.ATTACK_DAMAGE, 8.0D)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.5F)
                 .add(Attributes.FOLLOW_RANGE, 96.0D);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1D, false));
     }
 
     public boolean isAggressiveInWild() {
@@ -78,11 +78,15 @@ public class GawanHeadEntity extends AbstractContractEntity {
         if (!this.level.isClientSide()&&this.subEntitiesUUID[0]!=null) {
             this.tickParts();
         }
+
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
 
         if (this.getTarget() == null || !this.getTarget().isAlive()) {
-        this.setTarget(this.level.getNearestLoadedEntity(WarraRupeHeadEntity.class,(new EntityPredicate()).range(96).selector(null),
+
+            this.closeMouth();
+
+        this.setTarget(this.level.getNearestLoadedEntity(VillagerEntity.class,(new EntityPredicate()).range(96).selector(null),
                 this,this.getX(),this.getY(),this.getZ(), this.getBoundingBox().inflate(96, 96D, 96)));
 
 
@@ -137,8 +141,17 @@ public class GawanHeadEntity extends AbstractContractEntity {
 
         if (this.getTarget() != null) {
 
+
+            if (this.distanceToSqr(this.getTarget())<20) this.openMouth();
+            else this.closeMouth();
+
+            if (this.distanceToSqr(this.getTarget())<6 && this.getMouthDegree()>500) {
+                this.getTarget().hurt(DamageSource.mobAttack(this), 9);
+                this.biteMouth();
+            }
+
             this.lookAt(this.getTarget(),10,100);
-            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/20, this.getLookAngle().z/20));
+            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/10, this.getLookAngle().z/20));
         }
     }
 
@@ -160,6 +173,14 @@ public class GawanHeadEntity extends AbstractContractEntity {
         }
     }
 
+
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(MOUTH_DEGREE,0);
+    }
+
     public void readAdditionalSaveData(CompoundNBT NBT) {
         super.readAdditionalSaveData(NBT);
 
@@ -176,7 +197,22 @@ public class GawanHeadEntity extends AbstractContractEntity {
         }
         else if (this.subEntitiesUUID[0] == null) {}
         else {
-            for (Entity entity : this.segmentEntities) { if (entity != null) entity.tick();
+            for ( Entity entity : this.segmentEntities) {
+                if (entity != null) entity.tick();
+
+                else { this.removeAllParts();
+                this.createSegments(this,0);}
+            }
+        }
+    }
+    private void removeAllParts() {
+
+        if (this.segmentEntities[0] == null && this.subEntitiesUUID[0] != null) {
+        this.segmentEntities = rollChance.createSegmentList(this.subEntitiesUUID, (ServerWorld) this.getCommandSenderWorld());
+        }
+        else if (this.subEntitiesUUID[0] == null) {}
+        else {
+            for ( Entity entity : this.segmentEntities) { if (entity != null) entity.remove(false);
             }
         }
     }
@@ -192,6 +228,22 @@ public class GawanHeadEntity extends AbstractContractEntity {
         }
 
         return p_70663_1_ + f;
+    }
+
+    //0-600
+    public int getMouthDegree(){
+        return this.entityData.get(MOUTH_DEGREE);
+    }
+    private void openMouth(){
+        int degree = this.getMouthDegree();
+        if (degree < 600) this.entityData.set(MOUTH_DEGREE, degree+20);
+    }
+    private void closeMouth(){
+        int degree = this.getMouthDegree();
+        if (degree > 0 ) this.entityData.set(MOUTH_DEGREE, degree-10);
+    }
+    private void biteMouth(){
+        this.entityData.set(MOUTH_DEGREE, 0);
     }
 
     @Override

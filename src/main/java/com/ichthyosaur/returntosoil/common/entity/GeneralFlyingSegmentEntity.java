@@ -68,6 +68,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
         else return super.mobInteract(p_230254_1_, p_230254_2_);
     }
 
+
     public String getModelString(){return this.entityData.get(ENTITY_MODEL);}
 
     @Override
@@ -75,16 +76,19 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
         return p_70112_1_<4000;
     }
 
-
-    @Override
+    //@Override
     public void tick() {
         super.tick();
 
         if (!hasRefreshed) {
         this.refreshDimensions();
         this.hasRefreshed = true;
+
+        this.checkAndResetForcedChunkAdditionFlag();
+
         this.checkAndResetUpdateChunkPos();
         }
         //LOGGER.info(""+this.EntitySize);
     }
+
 }

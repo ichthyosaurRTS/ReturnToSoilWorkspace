@@ -100,6 +100,7 @@ public abstract class AbstractContractEntity extends TameableEntity implements I
         this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.randomValue(this.random));
     }
 
+
     @Nullable
     public UUID getPersistentAngerTarget() {
         return this.persistentAngerTarget;
