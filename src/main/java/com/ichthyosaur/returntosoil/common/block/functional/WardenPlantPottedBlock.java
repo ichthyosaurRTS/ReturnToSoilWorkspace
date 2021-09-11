@@ -23,8 +23,6 @@ import net.minecraft.world.World;
 
 public class WardenPlantPottedBlock extends RTSPoweredPottedBlock{
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
-
     public WardenPlantPottedBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);
         this.registerDefaultState(this.stateDefinition.any().setValue(FUEL_LEVEL,0));
@@ -43,12 +41,6 @@ public class WardenPlantPottedBlock extends RTSPoweredPottedBlock{
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return TileEntityTypesInit.WARDEN_PLANT_TILE_ENTITY_TYPE.get().create();
-    }
-
-    @Override
-    public void onPlace(BlockState p_220082_1_, World p_220082_2_, BlockPos p_220082_3_, BlockState p_220082_4_, boolean p_220082_5_) {
-        if (p_220082_2_.getBlockEntity(p_220082_3_) == null) this.createTileEntity(p_220082_1_, p_220082_2_);
-        super.onPlace(p_220082_1_, p_220082_2_, p_220082_3_, p_220082_4_, p_220082_5_);
     }
 
     @Override

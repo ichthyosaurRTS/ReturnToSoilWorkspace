@@ -73,6 +73,8 @@ public class GawanHeadEntity extends AbstractContractEntity {
     @Override
     public void tick() {
 
+        this.checkAndResetUpdateChunkPos();
+
         super.tick();
 
         if (!this.level.isClientSide()&&this.subEntitiesUUID[0]!=null) {
@@ -151,7 +153,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
             }
 
             this.lookAt(this.getTarget(),10,100);
-            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/10, this.getLookAngle().z/20));
+            this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/40, this.getLookAngle().z/20));
         }
     }
 

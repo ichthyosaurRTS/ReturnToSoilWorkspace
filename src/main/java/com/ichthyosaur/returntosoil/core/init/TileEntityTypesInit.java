@@ -31,6 +31,10 @@ public class TileEntityTypesInit {
             TILE_ENTITY_TYPE.register("ermthrus_lantern", () ->
                     TileEntityType.Builder.of(ErmthrusLanternTileEntity::new, BlockItemInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get()).build(null));
 
+    public static final RegistryObject<TileEntityType<CeruleanCoralTileEntity>> CERULEAN_CORAL_TILE_ENTITY_TYPE =
+            TILE_ENTITY_TYPE.register("cerulean_coral", () ->
+                    TileEntityType.Builder.of(CeruleanCoralTileEntity::new, BlockItemInit.CERULEAN_CORAL_POTTED_BLOCK.get()).build(null));
+
     public static final RegistryObject<TileEntityType<HoldingStaffTileEntity>> HOLDING_STAFF_TILE_ENTITY_TYPE = TILE_ENTITY_TYPE
             .register("holding_staff",
                     () -> TileEntityType.Builder.of(HoldingStaffTileEntity::new, BlockItemInit.HOLDING_STAFF_BLOCK.get()).build(null));

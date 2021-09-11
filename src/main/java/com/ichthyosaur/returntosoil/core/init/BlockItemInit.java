@@ -131,6 +131,12 @@ public class BlockItemInit {
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
+    //cerulean coral
+    public static final RegistryObject<Block> CERULEAN_CORAL_POTTED_BLOCK = BLOCKS.register("cerulean_coral_potted_block", () ->
+            new CeruleanCoralPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(2))));
+    public static final RegistryObject<Item> CERULEAN_CORAL_POTTED_ITEM = ITEMS.register("cerulean_coral_potted_item", () ->
+            new BlockItem(CERULEAN_CORAL_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
     //Rarity Abyss (3)-----------------------------------------------------------------------
 
     //Heavy plant

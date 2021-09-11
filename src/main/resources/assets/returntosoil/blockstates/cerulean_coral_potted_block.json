@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,fuel_level=0": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 0
+    },
+    "facing=east,fuel_level=0": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 90
+    },
+    "facing=south,fuel_level=0": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 180
+    },
+    "facing=west,fuel_level=0": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 270
+    },
+    "facing=north,fuel_level=1": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 0
+    },
+    "facing=east,fuel_level=1": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 90
+    },
+    "facing=south,fuel_level=1": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 180
+    },
+    "facing=west,fuel_level=1": {
+      "model": "returntosoil:block/cerulean_coral/cerulean_coral_potted_1n",
+      "y": 270
+    }
+  }
+}

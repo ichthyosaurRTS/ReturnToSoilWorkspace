@@ -84,7 +84,6 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
         this.refreshDimensions();
         this.hasRefreshed = true;
 
-        this.checkAndResetForcedChunkAdditionFlag();
 
         this.checkAndResetUpdateChunkPos();
         }
