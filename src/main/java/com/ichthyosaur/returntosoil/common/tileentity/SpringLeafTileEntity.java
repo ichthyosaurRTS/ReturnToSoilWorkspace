@@ -54,13 +54,17 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
             else this.count+=1;
         }
 
-        else if (!this.targetList.isEmpty()) this.throwTargetsUp();
+        //else if (!this.targetList.isEmpty()) this.throwTargetsUp();
 
     }
 
     @Override
     public void setTarget(LivingEntity entity) {
         this.targetList.add(entity);
+    }
+
+    public void resetCoolDown(){
+        Objects.requireNonNull(this.getLevel()).setBlock(this.getBlockPos(),this.getBlockState().setValue(COOL_DOWN,4),2);
     }
 
     private void throwTargetsUp(){

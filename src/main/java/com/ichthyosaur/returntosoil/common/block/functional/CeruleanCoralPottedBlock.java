@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.WardenPlantTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
@@ -46,6 +47,12 @@ public class CeruleanCoralPottedBlock extends RTSPoweredPottedBlock{
 
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(FUEL_LEVEL).add(FACING);
+    }
+
+    @Override
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
+        RTSMain.LOGGER.info(""+((CeruleanCoralTileEntity)world.getBlockEntity(pos)).getSpiritLevel());
+        return super.use(state, world, pos, player, hand, p_225533_6_);
     }
 
     @Override
