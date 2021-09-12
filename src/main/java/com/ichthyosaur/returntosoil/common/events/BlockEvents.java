@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.SpringLeafBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.RTSPottedBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
+import com.ichthyosaur.returntosoil.common.entity.AbstractContractEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.IHoldsTarget;
 import com.ichthyosaur.returntosoil.common.tileentity.SpringLeafTileEntity;
@@ -87,7 +88,7 @@ public class BlockEvents {
                             TileEntity te = world.getBlockEntity(targetPos);
                             if (te instanceof IHoldsTarget) {
 
-                                if (te instanceof CeruleanCoralTileEntity) {
+                                if (te instanceof CeruleanCoralTileEntity && !(entity instanceof AbstractContractEntity)) {
                                     if (((CeruleanCoralTileEntity) te).getSpiritLevel()>5 && entity.getDeltaMovement().y()< 0.04)
                                         entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y()+0.03, entity.getDeltaMovement().z());
                                 }

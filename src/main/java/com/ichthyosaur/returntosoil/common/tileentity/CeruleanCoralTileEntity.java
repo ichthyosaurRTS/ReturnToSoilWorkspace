@@ -43,15 +43,17 @@ public class CeruleanCoralTileEntity extends TileEntity implements ITickableTile
         BlockState state = this.getBlockState();
 
         //this doesn't work if its only serverside...
-
         if (this.spiritLevel < 1) {
-            world.setBlock(pos, state.setValue(FUEL_LEVEL, 0), 2);
+            //world.setBlock(pos, state.setValue(FUEL_LEVEL, 0), 2);
             //this.targetList.clear();
         } else if (this.spiritLevel > 0) {
-            world.setBlock(pos, state.setValue(FUEL_LEVEL, 1), 2);
+            //world.setBlock(pos, state.setValue(FUEL_LEVEL, 1), 2);
             this.spiritLevel -= 1;
             //doCeruleanFunction((ServerWorld)world, pos);
         }
+
+        if (this.spiritLevel < 1 && !(this.level.isClientSide)) {world.setBlock(pos, state.setValue(FUEL_LEVEL, 0), 2); }
+        else if (this.spiritLevel > 0 && !(this.level.isClientSide)) world.setBlock(pos, state.setValue(FUEL_LEVEL, 1), 2);
 
 
     }
