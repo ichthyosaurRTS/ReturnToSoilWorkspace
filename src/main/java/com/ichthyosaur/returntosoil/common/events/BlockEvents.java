@@ -47,9 +47,9 @@ public class BlockEvents {
     @SubscribeEvent
     public static void springTargetSet (LivingEvent event) {
 
-        LivingEntity entity = event.getEntityLiving();
-        World world = entity.level;
-        if (world != null) {
+        if ( event.getEntityLiving() != null) {
+            LivingEntity entity = event.getEntityLiving();
+            World world = entity.level;
             BlockState inState = entity.getFeetBlockState();
             BlockPos in = new BlockPos (entity.getPosition(1));
 
