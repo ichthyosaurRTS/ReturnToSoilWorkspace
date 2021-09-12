@@ -27,6 +27,7 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
     private static final IntegerProperty COOL_DOWN = RTSMain.COOL_DOWN;
     private int count;
     private HashSet<LivingEntity> targetList = new HashSet<LivingEntity>();
+    private HashSet<LivingEntity> newTargetList = new HashSet<>();
 
     public SpringLeafTileEntity(TileEntityType<?> p_i48289_1_) {
         super(p_i48289_1_);
@@ -60,7 +61,7 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
 
     @Override
     public void setTarget(LivingEntity entity) {
-        this.targetList.add(entity);
+        this.newTargetList.add(entity);
     }
 
     public void resetCoolDown(){

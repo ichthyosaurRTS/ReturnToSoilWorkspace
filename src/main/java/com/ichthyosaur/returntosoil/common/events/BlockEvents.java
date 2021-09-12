@@ -37,6 +37,7 @@ public class BlockEvents {
 
     private static final IntegerProperty COOL_DOWN = RTSMain.COOL_DOWN;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 
     @SubscribeEvent
     public static void onGrassBreak (BlockEvent.BreakEvent event) {
@@ -66,10 +67,11 @@ public class BlockEvents {
         }
     }
 
+    //normally sets the target of tile entities, but given how simple spring leaf and ceru coral are, its more efficient to plonk it in here
+    //  rather than iterate thru 2 sets on the te side
     @SubscribeEvent
     public static void threeCubeTE (LivingEvent event) {
 
-        //this doesn't work if its only serverside...
         if ( event.getEntityLiving() != null) {
             LivingEntity entity = event.getEntityLiving();
             World world = entity.level;
@@ -82,25 +84,20 @@ public class BlockEvents {
                         BlockPos targetPos = new BlockPos(inPos.getX()+x,inPos.getY()+y,inPos.getZ()+z);
                         BlockState targetState = world.getBlockState(targetPos);
 
-                        if (targetState.getBlock() instanceof RTSPottedBlock) {
-
                         if (targetState.getBlock().hasTileEntity(targetState)) {
                             TileEntity te = world.getBlockEntity(targetPos);
-                            if (te instanceof IHoldsTarget) {
 
                                 if (te instanceof CeruleanCoralTileEntity && !(entity instanceof AbstractContractEntity)) {
-                                    if (((CeruleanCoralTileEntity) te).getSpiritLevel()>5 && entity.getDeltaMovement().y()< 0.04)
+                                    if (targetState.getValue(FUEL_LEVEL) == 1 && entity.getDeltaMovement().y()< 0.04)
                                         entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y()+0.03, entity.getDeltaMovement().z());
                                 }
 
-                                else if (te instanceof SpringLeafTileEntity) {
+                                else if (te instanceof SpringLeafTileEntity && targetState.getValue(COOL_DOWN)==0) {
                                     if (x==0&&z==0&&y==0) {
                                         entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y()+5, entity.getDeltaMovement().z());
                                         ((SpringLeafTileEntity) te).resetCoolDown();
                                     }
-                                }
-
-                            }}
+                            }
                         }
                     }
                 }
