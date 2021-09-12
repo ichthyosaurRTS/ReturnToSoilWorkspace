@@ -50,12 +50,6 @@ public class CeruleanCoralPottedBlock extends RTSPoweredPottedBlock{
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-        RTSMain.LOGGER.info(""+((CeruleanCoralTileEntity)world.getBlockEntity(pos)).getSpiritLevel());
-        return super.use(state, world, pos, player, hand, p_225533_6_);
-    }
-
-    @Override
     public boolean hasTileEntity(BlockState state) {
         return true;
     }

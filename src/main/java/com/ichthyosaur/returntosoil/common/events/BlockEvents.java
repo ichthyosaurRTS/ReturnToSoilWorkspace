@@ -5,6 +5,7 @@ import com.ichthyosaur.returntosoil.common.block.cropblock.SpringLeafBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.RTSPottedBlock;
 import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.entity.AbstractContractEntity;
+import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.IHoldsTarget;
 import com.ichthyosaur.returntosoil.common.tileentity.SpringLeafTileEntity;
@@ -68,7 +69,7 @@ public class BlockEvents {
     }
 
     //normally sets the target of tile entities, but given how simple spring leaf and ceru coral are, its more efficient to plonk it in here
-    //  rather than iterate thru 2 sets on the te side
+    //  rather than iterate thru 2 sets on the te side (one set to act as a buffer and avoid concurrent actions)
     @SubscribeEvent
     public static void threeCubeTE (LivingEvent event) {
 
@@ -87,7 +88,7 @@ public class BlockEvents {
                         if (targetState.getBlock().hasTileEntity(targetState)) {
                             TileEntity te = world.getBlockEntity(targetPos);
 
-                                if (te instanceof CeruleanCoralTileEntity && !(entity instanceof AbstractContractEntity)) {
+                                if (te instanceof CeruleanCoralTileEntity && !( (entity instanceof AbstractContractEntity) || entity instanceof AbstractFlyingSegmentEntity)) {
                                     if (targetState.getValue(FUEL_LEVEL) == 1 && entity.getDeltaMovement().y()< 0.04)
                                         entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y()+0.03, entity.getDeltaMovement().z());
                                 }
