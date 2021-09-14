@@ -73,7 +73,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
 
     @Override
     public boolean shouldRenderAtSqrDistance(double p_70112_1_) {
-        return p_70112_1_<4000;
+        return p_70112_1_<8000;
     }
 
     //@Override

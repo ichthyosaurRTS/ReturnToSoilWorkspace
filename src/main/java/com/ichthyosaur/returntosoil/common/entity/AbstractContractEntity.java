@@ -92,6 +92,11 @@ public abstract class AbstractContractEntity extends TameableEntity implements I
         return this.entityData.get(DATA_REMAINING_ANGER_TIME);
     }
 
+    @Override
+    public boolean shouldRenderAtSqrDistance(double p_70112_1_) {
+        return p_70112_1_<8000;
+    }
+
     public void setRemainingPersistentAngerTime(int p_230260_1_) {
         this.entityData.set(DATA_REMAINING_ANGER_TIME, p_230260_1_);
     }
