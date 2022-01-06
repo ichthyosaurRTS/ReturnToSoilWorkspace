@@ -9,6 +9,12 @@ TODO
 
 1  Firefly dragons
 
+1  Refinery plant 0-7
+
+1  beetlesoup backpack auto feeding for durability feature in tick event + lava sound;
+custom armor material
+
+
 
 2  spirit collector and distributor
 2  Droplet crop

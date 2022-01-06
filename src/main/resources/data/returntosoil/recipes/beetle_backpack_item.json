@@ -1,0 +1,25 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "SBS",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "returntosoil:cooked_beetle_item"
+    }
+  },
+  "result": {
+    "item": "returntosoil:beetle_backpack_item",
+    "count": 1
+  }
+
+}

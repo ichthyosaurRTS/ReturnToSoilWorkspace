@@ -25,6 +25,7 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(BlockItemInit.ORIGIN_BERRY_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.REFINERY_PLANT_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockItemInit.REFINERY_STALK_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.SPRING_LEAF_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
@@ -41,7 +42,7 @@ public class ClientEventBusSubscriber {
 
         RenderTypeLookup.setRenderLayer(BlockItemInit.HOLDING_STAFF_BLOCK.get(), RenderType.cutout());
         ClientRegistry.bindTileEntityRenderer(TileEntityTypesInit.HOLDING_STAFF_TILE_ENTITY_TYPE.get(), HoldingStaffTileEntityRenderer::new);
-
+        
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), JawBeetleRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), BaruGaruRenderer::new);

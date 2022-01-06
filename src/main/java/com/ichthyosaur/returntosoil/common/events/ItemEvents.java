@@ -1,13 +1,21 @@
 package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -15,29 +23,28 @@ import net.minecraftforge.fml.common.Mod;
 public class ItemEvents {
  
 
-    //Multiplier item; multiplies your flat speed during upwards y movement; stacks with other items
-    //must be full hp to use. has an upper limit.
     @SubscribeEvent
-    public static void roseBeetleItem (TickEvent.PlayerTickEvent event) {
+    public static void ChestItem (TickEvent.PlayerTickEvent event) {
 
         PlayerEntity player = event.player;
-        double speedMod = 0.4;
+        ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
 
-        if (rollChance.containsItem(BlockItemInit.ROSE_BEETLE_ITEM.get(),player) != 1000) {
-            Vector3d playerVector = player.getDeltaMovement();
-            float currentMoveSpeed;
-            double playerXVector = playerVector.x;
-            double playerZVector = playerVector.z;
-            currentMoveSpeed = ( (float) Math.abs(playerXVector) + (float) Math.abs(playerZVector) )/2;
-            if ( (playerVector.y > 0.2 && playerVector.y < 0.25) && (currentMoveSpeed > 0.075 && currentMoveSpeed < 2) )
-                player.setDeltaMovement(player.getDeltaMovement().add(speedMod * playerXVector, 0, speedMod * playerZVector));
+        if (chest.getItem() instanceof BeetleBackpack) {
+
+            int foodLevel = player.getFoodData().getFoodLevel();
+            if (foodLevel < 11) {
+                player.getFoodData().setFoodLevel(foodLevel + 10);
+                chest.setDamageValue(chest.getDamageValue()+10);
+
+                player.playSound(SoundEvents.GENERIC_EAT,1,1 );
+                player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
+
+                player.level.playSound(player, new BlockPos(player.getX(), player.getY(), player.getZ()), SoundEvents.GENERIC_EAT, SoundCategory.PLAYERS, 1, 1);
+
+            }
         }
-
-        //
-        /*if (!player.isCreative()&&player.isAlive()){  this works great
-            player.setHealth(8);
-        }*/
     }
+
 
 
 

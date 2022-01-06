@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-
+//reverse warden
 public class WardenPlantPottedBlock extends RTSPoweredPottedBlock{
 
     public WardenPlantPottedBlock(Properties p_i48440_1_) {

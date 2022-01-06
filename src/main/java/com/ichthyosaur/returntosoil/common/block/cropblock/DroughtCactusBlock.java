@@ -40,6 +40,6 @@ public class DroughtCactusBlock extends RTSCropsBlock implements IPottable{
 
     @Override
     public ItemStack getPotItem() {
-        return new ItemStack(BlockItemInit.WARDEN_PLANT_POTTED_ITEM.get());
+        return new ItemStack(BlockItemInit.DROUGHT_CACTUS_POTTED_ITEM.get());
     }
 }

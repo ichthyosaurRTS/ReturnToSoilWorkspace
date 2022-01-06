@@ -35,6 +35,7 @@
   "entity.returntosoil.baru_garu_segment": "Baru Garu Segment",
   "entity.returntosoil.ball_frog": "Ball Frog",
   "item.returntosoil.rose_beetle_item": "Rose Beetle",
+  "item.returntosoil.cooked_beetle_item": "Cooked Beetle",
   "item.returntosoil.ghost_beetle_item": "Ghost Beetle",
   "itemGroup.returntosoil": "Return To Soil",
   "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
@@ -63,5 +64,9 @@
   "item.returntosoil.spring_leaf_berry_item": "Spring Leaf Berry",
   "entity.returntosoil.warra_rupe_head": "Warra Rupe",
   "item.returntosoil.vessel_sac_item": "Vessel Sac",
-  "item.returntosoil.holding_staff_item": "Holding Staff"
+  "item.returntosoil.holding_staff_item": "Holding Staff",
+  "item.returntosoil.block": "test armour",
+
+  "item.returntosoil.beetle_backpack_item": "Beetle-soup Backpack",
+  "item.returntosoil.beetle_backpack_item.desc": "Lunch on the job"
 }

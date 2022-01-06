@@ -21,6 +21,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -52,6 +53,11 @@ public class RefineryPlantBlock extends RTSCropsBlock implements IPottable{
         else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) {spawnJawBeetle(worldIn, pos);} //small chance of horde normally 80
     }
 
+    @Override
+    public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
+        return (p_196260_2_.getRawBrightness(p_196260_3_, 0) >= 8 || p_196260_2_.canSeeSky(p_196260_3_)) &&
+                p_196260_2_.getBlockState(p_196260_3_.below()).getBlock() instanceof RTSCropsBlock;
+    }
 
     @Override
     public ItemStack getPotItem() {

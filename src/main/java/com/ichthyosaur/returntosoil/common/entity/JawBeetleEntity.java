@@ -119,6 +119,7 @@ public class JawBeetleEntity extends MonsterEntity {
         map.put(6, new ResourceLocation("returntosoil:textures/entity/jaw_beetle/jaw_beetle_6.png"));
     });
 
+
     //This works fine but using custom loot is honestly just easier.
     /*
     protected void dropFromLootTable(DamageSource dmgSource, boolean bool) {

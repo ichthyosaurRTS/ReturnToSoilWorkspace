@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "returntosoil:rose_beetle_item"
+  },
+  "result": "returntosoil:cooked_beetle_item",
+  "experience": 1,
+  "cookingtime": 300
+}

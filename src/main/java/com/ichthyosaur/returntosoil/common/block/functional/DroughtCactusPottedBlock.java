@@ -32,7 +32,7 @@ import net.minecraftforge.fluids.FluidAttributes;
 
 import java.util.Random;
 
-//filled when off cool down you can only take from when it can find a block below
+//filled when off cool down you can only take from when it can find a BlockModel below
 public class DroughtCactusPottedBlock extends RTSPottedBlock implements IBucketPickupHandler{
     public DroughtCactusPottedBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);

@@ -37,7 +37,7 @@ public class SpringLeafTileEntity extends TileEntity implements ITickableTileEnt
         this(TileEntityTypesInit.SPRING_LEAF_TILE_ENTITY_TYPE.get());
     }
 
-    //I wanted the jumping tick in here but oh well (is on block events)
+    //I wanted the jumping tick in here but oh well (is on BlockModel events)
     @Override
     public void tick() {
         World world = this.level;
