@@ -8,6 +8,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -35,12 +37,7 @@ public class ItemEvents {
             if (foodLevel < 11) {
                 player.getFoodData().setFoodLevel(foodLevel + 10);
                 chest.setDamageValue(chest.getDamageValue()+10);
-
-                player.playSound(SoundEvents.GENERIC_EAT,1,1 );
-                player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
-
-                player.level.playSound(player, new BlockPos(player.getX(), player.getY(), player.getZ()), SoundEvents.GENERIC_EAT, SoundCategory.PLAYERS, 1, 1);
-
+                player.eat(player.level, new ItemStack(Items.COOKIE));
             }
         }
     }

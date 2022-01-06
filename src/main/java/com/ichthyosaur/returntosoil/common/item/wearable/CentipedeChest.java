@@ -25,7 +25,7 @@ public class CentipedeChest extends RTSDescWBItem {
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        return "returntosoil:textures/wearable/centipede_chest.png";
+        return "returntosoil:textures/wearable/centipede_armor.png";
     }
 
 

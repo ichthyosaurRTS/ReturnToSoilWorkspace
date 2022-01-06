@@ -12,7 +12,6 @@ import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
 import com.ichthyosaur.returntosoil.common.item.tool.RoseBeetleAxeItem;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
-import com.ichthyosaur.returntosoil.common.item.wearable.Bulk;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
 import net.minecraft.block.*;
@@ -192,11 +191,6 @@ public class BlockItemInit {
     //Standalone; Nothing personal kid
     public static final RegistryObject<Item> ABYSS_SCALPEL = ITEMS.register("abyss_scalpel", () ->
             new AbyssScalpelItem(1.0F, 1.0F, CustomItemTier.ABYSS_SCRAPINGS, Sets.newHashSet(), (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
-    //testing
-    public static final RegistryObject<Item> BLOCK = ITEMS.register("block", () ->
-            new Bulk(ArmorMaterial.IRON, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ItemGroup.TAB_COMBAT)));
-
 
     //HoldingStaff
     public static final RegistryObject<Block> HOLDING_STAFF_BLOCK = BLOCKS.register("holding_staff_block", () ->

@@ -14,8 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
-//nibble from your roasted beetle while you farm!
-
+//scares jaw beetles? double damage to jaw beetles?
 public class CentipedeHelm extends RTSDescWBItem {
 
 
@@ -26,7 +25,7 @@ public class CentipedeHelm extends RTSDescWBItem {
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        return "returntosoil:textures/wearable/centipede_helm.png";
+        return "returntosoil:textures/wearable/centipede_armor.png";
     }
 
 
