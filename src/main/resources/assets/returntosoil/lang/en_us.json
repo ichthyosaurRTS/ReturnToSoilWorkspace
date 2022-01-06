@@ -67,6 +67,10 @@
   "item.returntosoil.holding_staff_item": "Holding Staff",
   "item.returntosoil.block": "test armour",
 
-  "item.returntosoil.beetle_backpack_item": "Beetle-soup Backpack",
-  "item.returntosoil.beetle_backpack_item.desc": "Lunch on the job"
+  "item.returntosoil.beetle_backpack_item": "Beetlesoup Backpack",
+  "item.returntosoil.beetle_backpack_item.desc": "Lunch on the job",
+
+  "item.returntosoil.centipede_helm_item": "BaruGaru Head",
+  "item.returntosoil.centipede_chest_item": "Segment Vest",
+  "item.returntosoil.centipede_segment_item": "BaruGaru Segment"
 }

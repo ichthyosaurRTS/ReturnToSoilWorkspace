@@ -11,10 +11,9 @@ TODO
 
 1  Refinery plant 0-7
 
-1  beetlesoup backpack auto feeding for durability feature in tick event + lava sound;
-custom armor material
+1  custom armor materials
 
-
+1  centipede chest, head and segment item textures
 
 2  spirit collector and distributor
 2  Droplet crop
@@ -30,6 +29,7 @@ custom armor material
 2  Compostor plant
 2  Advanced refinery plant (with container for hopper)
 2  WarraRupe drops
+2  beetlesoup backpack lava sound;
 
 3  General Abstract flying serpent segment entity class: Max rotation parent to child
 3  Add ghost jaw beetle drops
