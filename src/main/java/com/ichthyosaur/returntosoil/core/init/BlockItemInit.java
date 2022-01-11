@@ -14,6 +14,7 @@ import com.ichthyosaur.returntosoil.common.item.tool.RoseBeetleAxeItem;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
+import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -49,6 +50,12 @@ public class BlockItemInit {
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Rarity Common (1) ----------------------------------------------------------------------
+
+    //crystal plant
+    public static final RegistryObject<Block> CRYSTAL_PLANT_BLOCK = BLOCKS.register("crystal_plant_block", () ->
+            new CrystalPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Item> CRYSTAL_PLANT_SEED = ITEMS.register("crystal_plant_seed", () ->
+            new RTSDescBNItem(CRYSTAL_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
 
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
@@ -147,6 +154,8 @@ public class BlockItemInit {
             new CentipedeHelm(ArmorMaterial.DIAMOND, EquipmentSlotType.HEAD, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
     public static final RegistryObject<Item> CENTIPEDE_CHEST_ITEM = ITEMS.register("centipede_chest_item", () ->
             new CentipedeChest(ArmorMaterial.DIAMOND, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
+    public static final RegistryObject<Item> CENTIPEDE_LEGS_ITEM = ITEMS.register("centipede_legs_item", () ->
+            new CentipedeLegs(ArmorMaterial.DIAMOND, EquipmentSlotType.LEGS, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
     public static final RegistryObject<Item> CENTIPEDE_SEGMENT_ITEM = ITEMS.register("centipede_segment_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
