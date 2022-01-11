@@ -25,6 +25,7 @@ public class BeetleBackpack extends RTSDescWBItem {
         super(p_i48534_1_, p_i48534_2_, p_i48534_3_, colour);
     }
 
+    //or up here
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
@@ -32,6 +33,7 @@ public class BeetleBackpack extends RTSDescWBItem {
     }
 
 
+    //could probably check entity here to see what cultivation level they are-> change backpack colour or model base on that
     @SuppressWarnings("unchecked")
     @OnlyIn(Dist.CLIENT)
     @Override
