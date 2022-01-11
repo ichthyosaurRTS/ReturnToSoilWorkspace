@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "returntosoil:items/drought_cactus_seed"
-  }
-}

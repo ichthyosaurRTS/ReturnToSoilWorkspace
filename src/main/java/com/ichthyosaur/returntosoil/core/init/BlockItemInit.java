@@ -4,7 +4,7 @@ import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.*;
 import com.ichthyosaur.returntosoil.common.block.functional.*;
-import com.ichthyosaur.returntosoil.common.item.CustomItemTier;
+import com.ichthyosaur.returntosoil.common.item.abst.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
@@ -50,18 +50,6 @@ public class BlockItemInit {
 
     //Rarity Common (1) ----------------------------------------------------------------------
 
-    //SpringLeaf
-    public static final RegistryObject<Block> SPRING_LEAF_POTTED_BLOCK = BLOCKS.register("spring_leaf_potted_block", () ->
-            new SpringLeafPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
-    public static final RegistryObject<Item> SPRING_LEAF_POTTED_ITEM = ITEMS.register("spring_leaf_potted_item", () ->
-            new BlockItem(SPRING_LEAF_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Block> SPRING_LEAF_BLOCK = BLOCKS.register("spring_leaf_block", () ->
-            new SpringLeafBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Item> SPRING_LEAF_SEED = ITEMS.register("spring_leaf_seed", () ->
-            new RTSDescBNItem(SPRING_LEAF_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
-    public static final RegistryObject<Item> SPRING_LEAF_BERRY_ITEM = ITEMS.register("spring_leaf_berry_item", () ->
-            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
             new LilypadLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP).lightLevel(ageSixEmission(12))));
@@ -75,12 +63,6 @@ public class BlockItemInit {
             new RefineryPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
     public static final RegistryObject<Item> REFINERY_PLANT_POTTED_ITEM = ITEMS.register("refinery_plant_potted_item", () ->
             new BlockItem(REFINERY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Block> REFINERY_PLANT_BLOCK = BLOCKS.register("refinery_plant_block", () ->
-            new RefineryPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Block> REFINERY_STALK_BLOCK = BLOCKS.register("refinery_stalk_block", () ->
-            new RefineryStalkBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Item> REFINERY_PLANT_SEED = ITEMS.register("refinery_plant_seed", () ->
-            new RTSDescBNItem(REFINERY_STALK_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
 
     //Vessel crop
     public static final RegistryObject<Block> VESSEL_VINE_BLOCK = BLOCKS.register("vessel_vine_block", () ->
@@ -92,17 +74,6 @@ public class BlockItemInit {
     public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
             new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //drought cactus
-    public static final RegistryObject<Block> DROUGHT_CACTUS_BLOCK = BLOCKS.register("drought_cactus_block", () ->
-            new DroughtCactusBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Item> DROUGHT_CACTUS_SEED = ITEMS.register("drought_cactus_seed", () ->
-            new RTSDescBNItem(DROUGHT_CACTUS_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
-    public static final RegistryObject<Block> DROUGHT_CACTUS_POTTED_BLOCK = BLOCKS.register("drought_cactus_potted_block", () ->
-            new DroughtCactusPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks()));
-    public static final RegistryObject<Item> DROUGHT_CACTUS_POTTED_ITEM = ITEMS.register("drought_cactus_potted_item", () ->
-            new BlockItem(DROUGHT_CACTUS_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Item> DROUGHT_TUBER_ITEM = ITEMS.register("drought_tuber_item", () ->
-            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Rarity Spirit (2)----------------------------------------------------------------------
 
@@ -127,15 +98,6 @@ public class BlockItemInit {
             new BlockItem(WARDEN_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> GLASSY_EYEBALL_ITEM = ITEMS.register("glassy_eyeball_item", () ->
             new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
-
-    //Gemstone plant
-    public static final RegistryObject<Block> GEMSTONE_PLANT_BLOCK = BLOCKS.register("gemstone_plant_block", () ->
-            new GemstonePlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Item> GEMSTONE_PLANT_SEED = ITEMS.register("gemstone_plant_seed", () ->
-            new RTSDescBNItem(GEMSTONE_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
-    public static final RegistryObject<Item> RED_GEMSTONE_ITEM = ITEMS.register("red_gemstone_item", () ->
-            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
 
     //cerulean coral
     public static final RegistryObject<Block> CERULEAN_CORAL_POTTED_BLOCK = BLOCKS.register("cerulean_coral_potted_block", () ->

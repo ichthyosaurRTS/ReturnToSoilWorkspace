@@ -1,6 +1,5 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.TallSnailEntity;
 import com.ichthyosaur.returntosoil.common.entity.VesselEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

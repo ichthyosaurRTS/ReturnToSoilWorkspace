@@ -22,12 +22,10 @@ import java.util.Objects;
 import java.util.Random;
 
 //powered, causes living entities around it to float
-public class CeruleanCoralTileEntity extends TileEntity implements ITickableTileEntity,IHoldsSpirit,IHoldsTarget{
+public class CeruleanCoralTileEntity extends TileEntity implements ITickableTileEntity,IHoldsSpirit{
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
     private float spiritLevel; //held info
-    private HashSet<LivingEntity> targetList = new HashSet<>();
-    private HashSet<LivingEntity> newTargetList = new HashSet<>();
 
 
     public CeruleanCoralTileEntity(TileEntityType<?> p_i48289_1_) {
@@ -70,21 +68,6 @@ public class CeruleanCoralTileEntity extends TileEntity implements ITickableTile
     public void load(BlockState p_230337_1_, CompoundNBT nbt) {
         super.load(p_230337_1_, nbt);
         if (nbt.contains("spirit_level")) this.spiritLevel = nbt.getFloat("spirit_level");
-    }
-
-    private void doCeruleanFunction(ServerWorld world, BlockPos pos){
-        for (LivingEntity entity: this.targetList) {
-            if (entity.distanceToSqr(new Vector3d(this.getBlockPos().getX(),this.getBlockPos().getY(), this.getBlockPos().getZ())) < 4)
-            {
-                entity.setDeltaMovement(entity.getDeltaMovement().x(),entity.getDeltaMovement().y()+0.03,entity.getDeltaMovement().z());
-            }
-            else this.targetList.remove(entity);
-        }
-    }
-
-    @Override
-    public void setTarget(LivingEntity entity) {
-        //this.targetList.add(entity);
     }
 }
 

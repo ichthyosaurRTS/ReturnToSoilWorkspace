@@ -1,7 +1,6 @@
 package com.ichthyosaur.returntosoil.common.item.wearable;
 
 import com.ichthyosaur.returntosoil.client.wearable.model.BeetleBackpackModel;
-import com.ichthyosaur.returntosoil.client.wearable.model.BlockModel;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;

@@ -24,19 +24,12 @@ public class ClientEventBusSubscriber {
 
         RenderTypeLookup.setRenderLayer(BlockItemInit.ORIGIN_BERRY_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.REFINERY_PLANT_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.REFINERY_STALK_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.SPRING_LEAF_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_SAC_BLOCK.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockItemInit.HEAVY_PLANT_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.HEAVY_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.DROUGHT_CACTUS_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.DROUGHT_CACTUS_POTTED_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.WARDEN_PLANT_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.WARDEN_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.GEMSTONE_PLANT_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.ERMTHRUS_LANTERN_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get(), RenderType.cutout());
 
@@ -47,8 +40,6 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), JawBeetleRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), BaruGaruRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BALLFROG.get(), BallFrogRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.TALLSNAIL.get(), TallSnailRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VESSEL.get(), VesselRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GENERALFLYINGSEGMENT.get(), GeneralFlyingSegmentRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadRenderer::new);

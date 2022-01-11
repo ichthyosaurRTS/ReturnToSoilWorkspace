@@ -1,8 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.renderer;
 
-import com.ichthyosaur.returntosoil.client.entity.model.TallSnailModel;
 import com.ichthyosaur.returntosoil.client.entity.model.VesselModel;
-import com.ichthyosaur.returntosoil.common.entity.TallSnailEntity;
 import com.ichthyosaur.returntosoil.common.entity.VesselEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;

@@ -34,11 +34,6 @@ public class EntityTypesInit {
                     .sized(0.5f,1f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "baru_garu_segment").toString()));
 
-    public static final RegistryObject<EntityType<BallFrogEntity>> BALLFROG = ENTITY_TYPES.register("ball_frog",
-            () -> EntityType.Builder.of(BallFrogEntity::new, EntityClassification.CREATURE)
-                    .sized(0.6f,0.6f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "ball_frog").toString()));
-
     public static final RegistryObject<EntityType<VesselEntity>> VESSEL = ENTITY_TYPES.register("vessel",
             () -> EntityType.Builder.of(VesselEntity::new, EntityClassification.CREATURE)
                     .sized(0.5f,0.4f)
@@ -53,11 +48,6 @@ public class EntityTypesInit {
             () -> EntityType.Builder.of(WarraRupeHeadEntity::new, EntityClassification.CREATURE)
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "warra_rupe_head").toString()));
-
-    public static final RegistryObject<EntityType<TallSnailEntity>> TALLSNAIL = ENTITY_TYPES.register("tall_snail",
-            () -> EntityType.Builder.of(TallSnailEntity::new, EntityClassification.MONSTER)
-                    .sized(0.5f,0.5f)
-                    .build(new ResourceLocation(RTSMain.MOD_ID, "tall_snail").toString()));
 
     public static final RegistryObject<EntityType<GawanHeadEntity>> GAWANHEAD = ENTITY_TYPES.register("gawan_head",
             () -> EntityType.Builder.of(GawanHeadEntity::new, EntityClassification.MONSTER)

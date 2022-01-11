@@ -34,7 +34,6 @@ public class HuskLarvaeEntity extends TameableEntity{
 
     protected void dropCustomDeathLoot(DamageSource damage, int i, boolean bool) {
         super.dropCustomDeathLoot(damage, i, bool);
-        if (rollChance.roll(10)) this.spawnAtLocation(BlockItemInit.REFINERY_PLANT_SEED.get());
     }
 
     @Override

@@ -19,10 +19,6 @@ public class TileEntityTypesInit {
             TILE_ENTITY_TYPE.register("refinery_plant", () ->
                     TileEntityType.Builder.of(RefineryPlantTileEntity::new, BlockItemInit.REFINERY_PLANT_POTTED_BLOCK.get()).build(null));
 
-    public static final RegistryObject<TileEntityType<SpringLeafTileEntity>> SPRING_LEAF_TILE_ENTITY_TYPE =
-            TILE_ENTITY_TYPE.register("spring_leaf", () ->
-                    TileEntityType.Builder.of(SpringLeafTileEntity::new, BlockItemInit.SPRING_LEAF_POTTED_BLOCK.get()).build(null));
-
     public static final RegistryObject<TileEntityType<WardenPlantTileEntity>> WARDEN_PLANT_TILE_ENTITY_TYPE =
             TILE_ENTITY_TYPE.register("warden_plant", () ->
                     TileEntityType.Builder.of(WardenPlantTileEntity::new, BlockItemInit.WARDEN_PLANT_POTTED_BLOCK.get()).build(null));

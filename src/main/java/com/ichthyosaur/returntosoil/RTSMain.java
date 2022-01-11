@@ -54,8 +54,6 @@ public class RTSMain
             GlobalEntityTypeAttributes.put(EntityTypesInit.JAWBEETLE.get(), JawBeetleEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARU.get(), BaruGaruEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.BALLFROG.get(), BallFrogEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.TALLSNAIL.get(), TallSnailEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.VESSEL.get(), VesselEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadEntity.setCustomAttributes().build());

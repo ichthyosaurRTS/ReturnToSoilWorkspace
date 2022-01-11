@@ -66,14 +66,7 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
     public static ItemStack randomSeedResult() {
 
         int i = (int) rollChance.returnRoll(100);
-        if (i < 5) {
-            switch (i) {
-                case 1:  return new ItemStack(BlockItemInit.LILYPAD_LANTERN_SEED.get(),1);
-                case 2:  return new ItemStack(BlockItemInit.SPRING_LEAF_SEED.get(),1);
-                case 3:  return new ItemStack(BlockItemInit.VESSEL_SEED.get(),1);
-                case 4:  return new ItemStack(BlockItemInit.DROUGHT_CACTUS_BLOCK.get(), 1);
-                }
-        }
+        if (i < 5) return getCommonSeed();
         else if (i == 5) return getSpiritSeed();
         else if (i == 6) if (rollChance.roll(10)) return getAbyssSeed(); else return randomSeedResult();
         else if (i < 40) return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
@@ -84,15 +77,19 @@ public class RefineryPlantTileEntity extends TileEntity implements ITickableTile
         else if (i < 90) return new ItemStack(Items.PUMPKIN_SEEDS,1);
         else if (i < 95) return new ItemStack(Items.POTATO,1);
         else return new ItemStack(Items.MELON_SEEDS,1);
+    }
 
-        return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
+    private static ItemStack getCommonSeed(){
+        HashMap<Integer,Item> seeds = new HashMap<>();
+        seeds.put(1,BlockItemInit.LILYPAD_LANTERN_SEED.get());
+        seeds.put(2,BlockItemInit.VESSEL_SEED.get());
+        return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
 
     private static ItemStack getSpiritSeed(){
         HashMap<Integer,Item> seeds = new HashMap<>();
         seeds.put(1,BlockItemInit.ERMTHRUS_LANTERN_SEED.get());
         seeds.put(2,BlockItemInit.WARDEN_PLANT_SEED.get());
-        seeds.put(3,BlockItemInit.GEMSTONE_PLANT_SEED.get());
         return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
 

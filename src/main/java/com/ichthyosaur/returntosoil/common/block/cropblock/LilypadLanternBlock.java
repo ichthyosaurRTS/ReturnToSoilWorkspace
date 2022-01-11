@@ -1,7 +1,5 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -58,8 +56,6 @@ public class LilypadLanternBlock extends RTSCropsBlock{
 
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
-        if (rollChance.roll(10)) spawnMobEntity(worldIn, pos,EntityTypesInit.BALLFROG.get().create(worldIn)); //normally 10
-        else if (rollChance.roll(80)) for (int j = 0; j < 10; j++) spawnMobEntity(worldIn, pos,EntityTypesInit.BALLFROG.get().create(worldIn)); //small chance of horde normally 80
     }
 
     public boolean canSurvive(BlockState state, IWorldReader worldReader, BlockPos pos) {

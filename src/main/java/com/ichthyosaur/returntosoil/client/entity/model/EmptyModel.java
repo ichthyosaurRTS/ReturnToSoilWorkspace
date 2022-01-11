@@ -1,7 +1,5 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
-import com.ichthyosaur.returntosoil.common.entity.BallFrogEntity;
 import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

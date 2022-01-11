@@ -1,14 +1,9 @@
 package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.block.cropblock.SpringLeafBlock;
-import com.ichthyosaur.returntosoil.common.block.functional.RTSPottedBlock;
-import com.ichthyosaur.returntosoil.common.block.functional.SpringLeafPottedBlock;
 import com.ichthyosaur.returntosoil.common.entity.AbstractContractEntity;
 import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
-import com.ichthyosaur.returntosoil.common.tileentity.IHoldsTarget;
-import com.ichthyosaur.returntosoil.common.tileentity.SpringLeafTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
@@ -52,24 +47,8 @@ public class BlockEvents {
     }
 
 
-    public static void springTargetSet (LivingEvent event) {
-
-        if ( event.getEntityLiving() != null) {
-            LivingEntity entity = event.getEntityLiving();
-            World world = entity.level;
-            BlockState inState = entity.getFeetBlockState();
-            BlockPos in = new BlockPos (entity.getPosition(1));
-
-            if (inState.hasTileEntity() && inState.getBlock() instanceof SpringLeafPottedBlock)
-            {
-                if (world.getBlockEntity(in) instanceof IHoldsTarget)
-                    ((IHoldsTarget) Objects.requireNonNull(world.getBlockEntity(in))).setTarget(entity);
-            }
-        }
-    }
-
-    //normally sets the target of tile entities, but given how simple spring leaf and ceru coral are, its more efficient to plonk it in here
-    //  rather than iterate thru 2 sets on the te side (one set to act as a buffer and avoid concurrent actions)
+    //normally sets the target of tile entities, but given how simple ceru coral is, its more efficient to plonk it in here
+    // rather than iterate thru 2 sets on the te side (one set to act as a buffer and avoid concurrent actions)
     @SubscribeEvent
     public static void threeCubeTE (LivingEvent event) {
 
@@ -92,13 +71,6 @@ public class BlockEvents {
                                     if (targetState.getValue(FUEL_LEVEL) == 1 && entity.getDeltaMovement().y()< 0.04)
                                         entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y()+0.03, entity.getDeltaMovement().z());
                                 }
-
-                                else if (te instanceof SpringLeafTileEntity && targetState.getValue(COOL_DOWN)==0) {
-                                    if (x==0&&z==0&&y==0) {
-                                        entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y()+5, entity.getDeltaMovement().z());
-                                        ((SpringLeafTileEntity) te).resetCoolDown();
-                                    }
-                            }
                         }
                     }
                 }
