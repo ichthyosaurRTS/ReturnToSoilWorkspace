@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.tileentity.RefineryPlantTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -100,7 +101,7 @@ public class RefineryPlantPottedBlock extends RTSPottedBlock {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
-        if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0) {
+        if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0 && rollChance.roll(3)) {
             world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                     player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
         }
