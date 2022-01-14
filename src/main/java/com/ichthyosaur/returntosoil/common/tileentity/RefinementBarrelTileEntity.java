@@ -16,25 +16,21 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.Tags;
 
-import java.lang.reflect.Array;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 
-public class RefineryPlantTileEntity extends TileEntity implements ITickableTileEntity {
+public class RefinementBarrelTileEntity extends TileEntity implements ITickableTileEntity {
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
     public int refineProgress = 0;
 
-    public RefineryPlantTileEntity(TileEntityType<?> p_i48289_1_) {
+    public RefinementBarrelTileEntity(TileEntityType<?> p_i48289_1_) {
         super(p_i48289_1_);
     }
 
-    public RefineryPlantTileEntity() {
-        this(TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get());
+    public RefinementBarrelTileEntity() {
+        this(TileEntityTypesInit.REFINEMENT_BARREL_TILE_ENTITY_TYPE.get());
     }
 
     @Override

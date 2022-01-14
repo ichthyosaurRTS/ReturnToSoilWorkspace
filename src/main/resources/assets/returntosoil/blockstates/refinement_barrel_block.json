@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "fuel_level=0": {
+      "model": "returntosoil:block/refinement_barrel/refinement_barrel_0n"
+    },
+    "fuel_level=1": {
+      "model": "returntosoil:block/refinement_barrel/refinement_barrel_1n"
+    },
+    "fuel_level=2": {
+      "model": "returntosoil:block/refinement_barrel/refinement_barrel_2n"
+    },
+    "fuel_level=3": {
+      "model": "returntosoil:block/refinement_barrel/refinement_barrel_3n"
+    },
+    "fuel_level=4": {
+      "model": "returntosoil:block/refinement_barrel/refinement_barrel_4n"
+    }
+  }
+
+}

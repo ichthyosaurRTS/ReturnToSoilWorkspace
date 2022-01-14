@@ -1,28 +1,20 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
-import com.ichthyosaur.returntosoil.common.tileentity.RefineryPlantTileEntity;
+import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -30,7 +22,6 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class OriginBerryBlock extends RTSCropsBlock {
 
@@ -64,7 +55,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
 
             //small gacha chance
             else if (rollChance.roll(100))
-                drops.add(RefineryPlantTileEntity.randomSeedResult());
+                drops.add(RefinementBarrelTileEntity.randomSeedResult());
         }
         return drops;
     }
@@ -104,7 +95,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
                 popResource(world, pos, randomDrops);
             }
             else if (rollChance.roll(100))
-                popResource(world, pos, RefineryPlantTileEntity.randomSeedResult());
+                popResource(world, pos, RefinementBarrelTileEntity.randomSeedResult());
 
             ItemStack definiteDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get(),1);
             popResource(world, pos, definiteDrops);

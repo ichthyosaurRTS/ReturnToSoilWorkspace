@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [128, 128],
 	"textures": {
-		"2": "returntosoil:blocks/refinery_plant/refinery_plant_potted_1n",
-		"particle": "block/texture"
+		"2": "returntosoil:blocks/refinement_barrel/refinement_barrel",
+		"particle": "returntosoil:blocks/refinement_barrel/break_particle"
 	},
 	"elements": [
 		{
@@ -175,8 +175,8 @@
 			}
 		},
 		{
-			"from": [4, 2, 4],
-			"to": [12, 3, 12],
+			"from": [4, 11, 4],
+			"to": [12, 12, 12],
 			"faces": {
 				"north": {"uv": [6.125, 2.5, 7.125, 3.25], "texture": "#2"},
 				"east": {"uv": [6.125, 3.25, 7.125, 4], "texture": "#2"},

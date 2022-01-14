@@ -1,26 +1,24 @@
 TODO
 1:Next 2:Want to 3:Don't want to bother 4: Not ready for 5: Who cares
 
-1  Composter crop + mob
+1  Crystal 0-6, drops, seed
 
 1  Coral crop + jellyfish
 
-1  Rotation 0-15 to 0-3
+1  lilypad redesign
 
-1  Firefly dragons
+1  Firefly/dragonfly dragons
 
 1  custom armor materials
 
-1  Refinery barrel or beetle butt or smthn w/ container if possible
+1  Refinery barrel code name changes
 
-1  Heavy plant remodel- thin stem?
+1  Heavy plant 0-6, potted
 
 
-TO BE REMOVED
--  Refinery plant
--  Drought plant
--  Spring plant
 
+2  Rotation 0-15 to 0-3
+2  Composter crop + mob
 2  upside down viod crop
 2  spirit collector and distributor
 2  Droplet crop

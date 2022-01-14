@@ -3,10 +3,6 @@
 
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.lilypad_lantern_seed.desc": "Grows on water",
-  "item.returntosoil.refinery_plant_seed": "Refinery Plant Seed",
-  "item.returntosoil.refinery_plant_seed.desc": "Somewhat useful",
-  "item.returntosoil.spring_leaf_seed": "Spring Leaf Seed",
-  "item.returntosoil.spring_leaf_seed.desc": "Seems... springy",
   "item.returntosoil.vessel_seed": "Vessel Seed",
   "item.returntosoil.vessel_seed.desc": "Hangs from leaves",
 
@@ -20,8 +16,6 @@
   "item.returntosoil.heavy_plant_seed": "Heavy Seed",
   "item.returntosoil.heavy_plant_seed.desc": "It's hard to breathe",
 
-  "block.returntosoil.husk_spawn_block": "Husk Bug Spawn Block",
-  "item.returntosoil.husk_spawn_block_item": "Husk Bug Spawn Block Item",
   "entity.returntosoil.husk_larvae": "Husk Bug Larvae",
   "entity.returntosoil.jaw_beetle": "Jaw Beetle",
   "entity.returntosoil.nomad_snail": "Nomad Snail",
@@ -38,14 +32,11 @@
   "itemGroup.returntosoil": "Return To Soil",
   "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
   "item.returntosoil.abyss_scalpel": "Abyss Scalpel",
-  "block.returntosoil.refinery_plant_potted_block": "Refinery Plant",
-  "entity.returntosoil.judas_sheep_head": "Judas Sheep",
-  "entity.returntosoil.judas_sheep_body": "Judas Sheep Body",
+
   "entity.returntosoil.general_flying_segment": "Body Part",
 
   "item.returntosoil.bottled_spirit_item": "Bottled Spirit",
   "item.returntosoil.lilypad_flower_item": "Small Flower",
-  "item.returntosoil.drought_tuber_item": "Drought Tuber",
   "item.returntosoil.glassy_eyeball_item": "Glassy Eyeball",
   "item.returntosoil.glassy_eyeball_item.desc": "It's dead",
   "item.returntosoil.heavy_fruit_item": "Heavy Fruit",
@@ -55,6 +46,8 @@
   "block.returntosoil.warden_plant_potted_block": "Warden Plant",
   "block.returntosoil.ermthrus_lantern_potted_block": "Ermthrus Lantern",
   "block.returntosoil.cerulean_coral_potted_block": "Cerulean Coral",
+
+  "block.returntosoil.refinement_barrel_block": "Refinement Barrel",
 
   "entity.returntosoil.warra_rupe_head": "Warra Rupe",
   "item.returntosoil.vessel_sac_item": "Vessel Sac",

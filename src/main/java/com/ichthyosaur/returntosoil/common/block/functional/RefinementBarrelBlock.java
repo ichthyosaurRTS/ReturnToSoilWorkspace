@@ -1,25 +1,18 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.tileentity.RefineryPlantTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -32,17 +25,16 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class RefineryPlantPottedBlock extends RTSPottedBlock {
+public class RefinementBarrelBlock extends RTSPottedBlock {
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 
     //models based on fuel level
-    public RefineryPlantPottedBlock(Properties prop) {
+    public RefinementBarrelBlock(Properties prop) {
         super(prop);
         this.registerDefaultState(this.stateDefinition.any().setValue(FUEL_LEVEL,0));
     }
@@ -58,7 +50,7 @@ public class RefineryPlantPottedBlock extends RTSPottedBlock {
 
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get().create();
+        return TileEntityTypesInit.REFINEMENT_BARREL_TILE_ENTITY_TYPE.get().create();
     }
 
     @Override

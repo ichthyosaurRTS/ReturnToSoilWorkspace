@@ -1,12 +1,8 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.common.tileentity.RefineryPlantTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +10,6 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.ParametersAreNonnullByDefault;

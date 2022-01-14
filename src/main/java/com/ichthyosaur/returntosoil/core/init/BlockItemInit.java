@@ -65,12 +65,6 @@ public class BlockItemInit {
     public static final RegistryObject<Item> LILYPAD_FLOWER_ITEM = ITEMS.register("lilypad_flower_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //RefineryPlant
-    public static final RegistryObject<Block> REFINERY_PLANT_POTTED_BLOCK = BLOCKS.register("refinery_plant_potted_block", () ->
-            new RefineryPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
-    public static final RegistryObject<Item> REFINERY_PLANT_POTTED_ITEM = ITEMS.register("refinery_plant_potted_item", () ->
-            new BlockItem(REFINERY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
     //Vessel crop
     public static final RegistryObject<Block> VESSEL_VINE_BLOCK = BLOCKS.register("vessel_vine_block", () ->
             new VesselVineBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().noCollission().sound(SoundType.HONEY_BLOCK)));
@@ -126,6 +120,14 @@ public class BlockItemInit {
     public static final RegistryObject<Item> HEAVY_FRUIT_ITEM = ITEMS.register("heavy_fruit_item", () ->
             new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
 
+
+    //Functional non-plant blocks------------------------------------------------------------------------------------
+
+    //Refinement Barrel
+    public static final RegistryObject<Block> REFINEMENT_BARREL_BLOCK = BLOCKS.register("refinement_barrel_block", () ->
+            new RefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+    public static final RegistryObject<Item> REFINEMENT_BARREL_ITEM = ITEMS.register("refinement_barrel_item", () ->
+            new BlockItem(REFINEMENT_BARREL_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     // Items ------------------------------------------------------------------
