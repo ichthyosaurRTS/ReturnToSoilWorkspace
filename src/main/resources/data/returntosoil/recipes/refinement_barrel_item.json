@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "SBS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:oak_log"
+    },
+    "B": {
+      "item": "returntosoil:grub_mantle_item"
+    }
+  },
+  "result": {
+    "item": "returntosoil:refinement_barrel_item",
+    "count": 1
+  }
+
+}
