@@ -69,7 +69,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 if (this.refineProgress >= 1000) {
 
                     if (this.blueSmokeAmount < 250) {
-                        Block.popResource(world, pos.above(), getSpiritSeed());
+                        for(int i=1;i<4;i++) Block.popResource(world, pos.above(), randomSeedResult());
                     }
                     else Block.popResource(world, pos.above(), new ItemStack(Blocks.DIRT));
 
@@ -95,10 +95,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                                     pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.03D, 0.0D);
 
                         }
-
                 }
-
-
             }
         }
     }
@@ -164,9 +161,9 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
         this.spiritRemaining = nbt.getInt("spirit");
     }
 
-    public boolean addSpirit(int addSpirit){
+    public boolean addSpirit(){
         if (this.spiritRemaining<1) {
-            this.spiritRemaining = 45;
+            this.spiritRemaining = 1000;
             return true;
         }
         else return false;

@@ -56,6 +56,8 @@ public class BlockItemInit {
             new CrystalPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
     public static final RegistryObject<Item> CRYSTAL_PLANT_SEED = ITEMS.register("crystal_plant_seed", () ->
             new RTSDescBNItem(CRYSTAL_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
+    public static final RegistryObject<Item> SPIRIT_CRYSTAL_ITEM = ITEMS.register("spirit_crystal_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->

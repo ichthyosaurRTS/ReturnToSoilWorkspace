@@ -17,6 +17,9 @@
     },
     "fuel_level=5": {
       "model": "returntosoil:block/refinement_barrel/refinement_barrel_5n"
+    },
+    "fuel_level=6": {
+      "model": "returntosoil:block/refinement_barrel/refinement_barrel_6n"
     }
   }
 

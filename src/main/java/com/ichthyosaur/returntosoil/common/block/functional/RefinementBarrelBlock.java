@@ -96,7 +96,7 @@ public class RefinementBarrelBlock extends Block {
 
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
             te.resetProgress();
-            te.addSpirit((int)rollChance.returnRoll(100));
+            te.addSpirit();
 
             return ActionResultType.SUCCESS;
 
@@ -105,7 +105,7 @@ public class RefinementBarrelBlock extends Block {
         else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
 
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
-            if (te.addSpirit((int)rollChance.returnRoll(100))) {
+            if (te.addSpirit()) {
                 itemstack.shrink(1);
                 player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
             }
@@ -114,6 +114,22 @@ public class RefinementBarrelBlock extends Block {
                 player.playSound(SoundEvents.BREWING_STAND_BREW,1,1 );
             }
             return ActionResultType.SUCCESS;
+        }
+
+        else if (item == BlockItemInit.VESSEL_SAC_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
+
+            int newFuelLevel = 6;
+            BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
+            world.setBlock(pos, news, 2);
+            itemstack.shrink(1);
+
+            player.playSound(SoundEvents.GHAST_SCREAM, 1, 1);
+
+            RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
+            te.resetProgress();
+
+            return ActionResultType.SUCCESS;
+
         }
 
         return ActionResultType.PASS;
