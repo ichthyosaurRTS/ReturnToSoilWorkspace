@@ -30,7 +30,8 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
     public int refineProgress = 0;
 
     private int blueSmokeAmount = 0;
-    private int spiritRemaining = 0;
+    //normally 0
+    private int spiritRemaining = 1000;
 
     public RefinementBarrelTileEntity(TileEntityType<?> p_i48289_1_) {
         super(p_i48289_1_);
@@ -60,7 +61,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 }
                 else {
                     this.refineProgress += 1;
-                    if (rollChance.roll(10)) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+                    if (rollChance.roll(15)) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                             pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 0.03D, 0.0D);
                 }
             }
@@ -81,8 +82,9 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 //if bubbling, roll chance to see whether it stops/ if not, add to the smoke counter
                 else {
                     this.refineProgress += 1;
-                    RTSMain.LOGGER.info(this.blueSmokeAmount);
-
+                    world.addParticle(ParticleTypes.EFFECT,
+                            pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.03D, 0.0D);
+                    /*
                         if (this.spiritRemaining>0) {
                             //interestingly, this will roll 2 different answers, one for server and one for client, causing the particles to be wrong
                             //if (rollChance.roll(100) && !world.isClientSide()) this.isBubbling = false;
@@ -94,7 +96,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                             if (rollChance.roll(3)) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                                     pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.03D, 0.0D);
 
-                        }
+                        }*/
                 }
             }
         }
@@ -159,6 +161,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
         this.refineProgress = nbt.getInt("progress");
         this.blueSmokeAmount = nbt.getInt("smoking");
         this.spiritRemaining = nbt.getInt("spirit");
+        RTSMain.LOGGER.info(this.spiritRemaining);
     }
 
     public boolean addSpirit(){
