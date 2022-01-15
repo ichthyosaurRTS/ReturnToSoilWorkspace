@@ -1,6 +1,8 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.common.tileentity.IHoldsSpirit;
+import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -29,7 +31,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class RefinementBarrelBlock extends RTSPottedBlock {
+public class RefinementBarrelBlock extends Block {
 
     public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
 
@@ -81,6 +83,39 @@ public class RefinementBarrelBlock extends RTSPottedBlock {
 
         }
 
+        else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 4) {
+
+            int newFuelLevel = 5;
+            BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
+            world.setBlock(pos, news, 2);
+            itemstack.shrink(1);
+
+            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
+            player.inventory.add(returnDrop);
+            player.playSound(SoundEvents.LAVA_AMBIENT, 1, 1);
+
+            RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
+            te.resetProgress();
+            te.addSpirit((int)rollChance.returnRoll(100));
+
+            return ActionResultType.SUCCESS;
+
+        }
+
+        else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
+
+            RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
+            if (te.addSpirit((int)rollChance.returnRoll(100))) {
+                itemstack.shrink(1);
+                player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
+            }
+            else {
+                te.ruinPot();
+                player.playSound(SoundEvents.BREWING_STAND_BREW,1,1 );
+            }
+            return ActionResultType.SUCCESS;
+        }
+
         return ActionResultType.PASS;
     }
 
@@ -89,17 +124,16 @@ public class RefinementBarrelBlock extends RTSPottedBlock {
     }
 
 
-    //dunno if i need only in here
     @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
-        if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0 && rollChance.roll(3)) {
+        /*if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0 && rollChance.roll(3)) {
             world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                     player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
-        }
+        }*/
     }
 
-    protected static final VoxelShape SHAPE = Block.box(1.0D, 2.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;

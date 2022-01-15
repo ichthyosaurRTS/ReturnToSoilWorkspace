@@ -52,9 +52,11 @@ public class BlockEvents {
     @SubscribeEvent
     public static void threeCubeTE (LivingEvent event) {
 
-        if ( event.getEntityLiving() != null) {
+        /*if ( event.getEntityLiving() != null) {
             LivingEntity entity = event.getEntityLiving();
             World world = entity.level;
+
+
             BlockPos inPos = new BlockPos (entity.getPosition(1));
 
             for (int x = -1; x < 2; x++) {
@@ -75,6 +77,6 @@ public class BlockEvents {
                     }
                 }
             }
-        }
+        }*/
     }
 }
