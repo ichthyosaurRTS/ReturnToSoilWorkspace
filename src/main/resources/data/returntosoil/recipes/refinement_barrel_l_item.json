@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "JJJ",
+    "SJS",
     "SBS",
     "BBB"
   ],
@@ -13,7 +13,7 @@
       "item": "minecraft:iron_ingot"
     },
     "J": {
-      "item": "minecraft:oak_planks"
+      "item": "minecraft:oak_log"
     }
   },
   "result": {

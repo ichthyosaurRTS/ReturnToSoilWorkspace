@@ -9,8 +9,8 @@ import net.minecraft.world.IBlockReader;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class LRefinementBarrelBlock extends Block {
-    public LRefinementBarrelBlock(Properties p_i48440_1_) {
+public class RefinementBarrelLBlock extends Block {
+    public RefinementBarrelLBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);
     }
 
@@ -18,6 +18,9 @@ public class LRefinementBarrelBlock extends Block {
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
+    }
+    public boolean propagatesSkylightDown(BlockState p_200123_1_, IBlockReader p_200123_2_, BlockPos p_200123_3_) {
+        return p_200123_1_.getFluidState().isEmpty();
     }
 }
 
