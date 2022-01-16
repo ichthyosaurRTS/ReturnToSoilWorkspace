@@ -71,9 +71,14 @@ public class JawBeetleEntity extends MonsterEntity {
         int i;
         if (rollChance.roll(200)) i = 0;
         else if (rollChance.roll(1000)) i = 6;
-        else { Random rand = new Random();
-        i = rand.nextInt(5);
-        i+=1; }
+        else if (rollChance.roll(5000)) i = 5;
+        else if (rollChance.roll(20)) i = 3;
+        else if (rollChance.roll(500)) i = 4;
+        else {
+            Random rand = new Random();
+            i = rand.nextInt(2);
+            i+=1;
+        }
 
         this.entityData.set(COLOUR_INT, i);
     }

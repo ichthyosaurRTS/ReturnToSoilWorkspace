@@ -141,7 +141,7 @@ public class RefinementBarrelBlock extends Block {
             itemstack.shrink(1);
             Block.popResource(world, pos.above(), new ItemStack(BlockItemInit.MAGICAL_BLOOD_ITEM.get()));
 
-            player.playSound(SoundEvents.ENDERMITE_AMBIENT, 1, 1);
+            player.playSound(SoundEvents.GHAST_WARN, 1, 1);
 
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
             te.resetProgress();

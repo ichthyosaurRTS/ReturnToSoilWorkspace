@@ -70,7 +70,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 if (this.refineProgress >= 1000) {
 
                     if (this.blueSmokeAmount < 250) {
-                        for(int i=1;i<4;i++) Block.popResource(world, pos.above(), randomSeedResult());
+                        for(int i=1;i<5;i++) Block.popResource(world, pos.above(), randomSeedResult());
                     }
                     else Block.popResource(world, pos.above(), new ItemStack(Blocks.DIRT));
 
@@ -91,7 +91,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 }
             }
             else if (state.getValue(FUEL_LEVEL)==6){
-                if (this.refineProgress >= 10000) {
+                if (this.refineProgress >= 50000) {
                     this.resetProgress();
 
                     BlockState news = state.setValue(FUEL_LEVEL,7);

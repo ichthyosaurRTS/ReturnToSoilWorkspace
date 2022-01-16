@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.item.misc;
 
 import com.ichthyosaur.returntosoil.common.entity.VesselEntity;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.AirBlock;
 import net.minecraft.block.FlowingFluidBlock;
@@ -17,15 +18,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class VesselSacItem extends Item {
+public class VesselSacItem extends RTSDescItem {
 
     //rushed so no wonder if it crashes everything
 
-    public VesselSacItem(Properties p_i48487_1_) {
-        super(p_i48487_1_);
+    public VesselSacItem(Properties p_i48487_1_, TextFormatting text) {
+        super(p_i48487_1_,text);
     }
 
     public ActionResult<ItemStack> use(World p_77659_1_, PlayerEntity p_77659_2_, Hand p_77659_3_) {

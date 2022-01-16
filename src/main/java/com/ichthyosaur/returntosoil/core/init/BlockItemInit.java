@@ -7,7 +7,6 @@ import com.ichthyosaur.returntosoil.common.block.functional.*;
 import com.ichthyosaur.returntosoil.common.item.abst.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
@@ -123,7 +122,7 @@ public class BlockItemInit {
     public static final RegistryObject<Item> VESSEL_SEED = ITEMS.register("vessel_seed", () ->
             new RTSDescBNItem(VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), dark));
     public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
-            new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+            new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), dark));
 
     //Functional non-plant blocks------------------------------------------------------------------------------------
 
@@ -132,6 +131,11 @@ public class BlockItemInit {
             new RefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
     public static final RegistryObject<Item> REFINEMENT_BARREL_ITEM = ITEMS.register("refinement_barrel_item", () ->
             new BlockItem(REFINEMENT_BARREL_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
+    public static final RegistryObject<Block> L_REFINEMENT_BARREL_BLOCK = BLOCKS.register("l_refinement_barrel_block", () ->
+            new LRefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+    public static final RegistryObject<Item> L_REFINEMENT_BARREL_ITEM = ITEMS.register("l_refinement_barrel_item", () ->
+            new BlockItem(L_REFINEMENT_BARREL_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     // Items ------------------------------------------------------------------

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "JJJ",
+    "SBS",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "returntosoil:refinement_barrel_item"
+    },
+    "S": {
+      "item": "minecraft:iron_ingot"
+    },
+    "J": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "item": "returntosoil:l_refinement_barrel_item",
+    "count": 1
+  }
+
+}
