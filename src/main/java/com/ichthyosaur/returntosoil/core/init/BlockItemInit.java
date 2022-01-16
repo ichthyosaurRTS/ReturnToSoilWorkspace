@@ -7,6 +7,7 @@ import com.ichthyosaur.returntosoil.common.block.functional.*;
 import com.ichthyosaur.returntosoil.common.item.abst.CustomItemTier;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
@@ -35,6 +36,7 @@ public class BlockItemInit {
     private static final TextFormatting common = TextFormatting.GREEN;
     private static final TextFormatting spirit = TextFormatting.LIGHT_PURPLE;
     private static final TextFormatting abyss = TextFormatting.DARK_BLUE;
+    private static final TextFormatting dark = TextFormatting.DARK_RED;
 
     //Crops-----------------------------------------------------------
 
@@ -66,16 +68,6 @@ public class BlockItemInit {
             new LilypadLanternSeed(LILYPAD_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> LILYPAD_FLOWER_ITEM = ITEMS.register("lilypad_flower_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
-    //Vessel crop
-    public static final RegistryObject<Block> VESSEL_VINE_BLOCK = BLOCKS.register("vessel_vine_block", () ->
-            new VesselVineBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().noCollission().sound(SoundType.HONEY_BLOCK)));
-    public static final RegistryObject<Block> VESSEL_SAC_BLOCK = BLOCKS.register("vessel_sac_block", () ->
-            new VesselSacBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().sound(SoundType.HONEY_BLOCK)));
-    public static final RegistryObject<Item> VESSEL_SEED = ITEMS.register("vessel_seed", () ->
-            new RTSDescBNItem(VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), common));
-    public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
-            new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     //Rarity Spirit (2)----------------------------------------------------------------------
@@ -122,6 +114,16 @@ public class BlockItemInit {
     public static final RegistryObject<Item> HEAVY_FRUIT_ITEM = ITEMS.register("heavy_fruit_item", () ->
             new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
 
+    //Rarity Dark (-)
+    //Vessel crop
+    public static final RegistryObject<Block> VESSEL_VINE_BLOCK = BLOCKS.register("vessel_vine_block", () ->
+            new VesselVineBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().noCollission().sound(SoundType.HONEY_BLOCK)));
+    public static final RegistryObject<Block> VESSEL_SAC_BLOCK = BLOCKS.register("vessel_sac_block", () ->
+            new VesselSacBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).instabreak().sound(SoundType.HONEY_BLOCK)));
+    public static final RegistryObject<Item> VESSEL_SEED = ITEMS.register("vessel_seed", () ->
+            new RTSDescBNItem(VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), dark));
+    public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
+            new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Functional non-plant blocks------------------------------------------------------------------------------------
 
@@ -138,7 +140,9 @@ public class BlockItemInit {
     public static final RegistryObject<Item> BOTTLED_SPIRIT_ITEM = ITEMS.register("bottled_spirit_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //
+    //Magical Blood
+    public static final RegistryObject<Item> MAGICAL_BLOOD_ITEM = ITEMS.register("magical_blood_item", () ->
+            new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),dark));
 
     //Husk Larvae stuffs
     public static final RegistryObject<Item> GRUB_MANTLE_ITEM = ITEMS.register("grub_mantle_item", () ->

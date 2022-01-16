@@ -8,6 +8,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.ITickableTileEntity;
@@ -39,7 +40,14 @@ public class ErmthrusLanternTileEntity extends TileEntity implements ITickableTi
         BlockPos pos = this.getBlockPos();
         BlockState state = this.getBlockState();
 
-        if (!(this.level.isClientSide)) {
+        if(this.level.isClientSide() && world.getBlockState(pos).getValue(FUEL_LEVEL)==1) {
+            double bubbleOffsetX = (rollChance.returnRoll(11) - 6) ;
+            double bubbleOffsetZ = (rollChance.returnRoll(11) - 6) ;
+            world.addParticle(ParticleTypes.CLOUD,
+                    pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
+        }
+
+        if (!this.level.isClientSide) {
 
             if (this.spiritLevel < 1) {
                 world.setBlock(pos, state.setValue(FUEL_LEVEL, 0), 2);

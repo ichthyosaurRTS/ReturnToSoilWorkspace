@@ -8,6 +8,7 @@ import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -92,7 +93,7 @@ public class RefinementBarrelBlock extends Block {
 
             ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
             player.inventory.add(returnDrop);
-            player.playSound(SoundEvents.LAVA_AMBIENT, 1, 1);
+            player.playSound(SoundEvents.BREWING_STAND_BREW, 1, 1);
 
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
             te.resetProgress();
@@ -111,7 +112,7 @@ public class RefinementBarrelBlock extends Block {
             }
             else {
                 te.ruinPot();
-                player.playSound(SoundEvents.BREWING_STAND_BREW,1,1 );
+                player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
             }
             return ActionResultType.SUCCESS;
         }
@@ -132,6 +133,23 @@ public class RefinementBarrelBlock extends Block {
 
         }
 
+        else if (item == Items.GLASS_BOTTLE && state.getValue(FUEL_LEVEL) == 7) {
+
+            int newFuelLevel = 0;
+            BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
+            world.setBlock(pos, news, 2);
+            itemstack.shrink(1);
+            Block.popResource(world, pos.above(), new ItemStack(BlockItemInit.MAGICAL_BLOOD_ITEM.get()));
+
+            player.playSound(SoundEvents.ENDERMITE_AMBIENT, 1, 1);
+
+            RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
+            te.resetProgress();
+
+            return ActionResultType.SUCCESS;
+
+        }
+
         return ActionResultType.PASS;
     }
 
@@ -142,11 +160,24 @@ public class RefinementBarrelBlock extends Block {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState state, World world, BlockPos player, Random p_180655_4_) {
-        /*if (world.isClientSide() && state.getValue(FUEL_LEVEL)!=0 && rollChance.roll(3)) {
+    public void animateTick(BlockState state, World world, BlockPos pos, Random p_180655_4_) {
+
+        //interestingly, animatetick is not called every tick...
+        /*
+        if (state.getValue(FUEL_LEVEL)>0 && state.getValue(FUEL_LEVEL)<5 && rollChance.roll(15))
             world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
-                    player.getX()+0.5, player.getY()+0.8, player.getZ()+0.5, 0.0D, 0.03D, 0.0D);
+                    pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 0.03D, 0.0D);
+
+        else if (state.getValue(FUEL_LEVEL)==5) {
+            for (int i=1;i<30;i++){
+            double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
+            double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
+            world.addParticle(ParticleTypes.EFFECT,
+                    pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
+        }
         }*/
+
+
     }
 
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);

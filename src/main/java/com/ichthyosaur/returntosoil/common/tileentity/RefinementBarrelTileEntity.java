@@ -82,21 +82,29 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 //if bubbling, roll chance to see whether it stops/ if not, add to the smoke counter
                 else {
                     this.refineProgress += 1;
-                    world.addParticle(ParticleTypes.EFFECT,
-                            pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.03D, 0.0D);
-                    /*
-                        if (this.spiritRemaining>0) {
-                            //interestingly, this will roll 2 different answers, one for server and one for client, causing the particles to be wrong
-                            //if (rollChance.roll(100) && !world.isClientSide()) this.isBubbling = false;
-                            this.spiritRemaining -= 1;
-                            world.addParticle(ParticleTypes.EFFECT,
-                                    pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.03D, 0.0D);
-                        } else {
-                            this.blueSmokeAmount += 1;
-                            if (rollChance.roll(3)) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
-                                    pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.03D, 0.0D);
 
-                        }*/
+                    double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
+                    double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
+                    world.addParticle(ParticleTypes.EFFECT,
+                            pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
+
+                }
+            }
+            else if (state.getValue(FUEL_LEVEL)==6){
+                if (this.refineProgress >= 10000) {
+                    this.resetProgress();
+
+                    BlockState news = state.setValue(FUEL_LEVEL,7);
+                    world.setBlock(pos, news,2);
+                }
+                else {
+                    this.refineProgress += 1;
+
+                    double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
+                    double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
+                    if (rollChance.roll(15))
+                    world.addParticle(ParticleTypes.SMOKE,
+                            pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
                 }
             }
         }

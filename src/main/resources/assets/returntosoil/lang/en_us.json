@@ -4,7 +4,7 @@
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.lilypad_lantern_seed.desc": "Grows on water",
   "item.returntosoil.vessel_seed": "Vessel Seed",
-  "item.returntosoil.vessel_seed.desc": "Hangs from leaves",
+  "item.returntosoil.vessel_seed.desc": "Is it... wriggling?",
 
   "item.returntosoil.ermthrus_lantern_seed": "Ermthrus Seed",
   "item.returntosoil.ermthrus_lantern_seed.desc": "It glows dimly",
@@ -55,6 +55,9 @@
   "item.returntosoil.vessel_sac_item": "Vessel Sac",
   "item.returntosoil.holding_staff_item": "Holding Staff",
   "item.returntosoil.block": "test armour",
+
+  "item.returntosoil.magical_blood_item": "Infused Blood",
+  "item.returntosoil.magical_blood_item.desc": "...",
 
   "item.returntosoil.grub_mantle_item": "Grub Mantle",
 
