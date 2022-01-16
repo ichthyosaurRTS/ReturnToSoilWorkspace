@@ -124,6 +124,7 @@ public class RefinementBarrelBlock extends Block {
             world.setBlock(pos, news, 2);
             itemstack.shrink(1);
 
+            player.playSound(SoundEvents.BUCKET_FILL_LAVA, 1, 1);
             player.playSound(SoundEvents.GHAST_SCREAM, 1, 1);
 
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
