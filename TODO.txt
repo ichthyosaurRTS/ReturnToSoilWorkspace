@@ -15,7 +15,7 @@ TODO
 
 1  Heavy plant 0-6, potted
 
-
+1  separate serverside and clientside code in like everything
 
 2  Rotation 0-15 to 0-3
 2  Composter crop + mob

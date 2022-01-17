@@ -23,6 +23,11 @@ public class EntityTypesInit {
                     .sized(1.0f,1.0f)
                     .build(new ResourceLocation(RTSMain.MOD_ID, "jaw_beetle").toString()));
 
+    public static final RegistryObject<EntityType<DragonflyEntity>> DRAGONFLY = ENTITY_TYPES.register("dragonfly",
+            () -> EntityType.Builder.of(DragonflyEntity::new, EntityClassification.MONSTER)
+                    .sized(0.8f,0.8f)
+                    .build(new ResourceLocation(RTSMain.MOD_ID, "dragonfly").toString()));
+
     public static final RegistryObject<EntityType<BaruGaruEntity>> BARUGARU = ENTITY_TYPES.register("baru_garu",
             () -> EntityType.Builder.of(BaruGaruEntity::new, EntityClassification.AMBIENT)
                     .sized(0.7f,0.7f)
