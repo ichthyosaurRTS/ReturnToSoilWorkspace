@@ -94,7 +94,7 @@ public class DragonflyEntity extends MonsterEntity {
                         this.level.getBlockState(below.below(2)).getBlock()== Blocks.AIR &&
                         this.level.getBlockState(below.below(3)).getBlock()== Blocks.AIR)
                     modY = -0.5;
-                else modY = 0.5;
+                else modY = 1.0;
 
                 this.targetPosition = new BlockPos(this.getX() + modX, this.getY()+modY, this.getZ() + modZ);
             }

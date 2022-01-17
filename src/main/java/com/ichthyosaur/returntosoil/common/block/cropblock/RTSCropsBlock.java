@@ -98,16 +98,6 @@ public abstract class RTSCropsBlock extends CropsBlock {
         return block;
     }
 
-    public BlockState nextAgeWithRotationWithLit(BlockState state, Integer newAge) {
-        boolean infested = state.getValue(INFESTED);
-        boolean lit;
-        if (newAge==7&&rollChance.roll(40)) { infested = true; lit = false; }
-        else lit = newAge == 6;
-        BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested).setValue(LIT,lit); //
-        return block;
-    }
-
-
     // From silverfish BlockModel
     public static void spawnLarvae(ServerWorld p_235505_1_, BlockPos p_235505_2_) {
         HuskLarvaeEntity huskLarvaeEntity = EntityTypesInit.HUSKLARVAE.get().create(p_235505_1_);

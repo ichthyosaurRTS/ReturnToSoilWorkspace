@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
@@ -100,6 +101,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
             ItemStack definiteDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get(),1);
             popResource(world, pos, definiteDrops);
 
+            p_225533_4_.playSound(SoundEvents.CROP_PLANTED,1 ,1);
             world.setBlock(pos, this.nextAgeWithRotation(state,0), 2);
 
             return ActionResultType.SUCCESS;

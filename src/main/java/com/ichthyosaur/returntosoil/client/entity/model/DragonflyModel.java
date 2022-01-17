@@ -147,8 +147,6 @@ public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<Drago
         this.tailendclose.xRot = (float)((Math.sin(entity.getTailDegree()[1] * (float)Math.PI / 180F))/4 + 0.1);
         this.tailendfar.xRot = (float)((Math.sin(entity.getTailDegree()[2] * (float)Math.PI / 180F))/4 + 0.1);
 
-        //RTSMain.LOGGER.info(entity.getTailDegree()[2]);
-
         this.rightfront.zRot = -entity.getWingDegree() * ((float)Math.PI / 180F);
         this.leftfront.zRot = entity.getWingDegree() * ((float)Math.PI / 180F);
 

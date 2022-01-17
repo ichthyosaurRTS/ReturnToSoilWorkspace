@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
@@ -37,8 +38,8 @@ public class CrystalPlantBlock extends RTSCropsBlock{
 
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
-        if (rollChance.roll(10)) spawnMobEntity(worldIn, pos, EntityTypesInit.WARRARUPEHEAD.get().create(worldIn));
-        else if (rollChance.roll(200)) for (int j = 0; j < 10; j++) spawnMobEntity(worldIn, pos, EntityTypesInit.WARRARUPEHEAD.get().create(worldIn));
+        if (rollChance.roll(10)) spawnMobEntity(worldIn, pos, EntityTypesInit.DRAGONFLY.get().create(worldIn));
+        else if (rollChance.roll(200)) for (int j = 0; j < 10; j++) spawnMobEntity(worldIn, pos, EntityTypesInit.DRAGONFLY.get().create(worldIn));
     }
 
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
@@ -56,6 +57,8 @@ public class CrystalPlantBlock extends RTSCropsBlock{
 
             if (safe) world.setBlock(pos, this.nextAgeWithRotation(state,0), 2);
             else world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+
+            p_225533_4_.playSound(SoundEvents.CROP_PLANTED,1 ,1);
 
             return ActionResultType.SUCCESS;
         }
