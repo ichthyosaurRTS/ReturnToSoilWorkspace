@@ -12,10 +12,13 @@ import net.minecraft.util.math.MathHelper;
 public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<DragonflyEntity> {
 
     private final ModelRenderer all;
-    private final ModelRenderer dtail;
-    private final ModelRenderer cube_r1;
+    private final ModelRenderer all2;
     private final ModelRenderer dbody;
+    private final ModelRenderer cube_r1;
+    private final ModelRenderer tailbase;
     private final ModelRenderer cube_r2;
+    private final ModelRenderer tailendclose;
+    private final ModelRenderer tailendfar;
     private final ModelRenderer legs;
     private final ModelRenderer cube_r3;
     private final ModelRenderer dhead;
@@ -25,8 +28,6 @@ public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<Drago
     private final ModelRenderer rightfront;
     private final ModelRenderer leftback;
     private final ModelRenderer leftfront;
-    private final ModelRenderer tailendclose;
-    private final ModelRenderer tailendfar;
 
     public DragonflyModel() {
         texWidth = 32;
@@ -36,27 +37,42 @@ public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<Drago
         all.setPos(0.0F, 24.0F, 0.0F);
 
 
-        dtail = new ModelRenderer(this);
-        dtail.setPos(0.0F, 0.0F, 0.0F);
-        all.addChild(dtail);
+        all2 = new ModelRenderer(this);
+        all2.setPos(0.0F, 0.0F, 0.0F);
+        all.addChild(all2);
 
-
-        cube_r1 = new ModelRenderer(this);
-        cube_r1.setPos(0.0F, -2.0868F, 2.4924F);
-        dtail.addChild(cube_r1);
-        setRotationAngle(cube_r1, -0.0436F, 0.0F, 0.0F);
-        cube_r1.texOffs(8, 6).addBox(-1.0F, -1.5132F, -2.5924F, 2.0F, 2.0F, 4.0F, 0.0F, false);
 
         dbody = new ModelRenderer(this);
         dbody.setPos(0.0F, 0.0F, 0.0F);
-        dtail.addChild(dbody);
+        all2.addChild(dbody);
+
+
+        cube_r1 = new ModelRenderer(this);
+        cube_r1.setPos(0.0F, -1.5F, -1.5F);
+        dbody.addChild(cube_r1);
+        setRotationAngle(cube_r1, 0.0436F, 0.0F, 0.0F);
+        cube_r1.texOffs(10, 12).addBox(-1.0F, -2.0F, -2.5F, 2.0F, 2.0F, 4.0F, 0.0F, false);
+
+        tailbase = new ModelRenderer(this);
+        tailbase.setPos(0.0F, -2.6F, 0.0F);
+        dbody.addChild(tailbase);
 
 
         cube_r2 = new ModelRenderer(this);
-        cube_r2.setPos(0.0F, -1.5F, -1.5F);
-        dbody.addChild(cube_r2);
-        setRotationAngle(cube_r2, 0.0436F, 0.0F, 0.0F);
-        cube_r2.texOffs(10, 12).addBox(-1.0F, -2.0F, -2.5F, 2.0F, 2.0F, 4.0F, 0.0F, false);
+        cube_r2.setPos(0.0F, 0.5132F, 2.4924F);
+        tailbase.addChild(cube_r2);
+        setRotationAngle(cube_r2, -0.0436F, 0.0F, 0.0F);
+        cube_r2.texOffs(8, 6).addBox(-1.0F, -1.5132F, -2.5924F, 2.0F, 2.0F, 4.0F, 0.0F, false);
+
+        tailendclose = new ModelRenderer(this);
+        tailendclose.setPos(0.0F, 0.0F, 4.0F);
+        tailbase.addChild(tailendclose);
+        tailendclose.texOffs(0, 13).addBox(-1.0F, -1.0F, -0.1F, 2.0F, 2.0F, 3.0F, 0.0F, false);
+
+        tailendfar = new ModelRenderer(this);
+        tailendfar.setPos(0.0F, -0.3F, 2.0F);
+        tailendclose.addChild(tailendfar);
+        tailendfar.texOffs(0, 6).addBox(-0.5F, -0.5F, 0.0F, 1.0F, 1.0F, 6.0F, 0.0F, false);
 
         legs = new ModelRenderer(this);
         legs.setPos(0.0F, 0.0F, 0.0F);
@@ -115,32 +131,23 @@ public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<Drago
         setRotationAngle(leftfront, 0.0F, -0.2618F, 0.0F);
         leftfront.texOffs(0, 3).addBox(1.0F, 0.0F, -0.5F, 8.0F, 0.0F, 3.0F, 0.0F, false);
         leftfront.texOffs(7, 13).addBox(0.0F, -0.2F, -0.5F, 2.0F, 1.0F, 1.0F, 0.0F, false);
-
-        tailendclose = new ModelRenderer(this);
-        tailendclose.setPos(0.0F, -2.6F, 4.0F);
-        dtail.addChild(tailendclose);
-        tailendclose.texOffs(0, 13).addBox(-1.0F, -1.0F, -0.1F, 2.0F, 2.0F, 3.0F, 0.0F, false);
-
-        tailendfar = new ModelRenderer(this);
-        tailendfar.setPos(0.0F, -0.3F, 2.0F);
-        tailendclose.addChild(tailendfar);
-        tailendfar.texOffs(0, 6).addBox(-0.5F, -0.5F, 0.0F, 1.0F, 1.0F, 6.0F, 0.0F, false);
     }
 
 
     @Override
     public void setupAnim(DragonflyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        this.dhead.xRot = -headPitch * ((float)Math.PI / 360F);
-        this.dhead.yRot = -netHeadYaw * ((float)Math.PI / 360F);
-        this.dbody.xRot = -headPitch * ((float)Math.PI / 360F);
-        this.dbody.yRot = -netHeadYaw * ((float)Math.PI / 360F);
+        this.dhead.xRot = -headPitch * ((float)Math.PI / 180F);
+        this.dhead.yRot = -netHeadYaw * ((float)Math.PI / 180F);
+        /*this.dbody.xRot = -headPitch * ((float)Math.PI / 360F);
+        this.dbody.yRot = -netHeadYaw * ((float)Math.PI / 360F);*/
 
         //up down sway?
-        this.tailendclose.xRot = entity.getTailDegree()[0] * ((float)Math.PI / 360F);
-        this.tailendfar.xRot = entity.getTailDegree()[1] * ((float)Math.PI / 720F);
+        this.tailbase.xRot = entity.getTailDegree()[0] * ((float)Math.PI / 360F);
+        this.tailendclose.xRot = entity.getTailDegree()[1] * ((float)Math.PI / 360F);
+        this.tailendfar.xRot = entity.getTailDegree()[2] * ((float)Math.PI / 360F);
 
-        RTSMain.LOGGER.info(entity.getWingDegree());
+        //RTSMain.LOGGER.info(entity.getTailDegree()[2]);
 
         this.rightfront.zRot = -entity.getWingDegree() * ((float)Math.PI / 180F);
         this.leftfront.zRot = entity.getWingDegree() * ((float)Math.PI / 180F);
