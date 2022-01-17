@@ -9,7 +9,7 @@ TODO
 
 1  lilypad redesign
 
-1  Firefly/dragonfly dragons
+1  dragonfly bright layer
 
 1  custom armor materials
 

@@ -93,19 +93,19 @@ public class DragonflyEntity extends MonsterEntity {
                         this.level.getBlockState(below.below(1)).getBlock()== Blocks.AIR &&
                         this.level.getBlockState(below.below(2)).getBlock()== Blocks.AIR &&
                         this.level.getBlockState(below.below(3)).getBlock()== Blocks.AIR)
-                    modY = -1.0;
-                else modY = 1.0;
+                    modY = -0.5;
+                else modY = 0.5;
 
                 this.targetPosition = new BlockPos(this.getX() + modX, this.getY()+modY, this.getZ() + modZ);
             }
         }
 
         if (this.getTarget() != null) {
-            Vector3d v = this.getTarget().getPosition(1);
+            Vector3d v = this.getTarget().getEyePosition(1);
             this.targetPosition = new BlockPos(v.x(), v.y(), v.z());
         }
 
-        /*if (this.targetPosition != null) {
+        if (this.targetPosition != null) {
 
             double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();
             double d0 = (double)this.targetPosition.getY() + 0.1D - this.getY();
@@ -117,26 +117,26 @@ public class DragonflyEntity extends MonsterEntity {
             float f1 = MathHelper.wrapDegrees(f - this.yRot);
             this.zza = 0.5F;
             this.yRot += f1;
-        }*/
+        }
 
     }
 
     private void updateWingDegree(){
         int deg = this.entityData.get(WING_DEGREE);
-        if (deg>180) this.entityData.set(WING_DEGREE, 0);
-        else this.entityData.set(WING_DEGREE, deg+5);
+        if (deg>165) this.entityData.set(WING_DEGREE, 0);
+        else this.entityData.set(WING_DEGREE, deg+20);
 
         int deg2 = this.entityData.get(TAIL_DEGREE1);
-        if (deg2>180) this.entityData.set(TAIL_DEGREE1, 0);
-        else this.entityData.set(TAIL_DEGREE1, deg2+1);
+        if (deg2>174) this.entityData.set(TAIL_DEGREE1, -180);
+        else this.entityData.set(TAIL_DEGREE1, deg2+6);
 
         int deg3 = this.entityData.get(TAIL_DEGREE2);
-        if (deg3>180) this.entityData.set(TAIL_DEGREE2, 0);
-        else this.entityData.set(TAIL_DEGREE2, deg3+1);
+        if (deg3>174) this.entityData.set(TAIL_DEGREE2, -180);
+        else this.entityData.set(TAIL_DEGREE2, deg3+6);
 
         int deg4 = this.entityData.get(TAIL_DEGREE3);
-        if (deg4>180) this.entityData.set(TAIL_DEGREE3, 0);
-        else this.entityData.set(TAIL_DEGREE3, deg4+1);
+        if (deg4>174) this.entityData.set(TAIL_DEGREE3, -180);
+        else this.entityData.set(TAIL_DEGREE3, deg4+6);
     }
 
     @Override
@@ -160,35 +160,26 @@ public class DragonflyEntity extends MonsterEntity {
     public int getWingDegree() {
         int deg = this.entityData.get(WING_DEGREE);
 
-        //google can compute this, why cant you?
-        //both in rad and degrees not working?
-        RTSMain.LOGGER.info("given degrees: "+deg);
-        RTSMain.LOGGER.info("result in rad: "+Math.asin(deg*(180/Math.PI)));
-        RTSMain.LOGGER.info("sending to model"+(int)Math.asin(deg)*(180/Math.PI));
-
-        return (int)(Math.asin(deg*(Math.PI/180)));
-
-        /*if (deg<45) return deg;
-        else if (deg<90) return 90-deg;
+        if (deg<45) return deg;
         else if (deg<135) return 90-deg;
-        else return deg-180;*/
+        else return deg-180;
     }
     public int[] getTailDegree() {
         int[] array = new int[3];
         int[] tailDeg = new int[] {this.entityData.get(TAIL_DEGREE1), this.entityData.get(TAIL_DEGREE2), this.entityData.get(TAIL_DEGREE3)};
 
+        return tailDeg;
+        /*
         for(int i=0;i<3;i++) {
             int deg = tailDeg[i];
 
-            array[i] = (int)(Math.asin(deg*180/Math.PI));
-
-            /*if (deg<45) array[i] = deg;
+            if (deg<45) array[i] = deg;
             else if (deg<91) array[i] = 90-deg;
             else if (deg<135) array[i] = 90-deg;
-            else array[i] = deg-180;*/
+            else array[i] = deg-180;
         }
 
-        return array;
+        return array;*/
     }
 
     public void setColourIntData() {
@@ -219,8 +210,9 @@ public class DragonflyEntity extends MonsterEntity {
     public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
         p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
         this.setColourIntData();
-        this.entityData.set(TAIL_DEGREE1, 100);
-        this.entityData.set(TAIL_DEGREE2, 50);
+        this.entityData.set(TAIL_DEGREE1, 60);
+        this.entityData.set(TAIL_DEGREE2, 30);
+        this.entityData.set(TAIL_DEGREE3, 0);
         return p_213386_4_;
     }
 
