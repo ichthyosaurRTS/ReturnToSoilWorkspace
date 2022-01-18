@@ -11,6 +11,7 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,6 +26,11 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
 
     public GeneralFlyingSegmentEntity(EntityType<? extends AbstractFlyingSegmentEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
+    }
+
+    @Override
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+        return null;
     }
 
     protected void defineSynchedData() {
@@ -62,7 +68,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
     }
 
     @Override
-    protected ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
+    public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
         if (this.getLeader() instanceof GeneralFlyingSegmentEntity) return ((GeneralFlyingSegmentEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
         else if (this.getLeader() instanceof AbstractContractEntity) return ((AbstractContractEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
         else return super.mobInteract(p_230254_1_, p_230254_2_);

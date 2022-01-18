@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.common.entity;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -15,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.UUID;
 
 
-public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
+public abstract class AbstractFlyingSegmentEntity extends AnimalEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
     public Entity leader;
@@ -23,7 +24,7 @@ public abstract class AbstractFlyingSegmentEntity extends FlyingEntity {
     boolean noPhysics = true;
     private UUID leaderUUID;
 
-    protected AbstractFlyingSegmentEntity(EntityType<? extends FlyingEntity> p_i48578_1_, World p_i48578_2_) {
+    protected AbstractFlyingSegmentEntity(EntityType<? extends AnimalEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 

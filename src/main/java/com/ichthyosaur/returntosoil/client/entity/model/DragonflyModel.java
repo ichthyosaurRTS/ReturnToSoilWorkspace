@@ -137,10 +137,10 @@ public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<Drago
     @Override
     public void setupAnim(DragonflyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        this.dhead.xRot = -headPitch * ((float)Math.PI / 180F);
-        this.dhead.yRot = -netHeadYaw * ((float)Math.PI / 180F);
-        /*this.dbody.xRot = -headPitch * ((float)Math.PI / 360F);
-        this.dbody.yRot = -netHeadYaw * ((float)Math.PI / 360F);*/
+        this.dhead.xRot = -headPitch * ((float)Math.PI / 360F);
+        this.dhead.yRot = -netHeadYaw * ((float)Math.PI / 360F);
+        this.dbody.xRot = -headPitch * ((float)Math.PI / 360F);
+        this.dbody.yRot = -netHeadYaw * ((float)Math.PI / 360F);
 
         //up down sway?
         this.tailbase.xRot = (float)((Math.sin(entity.getTailDegree()[0] * (float)Math.PI / 180F))/4 + 0.1);
