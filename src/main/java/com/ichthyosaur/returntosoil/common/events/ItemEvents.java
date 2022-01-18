@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
+import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -42,7 +44,18 @@ public class ItemEvents {
         }
     }
 
-
+    @SubscribeEvent
+    public static void PlayerDamage (LivingDamageEvent event) {
+        if (event.getEntity() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity)event.getEntity();
+            ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
+            if (!player.level.isClientSide()) {
+                if (chest.getItem() instanceof CentipedeChest) {
+                    event.setAmount(4);
+                }
+            }
+        }
+    }
 
 
     @SubscribeEvent
