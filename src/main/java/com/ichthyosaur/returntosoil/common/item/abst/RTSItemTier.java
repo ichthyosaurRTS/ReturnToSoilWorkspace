@@ -7,7 +7,7 @@ import net.minecraft.util.LazyValue;
 
 import java.util.function.Supplier;
 
-public enum CustomItemTier implements IItemTier {
+public enum RTSItemTier implements IItemTier {
 
     ROSE_BEETLE(3, 2454, 8.0F, 3.0F, 10, () -> {
         return Ingredient.of(ItemTags.LEAVES);
@@ -23,7 +23,7 @@ public enum CustomItemTier implements IItemTier {
     private final int enchantmentValue;
     private final LazyValue<Ingredient> repairIngredient;
 
-    private CustomItemTier(int p_i48458_3_, int p_i48458_4_, float p_i48458_5_, float p_i48458_6_, int p_i48458_7_, Supplier<Ingredient> p_i48458_8_) {
+    private RTSItemTier(int p_i48458_3_, int p_i48458_4_, float p_i48458_5_, float p_i48458_6_, int p_i48458_7_, Supplier<Ingredient> p_i48458_8_) {
         this.level = p_i48458_3_;
         this.uses = p_i48458_4_;
         this.speed = p_i48458_5_;

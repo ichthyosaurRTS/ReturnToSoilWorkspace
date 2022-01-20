@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
@@ -15,11 +16,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
-public class CentipedeLegs extends RTSDescWBItem {
+public class CentipedeLegs extends ArmorItem {
 
 
-    public CentipedeLegs(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_, TextFormatting colour) {
-        super(p_i48534_1_, p_i48534_2_, p_i48534_3_, colour);
+    public CentipedeLegs(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_) {
+        super(p_i48534_1_, p_i48534_2_, p_i48534_3_);
     }
 
     @Nullable

@@ -14,7 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
-//scares jaw beetles? double damage to jaw beetles?
+//double damage to jaw beetles
 public class CentipedeHelm extends RTSDescWBItem {
 
 

@@ -50,8 +50,8 @@ public class DragonflyEntity extends MonsterEntity {
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 30.0D)
-                .add(Attributes.ATTACK_DAMAGE, 1.0D)
+                .add(Attributes.MAX_HEALTH, 22.0D)
+                .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.ARMOR, 10D)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.1F);
     }

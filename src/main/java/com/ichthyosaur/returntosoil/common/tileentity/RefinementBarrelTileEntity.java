@@ -169,7 +169,7 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
         this.refineProgress = nbt.getInt("progress");
         this.blueSmokeAmount = nbt.getInt("smoking");
         this.spiritRemaining = nbt.getInt("spirit");
-        RTSMain.LOGGER.info(this.spiritRemaining);
+
     }
 
     public boolean addSpirit(){

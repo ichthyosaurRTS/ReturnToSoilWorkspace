@@ -139,8 +139,8 @@ public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<Drago
 
         this.dhead.xRot = -headPitch * ((float)Math.PI / 360F);
         this.dhead.yRot = -netHeadYaw * ((float)Math.PI / 360F);
-        this.dbody.xRot = -headPitch * ((float)Math.PI / 360F);
-        this.dbody.yRot = -netHeadYaw * ((float)Math.PI / 360F);
+        /*this.dbody.xRot = -headPitch * ((float)Math.PI / 360F);
+        this.dbody.yRot = -netHeadYaw * ((float)Math.PI / 360F);*/
 
         //up down sway?
         this.tailbase.xRot = (float)((Math.sin(entity.getTailDegree()[0] * (float)Math.PI / 180F))/4 + 0.1);

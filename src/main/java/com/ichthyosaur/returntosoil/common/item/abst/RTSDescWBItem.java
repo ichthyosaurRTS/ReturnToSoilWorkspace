@@ -22,6 +22,7 @@ public class RTSDescWBItem extends ArmorItem {
 
     public RTSDescWBItem(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_,  TextFormatting colour) {
         super(p_i48534_1_, p_i48534_2_, p_i48534_3_);
+        this.textColour = colour;
     }
 
     @OnlyIn(Dist.CLIENT)

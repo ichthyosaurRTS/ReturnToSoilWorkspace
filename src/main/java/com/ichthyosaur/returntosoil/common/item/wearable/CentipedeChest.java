@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
+//Limits damage to 19
 public class CentipedeChest extends RTSDescWBItem {
 
 

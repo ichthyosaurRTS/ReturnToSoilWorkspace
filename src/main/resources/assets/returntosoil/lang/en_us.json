@@ -67,7 +67,9 @@
   "item.returntosoil.beetle_backpack_item.desc": "Lunch on the job",
 
   "item.returntosoil.centipede_helm_item": "BaruGaru Head",
-  "item.returntosoil.centipede_chest_item": "Segment Vest",
+  "item.returntosoil.centipede_helm_item.desc": "2.5x damage against Jaw Beetles",
+  "item.returntosoil.centipede_chest_item": "BaruGaru Vest",
+  "item.returntosoil.centipede_chest_item.desc": "Sturdy",
   "item.returntosoil.centipede_segment_item": "BaruGaru Segment",
   "item.returntosoil.centipede_legs_item": "BaruGaru Leggings"
 }

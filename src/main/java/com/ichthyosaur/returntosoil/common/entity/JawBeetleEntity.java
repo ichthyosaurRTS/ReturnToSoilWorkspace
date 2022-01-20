@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil.common.entity;
 
 import com.google.common.collect.Maps;
 import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.EntityType;
@@ -17,6 +18,7 @@ import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -107,6 +109,17 @@ public class JawBeetleEntity extends MonsterEntity {
         super.dropCustomDeathLoot(damage, i, bool);
         if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(BlockItemInit.ROSE_BEETLE_ITEM.get());
         else if (this.entityData.get(COLOUR_INT) == 6 && rollChance.roll(2)) this.spawnAtLocation(BlockItemInit.GHOST_BEETLE_ITEM.get());
+    }
+
+    @Override
+    public boolean hurt(DamageSource src, float amt) {
+        if (src.getEntity() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) src.getEntity();
+            if (player.getItemBySlot(EquipmentSlotType.HEAD).getItem() instanceof CentipedeHelm){
+                amt = (float) (amt * 2.5);
+            }
+        }
+        return super.hurt(src, amt);
     }
 
     @Override

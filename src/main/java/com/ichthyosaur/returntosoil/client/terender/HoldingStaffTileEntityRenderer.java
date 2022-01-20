@@ -31,7 +31,7 @@ public class HoldingStaffTileEntityRenderer extends TileEntityRenderer<HoldingSt
 
 
         if (!te.hasItem()) {
-            RTSMain.LOGGER.info("NO ITEM TO RENDER");
+            //RTSMain.LOGGER.info("NO ITEM TO RENDER");
             //return;
         }
 
@@ -41,7 +41,7 @@ public class HoldingStaffTileEntityRenderer extends TileEntityRenderer<HoldingSt
                 Vector3f.YP.rotationDegrees(90), matrixStackIn, bufferIn, partialTicks,
                 combinedOverlayIn, lightLevel, 0.8f);
 
-        RTSMain.LOGGER.info("NOW TRYING TO RENDER: "+te.holdingItem());
+        //RTSMain.LOGGER.info("NOW TRYING TO RENDER: "+te.holdingItem());
 
     }
 

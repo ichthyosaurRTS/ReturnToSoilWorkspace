@@ -4,7 +4,8 @@ import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.*;
 import com.ichthyosaur.returntosoil.common.block.functional.*;
-import com.ichthyosaur.returntosoil.common.item.abst.CustomItemTier;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSItemTier;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSArmorMaterial;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
@@ -158,26 +159,26 @@ public class BlockItemInit {
     public static final RegistryObject<Item> COOKED_BEETLE_ITEM = ITEMS.register("cooked_beetle_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> BEETLE_BACKPACK_ITEM = ITEMS.register("beetle_backpack_item", () ->
-            new BeetleBackpack(ArmorMaterial.IRON, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
+            new BeetleBackpack(RTSArmorMaterial.BEETLEBACKPACK, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
 
     public static final RegistryObject<Item> ROSE_BEETLE_AXE = ITEMS.register("rose_beetle_axe", () ->
-            new RoseBeetleAxeItem(CustomItemTier.ROSE_BEETLE, 2.5F, 1.0F, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+            new RoseBeetleAxeItem(RTSItemTier.ROSE_BEETLE, 2.5F, 1.0F, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> GHOST_BEETLE_ITEM = ITEMS.register("ghost_beetle_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //BaruGaru stuffs
     public static final RegistryObject<Item> CENTIPEDE_HELM_ITEM = ITEMS.register("centipede_helm_item", () ->
-            new CentipedeHelm(ArmorMaterial.DIAMOND, EquipmentSlotType.HEAD, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
+            new CentipedeHelm(RTSArmorMaterial.CENTIPEDE_HELM, EquipmentSlotType.HEAD, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
     public static final RegistryObject<Item> CENTIPEDE_CHEST_ITEM = ITEMS.register("centipede_chest_item", () ->
-            new CentipedeChest(ArmorMaterial.DIAMOND, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
+            new CentipedeChest(RTSArmorMaterial.CENTIPEDE, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
     public static final RegistryObject<Item> CENTIPEDE_LEGS_ITEM = ITEMS.register("centipede_legs_item", () ->
-            new CentipedeLegs(ArmorMaterial.DIAMOND, EquipmentSlotType.LEGS, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
+            new CentipedeLegs(RTSArmorMaterial.CENTIPEDE, EquipmentSlotType.LEGS, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> CENTIPEDE_SEGMENT_ITEM = ITEMS.register("centipede_segment_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Standalone; Nothing personal kid
     public static final RegistryObject<Item> ABYSS_SCALPEL = ITEMS.register("abyss_scalpel", () ->
-            new AbyssScalpelItem(1.0F, 1.0F, CustomItemTier.ABYSS_SCRAPINGS, Sets.newHashSet(), (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+            new AbyssScalpelItem(1.0F, 1.0F, RTSItemTier.ABYSS_SCRAPINGS, Sets.newHashSet(), (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //HoldingStaff
     public static final RegistryObject<Block> HOLDING_STAFF_BLOCK = BLOCKS.register("holding_staff_block", () ->
