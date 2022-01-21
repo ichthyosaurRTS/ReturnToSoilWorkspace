@@ -72,81 +72,90 @@ public class RefinementBarrelBlock extends Block {
 
         if (item == BlockItemInit.ORIGIN_JAM_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
 
-            int newFuelLevel = state.getValue(FUEL_LEVEL) + 1;
-            BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel);
-            world.setBlock(pos, news,2);
-            itemstack.shrink(1);
+            if (!world.isClientSide()) {
 
-            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
-            player.inventory.add(returnDrop);
+                int newFuelLevel = state.getValue(FUEL_LEVEL) + 1;
+                BlockState news = state.setValue(FUEL_LEVEL,newFuelLevel);
+                world.setBlock(pos, news,2);
+                itemstack.shrink(1);
+
+                ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
+                player.inventory.add(returnDrop);
+
+            }
+
             player.playSound(SoundEvents.SALMON_FLOP,1,1 );
             return ActionResultType.SUCCESS;
+
 
         }
 
         else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 4) {
 
-            int newFuelLevel = 5;
-            BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
-            world.setBlock(pos, news, 2);
-            itemstack.shrink(1);
+            if (!world.isClientSide()) {
 
-            ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
-            player.inventory.add(returnDrop);
+                int newFuelLevel = 5;
+                BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
+                world.setBlock(pos, news, 2);
+                itemstack.shrink(1);
+
+                ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
+                player.inventory.add(returnDrop);
+
+                RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
+                te.resetProgress();
+                te.addSpirit();
+            }
+
             player.playSound(SoundEvents.BREWING_STAND_BREW, 1, 1);
-
-            RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
-            te.resetProgress();
-            te.addSpirit();
-
             return ActionResultType.SUCCESS;
 
         }
 
         else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
 
+            if (!world.isClientSide()) {
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
             if (te.addSpirit()) {
                 itemstack.shrink(1);
-                player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
-            }
-            else {
-                te.ruinPot();
-                player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
-            }
+            } }
+
+            player.playSound(SoundEvents.LAVA_AMBIENT,1,1 );
             return ActionResultType.SUCCESS;
         }
 
         else if (item == BlockItemInit.VESSEL_SAC_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
 
+            if (!world.isClientSide()) {
             int newFuelLevel = 6;
             BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
             world.setBlock(pos, news, 2);
             itemstack.shrink(1);
 
-            player.playSound(SoundEvents.BUCKET_FILL_LAVA, 1, 1);
-            player.playSound(SoundEvents.GHAST_SCREAM, 1, 1);
-
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
             te.resetProgress();
+            }
 
+            player.playSound(SoundEvents.BUCKET_FILL_LAVA, 1, 1);
+            player.playSound(SoundEvents.GHAST_SCREAM, 1, 1);
             return ActionResultType.SUCCESS;
 
         }
 
         else if (item == Items.GLASS_BOTTLE && state.getValue(FUEL_LEVEL) == 7) {
 
-            int newFuelLevel = 0;
-            BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
-            world.setBlock(pos, news, 2);
-            itemstack.shrink(1);
-            Block.popResource(world, pos.above(), new ItemStack(BlockItemInit.MAGICAL_BLOOD_ITEM.get()));
+            if (!world.isClientSide()) {
+                int newFuelLevel = 0;
+                BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
+                world.setBlock(pos, news, 2);
+                itemstack.shrink(1);
+                Block.popResource(world, pos.above(), new ItemStack(BlockItemInit.MAGICAL_BLOOD_ITEM.get()));
+
+                RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
+                te.resetProgress();
+            }
 
             player.playSound(SoundEvents.GHAST_WARN, 1, 1);
-
-            RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
-            te.resetProgress();
-
             return ActionResultType.SUCCESS;
 
         }

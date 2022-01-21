@@ -61,12 +61,14 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 }
                 else {
                     this.refineProgress += 1;
-                    if (rollChance.roll(15)) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
-                            pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 0.03D, 0.0D);
                 }
+
+                if (rollChance.roll(15)) world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+                        pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 0.03D, 0.0D);
             }
             //if fuel level 5-> if we finish refinement, check whether too much smoke was produced, reward if good enough
             else if (state.getValue(FUEL_LEVEL)==5){
+
                 if (this.refineProgress >= 1000) {
 
                     if (this.blueSmokeAmount < 250) {
@@ -82,13 +84,14 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 //if bubbling, roll chance to see whether it stops/ if not, add to the smoke counter
                 else {
                     this.refineProgress += 1;
-
-                    double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
-                    double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
-                    world.addParticle(ParticleTypes.EFFECT,
-                            pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
-
                 }
+
+                double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
+                double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
+                world.addParticle(ParticleTypes.EFFECT,
+                        pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
+
+
             }
             else if (state.getValue(FUEL_LEVEL)==6){
                 if (this.refineProgress >= 50000) {
@@ -99,13 +102,14 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
                 }
                 else {
                     this.refineProgress += 1;
+                }
 
-                    double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
-                    double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
-                    if (rollChance.roll(15))
+                double bubbleOffsetX = (rollChance.returnRoll(10) - 5) / 30;
+                double bubbleOffsetZ = (rollChance.returnRoll(10) - 5) / 30;
+                if (rollChance.roll(15))
                     world.addParticle(ParticleTypes.SMOKE,
                             pos.getX() + 0.5 + bubbleOffsetX, pos.getY() + 0.8, pos.getZ() + 0.5 + bubbleOffsetZ, 0.0D, 0.03D, 0.0D);
-                }
+
             }
         }
     }

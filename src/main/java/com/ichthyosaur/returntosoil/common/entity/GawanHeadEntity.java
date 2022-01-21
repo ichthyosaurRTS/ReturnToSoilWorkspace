@@ -81,6 +81,8 @@ public class GawanHeadEntity extends AbstractContractEntity {
             this.tickParts();
         }
 
+        if (!this.level.isClientSide()) {
+
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
 
@@ -115,7 +117,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
                 float f1 = (float)(-(MathHelper.atan2(yDistance, d3) * (double)(180F / (float)Math.PI)));
 
                 this.getLookControl().setLookAt(parentX, parentY, parentZ, 5, 180);
-                this.xRot = this.rotlerp(this.xRot, f1, 2);
+                this.xRot = this.rotlerp(this.xRot, f1, 2);//prev 2
                 this.yRot = this.rotlerp(this.yRot, f, 5);
 
 
@@ -130,7 +132,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
             this.getDeltaMovement().x()<0.01&&this.getDeltaMovement().z()<0.01&&this.getDeltaMovement().y()<0.01) {
                 Double modX = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modX = -modX;
-                Double modY = (double)this.random.nextInt(2);
+                Double modY = (double)this.random.nextInt(2)+8;
                 if (rollChance.roll(2)) modY = -modY;
                 Double modZ = (double)this.random.nextInt(14)+8;
                 if (rollChance.roll(2)) modZ = -modZ;
@@ -154,6 +156,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
 
             this.lookAt(this.getTarget(),10,100);
             this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/40, this.getLookAngle().z/20));
+        }
         }
     }
 

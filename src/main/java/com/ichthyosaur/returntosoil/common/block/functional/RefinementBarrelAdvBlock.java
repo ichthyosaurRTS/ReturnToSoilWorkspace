@@ -53,22 +53,13 @@ public class RefinementBarrelAdvBlock extends Block {
 
         if (!world.isClientSide()) {
             TileEntity te = world.getBlockEntity(pos);
-            //if (player instanceof ClientPlayerEntity) throw new IllegalStateException("player is client only...?");
             if (te instanceof RefinementBaAdvTileEntity){
                 ServerPlayerEntity p = (ServerPlayerEntity) player;
                 NetworkHooks.openGui(p, (RefinementBaAdvTileEntity) te, pos);
             }
-
-            /*INamedContainerProvider inamedcontainerprovider = new RefineryPlantTileEntity(TileEntityTypesInit.REFINERY_PLANT_TILE_ENTITY_TYPE.get());
-            if (inamedcontainerprovider != null) {
-                player.openMenu(inamedcontainerprovider);
-            }*/
-            return ActionResultType.CONSUME;
-            //return super.use(state,world,pos,player,p_225533_5_,p_225533_6_);
-
+            return ActionResultType.SUCCESS;
         }
-
-        return ActionResultType.FAIL;
+        return ActionResultType.SUCCESS;
     }
 
     public ActionResultType use(World p_227031_1_, PlayerEntity p_227031_2_, Hand p_227031_3_, BlockRayTraceResult p_227031_4_) {
