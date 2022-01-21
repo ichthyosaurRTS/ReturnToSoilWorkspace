@@ -73,22 +73,24 @@ public class DragonflyEntity extends MonsterEntity {
 
         this.setDeltaMovement(this.getDeltaMovement().add(0, 0.08, 0));
 
-        if (this.getTarget() == null || !this.getTarget().isAlive()) {
+        if(!this.level.isClientSide()) {
 
-            if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
-                this.targetPosition = null;
-            }
+            if (this.getTarget() == null || !this.getTarget().isAlive()) {
 
-            if (this.targetPosition == null || this.random.nextInt(20) == 0 || this.targetPosition.closerThan(this.position(), 2.0D) ||
-                    this.getDeltaMovement().x()<0.01&&this.getDeltaMovement().z()<0.01&&this.getDeltaMovement().y()<0.01) {
-                double modX = (double)this.random.nextInt(8)+4;
-                if (rollChance.roll(2)) modX = -modX;
-                double modY;
-                double modZ = (double)this.random.nextInt(8)+4;
-                if (rollChance.roll(2)) modZ = -modZ;
+                if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
+                    this.targetPosition = null;
+                }
+
+                if (this.targetPosition == null || this.random.nextInt(20) == 0 || this.targetPosition.closerThan(this.position(), 2.0D) ||
+                        this.getDeltaMovement().x() < 0.01 && this.getDeltaMovement().z() < 0.01 && this.getDeltaMovement().y() < 0.01) {
+                    double modX = (double) this.random.nextInt(8) + 4;
+                    if (rollChance.roll(2)) modX = -modX;
+                    double modY;
+                    double modZ = (double) this.random.nextInt(8) + 4;
+                    if (rollChance.roll(2)) modZ = -modZ;
 
 
-                BlockPos below = this.getOnPos();
+                    BlockPos below = this.getOnPos();
                 if (this.level.getBlockState(below).getBlock()== Blocks.AIR &&
                         this.level.getBlockState(below.below(1)).getBlock()== Blocks.AIR &&
                         this.level.getBlockState(below.below(2)).getBlock()== Blocks.AIR &&
@@ -96,29 +98,50 @@ public class DragonflyEntity extends MonsterEntity {
                     modY = -0.5;
                 else modY = 1.0;
 
-                this.targetPosition = new BlockPos(this.getX() + modX, this.getY()+modY, this.getZ() + modZ);
+                    this.targetPosition = new BlockPos(this.getX() + modX, this.getY() + modY, this.getZ() + modZ);
+                }
+            }
+
+            if (this.getTarget() != null) {
+                Vector3d v = this.getTarget().getEyePosition(1);
+                this.targetPosition = new BlockPos(v.x(), v.y(), v.z());
+            }
+
+            if (this.targetPosition != null) {
+
+                double d2 = (double) this.targetPosition.getX() + 0.5D - this.getX();
+                double d0 = (double) this.targetPosition.getY() + 0.1D - this.getY();
+                double d1 = (double) this.targetPosition.getZ() + 0.5D - this.getZ();
+                Vector3d vector3d = this.getDeltaMovement();
+                Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double) 0.1F, (Math.signum(d0) * (double) 0.7F - vector3d.y) * (double) 0.1F, (Math.signum(d1) * 0.5D - vector3d.z) * (double) 0.1F);
+                this.setDeltaMovement(vector3d1);
+                float f = (float) (MathHelper.atan2(vector3d1.z, vector3d1.x) * (double) (180F / (float) Math.PI)) - 90.0F;
+                float f1 = MathHelper.wrapDegrees(f - this.yRot);
+                this.zza = 0.5F;
+                this.yRot += f1;
+
+                double xDistance = this.targetPosition.getX() - this.getX();
+                double yDistance = this.targetPosition.getY() - this.getY();
+                double zDistance = this.targetPosition.getZ() - this.getZ();
+
+                double d3 = (double) MathHelper.sqrt(xDistance * xDistance + zDistance * zDistance);
+                float f4 = (float) (-(MathHelper.atan2(yDistance, d3) * (double) (180F / (float) Math.PI)));
+                this.xRot = this.rotlerp(this.xRot, f4, 20);//prev 2
             }
         }
+    }
 
-        if (this.getTarget() != null) {
-            Vector3d v = this.getTarget().getEyePosition(1);
-            this.targetPosition = new BlockPos(v.x(), v.y(), v.z());
+    private float rotlerp(float p_70663_1_, float p_70663_2_, float p_70663_3_) {
+        float f = MathHelper.wrapDegrees(p_70663_2_ - p_70663_1_);
+        if (f > p_70663_3_) {
+            f = p_70663_3_;
         }
 
-        if (this.targetPosition != null) {
-
-            double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();
-            double d0 = (double)this.targetPosition.getY() + 0.1D - this.getY();
-            double d1 = (double)this.targetPosition.getZ() + 0.5D - this.getZ();
-            Vector3d vector3d = this.getDeltaMovement();
-            Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double)0.1F, (Math.signum(d0) * (double)0.7F - vector3d.y) * (double)0.1F, (Math.signum(d1) * 0.5D - vector3d.z) * (double)0.1F);
-            this.setDeltaMovement(vector3d1);
-            float f = (float)(MathHelper.atan2(vector3d1.z, vector3d1.x) * (double)(180F / (float)Math.PI)) - 90.0F;
-            float f1 = MathHelper.wrapDegrees(f - this.yRot);
-            this.zza = 0.5F;
-            this.yRot += f1;
+        if (f < -p_70663_3_) {
+            f = -p_70663_3_;
         }
 
+        return p_70663_1_ + f;
     }
 
     private void updateWingDegree(){
