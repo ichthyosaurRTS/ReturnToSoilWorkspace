@@ -2,10 +2,13 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.renderer.*;
+import com.ichthyosaur.returntosoil.client.screen.RefinementBaAdvScreen;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,6 +24,8 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
+
+        ScreenManager.register(ContainerTypesInit.REFINEMENT_BA_ADV_CONTAINER_TYPE.get(), RefinementBaAdvScreen::new);
 
         RenderTypeLookup.setRenderLayer(BlockItemInit.ORIGIN_BERRY_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockItemInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
