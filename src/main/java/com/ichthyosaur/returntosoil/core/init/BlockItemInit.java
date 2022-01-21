@@ -133,10 +133,10 @@ public class BlockItemInit {
     public static final RegistryObject<Item> REFINEMENT_BARREL_ITEM = ITEMS.register("refinement_barrel_item", () ->
             new BlockItem(REFINEMENT_BARREL_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    public static final RegistryObject<Block> REFINEMENT_BARREL_L_BLOCK = BLOCKS.register("refinement_barrel_l_block", () ->
-            new RefinementBarrelLBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
-    public static final RegistryObject<Item> L_REFINEMENT_BARREL_ITEM = ITEMS.register("refinement_barrel_l_item", () ->
-            new BlockItem(REFINEMENT_BARREL_L_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Block> REFINEMENT_BARREL_ADV_BLOCK = BLOCKS.register("refinement_barrel_adv_block", () ->
+            new RefinementBarrelAdvBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+    public static final RegistryObject<Item> REFINEMENT_BARREL_ADV_ITEM = ITEMS.register("refinement_barrel_adv_item", () ->
+            new BlockItem(REFINEMENT_BARREL_ADV_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
 
     // Items ------------------------------------------------------------------

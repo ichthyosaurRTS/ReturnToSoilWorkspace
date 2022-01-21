@@ -3,7 +3,7 @@ TODO
 
 0  All base plants and base infested mobs first! Then we add whatever fun shit we want.
 
-1  large barrel blockstate, container, code stuff
+1  adv barrel blockstate, container, code stuff, probs display as well...
 
 1  Crystal 0-6, drops, seed
 

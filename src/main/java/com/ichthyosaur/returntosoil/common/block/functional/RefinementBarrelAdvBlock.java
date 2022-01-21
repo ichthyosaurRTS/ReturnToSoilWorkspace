@@ -9,8 +9,8 @@ import net.minecraft.world.IBlockReader;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class RefinementBarrelLBlock extends Block {
-    public RefinementBarrelLBlock(Properties p_i48440_1_) {
+public class RefinementBarrelAdvBlock extends Block {
+    public RefinementBarrelAdvBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);
     }
 

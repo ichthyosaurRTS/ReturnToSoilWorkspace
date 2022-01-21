@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [128, 128],
 	"textures": {
-		"6": "returntosoil:blocks/refinement_barrel_l/refinement_barrel_l",
+		"6": "returntosoil:blocks/refinement_barrel_adv/refinement_barrel_adv",
 		"particle": "returntosoil:blocks/refinement_barrel/break_particle"
 	},
 	"elements": [
