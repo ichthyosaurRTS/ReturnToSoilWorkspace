@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.container.RefinementBaAdvContainer;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,6 +13,7 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableTileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -51,6 +53,12 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
         World world = this.level;
         BlockPos pos =this.getBlockPos();
 
+        //this needs to check the blockste to see whether something is being refined
+        /*if ()
+                if (rollChance.roll(30))
+                    world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+                            pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 0.03D, 0.0D);*/
+
         if (!world.isClientSide()) {
         ItemStack top = this.items.get(0);
         ItemStack bot = this.items.get(1);
@@ -62,7 +70,7 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
 
             //RTSMain.LOGGER.info(this.progress);
 
-            if (this.progress>10) {
+            if (this.progress>5000) {
                 this.progress=0;
 
                 if (top.sameItem(new ItemStack(BlockItemInit.ORIGIN_JAM_ITEM.get())) ) {

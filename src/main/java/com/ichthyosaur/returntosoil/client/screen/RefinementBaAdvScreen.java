@@ -47,5 +47,11 @@ public class RefinementBaAdvScreen extends ContainerScreen<RefinementBaAdvContai
     protected void renderLabels(MatrixStack matrixStack, int p_230451_2_, int p_230451_3_) {
         this.font.draw(matrixStack, this.inventory.getDisplayName(), (float) this.inventoryLabelX,
                 (float) this.inventoryLabelY, 4210752);
+        this.font.draw(matrixStack, "Refinement", (float) this.titleLabelX,
+                (float) this.titleLabelY, 4210752);
+        /*(this.font.draw(matrixStack, "Refinement", (float) this.titleLabelX,
+                (float) this.titleLabelY + 10, 4210752);
+        this.font.draw(matrixStack, "Barrel", (float) this.titleLabelX,
+                (float) this.titleLabelY+20, 4210752);*/
     }
 }

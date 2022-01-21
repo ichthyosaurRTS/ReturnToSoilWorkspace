@@ -15,7 +15,7 @@ TODO
 
 1  Heavy plant 0-6, potted
 
-1  separate serverside and clientside code in like everything
+1  separate serverside and clientside code in like everything- probably the reason for head glitchy-ness on serpent mobs
 
 1  check for whether children of head are following behind or not- if not, kill and rebuild
 
