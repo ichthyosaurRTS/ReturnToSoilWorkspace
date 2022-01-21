@@ -63,7 +63,7 @@ public class RefinementBarrelAdvBlock extends Block {
             if (inamedcontainerprovider != null) {
                 player.openMenu(inamedcontainerprovider);
             }*/
-            return ActionResultType.SUCCESS;
+            return ActionResultType.CONSUME;
             //return super.use(state,world,pos,player,p_225533_5_,p_225533_6_);
 
         }

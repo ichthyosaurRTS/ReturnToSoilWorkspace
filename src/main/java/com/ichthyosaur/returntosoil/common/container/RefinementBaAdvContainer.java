@@ -63,7 +63,6 @@ public class RefinementBaAdvContainer extends Container {
     @Override
     public ItemStack quickMoveStack(PlayerEntity player, int index) {
         ItemStack stack = ItemStack.EMPTY;
-        if (index == 1) return stack;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
             ItemStack stack1 = slot.getItem();
@@ -71,7 +70,7 @@ public class RefinementBaAdvContainer extends Container {
             if (index < RefinementBaAdvTileEntity.slotNumber && !this.moveItemStackTo(stack1,RefinementBaAdvTileEntity.slotNumber,this.slots.size(),true)) {
                 return ItemStack.EMPTY;
             }
-            if (!this.moveItemStackTo(stack1,0,RefinementBaAdvTileEntity.slotNumber,false)) {
+            if (!this.moveItemStackTo(stack1,1,RefinementBaAdvTileEntity.slotNumber,false)) {
                 return ItemStack.EMPTY;
             }
             if (stack1.isEmpty()) {
