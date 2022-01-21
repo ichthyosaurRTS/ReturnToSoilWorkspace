@@ -117,13 +117,8 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
         if (i < 5) return getCommonSeed();
         else if (i == 5) return getSpiritSeed();
         else if (i == 6) if (rollChance.roll(10)) return getAbyssSeed(); else return randomSeedResult();
-        else if (i < 41) return new ItemStack(Items.WHEAT_SEEDS,1);
-        else if (i < 42) return new ItemStack(Items.SWEET_BERRIES,1);
-        else if (i < 43) return new ItemStack(Items.BEETROOT_SEEDS,1);
-        else if (i < 44) return new ItemStack(Items.CARROT,1);
-        else if (i < 45) return new ItemStack(Items.PUMPKIN_SEEDS,1);
-        else if (i < 46) return new ItemStack(Items.POTATO,1);
-        else return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
+        else if (i < 46) return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
+        else return new ItemStack(BlockItemInit.CRYSTAL_PLANT_SEED.get(),1);
     }
 
     private static ItemStack getCommonSeed(){

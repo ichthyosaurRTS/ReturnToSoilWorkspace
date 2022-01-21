@@ -2,7 +2,9 @@ package com.ichthyosaur.returntosoil.common.tileentity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.container.RefinementBaAdvContainer;
+import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -14,13 +16,16 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 
 public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITickableTileEntity {
 
-    public static int slotNumber = 3;
+    public static int slotNumber = 2;
     protected NonNullList<ItemStack> items = NonNullList.withSize(slotNumber,ItemStack.EMPTY);
+    private int progress = 0;
 
     public RefinementBaAdvTileEntity(TileEntityType<?> p_i48289_1_) {
         super(p_i48289_1_);
@@ -43,6 +48,42 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
 
     @Override
     public void tick() {
+        World world = this.level;
+        BlockPos pos =this.getBlockPos();
+
+        if (!world.isClientSide()) {
+        ItemStack top = this.items.get(0);
+        ItemStack bot = this.items.get(1);
+        ItemStack empty = ItemStack.EMPTY;
+
+        if (top.getCount()==0) this.progress =0;
+
+        if ( top != empty )
+
+            //RTSMain.LOGGER.info(this.progress);
+
+            if (this.progress>10) {
+                this.progress=0;
+
+                if (top.sameItem(new ItemStack(BlockItemInit.ORIGIN_JAM_ITEM.get())) ) {
+
+
+                    top.shrink(1);
+
+                    ItemStack crystalSeed = new ItemStack(BlockItemInit.CRYSTAL_PLANT_SEED.get());
+                    ItemStack result = RefinementBarrelTileEntity.randomSeedResult();
+
+                    //assuming theres piping out, the bottom will probably be empty every time
+                    if (bot.isEmpty()) this.items.set(1, result);
+                    else if (bot.sameItem(result)&&bot.getCount()<64) this.items.set(1, new ItemStack(bot.getItem(), bot.getCount()+1));
+                    else Block.popResource(world, pos.above(), result);
+
+                }
+
+            }
+            else this.progress+=1;
+
+        }
 
     }
 
@@ -95,7 +136,7 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
     public CompoundNBT save(CompoundNBT nbt) {
         super.save(nbt);
         ItemStackHelper.saveAllItems(nbt,this.items);
-
+        nbt.putInt("progress",this.progress);
         return nbt;
     }
 
@@ -104,5 +145,6 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
         super.load(state, nbt);
         this.items = NonNullList.withSize(getContainerSize(),ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(nbt,this.items);
+        this.progress = nbt.getInt("progress");
     }
 }

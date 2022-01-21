@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 @Mod("returntosoil")
 public class RTSMain
 {
-    //public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "returntosoil";
 
     //Who knows where this goes...

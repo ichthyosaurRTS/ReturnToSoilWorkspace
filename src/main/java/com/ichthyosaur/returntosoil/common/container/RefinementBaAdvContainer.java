@@ -28,8 +28,8 @@ public class RefinementBaAdvContainer extends Container {
         this.pos = te.getBlockPos();
 
         //Tile entity
-        this.addSlot(new Slot((IInventory) te, 0, 80, 50));
-        this.addSlot(new Slot((IInventory) te, 1, 80, 10));
+        this.addSlot(new Slot((IInventory) te, 1, 80, 50));
+        this.addSlot(new Slot((IInventory) te, 0, 80, 10));
 
         //Player inv
         for (int row = 0; row < 3; row++) {
