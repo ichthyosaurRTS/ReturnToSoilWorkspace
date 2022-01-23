@@ -5,6 +5,8 @@ TODO
 
 1  cropsblocks getSeed and replantChance
 
+1  player join game event for config generation
+
 1  adv barrel blockstates
 
 1  Crystal 0-6, drops, seed

@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public final class RTSConfigMisc {
@@ -17,6 +18,7 @@ public final class RTSConfigMisc {
 
         cList.add(pName+".0");
         RTSConfig.player_cult_string_list.set(cList);
+
     }
 
     //uses getindex, changes the list to a new one

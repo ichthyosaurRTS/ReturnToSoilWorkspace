@@ -6,6 +6,7 @@ import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
+import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -71,6 +72,7 @@ public class ItemEvents {
     public static void invItemTick (TickEvent.PlayerTickEvent event) {
         PlayerEntity player = event.player;
         ServerWorld world;
+
         if (!player.level.isClientSide())  world = (ServerWorld) player.level;
             for(int i = 0; i < 36; i++) {
                 Item item = player.inventory.getItem(i).getItem();
@@ -87,6 +89,47 @@ public class ItemEvents {
         else yVector = (float)-0.1;
         if ((player.getDeltaMovement().y) < -5) {}
         else player.setDeltaMovement(player.getDeltaMovement().x/2,player.getDeltaMovement().y+yVector,player.getDeltaMovement().z/2);
+    }
+
+
+    @SubscribeEvent
+    public static void CultivationDefenseBonus (LivingDamageEvent event) {
+        if (event.getEntity() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity)event.getEntity();
+            if (!player.level.isClientSide()) {
+                int cLvl = RTSConfigMisc.cListGetLvl(player.getName().getString());
+                double dmgMod = 1.0;
+                if (cLvl<10000) {}
+                else if (cLvl<20000) dmgMod = 1.25;
+                else if (cLvl<40000) dmgMod = 1.5;
+                else if (cLvl<70000) dmgMod = 1.75;
+                else if (cLvl<100000) dmgMod = 2;
+
+                event.setAmount( (float) (event.getAmount()/dmgMod));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void CultivationOffensePenalty (LivingHurtEvent event) {
+        if (event.getSource().getEntity() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity)event.getSource().getEntity();
+            if (!player.level.isClientSide()) {
+                int cLvl = RTSConfigMisc.cListGetLvl(player.getName().getString());
+                double dmgMod = 1.0;
+                if (cLvl<10000) {}
+                else if (cLvl<20000) dmgMod = 1.25;
+                else if (cLvl<40000) dmgMod = 1.5;
+                else if (cLvl<70000) dmgMod = 1.75;
+                else if (cLvl<100000) dmgMod = 2;
+
+                float newAmount = (float) (event.getAmount()/dmgMod);
+                if (newAmount < 1) event.setAmount(1);
+                else event.setAmount(newAmount);
+
+                RTSMain.LOGGER.info("current damage: "+event.getAmount()/dmgMod);
+            }
+        }
     }
 
 }
