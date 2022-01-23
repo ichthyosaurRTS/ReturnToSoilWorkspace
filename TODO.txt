@@ -5,7 +5,7 @@ TODO
 
 1  cropsblocks getSeed and replantChance
 
-1  player join game event for config generation
+1  check who has priority: centi armour or cultivation def bonus
 
 1  adv barrel blockstates
 
@@ -19,7 +19,7 @@ TODO
 
 1  Heavy plant 0-6, potted
 
-1  separate serverside and clientside code in like everything- probably the reason for head glitchy-ness on serpent mobs
+1  separate serverside and clientside code in like everything- is the reason for head glitchy-ness on serpent mobs
 
 1  check for whether children of head are following behind or not- if not, kill and rebuild
 

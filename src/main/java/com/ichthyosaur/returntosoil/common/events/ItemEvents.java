@@ -104,6 +104,7 @@ public class ItemEvents {
                 else if (cLvl<40000) dmgMod = 1.5;
                 else if (cLvl<70000) dmgMod = 1.75;
                 else if (cLvl<100000) dmgMod = 2;
+                else dmgMod = 2.5;
 
                 event.setAmount( (float) (event.getAmount()/dmgMod));
             }
@@ -122,12 +123,11 @@ public class ItemEvents {
                 else if (cLvl<40000) dmgMod = 1.5;
                 else if (cLvl<70000) dmgMod = 1.75;
                 else if (cLvl<100000) dmgMod = 2;
+                else dmgMod = 2.5;
 
                 float newAmount = (float) (event.getAmount()/dmgMod);
-                if (newAmount < 1) event.setAmount(1);
-                else event.setAmount(newAmount);
-
-                RTSMain.LOGGER.info("current damage: "+event.getAmount()/dmgMod);
+                //if (newAmount < 1) event.setAmount(1);
+                event.setAmount(newAmount);
             }
         }
     }
