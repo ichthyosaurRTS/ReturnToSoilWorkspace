@@ -2,7 +2,7 @@ package com.ichthyosaur.returntosoil;
 
 
 import com.ichthyosaur.returntosoil.common.entity.*;
-import com.ichthyosaur.returntosoil.core.config.PlayerMaps;
+import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.config.RTSConfig;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
@@ -44,7 +44,6 @@ public class RTSMain
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RTSConfig.SPEC, "returntosoil-common.toml");
-        PlayerMaps.cultMapBuild();
 
         MinecraftForge.EVENT_BUS.register(this);
 

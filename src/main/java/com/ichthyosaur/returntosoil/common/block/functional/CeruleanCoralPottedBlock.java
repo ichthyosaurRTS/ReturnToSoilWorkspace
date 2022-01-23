@@ -1,21 +1,13 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
-import com.ichthyosaur.returntosoil.common.tileentity.WardenPlantTileEntity;
-import com.ichthyosaur.returntosoil.core.config.PlayerMaps;
-import com.ichthyosaur.returntosoil.core.config.RTSConfig;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
@@ -30,7 +22,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Random;
 
 
 //would like different shapes for states...
@@ -71,11 +62,8 @@ public class CeruleanCoralPottedBlock extends RTSPoweredPottedBlock{
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 
         if (!world.isClientSide()) {
-            RTSMain.LOGGER.info(player.getName().getString());
-
-            PlayerMaps.playerCultIncrease(player.getName().getString(), 1);
-
-            RTSMain.LOGGER.info(PlayerMaps.cultMapGetLvl(player.getName().getString()));
+            RTSConfigMisc.cListIncrease((player.getName().getString()), 1);
+            RTSMain.LOGGER.info(RTSConfigMisc.cListGetLvl(player.getName().getString()));
         }
         return super.use(state, world, pos, player, hand, p_225533_6_);
 

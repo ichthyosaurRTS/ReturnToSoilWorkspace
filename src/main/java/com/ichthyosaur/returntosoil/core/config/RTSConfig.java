@@ -20,7 +20,7 @@ public final class RTSConfig {
     static {
         BUILDER.push("config for returntosoil");
 
-        player_cult_string_list = BUILDER.comment("player cult list").define("player_cult",emptyListS);
+        player_cult_string_list = BUILDER.comment("player cultivation level list").define("player_cult",emptyListS);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
