@@ -3,6 +3,8 @@ package com.ichthyosaur.returntosoil.common.block.functional;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.WardenPlantTileEntity;
+import com.ichthyosaur.returntosoil.core.config.PlayerMaps;
+import com.ichthyosaur.returntosoil.core.config.RTSConfig;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
@@ -65,4 +67,17 @@ public class CeruleanCoralPottedBlock extends RTSPoweredPottedBlock{
         return SHAPE;
     }
 
+    @Override
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
+
+        if (!world.isClientSide()) {
+            RTSMain.LOGGER.info(player.getName().getString());
+
+            PlayerMaps.playerCultIncrease(player.getName().getString(), 1);
+
+            RTSMain.LOGGER.info(PlayerMaps.cultMapGetLvl(player.getName().getString()));
+        }
+        return super.use(state, world, pos, player, hand, p_225533_6_);
+
+    }
 }

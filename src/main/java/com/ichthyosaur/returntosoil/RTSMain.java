@@ -2,6 +2,8 @@ package com.ichthyosaur.returntosoil;
 
 
 import com.ichthyosaur.returntosoil.common.entity.*;
+import com.ichthyosaur.returntosoil.core.config.PlayerMaps;
+import com.ichthyosaur.returntosoil.core.config.RTSConfig;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
@@ -11,7 +13,9 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -37,8 +41,10 @@ public class RTSMain
         TileEntityTypesInit.TILE_ENTITY_TYPE.register(bus);
         ContainerTypesInit.CONTAINER_TYPES.register(bus);
 
-
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RTSConfig.SPEC, "returntosoil-common.toml");
+        PlayerMaps.cultMapBuild();
 
         MinecraftForge.EVENT_BUS.register(this);
 
