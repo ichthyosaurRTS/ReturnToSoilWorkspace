@@ -50,7 +50,7 @@ public class CrystalPlantBlock extends RTSCropsBlock{
         else {
 
             if (!world.isClientSide()) {
-            if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 100);
+            if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), (int)rollChance.returnRoll(200));
 
             if (rollChance.roll(100))
                 popResource(world, pos, RefinementBarrelTileEntity.randomSeedResult());

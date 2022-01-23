@@ -5,7 +5,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import java.util.HashMap;
 import java.util.List;
 
-@SuppressWarnings("DEBUG")
+
 public final class RTSConfigMisc {
 
     //its sad, but theres no too much point using a map here, probably just rely on slow ass lists.

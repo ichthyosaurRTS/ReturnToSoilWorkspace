@@ -50,14 +50,13 @@ public class BlockEvents {
     }
 
     @SubscribeEvent
-    @SuppressWarnings("DEBUG")
     public static void onCropBreak (BlockEvent.BreakEvent event) {
         BlockState state = event.getState();
         if (state.getBlock() instanceof RTSCropsBlock && !event.getWorld().isClientSide()) {
             if (state.getValue(CropsBlock.AGE)==7 && rollChance.roll(100))  {
 
             PlayerEntity player = event.getPlayer();
-            RTSConfigMisc.cListIncrease((player.getName().getString()), 100);
+            RTSConfigMisc.cListIncrease((player.getName().getString()), (int)rollChance.returnRoll(200));
             }
         }
     }

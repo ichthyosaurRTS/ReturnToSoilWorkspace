@@ -45,7 +45,7 @@ public class RTSMain
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, RTSConfig.SPEC, "returntosoil-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RTSConfig.SPEC, "returntosoil-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
 
