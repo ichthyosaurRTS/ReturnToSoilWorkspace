@@ -60,11 +60,6 @@ public class CeruleanCoralPottedBlock extends RTSPoweredPottedBlock{
 
     @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-
-        if (!world.isClientSide()) {
-            RTSConfigMisc.cListIncrease((player.getName().getString()), 1);
-            RTSMain.LOGGER.info(RTSConfigMisc.cListGetLvl(player.getName().getString()));
-        }
         return super.use(state, world, pos, player, hand, p_225533_6_);
 
     }

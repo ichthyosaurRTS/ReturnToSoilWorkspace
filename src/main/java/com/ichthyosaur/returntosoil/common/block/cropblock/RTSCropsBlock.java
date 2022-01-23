@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;

@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
+import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -91,6 +92,9 @@ public class OriginBerryBlock extends RTSCropsBlock {
             return ActionResultType.PASS;
         }
         else {
+
+            RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 1);
+
             if (rollChance.roll(4)) {
                 ItemStack randomDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
                 popResource(world, pos, randomDrops);

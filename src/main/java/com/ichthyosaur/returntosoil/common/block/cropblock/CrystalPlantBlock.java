@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
+import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -47,6 +48,9 @@ public class CrystalPlantBlock extends RTSCropsBlock{
             return ActionResultType.PASS;
         }
         else {
+
+            RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 1);
+
             if (rollChance.roll(100))
                 popResource(world, pos, RefinementBarrelTileEntity.randomSeedResult());
 
