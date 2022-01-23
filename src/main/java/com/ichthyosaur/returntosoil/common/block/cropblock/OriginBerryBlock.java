@@ -93,7 +93,7 @@ public class OriginBerryBlock extends RTSCropsBlock {
         }
         else {
 
-            RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 1);
+            if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 100);
 
             if (rollChance.roll(4)) {
                 ItemStack randomDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);

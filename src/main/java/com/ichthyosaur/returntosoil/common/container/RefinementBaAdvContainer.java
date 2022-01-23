@@ -57,7 +57,7 @@ public class RefinementBaAdvContainer extends Container {
 
     @Override
     public boolean stillValid(PlayerEntity player) {
-        return this.pos.distSqr(player.getX(),player.getY(),player.getZ(),false)<12;
+        return this.pos.distSqr(player.getX(),player.getY(),player.getZ(),false)<50;
     }
 
     @Override

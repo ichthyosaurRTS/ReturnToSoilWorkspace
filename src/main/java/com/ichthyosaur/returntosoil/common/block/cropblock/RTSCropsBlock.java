@@ -38,9 +38,8 @@ import java.util.logging.Logger;
 
 public abstract class RTSCropsBlock extends CropsBlock {
 
-    IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-    BooleanProperty INFESTED = RTSMain.INFESTED;
-    BooleanProperty LIT = BlockStateProperties.LIT;
+    public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
+    public static final BooleanProperty INFESTED = RTSMain.INFESTED;
 
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 8.0D, 14.0D);
 

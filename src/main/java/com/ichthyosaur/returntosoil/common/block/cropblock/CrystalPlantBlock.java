@@ -49,7 +49,8 @@ public class CrystalPlantBlock extends RTSCropsBlock{
         }
         else {
 
-            RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 1);
+            if (!world.isClientSide()) {
+            if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), 100);
 
             if (rollChance.roll(100))
                 popResource(world, pos, RefinementBarrelTileEntity.randomSeedResult());
@@ -61,8 +62,9 @@ public class CrystalPlantBlock extends RTSCropsBlock{
 
             if (safe) world.setBlock(pos, this.nextAgeWithRotation(state,0), 2);
             else world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+            }
 
-            p_225533_4_.playSound(SoundEvents.CROP_PLANTED,1 ,1);
+            else p_225533_4_.playSound(SoundEvents.CROP_PLANTED,1 ,1);
 
             return ActionResultType.SUCCESS;
         }

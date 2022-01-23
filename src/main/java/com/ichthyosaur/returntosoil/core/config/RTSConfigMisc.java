@@ -5,6 +5,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import java.util.HashMap;
 import java.util.List;
 
+@SuppressWarnings("DEBUG")
 public final class RTSConfigMisc {
 
     //its sad, but theres no too much point using a map here, probably just rely on slow ass lists.
@@ -13,6 +14,7 @@ public final class RTSConfigMisc {
     //just adds the new player to the list straight up no checks
     private static void cListAdd(String pName) {
         List<String> cList = RTSConfig.player_cult_string_list.get();
+
         cList.add(pName+".0");
         RTSConfig.player_cult_string_list.set(cList);
     }
@@ -54,8 +56,9 @@ public final class RTSConfigMisc {
             }
         }
         //if it doesnt find it, add the player and return the size and the index ie 0-49 returns index 50
+        int index = cList.size();
         cListAdd(pName);
-        return cList.size();
+        return index;
     }
 
     public static int cListGetLvl (String pName) {
