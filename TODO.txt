@@ -15,7 +15,7 @@ TODO
 
 1  lilypad redesign m
 
-1  dragonfly bright layer
+1  dragonfly bright layer, dragonfly carrying egg layer and drop
 
 1  separate serverside and clientside code in like everything- is the reason for head glitchy-ness on serpent mobs
 
