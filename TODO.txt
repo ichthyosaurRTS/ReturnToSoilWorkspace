@@ -3,8 +3,6 @@ TODO
 
 0  All base plants and base infested mobs first! Then we add whatever fun shit we want.
 
-1  seperate item and block init
-
 1  check who has priority: centi armour or cultivation def bonus
 
 1  adv barrel blockstates, auto add stack rather than opening menu
@@ -25,7 +23,8 @@ TODO
 
 1  Rotation 0-15 to Facing
 
-
+2  Hand movement when using potted plants
+2  Does o berry potted use work on server?
 2  Composter crop + mob
 2  upside down void crop
 2  spirit collector and distributor
