@@ -21,7 +21,7 @@ TODO
 
 1  check for whether children of head are following behind or not- if not, kill and rebuild
 
-1  Soundtype for bamboo
+1  Soundtype for crystal plant
 
 
 2  Heavy plant 0-6, potted
