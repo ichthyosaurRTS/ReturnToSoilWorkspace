@@ -3,9 +3,11 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -30,6 +32,27 @@ public class VesselVineBlock extends RTSCropsBlock {
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
+    }
+
+    @Override
+    protected IItemProvider getBaseSeedId() {
+        return BlockItemInit.VESSEL_SEED.get();
+    }
+    @Override
+    protected boolean rollReplant(){
+        return false;
+    }
+    @Override
+    protected boolean useSeedDrop(){
+        return false;
+    }
+    @Override
+    protected Item getNonSeedDrop(){
+        return ItemStack.EMPTY.getItem();
+    }
+    @Override
+    protected Item getSeed(){
+        return ItemStack.EMPTY.getItem();
     }
 
     @ParametersAreNonnullByDefault

@@ -122,6 +122,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
         if (state.getValue(INFESTED)) return drops;
 
+
         if (state.getValue(AGE)==7) {
 
         if (this.rollReplant()) drops.add(new ItemStack(this.getSeed()));
