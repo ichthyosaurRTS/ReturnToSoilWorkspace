@@ -1,9 +1,8 @@
 package com.ichthyosaur.returntosoil.common.events;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
@@ -21,12 +20,12 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockEvents {
 
-    private static final IntegerProperty COOL_DOWN = RTSMain.COOL_DOWN;
+    private static final IntegerProperty COOL_DOWN = ReturnToSoil.COOL_DOWN;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
 
     @SubscribeEvent
     public static void onGrassBreak (BlockEvent.BreakEvent event) {

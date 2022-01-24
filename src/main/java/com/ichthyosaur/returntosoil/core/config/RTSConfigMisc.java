@@ -1,10 +1,6 @@
 package com.ichthyosaur.returntosoil.core.config;
 
-import com.ichthyosaur.returntosoil.RTSMain;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public final class RTSConfigMisc {

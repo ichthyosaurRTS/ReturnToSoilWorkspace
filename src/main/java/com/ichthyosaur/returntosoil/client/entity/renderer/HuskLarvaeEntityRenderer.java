@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.renderer;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.entity.model.HuskLarvaeEntityModel;
 import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import mcp.MethodsReturnNonnullByDefault;
@@ -16,7 +16,7 @@ public class HuskLarvaeEntityRenderer extends MobRenderer<HuskLarvaeEntity, Husk
     }
 
     @MethodsReturnNonnullByDefault
-    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/husk_larvae/husk_larvae.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/husk_larvae/husk_larvae.png");
 
     @Override
     public ResourceLocation getTextureLocation(HuskLarvaeEntity p_110775_1_) {

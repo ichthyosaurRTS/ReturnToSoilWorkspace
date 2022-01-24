@@ -1,7 +1,5 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
-import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

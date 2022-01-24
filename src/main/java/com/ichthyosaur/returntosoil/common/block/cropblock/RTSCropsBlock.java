@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
@@ -22,6 +22,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -39,7 +40,7 @@ import java.util.Random;
 public abstract class RTSCropsBlock extends CropsBlock {
 
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-    public static final BooleanProperty INFESTED = RTSMain.INFESTED;
+    public static final BooleanProperty INFESTED = ReturnToSoil.INFESTED;
 
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 8.0D, 14.0D);
 
@@ -65,6 +66,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
     protected Item getSeed(){
         return Items.WHEAT_SEEDS;
     }
+    protected SoundEvent getHarvestSound(){return SoundEvents.CROP_PLANTED;}
 
     // to be changed to give facing
     public static Integer giveRotation() {
@@ -82,7 +84,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
         if (state.getValue(AGE)==7&&!state.getValue(INFESTED)) {
 
-            if (world.isClientSide()) player.playSound(SoundEvents.CROP_PLANTED,1 ,1);
+            if (world.isClientSide()) player.playSound(this.getHarvestSound(),1 ,1);
 
             if (!world.isClientSide()) {
 
@@ -129,6 +131,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
         else drops.add(new ItemStack(this.getSeed()));
 
+        ReturnToSoil.LOGGER.info(drops);
         return drops;
     }
 
@@ -147,7 +150,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
     // Necessary! Who knows what for... Maybe the defaultBlockState function?
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.AGE_7,BlockStateProperties.ROTATION_16, RTSMain.INFESTED);
+        builder.add(BlockStateProperties.AGE_7,BlockStateProperties.ROTATION_16, ReturnToSoil.INFESTED);
     }
 
     // When infested or less than 7 old, randomly ticks. Guess there's some unneeded code upstairs...

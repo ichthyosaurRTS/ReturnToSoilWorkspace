@@ -1,26 +1,11 @@
 package com.ichthyosaur.returntosoil.core.init;
 
-import com.google.common.collect.Sets;
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.block.cropblock.*;
 import com.ichthyosaur.returntosoil.common.block.functional.*;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSItemTier;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSArmorMaterial;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
-import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
-import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
-import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
-import com.ichthyosaur.returntosoil.common.item.tool.RoseBeetleAxeItem;
-import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.*;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.RegistryObject;
@@ -30,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.function.ToIntFunction;
 
 public class BlockInit {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, RTSMain.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ReturnToSoil.MOD_ID);
 
     private static final TextFormatting common = TextFormatting.GREEN;
     private static final TextFormatting spirit = TextFormatting.LIGHT_PURPLE;
@@ -49,7 +34,7 @@ public class BlockInit {
 
     //crystal plant
     public static final RegistryObject<Block> CRYSTAL_PLANT_BLOCK = BLOCKS.register("crystal_plant_block", () ->
-            new CrystalPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+            new CrystalPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.BAMBOO)));
 
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
@@ -93,10 +78,10 @@ public class BlockInit {
 
     //Refinement Barrel
     public static final RegistryObject<Block> REFINEMENT_BARREL_BLOCK = BLOCKS.register("refinement_barrel_block", () ->
-            new RefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+            new RefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).strength(1.0F)));
 
     public static final RegistryObject<Block> REFINEMENT_BARREL_ADV_BLOCK = BLOCKS.register("refinement_barrel_adv_block", () ->
-            new RefinementBarrelAdvBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+            new RefinementBarrelAdvBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).strength(1.0F)));
 
     //HoldingStaff
     public static final RegistryObject<Block> HOLDING_STAFF_BLOCK = BLOCKS.register("holding_staff_block", () ->
@@ -115,7 +100,7 @@ public class BlockInit {
     }
     private static ToIntFunction<BlockState> notZeroFuelEmission(int lightLevel) {
         return (state) -> {
-            return state.getValue(RTSMain.FUEL_LEVEL)>0 ? lightLevel : 0;
+            return state.getValue(ReturnToSoil.FUEL_LEVEL)>0 ? lightLevel : 0;
         };
     }
     private static ToIntFunction<BlockState> ageSixEmission(int lightLevel) {

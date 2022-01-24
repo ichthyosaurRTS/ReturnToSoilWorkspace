@@ -1,6 +1,5 @@
 package com.ichthyosaur.returntosoil.client.wearable.model;
 
-import com.ichthyosaur.returntosoil.RTSMain;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.BipedModel;

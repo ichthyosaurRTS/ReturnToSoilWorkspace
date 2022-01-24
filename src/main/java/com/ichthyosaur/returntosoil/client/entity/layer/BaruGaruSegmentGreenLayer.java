@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.layer;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruSegmentModel;
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -18,7 +18,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class BaruGaruSegmentGreenLayer<T extends BaruGaruSegmentEntity> extends LayerRenderer<T, BaruGaruSegmentModel<T>> {
     private final BaruGaruSegmentModel<T> model = new BaruGaruSegmentModel<>();
 
-    public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/baru_garu_segment/baru_garu_segment_blue.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/baru_garu_segment/baru_garu_segment_blue.png");
 
     public BaruGaruSegmentGreenLayer(IEntityRenderer<T, BaruGaruSegmentModel<T>> renderer) {
         super(renderer);

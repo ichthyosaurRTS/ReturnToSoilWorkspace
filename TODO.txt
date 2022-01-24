@@ -3,6 +3,8 @@ TODO
 
 0  All base plants and base infested mobs first! Then we add whatever fun shit we want.
 
+1  Rotation 0-15 to Facing
+
 1  check who has priority: centi armour or cultivation def bonus
 
 1  adv barrel blockstates, auto add stack rather than opening menu
@@ -15,14 +17,14 @@ TODO
 
 1  dragonfly bright layer
 
-1  Heavy plant 0-6, potted
-
 1  separate serverside and clientside code in like everything- is the reason for head glitchy-ness on serpent mobs
 
 1  check for whether children of head are following behind or not- if not, kill and rebuild
 
-1  Rotation 0-15 to Facing
+1  Soundtype for bamboo
 
+
+2  Heavy plant 0-6, potted
 2  Hand movement when using potted plants
 2  Does o berry potted use work on server?
 2  Composter crop + mob
@@ -39,23 +41,15 @@ TODO
 2  Small Golem plant
 2  Repulsor plant
 2  Compostor plant
-2  Advanced refinery plant (with container for hopper)
 2  beetlesoup backpack lava sound;
 
-3  General Abstract flying serpent segment entity class: Max rotation parent to child
 3  Add ghost jaw beetle drops
 3  out of position bug
-3  Rotation 015 to 03
-3  Ball Frog (random swim)
 3  BaruGaru drops
-3  Re-texture jaw_beetle
 3  Re-texture o-berry item
-3  Custom item tiers
 
-4  Turn rose beetle into mando backpack lookin
 4  Pocket dimension
 4  Dragon head weapons (projectiles, floating)
-4  Poke-ball type items?
 4  Baru Garu tame item, tame code
 4  Add spell circles
 4  LOVE mod

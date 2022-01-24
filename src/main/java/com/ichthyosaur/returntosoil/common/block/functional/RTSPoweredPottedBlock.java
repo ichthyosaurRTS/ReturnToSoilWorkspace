@@ -1,8 +1,7 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.tileentity.IHoldsSpirit;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,7 +18,7 @@ import net.minecraft.world.World;
 
 public abstract class RTSPoweredPottedBlock extends RTSPottedBlock{
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
 
     public RTSPoweredPottedBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);

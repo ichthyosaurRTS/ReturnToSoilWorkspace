@@ -18,7 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod("returntosoil")
-public class RTSMain
+public class ReturnToSoil
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "returntosoil";
@@ -28,7 +28,7 @@ public class RTSMain
     public static final IntegerProperty FUEL_LEVEL = IntegerProperty.create("fuel_level",0,7);
     public static final IntegerProperty COOL_DOWN = IntegerProperty.create("cool_down",0,60);
 
-    public RTSMain() {
+    public ReturnToSoil() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         EntityTypesInit.ENTITY_TYPES.register(bus);

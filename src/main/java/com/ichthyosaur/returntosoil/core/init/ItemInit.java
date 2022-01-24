@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.core.init;
 
 import com.google.common.collect.Sets;
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSArmorMaterial;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
@@ -14,6 +14,7 @@ import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
+import com.ichthyosaur.returntosoil.core.util.ReturnToSoilItemGroup;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.BlockNamedItem;
@@ -25,7 +26,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RTSMain.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ReturnToSoil.MOD_ID);
 
     private static final TextFormatting common = TextFormatting.GREEN;
     private static final TextFormatting spirit = TextFormatting.LIGHT_PURPLE;

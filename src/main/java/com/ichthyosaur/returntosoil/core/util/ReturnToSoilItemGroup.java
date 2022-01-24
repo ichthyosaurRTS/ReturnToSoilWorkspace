@@ -1,5 +1,6 @@
-package com.ichthyosaur.returntosoil.core.init;
+package com.ichthyosaur.returntosoil.core.util;
 
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 

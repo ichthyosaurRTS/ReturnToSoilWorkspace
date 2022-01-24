@@ -1,11 +1,10 @@
 package com.ichthyosaur.returntosoil.common.events;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -18,7 +17,7 @@ import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemEvents {
  
 
@@ -37,6 +36,7 @@ public class ItemEvents {
                 player.eat(player.level, new ItemStack(Items.COOKIE));
             }
         }
+
     }
 
     @SubscribeEvent

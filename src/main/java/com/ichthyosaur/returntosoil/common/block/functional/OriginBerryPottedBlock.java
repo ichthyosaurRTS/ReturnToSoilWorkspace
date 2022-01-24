@@ -57,7 +57,6 @@ public class OriginBerryPottedBlock extends RTSPottedBlock{
                         pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 1.0D, 0.0D);
 
             }
-
             player.displayClientMessage( text, true);
             return ActionResultType.SUCCESS;
         }

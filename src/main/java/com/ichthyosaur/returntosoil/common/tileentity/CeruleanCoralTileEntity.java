@@ -1,30 +1,20 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Random;
 
 //powered, causes living entities around it to float
 public class CeruleanCoralTileEntity extends TileEntity implements ITickableTileEntity,IHoldsSpirit{
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
     private float spiritLevel; //held info
 
 

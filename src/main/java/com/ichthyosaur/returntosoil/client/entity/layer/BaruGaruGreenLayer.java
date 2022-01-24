@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.layer;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruModel;
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -22,7 +22,7 @@ public class BaruGaruGreenLayer<T extends BaruGaruEntity> extends LayerRenderer<
     public BaruGaruGreenLayer(IEntityRenderer<T, BaruGaruModel<T>> renderer) {
             super(renderer);
         }
-        public static final ResourceLocation TEXTURE = new ResourceLocation(RTSMain.MOD_ID, "textures/entity/baru_garu/baru_garu_blue.png");
+        public static final ResourceLocation TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/baru_garu/baru_garu_blue.png");
 
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entityLivingBaseIN, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entityLivingBaseIN.isInvisible()) {

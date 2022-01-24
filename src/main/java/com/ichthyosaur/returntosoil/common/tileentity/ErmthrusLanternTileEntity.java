@@ -1,12 +1,10 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
@@ -23,7 +21,7 @@ import java.util.Random;
 //powered, can infest plants early or blow up infested
 public class ErmthrusLanternTileEntity extends TileEntity implements ITickableTileEntity,IHoldsSpirit{
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
     private float spiritLevel; //held info
 
     public ErmthrusLanternTileEntity(TileEntityType<?> p_i48289_1_) {

@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class RefinementBarrelTileEntity extends TileEntity implements ITickableTileEntity {
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
     public int refineProgress = 0;
 
     private int blueSmokeAmount = 0;

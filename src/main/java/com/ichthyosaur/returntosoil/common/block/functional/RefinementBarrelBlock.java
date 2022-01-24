@@ -1,8 +1,7 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
@@ -31,7 +30,7 @@ import java.util.Random;
 
 public class RefinementBarrelBlock extends Block {
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
 
     //models based on fuel level
     public RefinementBarrelBlock(Properties prop) {

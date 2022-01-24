@@ -1,15 +1,12 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.ITickableTileEntity;
@@ -19,12 +16,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-import java.util.HashSet;
-
 //powered, can infest plants early or blow up infested; 5x5 area
 public class WardenPlantTileEntity extends TileEntity implements ITickableTileEntity,IHoldsSpirit{
 
-    public static final IntegerProperty FUEL_LEVEL = RTSMain.FUEL_LEVEL;
+    public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
     private float spiritLevel; //held info
     private int mode = 1; //evil or not
     private float speedDenominator;
@@ -93,11 +88,11 @@ public class WardenPlantTileEntity extends TileEntity implements ITickableTileEn
                         if (this.mode == 2) {
                             if (targetState.getValue(BlockStateProperties.AGE_7)==6|| targetState.getValue(BlockStateProperties.AGE_7)==5
                             && rollChance.roll(100)) {
-                                world.setBlock(targetPos,targetState.setValue(RTSMain.INFESTED, true),2);}
+                                world.setBlock(targetPos,targetState.setValue(ReturnToSoil.INFESTED, true),2);}
                         }
                         //Destroying infested; rool usually 10
                         else {
-                            if (targetState.getValue(RTSMain.INFESTED) && !world.isClientSide()) {
+                            if (targetState.getValue(ReturnToSoil.INFESTED) && !world.isClientSide()) {
                                 if (rollChance.roll(10)) {
                                     world.getBlockState(targetPos).spawnAfterBreak((ServerWorld) world,targetPos,ItemStack.EMPTY);
                                     world.destroyBlock(targetPos, false);

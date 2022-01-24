@@ -6,6 +6,8 @@ import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.item.Item;
 import net.minecraft.util.IItemProvider;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 
@@ -34,6 +36,8 @@ public class CrystalPlantBlock extends RTSCropsBlock{
     protected Item getSeed(){
         return ItemInit.CRYSTAL_PLANT_SEED.get();
     }
+    @Override
+    protected SoundEvent getHarvestSound(){return SoundEvents.BAMBOO_BREAK;}
 
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {

@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
 import com.google.common.collect.Maps;
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -31,9 +31,7 @@ import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.lang.reflect.Array;
 import java.util.Map;
-import java.util.Random;
 
 public class DragonflyEntity extends MonsterEntity {
 
@@ -227,7 +225,7 @@ public class DragonflyEntity extends MonsterEntity {
     }
 
     public ResourceLocation getResourceLocation() {
-        return COLOUR_BY_INT.getOrDefault(this.getColourInt(),new ResourceLocation(RTSMain.MOD_ID, "textures/entity/dragonfly/dragonfly_1.png") );
+        return COLOUR_BY_INT.getOrDefault(this.getColourInt(),new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/dragonfly/dragonfly_1.png") );
     }
 
     public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {

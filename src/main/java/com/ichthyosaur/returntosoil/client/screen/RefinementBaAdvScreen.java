@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.screen;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.container.RefinementBaAdvContainer;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -14,7 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class RefinementBaAdvScreen extends ContainerScreen<RefinementBaAdvContainer> {
 
-    private static final ResourceLocation REFINEMENT_BA_ADV_GUI = new ResourceLocation(RTSMain.MOD_ID,"textures/gui/refinement_ba_adv.png");
+    private static final ResourceLocation REFINEMENT_BA_ADV_GUI = new ResourceLocation(ReturnToSoil.MOD_ID,"textures/gui/refinement_ba_adv.png");
 
     public RefinementBaAdvScreen(RefinementBaAdvContainer p_i51105_1_, PlayerInventory p_i51105_2_, ITextComponent p_i51105_3_) {
         super(p_i51105_1_, p_i51105_2_, p_i51105_3_);

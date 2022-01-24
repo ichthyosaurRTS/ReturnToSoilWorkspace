@@ -1,14 +1,11 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
-import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;

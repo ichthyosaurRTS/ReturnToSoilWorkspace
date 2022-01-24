@@ -1,8 +1,7 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.container.RefinementBaAdvContainer;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import net.minecraft.block.Block;
@@ -34,7 +33,7 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
 
     @Override
     protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container" + RTSMain.MOD_ID + ".refinement_ba_adv");
+        return new TranslationTextComponent("container" + ReturnToSoil.MOD_ID + ".refinement_ba_adv");
     }
 
     @Override
@@ -67,7 +66,7 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
 
         if ( top != empty )
 
-            //RTSMain.LOGGER.info(this.progress);
+            //ReturnToSoil.LOGGER.info(this.progress);
 
             if (this.progress>5000) {
                 this.progress=0;

@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.core.init;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.tileentity.*;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -10,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class TileEntityTypesInit {
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPE =
-            DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, RTSMain.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, ReturnToSoil.MOD_ID);
 
 
     public static final RegistryObject<TileEntityType<RefinementBarrelTileEntity>> REFINEMENT_BARREL_TILE_ENTITY_TYPE =

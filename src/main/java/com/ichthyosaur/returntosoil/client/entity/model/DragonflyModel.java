@@ -1,13 +1,10 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.DragonflyEntity;
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
 
 public class DragonflyModel<T extends DragonflyEntity> extends EntityModel<DragonflyEntity> {
 

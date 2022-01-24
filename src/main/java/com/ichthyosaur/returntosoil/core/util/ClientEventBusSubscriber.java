@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.core.util;
 
-import com.ichthyosaur.returntosoil.RTSMain;
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.entity.renderer.*;
 import com.ichthyosaur.returntosoil.client.screen.RefinementBaAdvScreen;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-@Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class ClientEventBusSubscriber {
 
     @SubscribeEvent

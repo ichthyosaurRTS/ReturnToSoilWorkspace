@@ -17,7 +17,7 @@ import net.minecraft.world.server.ServerWorld;
 public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
     //IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-    //BooleanProperty INFESTED = RTSMain.INFESTED;
+    //BooleanProperty INFESTED = ReturnToSoil.INFESTED;
 
 
     public OriginBerryBlock (AbstractBlock.Properties properties) {
