@@ -38,7 +38,7 @@ public class CrystalPlantBlock extends RTSCropsBlock implements IPottable{
         return ItemInit.CRYSTAL_PLANT_SEED.get();
     }
     @Override
-    protected SoundEvent getHarvestSound(){return SoundEvents.BAMBOO_BREAK;}
+    protected SoundEvent getHarvestSound(){return SoundEvents.CROP_PLANTED;}
 
     @Override
     public void rollPestSpawn(ServerWorld worldIn, BlockPos pos) {
