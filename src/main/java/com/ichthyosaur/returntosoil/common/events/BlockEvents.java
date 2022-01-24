@@ -2,34 +2,24 @@ package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
-import com.ichthyosaur.returntosoil.common.entity.AbstractContractEntity;
-import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
-import com.ichthyosaur.returntosoil.common.tileentity.CeruleanCoralTileEntity;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropsBlock;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.EntityEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = RTSMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockEvents {
@@ -44,7 +34,7 @@ public class BlockEvents {
         if (state.getBlock()== Blocks.GRASS && rollChance.roll(30) && !event.getPlayer().isCreative() && !event.getWorld().isClientSide()) {
             BlockPos pos = event.getPos();
             ServerWorld worldIn = (ServerWorld) event.getWorld();
-            ItemStack originSeed = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
+            ItemStack originSeed = new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);
             Block.popResource(worldIn, pos, originSeed);
         }
     }

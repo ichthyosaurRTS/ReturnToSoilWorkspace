@@ -1,22 +1,13 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 public class ErmthrusLanternBlock extends RTSCropsBlock implements IPottable{
@@ -32,12 +23,12 @@ public class ErmthrusLanternBlock extends RTSCropsBlock implements IPottable{
 
     @Override
     public ItemStack getPotItem() {
-        return new ItemStack(BlockItemInit.ERMTHRUS_LANTERN_POTTED_ITEM.get());
+        return new ItemStack(ItemInit.ERMTHRUS_LANTERN_POTTED_ITEM.get());
     }
 
     @Override
     protected IItemProvider getBaseSeedId() {
-        return BlockItemInit.ERMTHRUS_LANTERN_SEED.get();
+        return ItemInit.ERMTHRUS_LANTERN_SEED.get();
     }
     @Override
     protected boolean rollReplant(){
@@ -49,10 +40,10 @@ public class ErmthrusLanternBlock extends RTSCropsBlock implements IPottable{
     }
     @Override
     protected Item getNonSeedDrop(){
-        return BlockItemInit.ORIGIN_BERRY_SEED.get();
+        return ItemInit.ORIGIN_BERRY_SEED.get();
     }
     @Override
     protected Item getSeed(){
-        return BlockItemInit.ERMTHRUS_LANTERN_SEED.get();
+        return ItemInit.ERMTHRUS_LANTERN_SEED.get();
     }
 }

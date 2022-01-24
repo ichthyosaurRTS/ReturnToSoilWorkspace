@@ -14,6 +14,6 @@ public class ReturnToSoilItemGroup extends ItemGroup {
 
     @Override
     public ItemStack makeIcon() {
-        return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get());
+        return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get());
     }
 }

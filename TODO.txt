@@ -3,8 +3,6 @@ TODO
 
 0  All base plants and base infested mobs first! Then we add whatever fun shit we want.
 
-1  cropsblocks getSeed and replantChance
-
 1  seperate item and block init
 
 1  check who has priority: centi armour or cultivation def bonus

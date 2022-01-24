@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.*;
 import net.minecraft.item.Item;
@@ -36,7 +37,7 @@ public class VesselVineBlock extends RTSCropsBlock {
 
     @Override
     protected IItemProvider getBaseSeedId() {
-        return BlockItemInit.VESSEL_SEED.get();
+        return ItemInit.VESSEL_SEED.get();
     }
     @Override
     protected boolean rollReplant(){
@@ -89,7 +90,7 @@ public class VesselVineBlock extends RTSCropsBlock {
                         worldIn.setBlock(pos, this.nextAgeWithRotation(state,i+1), 2);
 
                         if (rollChance.roll(4)){
-                            BlockState blockState = BlockItemInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
+                            BlockState blockState = BlockInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
                             worldIn.setBlock(pos.below(),blockState,2);
                         }
                         else worldIn.setBlock(pos.below(), this.nextAgeWithRotation(state,0), 2);
@@ -116,7 +117,7 @@ public class VesselVineBlock extends RTSCropsBlock {
             world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
 
             if (rollChance.roll(4)){
-                BlockState blockState = BlockItemInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
+                BlockState blockState = BlockInit.VESSEL_SAC_BLOCK.get().defaultBlockState().setValue(ROTATION,state.getValue(ROTATION)).setValue(INFESTED,false);
                 world.setBlock(pos.below(),blockState,2);
             }
             else world.setBlock(pos.below(), this.nextAgeWithRotation(state,0), 2);

@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.common.tileentity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
@@ -16,10 +16,8 @@ import net.minecraft.state.IntegerProperty;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.Tags;
 
 import java.util.HashMap;
 
@@ -121,27 +119,27 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
         if (i < 5) return getCommonSeed();
         else if (i == 5) return getSpiritSeed();
         else if (i == 6) if (rollChance.roll(10)) return getAbyssSeed(); else return randomSeedResult();
-        else if (i < 46) return new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
-        else return new ItemStack(BlockItemInit.CRYSTAL_PLANT_SEED.get(),1);
+        else if (i < 46) return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);
+        else return new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get(),1);
     }
 
     private static ItemStack getCommonSeed(){
         HashMap<Integer,Item> seeds = new HashMap<>();
-        seeds.put(1,BlockItemInit.LILYPAD_LANTERN_SEED.get());
-        seeds.put(2,BlockItemInit.VESSEL_SEED.get());
+        seeds.put(1, ItemInit.LILYPAD_LANTERN_SEED.get());
+        seeds.put(2, ItemInit.VESSEL_SEED.get());
         return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
 
     private static ItemStack getSpiritSeed(){
         HashMap<Integer,Item> seeds = new HashMap<>();
-        seeds.put(1,BlockItemInit.ERMTHRUS_LANTERN_SEED.get());
-        seeds.put(2,BlockItemInit.WARDEN_PLANT_SEED.get());
+        seeds.put(1, ItemInit.ERMTHRUS_LANTERN_SEED.get());
+        seeds.put(2, ItemInit.WARDEN_PLANT_SEED.get());
         return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
 
     private static ItemStack getAbyssSeed(){
         HashMap<Integer,Item> seeds = new HashMap<>();
-        seeds.put(1,BlockItemInit.HEAVY_PLANT_SEED.get());
+        seeds.put(1, ItemInit.HEAVY_PLANT_SEED.get());
         return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
 

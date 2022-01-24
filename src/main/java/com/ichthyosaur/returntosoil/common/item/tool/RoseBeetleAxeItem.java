@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.item.tool;
 
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.Entity;
@@ -51,7 +52,7 @@ public class RoseBeetleAxeItem extends AxeItem {
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (this.itemTarget != null && this.itemTarget.isAlive()) {
 
-            double fuelSlot = rollChance.containsItem(BlockItemInit.ORIGIN_BERRY_ITEM.get(),player);
+            double fuelSlot = rollChance.containsItem(ItemInit.ORIGIN_BERRY_ITEM.get(),player);
 
             if (fuelSlot != 1000 && canUse) {
                 double movementMod = 0.6;

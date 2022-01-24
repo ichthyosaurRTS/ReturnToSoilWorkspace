@@ -2,9 +2,9 @@ package com.ichthyosaur.returntosoil.common.tileentity;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.container.RefinementBaAdvContainer;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,7 +13,6 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableTileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -73,12 +72,12 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
             if (this.progress>5000) {
                 this.progress=0;
 
-                if (top.sameItem(new ItemStack(BlockItemInit.ORIGIN_JAM_ITEM.get())) ) {
+                if (top.sameItem(new ItemStack(ItemInit.ORIGIN_JAM_ITEM.get())) ) {
 
 
                     top.shrink(1);
 
-                    ItemStack crystalSeed = new ItemStack(BlockItemInit.CRYSTAL_PLANT_SEED.get());
+                    ItemStack crystalSeed = new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get());
                     ItemStack result = RefinementBarrelTileEntity.randomSeedResult();
 
                     //assuming theres piping out, the bottom will probably be empty every time

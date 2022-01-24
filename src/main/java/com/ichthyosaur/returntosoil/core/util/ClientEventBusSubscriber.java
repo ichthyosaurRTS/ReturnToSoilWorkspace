@@ -4,7 +4,7 @@ import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.client.entity.renderer.*;
 import com.ichthyosaur.returntosoil.client.screen.RefinementBaAdvScreen;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
@@ -27,20 +27,20 @@ public class ClientEventBusSubscriber {
 
         ScreenManager.register(ContainerTypesInit.REFINEMENT_BA_ADV_CONTAINER_TYPE.get(), RefinementBaAdvScreen::new);
 
-        RenderTypeLookup.setRenderLayer(BlockItemInit.ORIGIN_BERRY_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.ORIGIN_BERRY_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.VESSEL_SAC_BLOCK.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.HEAVY_PLANT_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.HEAVY_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.WARDEN_PLANT_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.WARDEN_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.ERMTHRUS_LANTERN_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockItemInit.CRYSTAL_PLANT_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.ORIGIN_BERRY_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.ORIGIN_BERRY_POTTED_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.VESSEL_SAC_BLOCK.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlockInit.HEAVY_PLANT_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.HEAVY_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.WARDEN_PLANT_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.WARDEN_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.ERMTHRUS_LANTERN_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_BLOCK.get(), RenderType.cutout());
 
-        RenderTypeLookup.setRenderLayer(BlockItemInit.HOLDING_STAFF_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.HOLDING_STAFF_BLOCK.get(), RenderType.cutout());
         ClientRegistry.bindTileEntityRenderer(TileEntityTypesInit.HOLDING_STAFF_TILE_ENTITY_TYPE.get(), HoldingStaffTileEntityRenderer::new);
         
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntityRenderer::new);

@@ -3,7 +3,8 @@ package com.ichthyosaur.returntosoil.common.entity;
 import com.google.common.collect.Maps;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
@@ -107,8 +108,8 @@ public class JawBeetleEntity extends MonsterEntity {
 
     protected void dropCustomDeathLoot(DamageSource damage, int i, boolean bool) {
         super.dropCustomDeathLoot(damage, i, bool);
-        if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(BlockItemInit.ROSE_BEETLE_ITEM.get());
-        else if (this.entityData.get(COLOUR_INT) == 6 && rollChance.roll(2)) this.spawnAtLocation(BlockItemInit.GHOST_BEETLE_ITEM.get());
+        if (this.entityData.get(COLOUR_INT) == 0 && rollChance.roll(3)) this.spawnAtLocation(ItemInit.ROSE_BEETLE_ITEM.get());
+        else if (this.entityData.get(COLOUR_INT) == 6 && rollChance.roll(2)) this.spawnAtLocation(ItemInit.GHOST_BEETLE_ITEM.get());
     }
 
     @Override
@@ -142,7 +143,7 @@ public class JawBeetleEntity extends MonsterEntity {
     /*
     protected void dropFromLootTable(DamageSource dmgSource, boolean bool) {
         LootTable loottable = LootTable.lootTable().withPool(LootPool.lootPool()
-                .setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(BlockItemInit.roseBeetleItem)
+                .setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(ItemInit.roseBeetleItem)
                         .apply(SetCount.setCount(RandomValueRange.between(0.0F, 1.0F)))).when(KilledByPlayer.killedByPlayer())).build();
         LootContext.Builder lootcontext$builder = this.createLootContext(bool, dmgSource);
         LootContext ctx = lootcontext$builder.create(LootParameterSets.ENTITY);

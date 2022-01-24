@@ -1,32 +1,18 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
-import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
-import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootContext;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.ArrayList;
-import java.util.List;
 
 public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
@@ -41,7 +27,7 @@ public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
     @Override
     protected IItemProvider getBaseSeedId() {
-        return BlockItemInit.ORIGIN_BERRY_SEED.get();
+        return ItemInit.ORIGIN_BERRY_SEED.get();
     }
     @Override
     protected boolean rollReplant(){
@@ -53,11 +39,11 @@ public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
     }
     @Override
     protected Item getNonSeedDrop(){
-        return BlockItemInit.ORIGIN_BERRY_ITEM.get();
+        return ItemInit.ORIGIN_BERRY_ITEM.get();
     }
     @Override
     protected Item getSeed(){
-        return BlockItemInit.ORIGIN_BERRY_SEED.get();
+        return ItemInit.ORIGIN_BERRY_SEED.get();
     }
 
     public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
@@ -79,6 +65,6 @@ public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
     @Override
     public ItemStack getPotItem() {
-        return new ItemStack (BlockItemInit.ORIGIN_BERRY_POTTED_ITEM.get());
+        return new ItemStack (ItemInit.ORIGIN_BERRY_POTTED_ITEM.get());
     }
 }

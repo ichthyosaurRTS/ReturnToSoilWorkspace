@@ -1,19 +1,16 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
-import com.ichthyosaur.returntosoil.common.tileentity.IHoldsSpirit;
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
@@ -70,7 +67,7 @@ public class RefinementBarrelBlock extends Block {
         Item item = itemstack.getItem();
 
 
-        if (item == BlockItemInit.ORIGIN_JAM_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
+        if (item == ItemInit.ORIGIN_JAM_ITEM.get() && state.getValue(FUEL_LEVEL) < 4) {
 
             if (!world.isClientSide()) {
 
@@ -90,7 +87,7 @@ public class RefinementBarrelBlock extends Block {
 
         }
 
-        else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 4) {
+        else if (item == ItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 4) {
 
             if (!world.isClientSide()) {
 
@@ -112,7 +109,7 @@ public class RefinementBarrelBlock extends Block {
 
         }
 
-        else if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
+        else if (item == ItemInit.BOTTLED_SPIRIT_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
 
             if (!world.isClientSide()) {
             RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
@@ -124,7 +121,7 @@ public class RefinementBarrelBlock extends Block {
             return ActionResultType.SUCCESS;
         }
 
-        else if (item == BlockItemInit.VESSEL_SAC_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
+        else if (item == ItemInit.VESSEL_SAC_ITEM.get() && state.getValue(FUEL_LEVEL) == 5) {
 
             if (!world.isClientSide()) {
             int newFuelLevel = 6;
@@ -149,7 +146,7 @@ public class RefinementBarrelBlock extends Block {
                 BlockState news = state.setValue(FUEL_LEVEL, newFuelLevel);
                 world.setBlock(pos, news, 2);
                 itemstack.shrink(1);
-                Block.popResource(world, pos.above(), new ItemStack(BlockItemInit.MAGICAL_BLOOD_ITEM.get()));
+                Block.popResource(world, pos.above(), new ItemStack(ItemInit.MAGICAL_BLOOD_ITEM.get()));
 
                 RefinementBarrelTileEntity te = (RefinementBarrelTileEntity) world.getBlockEntity(pos);
                 te.resetProgress();

@@ -2,15 +2,13 @@ package com.ichthyosaur.returntosoil.common.block.functional;
 
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.tileentity.IHoldsSpirit;
-import com.ichthyosaur.returntosoil.common.tileentity.WardenPlantTileEntity;
-import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
+import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -34,7 +32,7 @@ public abstract class RTSPoweredPottedBlock extends RTSPottedBlock{
         Item item = itemstack.getItem();
         IHoldsSpirit te = (IHoldsSpirit) world.getBlockEntity(pos);
 
-        if (item == BlockItemInit.BOTTLED_SPIRIT_ITEM.get() && te.getSpiritLevel()<8000) {
+        if (item == ItemInit.BOTTLED_SPIRIT_ITEM.get() && te.getSpiritLevel()<8000) {
             itemstack.shrink(1);
             ItemStack returnDrop = new ItemStack(Items.GLASS_BOTTLE, 1);
             player.inventory.add(returnDrop);
