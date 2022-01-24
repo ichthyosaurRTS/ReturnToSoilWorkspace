@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "returntosoil:block/origin_berry/origin_berry_potted_0n",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "returntosoil:block/origin_berry/origin_berry_potted_0n",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "returntosoil:block/origin_berry/origin_berry_potted_0n",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "returntosoil:block/origin_berry/origin_berry_potted_0n",
+      "y": 270
+    }
+  }
+}

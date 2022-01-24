@@ -50,6 +50,10 @@ public class BlockItemInit {
             new BlockNamedItem(ORIGIN_BERRY_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> ORIGIN_JAM_ITEM = ITEMS.register("origin_jam_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Block> ORIGIN_BERRY_POTTED_BLOCK = BLOCKS.register("origin_berry_potted_block", () ->
+            new OriginBerryPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
+    public static final RegistryObject<Item> ORIGIN_BERRY_POTTED_ITEM = ITEMS.register("origin_berry_potted_item", () ->
+            new BlockItem(ORIGIN_BERRY_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Rarity Common (1) ----------------------------------------------------------------------
 

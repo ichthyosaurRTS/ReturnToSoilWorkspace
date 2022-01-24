@@ -18,11 +18,12 @@
   "item.returntosoil.heavy_plant_seed": "Heavy Seed",
   "item.returntosoil.heavy_plant_seed.desc": "It's hard to breathe",
 
+  "item.returntosoil.origin_berry_seed": "Origin Seed",
+  "block.returntosoil.origin_berry_block": "Origin Berry Crop",
+
   "entity.returntosoil.husk_larvae": "Husk Bug Larvae",
   "entity.returntosoil.jaw_beetle": "Jaw Beetle",
   "entity.returntosoil.nomad_snail": "Nomad Snail",
-  "item.returntosoil.origin_berry_seed": "Origin Berry Seed",
-  "block.returntosoil.origin_berry_block": "Origin Berry Crop",
   "entity.returntosoil.baru_garu": "Baru Garu",
   "item.returntosoil.origin_berry_item": "Origin Berry",
   "item.returntosoil.origin_jam_item": "Ori-Jam",
@@ -44,6 +45,7 @@
   "item.returntosoil.heavy_fruit_item": "Heavy Fruit",
   "item.returntosoil.heavy_fruit_item.desc": "Reminds you of a bowling ball",
 
+  "block.returntosoil.origin_berry_potted_block": "Origin Plant",
   "block.returntosoil.heavy_plant_potted_block": "Heavy Plant",
   "block.returntosoil.warden_plant_potted_block": "Warden Plant",
   "block.returntosoil.ermthrus_lantern_potted_block": "Ermthrus Lantern",

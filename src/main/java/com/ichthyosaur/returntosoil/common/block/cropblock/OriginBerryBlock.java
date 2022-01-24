@@ -10,10 +10,13 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootContext;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -25,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OriginBerryBlock extends RTSCropsBlock {
+public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
     //IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
     //BooleanProperty INFESTED = RTSMain.INFESTED;
@@ -36,30 +39,25 @@ public class OriginBerryBlock extends RTSCropsBlock {
         this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
     }
 
-    //Not sure whether I need this but it hasn't crashed yet...
-    /*public BlockState getStateForAge(int newAge) {
-        return this.defaultBlockState().setValue(AGE,newAge).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
-    }*/
-
-    @ParametersAreNonnullByDefault
-    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        List<ItemStack> drops = new ArrayList<>();
-
-        if (state.getValue(INFESTED)) return drops;
-
-        drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get()));
-
-        if (state.getValue(AGE)==7) {
-            drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get()));
-
-            if (rollChance.roll(4))
-                drops.add(new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get()));
-
-            //small gacha chance
-            else if (rollChance.roll(100))
-                drops.add(RefinementBarrelTileEntity.randomSeedResult());
-        }
-        return drops;
+    @Override
+    protected IItemProvider getBaseSeedId() {
+        return BlockItemInit.ORIGIN_BERRY_SEED.get();
+    }
+    @Override
+    protected boolean rollReplant(){
+        return true;
+    }
+    @Override
+    protected boolean useSeedDrop(){
+        return rollChance.roll(4);
+    }
+    @Override
+    protected Item getNonSeedDrop(){
+        return BlockItemInit.ORIGIN_BERRY_ITEM.get();
+    }
+    @Override
+    protected Item getSeed(){
+        return BlockItemInit.ORIGIN_BERRY_SEED.get();
     }
 
     public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
@@ -76,39 +74,11 @@ public class OriginBerryBlock extends RTSCropsBlock {
 
     private static void spawnBaruGaru(ServerWorld world, BlockPos pos) {
         BaruGaruEntity entity = EntityTypesInit.BARUGARU.get().create(world);
-        if (entity!=null) {
-            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
-            entity.finalizeSpawn(world, world.getCurrentDifficultyAt(pos), SpawnReason.NATURAL,null,null);
-            world.addFreshEntity(entity);
-        }
-        world.removeBlock(pos,false);
+        spawnMobEntity(world, pos, entity);
     }
 
-    // qol interact so you don't have to replant although that might be fun in its own way
-    @ParametersAreNonnullByDefault
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
-        if (state.getValue(AGE)!=7||state.getValue(INFESTED)) {
-            return ActionResultType.PASS;
-        }
-        else {
-
-            if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((p_225533_4_.getName().getString()), (int)rollChance.returnRoll(200));
-
-            if (rollChance.roll(4)) {
-                ItemStack randomDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_SEED.get(),1);
-                popResource(world, pos, randomDrops);
-            }
-            else if (rollChance.roll(100))
-                popResource(world, pos, RefinementBarrelTileEntity.randomSeedResult());
-
-            ItemStack definiteDrops = new ItemStack(BlockItemInit.ORIGIN_BERRY_ITEM.get(),1);
-            popResource(world, pos, definiteDrops);
-
-            p_225533_4_.playSound(SoundEvents.CROP_PLANTED,1 ,1);
-            world.setBlock(pos, this.nextAgeWithRotation(state,0), 2);
-
-            return ActionResultType.SUCCESS;
-        }
+    public ItemStack getPotItem() {
+        return new ItemStack (BlockItemInit.ORIGIN_BERRY_POTTED_ITEM.get());
     }
 }

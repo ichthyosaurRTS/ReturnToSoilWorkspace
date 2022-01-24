@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 import com.ichthyosaur.returntosoil.RTSMain;
 import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
@@ -17,12 +18,14 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -33,6 +36,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -53,56 +58,90 @@ public abstract class RTSCropsBlock extends CropsBlock {
         this.defaultBlockState().setValue(AGE,0).setValue(ROTATION, giveRotation()).setValue(INFESTED,false);
     }
 
-    // Provides a random rotation int of 0, 1, 2 or 3
+    protected boolean rollReplant(){
+        return true;
+    }
+    protected boolean useSeedDrop(){
+        return false;
+    }
+    protected Item getNonSeedDrop(){
+        return Items.WHEAT;
+    }
+    protected Item getSeed(){
+        return Items.WHEAT_SEEDS;
+    }
+
+    // to be changed to give facing
     public static Integer giveRotation() {
         Random rand = new Random();
         //ie from 0-3
         int i = rand.nextInt(4);
 
-        Logger.getLogger("setting rotation to "+i);
         return i;
     }
+
+
 
     @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 
-        if (this instanceof IPottable) {
-            if (state.getValue(AGE)==7&&!state.getValue(INFESTED))  {
-                ItemStack itemstack = player.getItemInHand(hand);
-                Item item = itemstack.getItem();
-                if (item == Items.FLOWER_POT) {
-                    itemstack.shrink(1);
-                    popResource(world, pos, ((IPottable) this).getPotItem());
-                    world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
-                    return ActionResultType.SUCCESS;
+        if (state.getValue(AGE)==7&&!state.getValue(INFESTED)) {
+
+            if (world.isClientSide()) player.playSound(SoundEvents.CROP_PLANTED,1 ,1);
+
+            if (!world.isClientSide()) {
+
+                if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((player.getName().getString()), (int)rollChance.returnRoll(200));
+
+                if (this instanceof IPottable)  {
+                    ItemStack itemstack = player.getItemInHand(hand);
+                    Item item = itemstack.getItem();
+                    if (item == Items.FLOWER_POT) {
+                        itemstack.shrink(1);
+                        popResource(world, pos, ((IPottable) this).getPotItem());
+                        world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
+                        return ActionResultType.SUCCESS;
+                    }
                 }
+                popResource(world, pos, new ItemStack(this.getNonSeedDrop()));
+                if (this.useSeedDrop()) popResource(world, pos, new ItemStack(this.getSeed()));
+
+                if (this.rollReplant()) world.setBlock(pos, this.nextAgeWithRotation(state,0), 2);
+                else world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
             }
+            //for the hand swing
+            return ActionResultType.SUCCESS;
         }
 
         return super.use(state, world, pos, player, hand, p_225533_6_);
     }
 
-    public BlockState nextAgeWithoutRotation(BlockState state, Integer newAge) {
-        boolean infested = state.getValue(INFESTED);
-        if (newAge==7&&rollChance.roll(40)) infested = true;
-        BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested); //
-        return block;
+    @ParametersAreNonnullByDefault
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+        List<ItemStack> drops = new ArrayList<>();
+
+        if (state.getValue(INFESTED)) return drops;
+
+        if (state.getValue(AGE)==7) {
+
+        if (this.rollReplant()) drops.add(new ItemStack(this.getSeed()));
+        drops.add(new ItemStack(this.getNonSeedDrop()));
+        if (this.useSeedDrop()) drops.add(new ItemStack(this.getSeed()));
+
+        if (rollChance.roll(100)) drops.add(RefinementBarrelTileEntity.randomSeedResult());
+        }
+
+        else drops.add(new ItemStack(this.getSeed()));
+
+        return drops;
     }
 
-    // Returns a new state with the same rotation and infestation but different age
     // This is where the infestation occurs, transitioning from 6-7
     public BlockState nextAgeWithRotation(BlockState state, Integer newAge) {
         boolean infested = state.getValue(INFESTED);
         if (newAge==7&&rollChance.roll(40)) infested = true; //normally 40
         BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested); //
         return block;
-    }
-
-    // From silverfish BlockModel
-    public static void spawnLarvae(ServerWorld p_235505_1_, BlockPos p_235505_2_) {
-        HuskLarvaeEntity huskLarvaeEntity = EntityTypesInit.HUSKLARVAE.get().create(p_235505_1_);
-        huskLarvaeEntity.moveTo((double)p_235505_2_.getX() + 0.5D, (double)p_235505_2_.getY(), (double)p_235505_2_.getZ() + 0.5D, 0.0F, 0.0F);
-        p_235505_1_.addFreshEntity(huskLarvaeEntity);
     }
 
     @ParametersAreNonnullByDefault
@@ -122,12 +161,12 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
     public static void spawnJawBeetle(ServerWorld world, BlockPos pos) {
         JawBeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
-        if (entity!=null) {
-            entity.moveTo((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
-            entity.setColourIntData();
-            world.addFreshEntity(entity);
-        }
-        world.removeBlock(pos,false);
+        spawnMobEntity(world, pos, entity);
+    }
+
+    public static void spawnLarvae(ServerWorld world, BlockPos pos) {
+        HuskLarvaeEntity entity = EntityTypesInit.HUSKLARVAE.get().create(world);
+        spawnMobEntity(world, pos, entity);
     }
 
     public static void spawnMobEntity(ServerWorld world, BlockPos pos, MobEntity entity) {
@@ -150,12 +189,14 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
     @ParametersAreNonnullByDefault
     public void growCrops(World world, BlockPos pos, BlockState state) {
+        if (!world.isClientSide()) {
         int i = this.getAge(state) + this.getBonemealAgeIncrease(world);
         int j = this.getMaxAge();
         if (i > j) {
             i = j;
         }
         world.setBlock(pos, this.nextAgeWithRotation(state,i), 2);
+    }
     }
 
     public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {

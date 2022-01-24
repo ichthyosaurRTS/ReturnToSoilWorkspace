@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
@@ -34,4 +35,24 @@ public class ErmthrusLanternBlock extends RTSCropsBlock implements IPottable{
         return new ItemStack(BlockItemInit.ERMTHRUS_LANTERN_POTTED_ITEM.get());
     }
 
+    @Override
+    protected IItemProvider getBaseSeedId() {
+        return BlockItemInit.ERMTHRUS_LANTERN_SEED.get();
+    }
+    @Override
+    protected boolean rollReplant(){
+        return false;
+    }
+    @Override
+    protected boolean useSeedDrop(){
+        return false;
+    }
+    @Override
+    protected Item getNonSeedDrop(){
+        return BlockItemInit.ORIGIN_BERRY_SEED.get();
+    }
+    @Override
+    protected Item getSeed(){
+        return BlockItemInit.ERMTHRUS_LANTERN_SEED.get();
+    }
 }

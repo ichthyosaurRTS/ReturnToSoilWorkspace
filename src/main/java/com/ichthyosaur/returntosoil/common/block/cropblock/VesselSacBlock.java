@@ -3,13 +3,20 @@ package com.ichthyosaur.returntosoil.common.block.cropblock;
 import com.ichthyosaur.returntosoil.core.init.BlockItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -36,14 +43,31 @@ public class VesselSacBlock extends RTSCropsBlock {
         VesselVineBlock.removeAbove(p_220062_2_,p_220062_3_);
     }
 
-    @ParametersAreNonnullByDefault
-    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        List<ItemStack> drops = new ArrayList<>();
+    @Override
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
+        if (world.getBlockState(pos.above()).getBlock() instanceof VesselVineBlock && !world.isClientSide()) VesselVineBlock.removeAbove((ServerWorld) world, pos);
+        return super.use(state, world, pos, player, hand, p_225533_6_);
+    }
 
-        if (state.getValue(AGE)==7) {
-            drops.add(new ItemStack(BlockItemInit.VESSEL_SAC_ITEM.get()));
-        }
-        return drops;
+    @Override
+    protected IItemProvider getBaseSeedId() {
+        return BlockItemInit.VESSEL_SEED.get();
+    }
+    @Override
+    protected boolean rollReplant(){
+        return false;
+    }
+    @Override
+    protected boolean useSeedDrop(){
+        return false;
+    }
+    @Override
+    protected Item getNonSeedDrop(){
+        return BlockItemInit.VESSEL_SAC_ITEM.get();
+    }
+    @Override
+    protected Item getSeed(){
+        return BlockItemInit.VESSEL_SEED.get();
     }
 
 

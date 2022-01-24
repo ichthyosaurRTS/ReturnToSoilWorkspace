@@ -10,6 +10,7 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.LootContext;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
@@ -23,14 +24,25 @@ public class WardenPlantBlock extends RTSCropsBlock implements IPottable{
         super(p_i48421_1_);
     }
 
-    @ParametersAreNonnullByDefault
-    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        List<ItemStack> drops = new ArrayList<>();
-
-        if (state.getValue(AGE)==7&&!state.getValue(INFESTED)) {
-            drops.add(new ItemStack(BlockItemInit.GLASSY_EYEBALL_ITEM.get()));
-        }
-        return drops;
+    @Override
+    protected IItemProvider getBaseSeedId() {
+        return BlockItemInit.WARDEN_PLANT_SEED.get();
+    }
+    @Override
+    protected boolean rollReplant(){
+        return false;
+    }
+    @Override
+    protected boolean useSeedDrop(){
+        return false;
+    }
+    @Override
+    protected Item getNonSeedDrop(){
+        return BlockItemInit.GLASSY_EYEBALL_ITEM.get();
+    }
+    @Override
+    protected Item getSeed(){
+        return BlockItemInit.WARDEN_PLANT_SEED.get();
     }
 
     @Override

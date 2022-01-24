@@ -19,10 +19,7 @@ import net.minecraft.loot.LootContext;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -63,17 +60,30 @@ public class LilypadLanternBlock extends RTSCropsBlock{
         else return super.canSurvive(state,worldReader,pos);
     }
 
-    @ParametersAreNonnullByDefault
-    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        List<ItemStack> drops = new ArrayList<>();
 
-        if (state.getValue(AGE)==7&&!state.getValue(INFESTED)) {
-            drops.add(new ItemStack(BlockItemInit.LILYPAD_FLOWER_ITEM.get()));
-        }
-        return drops;
+    @Override
+    protected IItemProvider getBaseSeedId() {
+        return BlockItemInit.LILYPAD_LANTERN_SEED.get();
+    }
+    @Override
+    protected boolean rollReplant(){
+        return false;
+    }
+    @Override
+    protected boolean useSeedDrop(){
+        return false;
+    }
+    @Override
+    protected Item getNonSeedDrop(){
+        return BlockItemInit.LILYPAD_FLOWER_ITEM.get();
+    }
+    @Override
+    protected Item getSeed(){
+        return BlockItemInit.LILYPAD_LANTERN_SEED.get();
     }
 
 
+    @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
         if (state.getValue(AGE)!=6) {
             return ActionResultType.PASS;
