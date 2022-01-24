@@ -11,7 +11,7 @@ TODO
 
 1  Coral crop + jellyfish
 
-1  lilypad redesign
+1  lilypad redesign m
 
 1  dragonfly bright layer
 
