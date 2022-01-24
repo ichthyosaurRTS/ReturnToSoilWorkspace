@@ -5,13 +5,14 @@ import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 
-public class CrystalPlantBlock extends RTSCropsBlock{
+public class CrystalPlantBlock extends RTSCropsBlock implements IPottable{
     public CrystalPlantBlock(Properties p_i48421_1_) {
         super(p_i48421_1_);
     }
@@ -46,4 +47,8 @@ public class CrystalPlantBlock extends RTSCropsBlock{
     }
 
 
+    @Override
+    public ItemStack getPotItem() {
+        return new ItemStack(ItemInit.CRYSTAL_PLANT_POTTED_ITEM.get());
+    }
 }

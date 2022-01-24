@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "returntosoil:block/crystal_plant/crystal_plant_potted_0n",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "returntosoil:block/crystal_plant/crystal_plant_potted_0n",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "returntosoil:block/crystal_plant/crystal_plant_potted_0n",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "returntosoil:block/crystal_plant/crystal_plant_potted_0n",
+      "y": 270
+    }
+  }
+}

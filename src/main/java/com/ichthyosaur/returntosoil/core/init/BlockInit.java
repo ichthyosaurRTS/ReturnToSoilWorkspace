@@ -35,6 +35,8 @@ public class BlockInit {
     //crystal plant
     public static final RegistryObject<Block> CRYSTAL_PLANT_BLOCK = BLOCKS.register("crystal_plant_block", () ->
             new CrystalPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.BAMBOO)));
+    public static final RegistryObject<Block> CRYSTAL_PLANT_POTTED_BLOCK = BLOCKS.register("crystal_plant_potted_block", () ->
+            new CrystalPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
 
     //lily lantern
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
@@ -78,10 +80,10 @@ public class BlockInit {
 
     //Refinement Barrel
     public static final RegistryObject<Block> REFINEMENT_BARREL_BLOCK = BLOCKS.register("refinement_barrel_block", () ->
-            new RefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).strength(1.0F)));
+            new RefinementBarrelBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).strength(0.3F)));
 
     public static final RegistryObject<Block> REFINEMENT_BARREL_ADV_BLOCK = BLOCKS.register("refinement_barrel_adv_block", () ->
-            new RefinementBarrelAdvBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).strength(1.0F)));
+            new RefinementBarrelAdvBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).strength(0.3F)));
 
     //HoldingStaff
     public static final RegistryObject<Block> HOLDING_STAFF_BLOCK = BLOCKS.register("holding_staff_block", () ->

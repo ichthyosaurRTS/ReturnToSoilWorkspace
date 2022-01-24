@@ -39,6 +39,7 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(BlockInit.ERMTHRUS_LANTERN_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_BLOCK.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
 
         RenderTypeLookup.setRenderLayer(BlockInit.HOLDING_STAFF_BLOCK.get(), RenderType.cutout());
         ClientRegistry.bindTileEntityRenderer(TileEntityTypesInit.HOLDING_STAFF_TILE_ENTITY_TYPE.get(), HoldingStaffTileEntityRenderer::new);
