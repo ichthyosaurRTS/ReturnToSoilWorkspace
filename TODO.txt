@@ -9,7 +9,7 @@ TODO
 
 1  adv barrel blockstates, auto add stack rather than opening menu
 
-1  Crystal 0-6, drops, seed, crystal redesign (more gems?) entire model redesign
+1  Crystal 0-6, drops, seed, crystal redesign (more gems?) entire model redesign, new name eg cerulean leaf, change drop to leaf?
 
 1  Coral crop + jellyfish
 

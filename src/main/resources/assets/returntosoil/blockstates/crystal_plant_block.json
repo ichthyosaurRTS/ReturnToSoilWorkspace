@@ -97,19 +97,19 @@
       "y": 0
     },
     "age=6,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_6n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_6n",
       "y": 180
     },
     "age=6,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_6n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_6n",
       "y": 90
     },
     "age=6,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_6n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_6n",
       "y": 270
     },
     "age=6,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_6n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_6n",
       "y": 0
     },
     "age=7,infested=true,rotation=3": {
