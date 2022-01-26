@@ -31,7 +31,7 @@ public class CrystalPlantBlock extends RTSCropsBlock implements IPottable{
     }
     @Override
     protected Item getNonSeedDrop(){
-        return ItemInit.SPIRIT_CRYSTAL_ITEM.get();
+        return ItemInit.SPIRIT_LEAF_ITEM.get();
     }
     @Override
     protected Item getSeed(){

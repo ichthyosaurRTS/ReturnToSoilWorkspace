@@ -55,8 +55,11 @@ public class ItemInit {
             new RTSDescBNItem(BlockInit.CRYSTAL_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
     public static final RegistryObject<Item> SPIRIT_CRYSTAL_ITEM = ITEMS.register("spirit_crystal_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> SPIRIT_LEAF_ITEM = ITEMS.register("spirit_leaf_item", () ->
+            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> CRYSTAL_PLANT_POTTED_ITEM = ITEMS.register("crystal_plant_potted_item", () ->
             new BlockItem(BlockInit.CRYSTAL_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
 
     //Lily lantern
     public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () ->
