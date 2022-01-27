@@ -34,11 +34,16 @@ public class TotemStalkBlock extends BushBlock {
         super(p_i48440_1_);
     }
 
-    protected static final VoxelShape SHAPE = Block.box(4.0D, 1.0D, 4.0D, 12.0D, 15.0D, 12.0D);
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 1.0D, 4.0D, 8.0D, 14.0D, 8.0D);
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE;
+        int rot = state.getValue(ROTATION);
+        if (rot == 2) return Block.box(4.0D, 0.0D, 4.0D, 10.0D, 16.0D, 10.0D);
+        if (rot == 1) return Block.box(4.0D, 0.0D, 8.0D, 10.0D, 16.0D, 14.0D);
+        if (rot == 3) return Block.box(8.0D, 0.0D, 8.0D, 14.0D, 16.0D, 14.0D);
+        else return Block.box(8.0D, 0.0D, 4.0D, 14.0D, 16.0D, 10.0D);
     }
+
 
     @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
