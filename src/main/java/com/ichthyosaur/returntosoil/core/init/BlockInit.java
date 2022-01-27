@@ -47,7 +47,7 @@ public class BlockInit {
 
     //totem stalk
     public static final RegistryObject<Block> TOTEM_STALK_BLOCK = BLOCKS.register("totem_stalk_block", () ->
-            new TotemStalkBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.COLOR_BROWN).randomTicks().instabreak().sound(SoundType.BAMBOO).lightLevel(ageTwoEmission(6))));
+            new TotemStalkBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.COLOR_BROWN).randomTicks().instabreak().sound(SoundType.WOOD).lightLevel(ageTwoEmission(10))));
 
     //ermthrus lantern
     public static final RegistryObject<Block> ERMTHRUS_LANTERN_BLOCK = BLOCKS.register("ermthrus_lantern_block", () ->
@@ -116,7 +116,7 @@ public class BlockInit {
     }
     private static ToIntFunction<BlockState> ageTwoEmission(int lightLevel) {
         return (state) -> {
-            return state.getValue(BlockStateProperties.AGE_2)==2 ? lightLevel : 0;
+            return state.getValue(ReturnToSoil.AGE_6)==3 ? lightLevel : 0;
         };
     }
     private static ToIntFunction<BlockState> lit(int lightLevel) {

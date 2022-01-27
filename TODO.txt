@@ -5,7 +5,8 @@ TODO
 
 1  Rotation 0-15 to 0-3
 
-1  Totem stalk make thicker
+1  Totem stalk more variations to trunk? maybe big flat leaves at top or mid? possum house?, fungus is good. keep it neutral,
+some segment to cap it off and produce a different height for each ie if its at max height a 2/3 chance of capping it off
 
 1  check who has priority: centi armour or cultivation def bonus
 

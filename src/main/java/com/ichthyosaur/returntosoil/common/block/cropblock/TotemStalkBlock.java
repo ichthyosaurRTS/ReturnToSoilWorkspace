@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class TotemStalkBlock extends BushBlock {
 
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
+    public static final IntegerProperty AGE = ReturnToSoil.AGE_6;
     public static final IntegerProperty ROTATION = ReturnToSoil.ROTATION_4;
     public static final BooleanProperty INFESTED = ReturnToSoil.INFESTED;
 
@@ -48,28 +48,34 @@ public class TotemStalkBlock extends BushBlock {
     // just tick all the time for now
     @Override
     public boolean isRandomlyTicking(BlockState state) {
-        return true;
+        return state.getValue(AGE) < 3;
     }
 
     @ParametersAreNonnullByDefault
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
         if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
         if (state.getValue(INFESTED)) {}
-        if (state.getValue(AGE)==0 && !(canGrowUp(worldIn, pos))){}
-        else if (state.getValue(AGE)<2 && rollChance.roll(5)){
-            if (state.getValue(AGE)==1 && canGrowUp(worldIn, pos))
-                worldIn.setBlock(pos.above(), this.getNextState(state, true), 2);
 
-            worldIn.setBlock(pos, this.getNextState(state, false), 2);
-            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-
-
+        if (state.getValue(AGE)==0 && !(canGrowUp(worldIn, pos))) {return;}
+        else if (state.getValue(AGE)==0 && canGrowUp(worldIn, pos)) worldIn.setBlock(pos, this.getNextState(state, false), 2);
+        else if (state.getValue(AGE)==1 && canGrowUp(worldIn, pos)) {
+            worldIn.setBlock(pos.above(), state.setValue(AGE, 0), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 2), 2);
         }
-        else if (state.getValue(AGE)==2 && canGrowUp(worldIn, pos) && rollChance.roll(5)) {
-            worldIn.setBlock(pos.above(), this.getNextState(state, true), 2);
-        }
+        else if (state.getValue(AGE)==2) {
+            if (canGrowUp(worldIn, pos)) worldIn.setBlock(pos.above(), this.getNextState(state, true), 2);
+            else if (grownTotemSurrounds(worldIn, pos) && rollChance.roll(10)) {
+                worldIn.setBlock(pos, state.setValue(AGE, 3), 2);
+            }
+            else if (rollChance.roll(8)) worldIn.setBlock(pos, state.setValue(AGE, 5), 2);
+            else worldIn.setBlock(pos, state.setValue(AGE, 4), 2);}
+    }
 
-
+    private boolean grownTotemSurrounds(ServerWorld worldIn, BlockPos pos){
+        if (worldIn.getBlockState(pos.above()).getBlock() instanceof TotemStalkBlock &&
+                worldIn.getBlockState(pos.below()).getBlock() instanceof TotemStalkBlock)
+            return worldIn.getBlockState(pos.above()).getValue(AGE) > 3 && worldIn.getBlockState(pos.below()).getValue(AGE) == 4;
+        return false;
     }
 
     private boolean canGrowUp(ServerWorld worldIn, BlockPos pos){
@@ -78,7 +84,7 @@ public class TotemStalkBlock extends BushBlock {
     }
 
     private boolean atMaxHeight(ServerWorld worldIn, BlockPos pos) {
-        for (int i=0;i<14;i++) {
+        for (int i=0;i<10;i++) {
             if (!(worldIn.getBlockState(pos.below(i)).getBlock() instanceof TotemStalkBlock)) return false;
         }
         return true;
@@ -90,7 +96,7 @@ public class TotemStalkBlock extends BushBlock {
 
         boolean infested = state.getValue(INFESTED);
         int newAge = state.getValue(AGE)+1;
-        if (newAge==2&& rollChance.roll(40)) infested = true;
+        if (newAge==4&& rollChance.roll(40)) infested = true;
         BlockState block = state.setValue(AGE, newAge).setValue(INFESTED,infested);
         return block;
     }
@@ -103,28 +109,13 @@ public class TotemStalkBlock extends BushBlock {
     @Override
     public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
         Block below = p_196260_2_.getBlockState(p_196260_3_.below()).getBlock();
-        return (below.is(Blocks.GRASS_BLOCK)||below.is(Blocks.DIRT)||
-                below instanceof  TotemStalkBlock && p_196260_2_.getBlockState(p_196260_3_.below()).getValue(AGE)==2);
+        if (below instanceof AirBlock) return false;
+        else return (below.is(Blocks.GRASS_BLOCK)||below.is(Blocks.DIRT)||
+                below instanceof  TotemStalkBlock && p_196260_2_.getBlockState(p_196260_3_.below()).getValue(AGE)>1);
     }
 
     public boolean propagatesSkylightDown(BlockState p_200123_1_, IBlockReader p_200123_2_, BlockPos p_200123_3_) {
         return true;
     }
-
-    /*@ParametersAreNonnullByDefault
-    public void spawnAfterBreak(BlockState p_220062_1_, ServerWorld p_220062_2_, BlockPos p_220062_3_, ItemStack p_220062_4_) {
-        breakAbove(p_220062_2_,p_220062_3_);
-    }*/
-
-    /*public static void breakAbove(ServerWorld worldIn_, BlockPos pos) {
-        BlockPos abovePos = pos.above();
-        BlockState above = worldIn_.getBlockState(abovePos);
-        if (above.getBlock() instanceof TotemStalkBlock) {
-            worldIn_.destroyBlock(abovePos, true);
-
-            if (worldIn_.getBlockState(abovePos.above()).getBlock() instanceof TotemStalkBlock)
-                breakAbove(worldIn_,pos.above());
-        }
-    }*/
 
 }
