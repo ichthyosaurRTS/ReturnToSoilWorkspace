@@ -3,7 +3,9 @@ TODO
 
 0  All base plants and base infested mobs first! Then we add whatever fun shit we want.
 
-1  Rotation 0-15 to Facing
+1  Rotation 0-15 to 0-3
+
+1  Totem stalk make thicker
 
 1  check who has priority: centi armour or cultivation def bonus
 

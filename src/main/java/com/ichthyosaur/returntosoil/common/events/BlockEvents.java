@@ -2,6 +2,7 @@ package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
+import com.ichthyosaur.returntosoil.common.block.cropblock.TotemStalkBlock;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -20,10 +21,11 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Random;
+
 @Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockEvents {
 
-    private static final IntegerProperty COOL_DOWN = ReturnToSoil.COOL_DOWN;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final IntegerProperty FUEL_LEVEL = ReturnToSoil.FUEL_LEVEL;
 

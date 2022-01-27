@@ -45,6 +45,10 @@ public class BlockInit {
 
     //Rarity Spirit (2)----------------------------------------------------------------------
 
+    //totem stalk
+    public static final RegistryObject<Block> TOTEM_STALK_BLOCK = BLOCKS.register("totem_stalk_block", () ->
+            new TotemStalkBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.COLOR_BROWN).randomTicks().instabreak().sound(SoundType.BAMBOO).lightLevel(ageTwoEmission(6))));
+
     //ermthrus lantern
     public static final RegistryObject<Block> ERMTHRUS_LANTERN_BLOCK = BLOCKS.register("ermthrus_lantern_block", () ->
             new ErmthrusLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
@@ -108,6 +112,11 @@ public class BlockInit {
     private static ToIntFunction<BlockState> ageSixEmission(int lightLevel) {
         return (state) -> {
             return state.getValue(BlockStateProperties.AGE_7)==6 ? lightLevel : 0;
+        };
+    }
+    private static ToIntFunction<BlockState> ageTwoEmission(int lightLevel) {
+        return (state) -> {
+            return state.getValue(BlockStateProperties.AGE_2)==2 ? lightLevel : 0;
         };
     }
     private static ToIntFunction<BlockState> lit(int lightLevel) {

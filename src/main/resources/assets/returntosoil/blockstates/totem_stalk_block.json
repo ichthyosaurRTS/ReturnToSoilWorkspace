@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0,rotation=3": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_0n",
+      "y": 180
+    },
+    "age=0,rotation=0": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_0n",
+      "y": 90
+    },
+    "age=0,rotation=1": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_0n",
+      "y": 270
+    },
+    "age=0,rotation=2": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_0n",
+      "y": 0
+    },
+    "age=1,rotation=3": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_1n",
+      "y": 180
+    },
+    "age=1,rotation=0": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_1n",
+      "y": 90
+    },
+    "age=1,rotation=1": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_1n",
+      "y": 270
+    },
+    "age=1,rotation=2": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_1n",
+      "y": 0
+    },
+    "age=2,rotation=3": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_2n",
+      "y": 180
+    },
+    "age=2,rotation=0": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_2n",
+      "y": 90
+    },
+    "age=2,rotation=1": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_2n",
+      "y": 270
+    },
+    "age=2,rotation=2": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_2n",
+      "y": 0
+    }
+  }
+}

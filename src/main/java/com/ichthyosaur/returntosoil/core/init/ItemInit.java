@@ -69,6 +69,10 @@ public class ItemInit {
 
     //Rarity Spirit (2)-------------------------------------------------------------------------------------------------
 
+    //Totem stalk
+    public static final RegistryObject<Item> TOTEM_SHOOT_ITEM = ITEMS.register("totem_shoot_item", () ->
+            new RTSDescBNItem(BlockInit.TOTEM_STALK_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
+
     //Ermthrus Lantern
     public static final RegistryObject<Item> ERMTHRUS_LANTERN_SEED = ITEMS.register("ermthrus_lantern_seed", () ->
             new RTSDescBNItem(BlockInit.ERMTHRUS_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));

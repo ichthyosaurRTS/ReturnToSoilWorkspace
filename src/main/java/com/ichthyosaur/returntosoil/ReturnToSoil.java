@@ -26,7 +26,7 @@ public class ReturnToSoil
     //Who knows where this goes...
     public static final BooleanProperty INFESTED = BooleanProperty.create("infested");
     public static final IntegerProperty FUEL_LEVEL = IntegerProperty.create("fuel_level",0,7);
-    public static final IntegerProperty COOL_DOWN = IntegerProperty.create("cool_down",0,60);
+    public static final IntegerProperty ROTATION_4 = IntegerProperty.create("rotation", 0, 3);
 
     public ReturnToSoil() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
