@@ -111,6 +111,22 @@
     "age=6,rotation=2": {
       "model": "returntosoil:block/totem_stalk/totem_stalk_6n",
       "y": 0
+    },
+    "age=7,rotation=3": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_7n",
+      "y": 180
+    },
+    "age=7,rotation=0": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_7n",
+      "y": 90
+    },
+    "age=7,rotation=1": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_7n",
+      "y": 270
+    },
+    "age=7,rotation=2": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_7n",
+      "y": 0
     }
   }
 }

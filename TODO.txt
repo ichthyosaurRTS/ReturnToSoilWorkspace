@@ -5,13 +5,7 @@ TODO
 
 1  Rotation 0-15 to 0-3
 
-1  Totem stalk more variations to trunk? maybe big flat leaves at top or mid? possum house?, fungus is good. keep it neutral,
-some segment to cap it off and produce a different height for each ie if its at max height a 2/3 chance of capping it off,
-probably use an age rather than infested since itll be easier...
-Eggs and hatched eggs state- i guess age 7 infested and not infested
-Bonemeal a stump to get a new growth on top
-Line up the bamboo shapes
-Rename totem stalk to something
+1  Totem stalk eggs, big shrooms, top redesign(not a tree!), stump bonemeal, shape
 
 1  check who has priority: centi armour or cultivation def bonus
 

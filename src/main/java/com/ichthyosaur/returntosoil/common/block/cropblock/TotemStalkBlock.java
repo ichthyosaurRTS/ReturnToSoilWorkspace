@@ -25,7 +25,7 @@ import java.util.Random;
 //an ancient plant similar to bamboo. Sometimes mysterious things grow on it.
 public class TotemStalkBlock extends BushBlock {
 
-    public static final IntegerProperty AGE = ReturnToSoil.AGE_7;
+    public static final IntegerProperty AGE = ReturnToSoil.AGE_8;
     public static final IntegerProperty ROTATION = ReturnToSoil.ROTATION_4;
     public static final BooleanProperty INFESTED = ReturnToSoil.INFESTED;
 
@@ -62,7 +62,8 @@ public class TotemStalkBlock extends BushBlock {
         if (state.getValue(INFESTED)) {}
 
         if (state.getValue(AGE)==0 && !(canGrowUp(worldIn, pos))) {
-            if (rollChance.roll(2)) worldIn.setBlock(pos, state.setValue(AGE, 6), 2);
+            if (rollChance.roll(3)) worldIn.setBlock(pos, state.setValue(AGE, 6), 2);
+            else if (rollChance.roll(3)) worldIn.setBlock(pos, state.setValue(AGE, 7), 2);
             else worldIn.setBlock(pos, this.getNextState(state, false), 2);
         }
         else if (state.getValue(AGE)==0) worldIn.setBlock(pos, this.getNextState(state, false), 2);
@@ -73,7 +74,8 @@ public class TotemStalkBlock extends BushBlock {
         else if (state.getValue(AGE)==2) {
             if (canGrowUp(worldIn, pos)) worldIn.setBlock(pos.above(), this.getNextState(state, true), 2);
             else if (grownTotemSurrounds(worldIn, pos) && rollChance.roll(10)) {
-                worldIn.setBlock(pos, state.setValue(AGE, 3), 2);
+                if (rollChance.roll(10)) worldIn.setBlock(pos, state.setValue(AGE, 3), 2);
+                else worldIn.setBlock(pos, state.setValue(AGE, 4), 2);
             }
             else if (rollChance.roll(8)) worldIn.setBlock(pos, state.setValue(AGE, 5), 2);
             else worldIn.setBlock(pos, state.setValue(AGE, 4), 2);}
