@@ -116,7 +116,7 @@ public class BlockInit {
     }
     private static ToIntFunction<BlockState> ageTwoEmission(int lightLevel) {
         return (state) -> {
-            return state.getValue(ReturnToSoil.AGE_6)==3 ? lightLevel : 0;
+            return state.getValue(ReturnToSoil.AGE_7)==3 ? lightLevel : 0;
         };
     }
     private static ToIntFunction<BlockState> lit(int lightLevel) {

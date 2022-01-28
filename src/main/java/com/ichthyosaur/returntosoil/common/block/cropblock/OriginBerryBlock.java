@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.server.ServerWorld;
 
+//the beginning of many things, forgotten to the world.
 public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
     //IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;

@@ -22,10 +22,10 @@ import net.minecraftforge.common.IPlantable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-
+//an ancient plant similar to bamboo. Sometimes mysterious things grow on it.
 public class TotemStalkBlock extends BushBlock {
 
-    public static final IntegerProperty AGE = ReturnToSoil.AGE_6;
+    public static final IntegerProperty AGE = ReturnToSoil.AGE_7;
     public static final IntegerProperty ROTATION = ReturnToSoil.ROTATION_4;
     public static final BooleanProperty INFESTED = ReturnToSoil.INFESTED;
 
@@ -61,9 +61,12 @@ public class TotemStalkBlock extends BushBlock {
         if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
         if (state.getValue(INFESTED)) {}
 
-        if (state.getValue(AGE)==0 && !(canGrowUp(worldIn, pos))) {return;}
-        else if (state.getValue(AGE)==0 && canGrowUp(worldIn, pos)) worldIn.setBlock(pos, this.getNextState(state, false), 2);
-        else if (state.getValue(AGE)==1 && canGrowUp(worldIn, pos)) {
+        if (state.getValue(AGE)==0 && !(canGrowUp(worldIn, pos))) {
+            if (rollChance.roll(2)) worldIn.setBlock(pos, state.setValue(AGE, 6), 2);
+            else worldIn.setBlock(pos, this.getNextState(state, false), 2);
+        }
+        else if (state.getValue(AGE)==0) worldIn.setBlock(pos, this.getNextState(state, false), 2);
+        else if (state.getValue(AGE)==1) {
             worldIn.setBlock(pos.above(), state.setValue(AGE, 0), 2);
             worldIn.setBlock(pos, state.setValue(AGE, 2), 2);
         }

@@ -95,6 +95,22 @@
     "age=5,rotation=2": {
       "model": "returntosoil:block/totem_stalk/totem_stalk_5n",
       "y": 0
+    },
+    "age=6,rotation=3": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_6n",
+      "y": 180
+    },
+    "age=6,rotation=0": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_6n",
+      "y": 90
+    },
+    "age=6,rotation=1": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_6n",
+      "y": 270
+    },
+    "age=6,rotation=2": {
+      "model": "returntosoil:block/totem_stalk/totem_stalk_6n",
+      "y": 0
     }
   }
 }
