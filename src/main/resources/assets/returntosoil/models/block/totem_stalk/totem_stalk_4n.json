@@ -1,0 +1,42 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"6": "returntosoil:blocks/totem_stalk/totem_stalk_4n",
+		"particle": "returntosoil:blocks/totem_stalk/tot"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [7, 16, 7],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 16], "texture": "#6"},
+				"east": {"uv": [0, 0, 3, 16], "texture": "#6"},
+				"south": {"uv": [0, 0, 3, 16], "texture": "#6"},
+				"west": {"uv": [0, 0, 3, 16], "texture": "#6"},
+				"up": {"uv": [15, 3, 12, 0], "texture": "#6"},
+				"down": {"uv": [15, 3, 12, 6], "texture": "#6"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "a",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "stem",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0]
+				},
+				{
+					"name": "glow",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": []
+				}
+			]
+		}
+	]
+}
