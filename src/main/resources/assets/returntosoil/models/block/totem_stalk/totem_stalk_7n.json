@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"9": "returntosoil:blocks/totem_stalk/totem_stalk_7n",
-		"particle": "block/texture"
+		"particle": "returntosoil:blocks/totem_stalk/tot"
 	},
 	"elements": [
 		{

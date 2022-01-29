@@ -116,19 +116,13 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
     public static ItemStack randomSeedResult() {
 
         int i = (int) rollChance.returnRoll(100);
-        if (i < 5) return getRandomSeed();
-        else if (i < 30) return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);
-        else return new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get(),1);
-    }
+        if (i == 1) return new ItemStack(ItemInit.VESSEL_SEED.get());  //1%
+        else if (i < 7) return new ItemStack(ItemInit.TOTEM_SHOOT_ITEM.get()); //5%
+        else if (i < 22) return new ItemStack(ItemInit.LILYPAD_LANTERN_SEED.get()); //15%
+        else if (i < 62) return new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get(),1); //40%
+        else return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);// 39%
 
-    private static ItemStack getRandomSeed(){
-        HashMap<Integer,Item> seeds = new HashMap<>();
-        seeds.put(1, ItemInit.LILYPAD_LANTERN_SEED.get());
-        seeds.put(2, ItemInit.VESSEL_SEED.get());
-        seeds.put(3, ItemInit.TOTEM_SHOOT_ITEM.get());
-        return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
-
 
     private Item randomItem(int count){
         Item item = Item.byId((int)rollChance.returnRoll(3000));

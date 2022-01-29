@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"7": "returntosoil:blocks/totem_stalk/totem_stalk_6n",
-		"particle": "block/texture"
+		"particle": "returntosoil:blocks/totem_stalk/tot"
 	},
 	"elements": [
 		{

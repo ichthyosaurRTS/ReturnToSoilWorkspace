@@ -46,7 +46,7 @@ public class BlockInit {
 
     //totem stalk
     public static final RegistryObject<Block> TOTEM_STALK_BLOCK = BLOCKS.register("totem_stalk_block", () ->
-            new TotemStalkBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.COLOR_BROWN).randomTicks().strength(0.5F).sound(SoundType.WOOD).lightLevel(ageTwoEmission(10))));
+            new TotemStalkBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.COLOR_BROWN).randomTicks().strength(0.5F).noCollission().sound(SoundType.WOOD).lightLevel(ageTwoEmission(10))));
 
     public static final RegistryObject<Block> WARDEN_PLANT_POTTED_BLOCK = BLOCKS.register("warden_plant_potted_block", () ->
             new WardenPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(6))));

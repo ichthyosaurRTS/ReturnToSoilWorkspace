@@ -1,10 +1,14 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
+import com.ichthyosaur.returntosoil.core.config.RTSConfig;
+import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.loot.LootContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
@@ -20,6 +24,8 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 //an ancient plant similar to bamboo. Sometimes mysterious things grow on it.
@@ -53,7 +59,17 @@ public class TotemStalkBlock extends BushBlock {
     // just tick all the time for now
     @Override
     public boolean isRandomlyTicking(BlockState state) {
+        if (state.getValue(AGE)==7) return true;
         return state.getValue(AGE) < 3;
+    }
+
+    @Override
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder p_220076_2_) {
+        List<ItemStack> drops = new ArrayList<>();
+        if (state.getValue(AGE) == 3) drops.add(new ItemStack(Items.ENDER_PEARL));
+        else if (state.getValue(AGE)==8) drops.add(new ItemStack (Items.EGG));
+        else if (state.getValue(AGE)>3) drops.add(new ItemStack (Items.STICK));
+        return drops;
     }
 
     @ParametersAreNonnullByDefault
@@ -79,6 +95,11 @@ public class TotemStalkBlock extends BushBlock {
             }
             else if (rollChance.roll(8)) worldIn.setBlock(pos, state.setValue(AGE, 5), 2);
             else worldIn.setBlock(pos, state.setValue(AGE, 4), 2);}
+
+        else if (state.getValue(AGE)==7 && rollChance.roll(3)) {
+            RTSCropsBlock.spawnMobEntity(worldIn, pos, EntityTypesInit.DRAGONFLY.get().create(worldIn));
+            worldIn.setBlock(pos, state.setValue(AGE, 6), 2);
+        }
     }
 
     private boolean grownTotemSurrounds(ServerWorld worldIn, BlockPos pos){
