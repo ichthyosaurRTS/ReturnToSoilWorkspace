@@ -13,7 +13,7 @@ TODO
 
 1  Crystal 0-6, drops, seed, crystal redesign (more gems?) entire model redesign, new name eg cerulean leaf, change drop to leaf?
 
-1  Coral crop + jellyfish
+1  jellyfish on lantern?
 
 1  lilypad redesign m
 
@@ -23,13 +23,11 @@ TODO
 
 1  check for whether children of head are following behind or not- if not, kill and rebuild
 
-1  Soundtype for crystal plant
+1  Dragonfly only one wing, name change to pygmy dragon or smthn
 
-1  crumpled plant from infested hatching
+1  Spirits/sprites
 
 
-2  Heavy plant 0-6, potted
-2  Hand movement when using potted plants
 2  Does o berry potted use work on server?
 2  Composter crop + mob
 2  upside down void crop
