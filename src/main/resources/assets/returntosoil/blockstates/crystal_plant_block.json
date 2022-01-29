@@ -1,99 +1,99 @@
 {
   "variants": {
     "age=0,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_0n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_0n",
       "y": 180
     },
     "age=0,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_0n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_0n",
       "y": 90
     },
     "age=0,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_0n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_0n",
       "y": 270
     },
     "age=0,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_0n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_0n",
       "y": 0
     },
     "age=1,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_1n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_1n",
       "y": 180
     },
     "age=1,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_1n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_1n",
       "y": 90
     },
     "age=1,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_1n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_1n",
       "y": 270
     },
     "age=1,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_1n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_1n",
       "y": 0
     },
     "age=2,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_2n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_2n",
       "y": 180
     },
     "age=2,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_2n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_2n",
       "y": 90
     },
     "age=2,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_2n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_2n",
       "y": 270
     },
     "age=2,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_2n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_2n",
       "y": 0
     },
     "age=3,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_3n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_3n",
       "y": 180
     },
     "age=3,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_3n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_3n",
       "y": 90
     },
     "age=3,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_3n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_3n",
       "y": 270
     },
     "age=3,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_3n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_3n",
       "y": 0
     },
     "age=4,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_4n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_4n",
       "y": 180
     },
     "age=4,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_4n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_4n",
       "y": 90
     },
     "age=4,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_4n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_4n",
       "y": 270
     },
     "age=4,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_4n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_4n",
       "y": 0
     },
     "age=5,rotation=3": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_5n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_5n",
       "y": 180
     },
     "age=5,rotation=0": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_5n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_5n",
       "y": 90
     },
     "age=5,rotation=1": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_5n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_5n",
       "y": 270
     },
     "age=5,rotation=2": {
-      "model": "returntosoil:block/heavy_plant/heavy_plant_5n",
+      "model": "returntosoil:block/crystal_plant/crystal_plant_5n",
       "y": 0
     },
     "age=6,rotation=3": {
