@@ -63,6 +63,7 @@ public class TotemStalkBlock extends BushBlock {
 
         if (state.getValue(AGE)==0 && !(canGrowUp(worldIn, pos))) {
             if (rollChance.roll(2)) worldIn.setBlock(pos, state.setValue(AGE, 6), 2);
+            else if (rollChance.roll(10)) worldIn.setBlock(pos, state.setValue(AGE, 7), 2);
             else worldIn.setBlock(pos, this.getNextState(state, false), 2);
         }
         else if (state.getValue(AGE)==0) worldIn.setBlock(pos, this.getNextState(state, false), 2);
