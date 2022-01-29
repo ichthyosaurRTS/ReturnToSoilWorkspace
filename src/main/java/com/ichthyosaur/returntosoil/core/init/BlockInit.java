@@ -30,7 +30,7 @@ public class BlockInit {
     public static final RegistryObject<Block> ORIGIN_BERRY_POTTED_BLOCK = BLOCKS.register("origin_berry_potted_block", () ->
             new OriginBerryPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD)));
 
-    //Rarity Common (1) ----------------------------------------------------------------------
+    //Common ----------------------------------------------------------------------
 
     //crystal plant
     public static final RegistryObject<Block> CRYSTAL_PLANT_BLOCK = BLOCKS.register("crystal_plant_block", () ->
@@ -42,36 +42,14 @@ public class BlockInit {
     public static final RegistryObject<Block> LILYPAD_LANTERN_BLOCK = BLOCKS.register("lilypad_lantern_block", () ->
             new LilypadLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP).lightLevel(ageSixEmission(12))));
 
-
-    //Rarity Spirit (2)----------------------------------------------------------------------
+    //Dragon
 
     //totem stalk
     public static final RegistryObject<Block> TOTEM_STALK_BLOCK = BLOCKS.register("totem_stalk_block", () ->
             new TotemStalkBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.COLOR_BROWN).randomTicks().strength(0.5F).sound(SoundType.WOOD).lightLevel(ageTwoEmission(10))));
 
-    //ermthrus lantern
-    public static final RegistryObject<Block> ERMTHRUS_LANTERN_BLOCK = BLOCKS.register("ermthrus_lantern_block", () ->
-            new ErmthrusLanternBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Block> ERMTHRUS_LANTERN_POTTED_BLOCK = BLOCKS.register("ermthrus_lantern_potted_block", () ->
-            new ErmthrusLanternPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks().lightLevel(notZeroFuelEmission(15))));
-
-    //warden plant
-    public static final RegistryObject<Block> WARDEN_PLANT_BLOCK = BLOCKS.register("warden_plant_block", () ->
-            new WardenPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
     public static final RegistryObject<Block> WARDEN_PLANT_POTTED_BLOCK = BLOCKS.register("warden_plant_potted_block", () ->
             new WardenPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(6))));
-
-    //cerulean coral
-    public static final RegistryObject<Block> CERULEAN_CORAL_POTTED_BLOCK = BLOCKS.register("cerulean_coral_potted_block", () ->
-            new CeruleanCoralPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).lightLevel(notZeroFuelEmission(4))));
-
-    //Rarity Abyss (3)-----------------------------------------------------------------------
-
-    //Heavy plant
-    public static final RegistryObject<Block> HEAVY_PLANT_BLOCK = BLOCKS.register("heavy_plant_block", () ->
-            new HeavyPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
-    public static final RegistryObject<Block> HEAVY_PLANT_POTTED_BLOCK = BLOCKS.register("heavy_plant_potted_block", () ->
-            new HeavyPlantPottedBlock(AbstractBlock.Properties.of(Material.BAMBOO, MaterialColor.GRASS).sound(SoundType.WOOD).randomTicks().lightLevel(lit(3))));
 
     //Rarity Dark (-)
     //Vessel crop

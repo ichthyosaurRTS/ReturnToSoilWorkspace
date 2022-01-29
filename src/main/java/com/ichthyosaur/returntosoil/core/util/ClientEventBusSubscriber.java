@@ -32,12 +32,7 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(BlockInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.VESSEL_SAC_BLOCK.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(BlockInit.HEAVY_PLANT_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.HEAVY_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.WARDEN_PLANT_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.WARDEN_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.ERMTHRUS_LANTERN_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.TOTEM_STALK_BLOCK.get(), RenderType.cutout());

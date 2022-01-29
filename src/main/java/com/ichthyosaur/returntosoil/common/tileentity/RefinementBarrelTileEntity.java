@@ -116,30 +116,16 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
     public static ItemStack randomSeedResult() {
 
         int i = (int) rollChance.returnRoll(100);
-        if (i < 5) return getCommonSeed();
-        else if (i == 5) return getSpiritSeed();
-        else if (i == 6) if (rollChance.roll(10)) return getAbyssSeed(); else return randomSeedResult();
-        else if (i < 46) return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);
+        if (i < 5) return getRandomSeed();
+        else if (i < 30) return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);
         else return new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get(),1);
     }
 
-    private static ItemStack getCommonSeed(){
+    private static ItemStack getRandomSeed(){
         HashMap<Integer,Item> seeds = new HashMap<>();
         seeds.put(1, ItemInit.LILYPAD_LANTERN_SEED.get());
         seeds.put(2, ItemInit.VESSEL_SEED.get());
-        return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
-    }
-
-    private static ItemStack getSpiritSeed(){
-        HashMap<Integer,Item> seeds = new HashMap<>();
-        seeds.put(1, ItemInit.ERMTHRUS_LANTERN_SEED.get());
-        seeds.put(2, ItemInit.WARDEN_PLANT_SEED.get());
-        return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
-    }
-
-    private static ItemStack getAbyssSeed(){
-        HashMap<Integer,Item> seeds = new HashMap<>();
-        seeds.put(1, ItemInit.HEAVY_PLANT_SEED.get());
+        seeds.put(3, ItemInit.TOTEM_SHOOT_ITEM.get());
         return new ItemStack(seeds.get((int)rollChance.returnRoll(seeds.size())),1);
     }
 

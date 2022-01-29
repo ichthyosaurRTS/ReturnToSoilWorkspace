@@ -1,6 +1,4 @@
 {
-  "item.returntosoil.husk_bug_meat_item": "Husk Bug Meat",
-
   "item.returntosoil.lilypad_lantern_seed": "Lilypad Lantern Seed",
   "item.returntosoil.lilypad_lantern_seed.desc": "Grows on water",
   "item.returntosoil.vessel_seed": "Vessel Seed",
@@ -8,18 +6,12 @@
 
   "item.returntosoil.totem_shoot_item": "Totem Shoot",
 
-  "item.returntosoil.ermthrus_lantern_seed": "Ermthrus Seed",
-  "item.returntosoil.ermthrus_lantern_seed.desc": "It glows dimly",
-  "item.returntosoil.warden_plant_seed": "Warden Seed",
   "item.returntosoil.warden_plant_seed.desc": "You feel it watching you",
 
   "item.returntosoil.crystal_plant_seed": "Crystal Seed",
   "item.returntosoil.crystal_plant_seed.desc": "Shiny",
   "item.returntosoil.spirit_crystal_item": "Spirit Crystal",
   "item.returntosoil.spirit_leaf_item": "Spirit Leaf",
-
-  "item.returntosoil.heavy_plant_seed": "Heavy Seed",
-  "item.returntosoil.heavy_plant_seed.desc": "It's hard to breathe",
 
   "item.returntosoil.origin_berry_seed": "Origin Seed",
   "block.returntosoil.origin_berry_block": "Origin Berry Crop",
@@ -28,15 +20,12 @@
 
   "entity.returntosoil.husk_larvae": "Husk Bug Larvae",
   "entity.returntosoil.jaw_beetle": "Jaw Beetle",
-  "entity.returntosoil.nomad_snail": "Nomad Snail",
   "entity.returntosoil.baru_garu": "Baru Garu",
   "entity.returntosoil.baru_garu_segment": "Baru Garu Segment",
-  "entity.returntosoil.ball_frog": "Ball Frog",
   "item.returntosoil.rose_beetle_item": "Rose Beetle",
   "item.returntosoil.cooked_beetle_item": "Cooked Beetle",
   "item.returntosoil.ghost_beetle_item": "Ghost Beetle",
   "itemGroup.returntosoil": "Return To Soil",
-  "item.returntosoil.rose_beetle_axe": "Rose Beetle Axe",
   "item.returntosoil.abyss_scalpel": "Abyss Scalpel",
 
   "entity.returntosoil.general_flying_segment": "Body Part",
@@ -45,22 +34,16 @@
   "item.returntosoil.lilypad_flower_item": "Small Flower",
   "item.returntosoil.glassy_eyeball_item": "Glassy Eyeball",
   "item.returntosoil.glassy_eyeball_item.desc": "It's dead",
-  "item.returntosoil.heavy_fruit_item": "Heavy Fruit",
-  "item.returntosoil.heavy_fruit_item.desc": "Reminds you of a bowling ball",
 
   "block.returntosoil.origin_berry_potted_block": "Origin Plant",
   "block.returntosoil.crystal_plant_potted_block": "Crystal Plant",
-  "block.returntosoil.heavy_plant_potted_block": "Heavy Plant",
   "block.returntosoil.warden_plant_potted_block": "Warden Plant",
-  "block.returntosoil.ermthrus_lantern_potted_block": "Ermthrus Lantern",
-  "block.returntosoil.cerulean_coral_potted_block": "Cerulean Coral",
 
   "block.returntosoil.refinement_barrel_block": "Refinement Barrel",
   "block.returntosoil.refinement_barrel_adv_block": "Advanced Refinement Barrel",
 
   "entity.returntosoil.warra_rupe_head": "Warra Rupe",
   "item.returntosoil.holding_staff_item": "Holding Staff",
-  "item.returntosoil.block": "test armour",
 
   "item.returntosoil.vessel_sac_item": "Vessel Sac",
   "item.returntosoil.vessel_sac_item.desc": "A faint heartbeat",

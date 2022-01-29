@@ -9,7 +9,6 @@ import com.ichthyosaur.returntosoil.common.item.abst.RTSItemTier;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
-import com.ichthyosaur.returntosoil.common.item.tool.RoseBeetleAxeItem;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
@@ -67,39 +66,19 @@ public class ItemInit {
     public static final RegistryObject<Item> LILYPAD_FLOWER_ITEM = ITEMS.register("lilypad_flower_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //Rarity Spirit (2)-------------------------------------------------------------------------------------------------
+    //Dragon-------------------------------------------------------------------------------------------------
 
     //Totem stalk
     public static final RegistryObject<Item> TOTEM_SHOOT_ITEM = ITEMS.register("totem_shoot_item", () ->
             new RTSDescBNItem(BlockInit.TOTEM_STALK_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
 
-    //Ermthrus Lantern
-    public static final RegistryObject<Item> ERMTHRUS_LANTERN_SEED = ITEMS.register("ermthrus_lantern_seed", () ->
-            new RTSDescBNItem(BlockInit.ERMTHRUS_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
-    public static final RegistryObject<Item> ERMTHRUS_LANTERN_POTTED_ITEM = ITEMS.register("ermthrus_lantern_potted_item", () ->
-            new BlockItem(BlockInit.ERMTHRUS_LANTERN_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //Warden Plant
-    public static final RegistryObject<Item> WARDEN_PLANT_SEED = ITEMS.register("warden_plant_seed", () ->
-            new RTSDescBNItem(BlockInit.WARDEN_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
     public static final RegistryObject<Item> WARDEN_PLANT_POTTED_ITEM = ITEMS.register("warden_plant_potted_item", () ->
             new BlockItem(BlockInit.WARDEN_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> GLASSY_EYEBALL_ITEM = ITEMS.register("glassy_eyeball_item", () ->
             new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
 
-    //Cerulean coral
-    public static final RegistryObject<Item> CERULEAN_CORAL_POTTED_ITEM = ITEMS.register("cerulean_coral_potted_item", () ->
-            new BlockItem(BlockInit.CERULEAN_CORAL_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
-    //Rarity Abyss (3)--------------------------------------------------------------------------------------------------
-
-    //Heavy Plant
-    public static final RegistryObject<Item> HEAVY_PLANT_SEED = ITEMS.register("heavy_plant_seed", () ->
-            new RTSDescBNItem(BlockInit.HEAVY_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),abyss));
-    public static final RegistryObject<Item> HEAVY_PLANT_POTTED_ITEM = ITEMS.register("heavy_plant_potted_item", () ->
-            new BlockItem(BlockInit.HEAVY_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Item> HEAVY_FRUIT_ITEM = ITEMS.register("heavy_fruit_item", () ->
-            new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
 
     //Rarity Dark (-) --------------------------------------------------------------------------------------------------
 
@@ -140,8 +119,7 @@ public class ItemInit {
     public static final RegistryObject<Item> BEETLE_BACKPACK_ITEM = ITEMS.register("beetle_backpack_item", () ->
             new BeetleBackpack(RTSArmorMaterial.BEETLEBACKPACK, EquipmentSlotType.CHEST, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
 
-    public static final RegistryObject<Item> ROSE_BEETLE_AXE = ITEMS.register("rose_beetle_axe", () ->
-            new RoseBeetleAxeItem(RTSItemTier.ROSE_BEETLE, 2.5F, 1.0F, (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
     public static final RegistryObject<Item> GHOST_BEETLE_ITEM = ITEMS.register("ghost_beetle_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
