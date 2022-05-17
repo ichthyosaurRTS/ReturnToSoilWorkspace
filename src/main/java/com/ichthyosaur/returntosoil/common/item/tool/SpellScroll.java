@@ -1,6 +1,10 @@
 package com.ichthyosaur.returntosoil.common.item.tool;
 
+import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
+import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.Block;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
@@ -18,10 +22,10 @@ public class SpellScroll extends AbstractSpellTool{
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
-        ItemStack scroll = player.getItemInHand(hand);
-        float spell = this.getSpell(scroll);
-        if (spell > 3) player.setDeltaMovement(player.getDeltaMovement().add(0,5,0));
-        else this.setSpell(scroll,spell+1);
+        SpellEntity entity = EntityTypesInit.SPELL.get().create(world);
+        entity.moveTo((double)player.getX() + 0.25D, (double)player.getY()+1.6D, (double)player.getZ() + 0.25D, 0.0F, 0.0F);
+        world.addFreshEntity(entity);
+        entity.setDeltaMovement(player.getLookAngle());
 
         return ActionResult.success(player.getItemInHand(hand));
     }

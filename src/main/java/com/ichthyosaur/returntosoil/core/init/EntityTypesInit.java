@@ -59,4 +59,9 @@ public class EntityTypesInit {
                     .sized(0.4f,0.4f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "gawan_head").toString()));
 
+    public static final RegistryObject<EntityType<SpellEntity>> SPELL = ENTITY_TYPES.register("spell",
+            () -> EntityType.Builder.of(SpellEntity::new, EntityClassification.MISC)
+                    .sized(0.4f,0.4f)
+                    .build(new ResourceLocation(ReturnToSoil.MOD_ID, "spell").toString()));
+
 }
