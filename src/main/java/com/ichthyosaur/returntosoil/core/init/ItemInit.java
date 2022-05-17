@@ -9,6 +9,7 @@ import com.ichthyosaur.returntosoil.common.item.abst.RTSItemTier;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
 import com.ichthyosaur.returntosoil.common.item.tool.AbyssScalpelItem;
+import com.ichthyosaur.returntosoil.common.item.tool.SpellScroll;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
@@ -140,4 +141,8 @@ public class ItemInit {
     //Holding staff
     public static final RegistryObject<Item> HOLDING_STAFF_ITEM = ITEMS.register("holding_staff_item", () ->
             new BlockNamedItem(BlockInit.HOLDING_STAFF_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+
+    //Holding staff
+    public static final RegistryObject<SpellScroll> SPELL_SCROLL_ITEM = ITEMS.register("spell_scroll_item", () ->
+            new SpellScroll(1.0F, 1.0F, RTSItemTier.ABYSS_SCRAPINGS, Sets.newHashSet(), (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 }
