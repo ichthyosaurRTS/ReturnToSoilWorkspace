@@ -1,7 +1,6 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -28,15 +27,16 @@ public class SpellEntity extends AbstractSpellEntity{
         int animTick = this.entityData.get(ANIMATION_TICK);
         int animNextTick;
         if (animTick > 1000) animNextTick = 0;
-        else animNextTick = animTick+1;
+        else animNextTick = animTick + 1;
         this.entityData.set(ANIMATION_TICK, animNextTick);
 
-        super.tick();
-    }
 
-    @Override
-    public void lerpMotion(double p_70016_1_, double p_70016_3_, double p_70016_5_) {
+        super.tick();
+
+
     }
 }
+
+
 
 

@@ -25,7 +25,9 @@ public class SpellScroll extends AbstractSpellTool{
         SpellEntity entity = EntityTypesInit.SPELL.get().create(world);
         entity.moveTo((double)player.getX() + 0.25D, (double)player.getY()+1.6D, (double)player.getZ() + 0.25D, 0.0F, 0.0F);
         world.addFreshEntity(entity);
-        entity.setDeltaMovement(player.getLookAngle());
+        //entity.setDeltaMovement(player.getLookAngle());
+        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.0F, 1.0F);
+
 
         return ActionResult.success(player.getItemInHand(hand));
     }

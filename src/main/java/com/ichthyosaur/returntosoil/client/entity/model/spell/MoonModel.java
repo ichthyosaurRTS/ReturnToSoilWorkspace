@@ -29,8 +29,8 @@ public class MoonModel<T extends SpellEntity> extends EntityModel<T> {
     public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
         bone.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
         //this.bone.yRot = (float) (this.bone.yRot+0.1);
-        this.bone.yRot = (float) 1.56;
-        this.bone.xRot = (float) (this.bone.xRot+0.1);
+        //this.bone.yRot = (float) 1.56;
+        //this.bone.xRot = (float) (this.bone.xRot+0.1);
     }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
