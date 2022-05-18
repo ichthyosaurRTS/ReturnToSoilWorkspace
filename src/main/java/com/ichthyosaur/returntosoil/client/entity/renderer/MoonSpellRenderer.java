@@ -36,14 +36,16 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
     public void render(SpellEntity p_225623_1_, float p_225623_2_, float p_225623_3_, MatrixStack p_225623_4_, IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
         p_225623_4_.pushPose();
 
-        /*float f = MathHelper.rotlerp(p_225623_1_.yRotO, p_225623_1_.yRot+10, p_225623_3_);
-        float f1 = MathHelper.lerp(p_225623_3_, -0.78F, p_225623_1_.xRot);
-        this.model.setupAnim(0.0F, f, f1);
+        //float f = MathHelper.rotlerp(p_225623_1_.yRotO, p_225623_1_.yRot, p_225623_3_);
+        //float f1 = MathHelper.lerp(p_225623_3_, -0.78F, p_225623_1_.xRot);
+        //this.model.setupAnim(0.0F, f, f1);
+        //works, with degrees!
         //p_225623_4_.mulPose(Vector3f.YP.rotationDegrees(90F));
         //p_225623_4_.mulPose(Vector3f.ZP.rotationDegrees(90F));
-        */
 
-        this.model.setupAnim(0,1,p_225623_1_.getXRot());
+        //also works with degrees!
+        //this.model.setupAnim(0,90,90);
+        this.model.setupAnim(0,p_225623_1_.getYRot(),p_225623_1_.getXRot());
 
         IVertexBuilder ivertexbuilder = net.minecraft.client.renderer.ItemRenderer.getFoilBufferDirect(p_225623_5_, this.model.renderType(this.getTextureLocation(p_225623_1_)), false,true);
         this.model.renderToBuffer(p_225623_4_, ivertexbuilder, p_225623_6_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);

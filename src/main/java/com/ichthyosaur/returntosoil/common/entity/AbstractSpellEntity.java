@@ -45,6 +45,6 @@ public abstract class AbstractSpellEntity extends DamagingProjectileEntity {
     }
 
     public float getBrightness() {
-        return 5.0F;
+        return 3.0F;
     }
 }

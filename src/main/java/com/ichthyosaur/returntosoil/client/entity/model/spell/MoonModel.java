@@ -65,7 +65,7 @@ public class MoonModel<T extends SpellEntity> extends EntityModel<T> {
 
     public void setupAnim(float p_225603_1_, float p_225603_2_, float p_225603_3_) {
         this.bone.yRot = p_225603_2_ * ((float)Math.PI / 180F);
-        this.bone.xRot = p_225603_3_ * ((float)Math.PI / 180F);
+        this.bone.xRot = (-p_225603_3_+45) * ((float)Math.PI / 180F);
     }
 
     @Override

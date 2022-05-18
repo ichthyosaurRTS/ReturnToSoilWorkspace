@@ -27,8 +27,16 @@ public class SpellScroll extends AbstractSpellTool{
 
 
         SpellEntity entity = EntityTypesInit.SPELL.get().create(world);
-        entity.xRot = (float) (player.getViewXRot(1.0F)*Math.PI/180);
-        entity.yRot = (float) (player.getViewYRot(1.0F)*Math.PI/180);
+        //entity.xRot = (float) (player.getViewXRot(1.0F)*Math.PI/180);
+        //entity.yRot = (float) (player.getViewYRot(1.0F)*Math.PI/180);
+
+        //-90 up, 90 down
+        //ReturnToSoil.LOGGER.info(player.getViewXRot(1));
+        //0 to -360
+        ReturnToSoil.LOGGER.info(player.getViewYRot(1));
+
+        entity.setYRot((int)-(player.getViewYRot(1)));
+        entity.setXRot((int)-(player.getViewXRot(1)));
 
         //int xRoot = player.getLookAngle().y
         //1.6 height is eye

@@ -13,6 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class SpellEntity extends AbstractSpellEntity{
 
     private static final DataParameter<Integer> ANIMATION_TICK = EntityDataManager.defineId(SpellEntity.class, DataSerializers.INT);
+    private static final DataParameter<Integer> Y_ROT = EntityDataManager.defineId(SpellEntity.class, DataSerializers.INT);
     private static final DataParameter<Integer> X_ROT = EntityDataManager.defineId(SpellEntity.class, DataSerializers.INT);
 
     public SpellEntity(EntityType<? extends AbstractSpellEntity> p_i48546_1_, World p_i48546_2_) {
@@ -23,11 +24,15 @@ public class SpellEntity extends AbstractSpellEntity{
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ANIMATION_TICK,0);
+        this.entityData.define(Y_ROT,0);
         this.entityData.define(X_ROT,0);
     }
 
     public int getAnimTick(){return this.entityData.get(ANIMATION_TICK);}
+    public int getYRot(){return this.entityData.get(Y_ROT);}
+    public void setYRot(int num){this.entityData.set(Y_ROT, num);}
     public int getXRot(){return this.entityData.get(X_ROT);}
+    public void setXRot(int num){this.entityData.set(X_ROT, num);}
 
     @Override
     public void tick() {
@@ -36,8 +41,6 @@ public class SpellEntity extends AbstractSpellEntity{
         if (animTick > 1000) animNextTick = 0;
         else animNextTick = animTick + 1;
         this.entityData.set(ANIMATION_TICK, animNextTick);
-
-        this.entityData.set(X_ROT, (int)this.xRot);
 
         super.tick();
 
