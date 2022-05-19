@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.client.entity.model.spell;
 
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
+import com.ichthyosaur.returntosoil.core.util.rollChance;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -64,8 +65,9 @@ public class MoonModel<T extends SpellEntity> extends EntityModel<T> {
     }
 
     public void setupAnim(float p_225603_1_, float p_225603_2_, float p_225603_3_) {
-        this.bone.yRot = p_225603_2_ * ((float)Math.PI / 180F);
-        this.bone.xRot = (-p_225603_3_+45) * ((float)Math.PI / 180F);
+        //SWORD POINTS EXACT WRONG DIRECTION w/o circle swap
+        this.bone.yRot = rollChance.getCircleDegrees((int)p_225603_2_-180) * ((float)Math.PI / 180F);
+        this.bone.xRot = (p_225603_3_+45) * ((float)Math.PI / 180F);
     }
 
     @Override

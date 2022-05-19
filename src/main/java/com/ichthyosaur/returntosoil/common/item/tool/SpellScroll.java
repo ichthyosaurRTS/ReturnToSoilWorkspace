@@ -33,7 +33,7 @@ public class SpellScroll extends AbstractSpellTool{
         //-90 up, 90 down
         //ReturnToSoil.LOGGER.info(player.getViewXRot(1));
         //0 to -360
-        ReturnToSoil.LOGGER.info(player.getViewYRot(1));
+        //ReturnToSoil.LOGGER.info(player.getViewYRot(1));
 
         entity.setYRot((int)-(player.getViewYRot(1)));
         entity.setXRot((int)-(player.getViewXRot(1)));
@@ -43,7 +43,7 @@ public class SpellScroll extends AbstractSpellTool{
         entity.moveTo((double)player.getX() + 0D, (double)player.getY()+1.5D, (double)player.getZ() + 0D, 0.0F, 0.0F);
         world.addFreshEntity(entity);
         //entity.setDeltaMovement(player.getLookAngle());
-        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 4.0F, 1.0F);
+        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.0F, 1.0F);
 
 
         return ActionResult.success(player.getItemInHand(hand));

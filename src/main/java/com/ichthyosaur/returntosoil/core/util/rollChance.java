@@ -41,4 +41,10 @@ public class rollChance {
         return returnList;
     }
 
+    public static int getCircleDegrees(int origDeg) {
+        if (origDeg > 360) return origDeg-360;
+        if (origDeg < 0) return origDeg+360;
+        return origDeg;
+    }
+
 }

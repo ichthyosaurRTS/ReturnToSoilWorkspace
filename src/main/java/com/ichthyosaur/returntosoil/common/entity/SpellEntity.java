@@ -1,5 +1,6 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
+import com.ichthyosaur.returntosoil.ReturnToSoil;
 import net.minecraft.entity.EntityType;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -42,8 +43,9 @@ public class SpellEntity extends AbstractSpellEntity{
         else animNextTick = animTick + 1;
         this.entityData.set(ANIMATION_TICK, animNextTick);
 
-        super.tick();
+        if (this.tickCount>200) this.remove(false);
 
+        super.tick();
 
     }
 
