@@ -2,9 +2,12 @@ package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
@@ -37,18 +40,30 @@ public class SpellEntity extends AbstractSpellEntity{
 
     @Override
     public void tick() {
-        /*int animTick = this.entityData.get(ANIMATION_TICK);
+        int animTick = this.entityData.get(ANIMATION_TICK);
         int animNextTick;
         if (animTick > 1000) animNextTick = 0;
         else animNextTick = animTick + 1;
-        this.entityData.set(ANIMATION_TICK, animNextTick);*/
+        this.entityData.set(ANIMATION_TICK, animNextTick);
 
         if (this.tickCount>200) this.remove(false);
+
+        /*if (this.level.isClientSide())
+        this.level.addParticle(ParticleTypes.FLAME,
+                this.getX(), this.getY()+0.2, this.getZ(), 0.0D, 0.0D, 0.0D);*/
 
         super.tick();
 
     }
 
+    @Override
+    protected float getInertia() {
+        return 1.0F;
+    }
+
+    protected IParticleData getTrailParticle() {
+        return ParticleTypes.INSTANT_EFFECT;
+    }
 }
 
 

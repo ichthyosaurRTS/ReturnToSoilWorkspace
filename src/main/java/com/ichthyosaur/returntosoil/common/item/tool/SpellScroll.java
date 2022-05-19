@@ -10,6 +10,7 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -45,6 +46,7 @@ public class SpellScroll extends AbstractSpellTool{
         //entity.setDeltaMovement(player.getLookAngle());
         entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 0.5F, 1.0F);
         world.addFreshEntity(entity);
+
 
         return ActionResult.success(player.getItemInHand(hand));
     }

@@ -50,6 +50,9 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
         //we have to rotate/scale the matrix before we render the model/item!
 
         p_225623_4_.pushPose();
+
+        p_225623_4_.translate(0,0,0);
+
         p_225623_4_.scale(2.0F, 2.0F, 2.0F);
 
         p_225623_4_.mulPose(Vector3f.YP.rotationDegrees(
@@ -59,6 +62,8 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
         p_225623_4_.mulPose(Vector3f.ZP.rotationDegrees(
                 p_225623_1_.getXRot()-45
         ));
+
+
 
         //spins forward
         //p_225623_4_.mulPose(Vector3f.ZP.rotationDegrees(-5*p_225623_1_.tickCount));
@@ -75,6 +80,7 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
         */
 
         p_225623_4_.popPose();
+
 
 
 

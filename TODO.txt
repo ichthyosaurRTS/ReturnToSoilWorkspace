@@ -25,6 +25,10 @@ TODO
 
 1  spells rotate thru textures to spin?
 
+1  either use a different proj class or design some particles that are invisible and disappear instantly to use as trails
+
+1  particles
+
 
 2  Multiblock spell crafting system
 2  Does o berry potted use work on server?

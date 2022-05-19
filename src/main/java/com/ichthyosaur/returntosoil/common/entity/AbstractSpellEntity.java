@@ -31,18 +31,12 @@ public abstract class AbstractSpellEntity extends DamagingProjectileEntity {
     protected boolean shouldBurn() {
         return false;
     }
-    protected IParticleData getTrailParticle() {
-        return ParticleTypes.UNDERWATER;
-    }
+
 
     protected void onHit(RayTraceResult p_70227_1_) {
         this.remove(false);
     }
 
-    @Override
-    protected float getInertia() {
-        return 1.0F;
-    }
 
     public float getBrightness() {
         return 1.0F;
