@@ -40,11 +40,11 @@ public class SpellScroll extends AbstractSpellTool{
 
         //int xRoot = player.getLookAngle().y
         //1.6 height is eye
-        entity.moveTo((double)player.getX() + 0D, (double)player.getY()+1.5D, (double)player.getZ() + 0D, 0.0F, 0.0F);
-        world.addFreshEntity(entity);
-        //entity.setDeltaMovement(player.getLookAngle());
-        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.0F, 1.0F);
+        entity.moveTo((double)player.getX() + 0D, (double)player.getY()+1.4D, (double)player.getZ() + 0D, 0.0F, 0.0F);
 
+        //entity.setDeltaMovement(player.getLookAngle());
+        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 0.5F, 1.0F);
+        world.addFreshEntity(entity);
 
         return ActionResult.success(player.getItemInHand(hand));
     }

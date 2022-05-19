@@ -61,7 +61,7 @@ public class EntityTypesInit {
 
     public static final RegistryObject<EntityType<SpellEntity>> SPELL = ENTITY_TYPES.register("spell",
             () -> EntityType.Builder.of(SpellEntity::new, EntityClassification.MISC)
-                    .sized(0.4f,0.4f)
+                    .sized(0.2f,0.2f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "spell").toString()));
 
 }

@@ -71,8 +71,8 @@ public class ReturnToSoil
     }
 
     // no clue what this does
-    private void registerEntityModels(Supplier<Minecraft> minecraft) {
+    /*private void registerEntityModels(Supplier<Minecraft> minecraft) {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.SPELL.get(), (renderManager) -> new MoonSpellRenderer(renderManager));
-    }
+    }*/
 }

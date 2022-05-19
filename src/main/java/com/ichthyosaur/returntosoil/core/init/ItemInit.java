@@ -142,7 +142,9 @@ public class ItemInit {
     public static final RegistryObject<Item> HOLDING_STAFF_ITEM = ITEMS.register("holding_staff_item", () ->
             new BlockNamedItem(BlockInit.HOLDING_STAFF_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //Holding staff
+    //draft scroll
     public static final RegistryObject<SpellScroll> SPELL_SCROLL_ITEM = ITEMS.register("spell_scroll_item", () ->
             new SpellScroll(1.0F, 1.0F, RTSItemTier.ABYSS_SCRAPINGS, Sets.newHashSet(), (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
+    public static final RegistryObject<Item> MAGIC_SWORD_ITEM = ITEMS.register("magic_sword_item", () ->
+            new Item(new Item.Properties()));
 }

@@ -37,11 +37,11 @@ public class SpellEntity extends AbstractSpellEntity{
 
     @Override
     public void tick() {
-        int animTick = this.entityData.get(ANIMATION_TICK);
+        /*int animTick = this.entityData.get(ANIMATION_TICK);
         int animNextTick;
         if (animTick > 1000) animNextTick = 0;
         else animNextTick = animTick + 1;
-        this.entityData.set(ANIMATION_TICK, animNextTick);
+        this.entityData.set(ANIMATION_TICK, animNextTick);*/
 
         if (this.tickCount>200) this.remove(false);
 
