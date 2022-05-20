@@ -2,16 +2,17 @@ package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.entity.renderer.*;
+import com.ichthyosaur.returntosoil.client.particle.GoneParticle;
 import com.ichthyosaur.returntosoil.client.screen.RefinementBaAdvScreen;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
-import com.ichthyosaur.returntosoil.core.init.ContainerTypesInit;
-import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
-import com.ichthyosaur.returntosoil.core.init.TileEntityTypesInit;
+import com.ichthyosaur.returntosoil.core.init.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -52,5 +53,11 @@ public class ClientEventBusSubscriber {
 
         //links entity to renderer
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.SPELL.get(), MoonSpellRenderer::new);
+
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void registerParticles(ParticleFactoryRegisterEvent event) {
+        Minecraft.getInstance().particleEngine.register(ParticleTypesInit.GONE_PARTICLE.get(), GoneParticle.Factory::new);
     }
 }

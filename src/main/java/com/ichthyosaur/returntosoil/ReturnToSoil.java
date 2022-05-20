@@ -37,6 +37,7 @@ public class ReturnToSoil
     public ReturnToSoil() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ParticleTypesInit.PARTICLES.register(bus);
         EntityTypesInit.ENTITY_TYPES.register(bus);
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);

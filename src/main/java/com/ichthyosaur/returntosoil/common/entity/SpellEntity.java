@@ -1,6 +1,7 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
+import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
@@ -62,7 +63,7 @@ public class SpellEntity extends AbstractSpellEntity{
     }
 
     protected IParticleData getTrailParticle() {
-        return ParticleTypes.INSTANT_EFFECT;
+        return ParticleTypesInit.GONE_PARTICLE.get();
     }
 }
 
