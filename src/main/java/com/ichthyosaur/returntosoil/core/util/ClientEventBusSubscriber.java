@@ -3,6 +3,7 @@ package com.ichthyosaur.returntosoil.core.util;
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.entity.renderer.*;
 import com.ichthyosaur.returntosoil.client.particle.GoneParticle;
+import com.ichthyosaur.returntosoil.client.particle.LightBallParticle;
 import com.ichthyosaur.returntosoil.client.screen.RefinementBaAdvScreen;
 import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
 import com.ichthyosaur.returntosoil.core.init.*;
@@ -59,5 +60,6 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void registerParticles(ParticleFactoryRegisterEvent event) {
         Minecraft.getInstance().particleEngine.register(ParticleTypesInit.GONE_PARTICLE.get(), GoneParticle.Factory::new);
+        Minecraft.getInstance().particleEngine.register(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(), LightBallParticle.Factory::new);
     }
 }

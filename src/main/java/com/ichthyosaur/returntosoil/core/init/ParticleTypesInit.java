@@ -19,6 +19,7 @@ public class ParticleTypesInit {
 
     public static final RegistryObject<BasicParticleType> GONE_PARTICLE = PARTICLES.register("gone_particle", () ->
             new BasicParticleType(true));
+    public static final RegistryObject<BasicParticleType> LIGHT_BALL_PARTICLE = PARTICLES.register("light_ball_particle", () ->
+            new BasicParticleType(true));
 
-    
 }
