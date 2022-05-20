@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
+import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
 import net.minecraft.block.Block;
 import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.SpawnReason;
@@ -47,6 +48,9 @@ public class SpellScroll extends AbstractSpellTool{
         entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 0.5F, 1.0F);
         world.addFreshEntity(entity);
 
+        /*if (world.isClientSide())
+            world.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
+                    player.getX(), player.getY()+0.2, player.getZ(), player.getLookAngle().x()*20,player.getLookAngle().y()*20,player.getLookAngle().z()*20);*/
 
         return ActionResult.success(player.getItemInHand(hand));
     }

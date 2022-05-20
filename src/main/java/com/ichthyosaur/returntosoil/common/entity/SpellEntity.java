@@ -49,9 +49,12 @@ public class SpellEntity extends AbstractSpellEntity{
 
         if (this.tickCount>200) this.remove(false);
 
+        if (this.level.isClientSide() && this.firstTick)
+        this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
+                this.getX(), this.getY()+0.4, this.getZ(), this.getDeltaMovement().x(), this.getDeltaMovement().y(), this.getDeltaMovement().z());
         /*if (this.level.isClientSide())
-        this.level.addParticle(ParticleTypes.FLAME,
-                this.getX(), this.getY()+0.2, this.getZ(), 0.0D, 0.0D, 0.0D);*/
+            this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
+                    this.getX(), this.getY()+0.4, this.getZ(),0,0,0);*/
 
         super.tick();
 
