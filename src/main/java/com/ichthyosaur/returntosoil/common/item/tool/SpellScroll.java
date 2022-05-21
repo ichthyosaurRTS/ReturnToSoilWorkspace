@@ -1,11 +1,13 @@
 package com.ichthyosaur.returntosoil.common.item.tool;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
+import com.ichthyosaur.returntosoil.client.particle.LightBallParticle;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
 import net.minecraft.block.Block;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
@@ -37,6 +39,9 @@ public class SpellScroll extends AbstractSpellTool{
         //0 to -360
         //ReturnToSoil.LOGGER.info(player.getViewYRot(1));
 
+        //player.addTag("trun");
+        //ReturnToSoil.LOGGER.info(player.getTags());
+
         entity.setYRot((int)-(player.getViewYRot(1)));
         entity.setXRot((int)-(player.getViewXRot(1)));
 
@@ -45,12 +50,13 @@ public class SpellScroll extends AbstractSpellTool{
         entity.moveTo((double)player.getX() + 0D, (double)player.getY()+1.4D, (double)player.getZ() + 0D, 0.0F, 0.0F);
 
         //entity.setDeltaMovement(player.getLookAngle());
-        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 0.5F, 1.0F);
+        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
         world.addFreshEntity(entity);
 
         /*if (world.isClientSide())
             world.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
                     player.getX(), player.getY()+0.2, player.getZ(), player.getLookAngle().x()*20,player.getLookAngle().y()*20,player.getLookAngle().z()*20);*/
+
 
         return ActionResult.success(player.getItemInHand(hand));
     }

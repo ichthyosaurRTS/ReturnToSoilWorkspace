@@ -27,6 +27,8 @@ TODO
 
 1  either use a different proj class or design some particles that are invisible and disappear instantly to use as trails
 
+1  change abstract seg entity to extend entity rather than animal entity
+
 1  particles
 
 

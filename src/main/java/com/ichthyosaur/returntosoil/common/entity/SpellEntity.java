@@ -1,7 +1,9 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
+import com.ichthyosaur.returntosoil.client.particle.LightBallParticle;
 import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
@@ -16,6 +18,8 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SpellEntity extends AbstractSpellEntity{
+
+    LightBallParticle lb;
 
     private static final DataParameter<Integer> ANIMATION_TICK = EntityDataManager.defineId(SpellEntity.class, DataSerializers.INT);
     private static final DataParameter<Integer> Y_ROT = EntityDataManager.defineId(SpellEntity.class, DataSerializers.INT);
@@ -49,16 +53,25 @@ public class SpellEntity extends AbstractSpellEntity{
 
         if (this.tickCount>200) this.remove(false);
 
-        if (this.level.isClientSide() && this.firstTick)
+
+        /*if (this.level.isClientSide() && this.firstTick) {
+            this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
+                    this.getX(), this.getY()+0.4, this.getZ(), this.getDeltaMovement().x(), this.getDeltaMovement().y(), this.getDeltaMovement().z());
+        }*/
+        //if (this.level.isClientSide()) this.lb.setPos(this.getX(), this.getY()+0.2, this.getZ());
+
+        if (this.level.isClientSide() && this.getAnimTick()%5==0)
         this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
-                this.getX(), this.getY()+0.4, this.getZ(), this.getDeltaMovement().x(), this.getDeltaMovement().y(), this.getDeltaMovement().z());
-        /*if (this.level.isClientSide())
+                this.getX(), this.getY()+0.2, this.getZ(), this.getDeltaMovement().x(), this.getDeltaMovement().y(), this.getDeltaMovement().z());
+        /*if (this.level.isClientSide() && this.getAnimTick()%10==0)
             this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
                     this.getX(), this.getY()+0.4, this.getZ(),0,0,0);*/
 
         super.tick();
 
     }
+
+
 
     @Override
     protected float getInertia() {
