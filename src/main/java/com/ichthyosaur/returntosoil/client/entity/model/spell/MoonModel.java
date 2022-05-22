@@ -13,16 +13,13 @@ public class MoonModel<T extends SpellEntity> extends EntityModel<T> {
     private final ModelRenderer bone;
 
     public MoonModel() {
-        texWidth = 64;
+        texWidth = 32;
         texHeight = 32;
 
         bone = new ModelRenderer(this);
-        bone.setPos(0.0F, 0.0F, 0.0F);
-        bone.texOffs(0, -32).addBox(0.0F, -32.0F, -8.0F, 0.0F, 32.0F, 32.0F, 0.0F, false);
+        bone.setPos(0.0F, 24.0F, 0.0F);
+        bone.texOffs(0, 0).addBox(-8.0F, -16.0F, 0.0F, 16.0F, 16.0F, 0.0F, 0.0F, false);
     }
-
-
-
 
     @Override
     public void setupAnim(SpellEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){

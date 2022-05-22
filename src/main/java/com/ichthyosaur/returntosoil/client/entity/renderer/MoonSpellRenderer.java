@@ -38,7 +38,7 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/particle/light_ball/light_ball_0.png");
     private final MoonModel model = new MoonModel();
 
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ReturnToSoil.MOD_ID,"textures/particle/light_ball/light_ball_2.png");
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ReturnToSoil.MOD_ID,"textures/particle/light_ball/light_ball_3.png");
     private static final RenderType RENDER_TYPE = RenderType.entityTranslucent(TEXTURE_LOCATION);
 
     private Minecraft mc = Minecraft.getInstance();
@@ -52,7 +52,7 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
 
         //we have to rotate/scale the matrix before we render the model/item!
 
-        p_225623_4_.pushPose();
+        /*p_225623_4_.pushPose();
         p_225623_4_.translate(0,0,0);
         p_225623_4_.scale(2.0F, 2.0F, 2.0F);
         p_225623_4_.mulPose(Vector3f.YP.rotationDegrees(
@@ -62,15 +62,16 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
                 p_225623_1_.getXRot()-45
         ));
 
-        //spins forward
-        //p_225623_4_.mulPose(Vector3f.ZP.rotationDegrees(-5*p_225623_1_.tickCount));
-
         ItemStack stack = new ItemStack(ItemInit.MAGIC_SWORD_ITEM.get(),1);
         IBakedModel model = mc.getItemRenderer().getModel(stack, null, null);
         //that 3rd last int sees to do lighting and or opacity... 400 is see thru, 200 is normal and 20 is super dark
         mc.getItemRenderer().render(stack, ItemCameraTransforms.TransformType.GROUND, true,p_225623_4_, p_225623_5_,
                 230, p_225623_6_, model);
         p_225623_4_.popPose();
+
+//spins forward
+        //p_225623_4_.mulPose(Vector3f.ZP.rotationDegrees(-5*p_225623_1_.tickCount));
+*/
 
         //this stuff was for a separate model rather than an item model
         /*this.model.setupAnim(0,p_225623_1_.getYRot(),p_225623_1_.getXRot());
@@ -83,12 +84,13 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
         //looks like we can push 2 separate poses without trouble. could definitely use this for ball spell if we wanted.
 
         p_225623_4_.pushPose();
-        p_225623_4_.translate(0,0.5,0);
+        p_225623_4_.translate(0,-0.7,0);
         p_225623_4_.scale(1.0F, 1.0F, 1.0F);
         //since its clientside, just make the model face the player like a particle does. now how to do opacity....
         p_225623_4_.mulPose(this.entityRenderDispatcher.cameraOrientation());
-        p_225623_4_.mulPose(Vector3f.YP.rotationDegrees(90.0F));
+        p_225623_4_.mulPose(Vector3f.YP.rotationDegrees(180.0F));
 
+        //if the texture is cut out, make sure the model matches up correctly to the texture.
         IVertexBuilder ivertexbuilder = net.minecraft.client.renderer.ItemRenderer.getFoilBufferDirect(p_225623_5_, RENDER_TYPE, false,false);
         this.model.renderToBuffer(p_225623_4_, ivertexbuilder, p_225623_6_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
