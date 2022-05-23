@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
+import net.minecraft.inventory.IClearable;
 import net.minecraft.particles.BasicParticleType;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,8 +33,6 @@ public class LightBallParticle extends SpriteTexturedParticle {
         this.zd = this.zd / (double)f1 * (double)f * (double)0.4F;
 
 
-        this.lifetime = 20;
-        this.hasPhysics = false;
     }
 
 
@@ -52,23 +51,26 @@ public class LightBallParticle extends SpriteTexturedParticle {
     @OnlyIn(Dist.CLIENT)
     public static class Factory implements IParticleFactory<BasicParticleType> {
 
-        private final IAnimatedSprite spriteSet;
+        private final IAnimatedSprite sprite;
 
         public Factory(IAnimatedSprite sprite) {
-            this.spriteSet = sprite;
+            this.sprite= sprite;
         }
 
 
         @Override
         public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             LightBallParticle particle = new LightBallParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
-            particle.setColor(1.0f, 1.0f, 1.0f);
-            particle.pickSprite(this.spriteSet);
+            //particle.setColor(1.0f, 1.0f, 1.0f);
+            particle.lifetime = 20;
+            //particle.setSpriteFromAge(this.sprite);
+            particle.setSprite(this.sprite.get(particle.age, 18));
             //needs both power and move destination to move.
             //particle.setPower(12);
             //particle.setSize(5,5);
-            particle.scale(1);
+            //particle.scale(1);
             return particle;
         }
+
     }
 }

@@ -69,9 +69,10 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
                 230, p_225623_6_, model);
         p_225623_4_.popPose();
 
-//spins forward
+
+        //spins forward
         //p_225623_4_.mulPose(Vector3f.ZP.rotationDegrees(-5*p_225623_1_.tickCount));
-*/
+
 
         //this stuff was for a separate model rather than an item model
         /*this.model.setupAnim(0,p_225623_1_.getYRot(),p_225623_1_.getXRot());
@@ -85,7 +86,7 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
 
         p_225623_4_.pushPose();
         p_225623_4_.translate(0,-0.7,0);
-        p_225623_4_.scale(1.0F, 1.0F, 1.0F);
+        p_225623_4_.scale(0.3F, 0.3F, 0.3F);
         //since its clientside, just make the model face the player like a particle does. now how to do opacity....
         p_225623_4_.mulPose(this.entityRenderDispatcher.cameraOrientation());
         p_225623_4_.mulPose(Vector3f.YP.rotationDegrees(180.0F));

@@ -60,7 +60,7 @@ public class SpellEntity extends AbstractSpellEntity{
         }*/
         //if (this.level.isClientSide()) this.lb.setPos(this.getX(), this.getY()+0.2, this.getZ());
 
-        if (this.level.isClientSide() && this.getAnimTick()%5==0)
+        /*if (this.level.isClientSide() && this.getAnimTick()%5==0)
         this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
                 this.getX(), this.getY()+0.2, this.getZ(), this.getDeltaMovement().x(), this.getDeltaMovement().y(), this.getDeltaMovement().z());
         /*if (this.level.isClientSide() && this.getAnimTick()%10==0)

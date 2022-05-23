@@ -6,18 +6,33 @@ import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
+import jdk.nashorn.internal.objects.annotations.Attribute;
+import net.minecraft.advancements.criterion.NBTPredicate;
 import net.minecraft.block.Block;
+import net.minecraft.client.util.NBTQueryManager;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.command.arguments.EntityAnchorArgument;
+import net.minecraft.command.arguments.NBTCompoundTagArgument;
+import net.minecraft.command.arguments.NBTPathArgument;
+import net.minecraft.command.arguments.NBTTagArgument;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.NBTDynamicOps;
+import net.minecraft.nbt.NBTUtil;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
+import net.minecraftforge.common.crafting.NBTIngredient;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class SpellScroll extends AbstractSpellTool{
@@ -26,9 +41,32 @@ public class SpellScroll extends AbstractSpellTool{
     }
 
     @Override
+    public void inventoryTick(ItemStack stack, World p_77663_2_, Entity p_77663_3_, int p_77663_4_, boolean p_77663_5_) {
+        super.inventoryTick(stack, p_77663_2_, p_77663_3_, p_77663_4_, p_77663_5_);
+        //stack.getAttributeModifiers(EquipmentSlotType.MAINHAND);
+    }
+
+    @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
 
+        //IT DOES REMEMBER TAGS JUST DONT GO REPLACING THE NBT EVERY TIME, RATHER CHECK NBT.contains and then add
+        //remember we need to leave room for things like durability, or tag editing by other mods so cant make a new nbt tag every time,
+        //just edit the existing.
+        //player.getItemInHand(hand).getTag();
+        //CompoundNBT newTag = new CompoundNBT();
+        //newTag.putInt("Damage", 100);
+        //newTag.putInt("Damage2", 100);
+        //newTag.putString("Spell2", "P.D12.K3.P61-");
+        //player.getItemInHand(hand).setTag(newTag);
+        //remember if this is null itll crash.
+        //if (player.getItemInHand(hand).getTag().contains("Damage2")) {
+        ReturnToSoil.LOGGER.info(Objects.requireNonNull(player.getItemInHand(hand).getTag()));
+        //looks like we need to remove the nbt before adding a new one.
+        //newTag.remove("Damage");
+        //}
+
+        if (world.isClientSide()) player.playSound(SoundEvents.NETHER_BRICKS_HIT,1,1);
 
         SpellEntity entity = EntityTypesInit.SPELL.get().create(world);
         //entity.xRot = (float) (player.getViewXRot(1.0F)*Math.PI/180);
@@ -50,7 +88,10 @@ public class SpellScroll extends AbstractSpellTool{
         entity.moveTo((double)player.getX() + 0D, (double)player.getY()+1.4D, (double)player.getZ() + 0D, 0.0F, 0.0F);
 
         //entity.setDeltaMovement(player.getLookAngle());
-        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+
+
+
+        entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.4F, 1.0F);
         world.addFreshEntity(entity);
 
         /*if (world.isClientSide())
@@ -60,4 +101,7 @@ public class SpellScroll extends AbstractSpellTool{
 
         return ActionResult.success(player.getItemInHand(hand));
     }
+
+
+
 }

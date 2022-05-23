@@ -43,6 +43,7 @@ public class ReturnToSoil
         ItemInit.ITEMS.register(bus);
         TileEntityTypesInit.TILE_ENTITY_TYPE.register(bus);
         ContainerTypesInit.CONTAINER_TYPES.register(bus);
+        EffectInit.EFFECTS.register(bus);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 

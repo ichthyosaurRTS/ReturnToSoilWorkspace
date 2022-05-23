@@ -6,10 +6,12 @@ import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -21,6 +23,12 @@ public class CentipedeChest extends RTSDescWBItem {
 
     public CentipedeChest(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_, TextFormatting colour) {
         super(p_i48534_1_, p_i48534_2_, p_i48534_3_, colour);
+    }
+
+    @Override
+    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+        //just testing
+        player.lerpMotion(1,1,1);
     }
 
     @Nullable
