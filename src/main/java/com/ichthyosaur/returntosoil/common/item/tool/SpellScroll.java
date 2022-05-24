@@ -6,6 +6,7 @@ import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
+import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
 import jdk.nashorn.internal.objects.annotations.Attribute;
 import net.minecraft.advancements.criterion.NBTPredicate;
 import net.minecraft.block.Block;
@@ -50,6 +51,11 @@ public class SpellScroll extends AbstractSpellTool{
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
 
+        //why does serveriside motionlerps have no effect? it doesnt work on an actual server either!
+        if (!world.isClientSide()) {
+            //ServerMagicEffects.addEffect(player.getStringUUID());
+        }
+
         //IT DOES REMEMBER TAGS JUST DONT GO REPLACING THE NBT EVERY TIME, RATHER CHECK NBT.contains and then add
         //remember we need to leave room for things like durability, or tag editing by other mods so cant make a new nbt tag every time,
         //just edit the existing.
@@ -66,7 +72,9 @@ public class SpellScroll extends AbstractSpellTool{
         //newTag.remove("Damage");
         //}
 
-        if (world.isClientSide()) player.playSound(SoundEvents.NETHER_BRICKS_HIT,1,1);
+        if (world.isClientSide()) {
+            player.playSound(SoundEvents.NETHER_BRICKS_HIT,1,1);
+        }
 
         SpellEntity entity = EntityTypesInit.SPELL.get().create(world);
         //entity.xRot = (float) (player.getViewXRot(1.0F)*Math.PI/180);

@@ -5,10 +5,14 @@ QUALITY AND DEPTH OVER QUANTITY AND VARIETY
 
 1  dot/eot dot effect draft
 1  animated particle sprite draft
-
+1  see how spell entities attached to people look.
+1  write listtostring and stringtolist functions for saving and loading?
+1  find workaround for concurrentwriting
 
 
 1  adv barrel blockstates, auto add stack rather than opening menu
+
+1  barrel anim textures
 
 1  jellyfish on lantern?
 

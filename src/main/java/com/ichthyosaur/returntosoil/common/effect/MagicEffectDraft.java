@@ -3,6 +3,10 @@ package com.ichthyosaur.returntosoil.common.effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+
+import java.util.Random;
 
 
 public class MagicEffectDraft extends Effect {
@@ -17,11 +21,16 @@ public class MagicEffectDraft extends Effect {
     }
 
     @Override
+    public ITextComponent getDisplayName() {
+        int z = new Random().nextInt(100);
+        return new StringTextComponent(""+z);
+    }
+
+    @Override
     public void applyEffectTick(LivingEntity p_76394_1_, int p_76394_2_) {
         p_76394_1_.lerpMotion(1,1,1);
         super.applyEffectTick(p_76394_1_, p_76394_2_);
     }
-
 
 }
 

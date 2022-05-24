@@ -85,7 +85,7 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
         //looks like we can push 2 separate poses without trouble. could definitely use this for ball spell if we wanted.
 
         p_225623_4_.pushPose();
-        p_225623_4_.translate(0,-0.7,0);
+        p_225623_4_.translate(0,-0.2,0);
         p_225623_4_.scale(0.3F, 0.3F, 0.3F);
         //since its clientside, just make the model face the player like a particle does. now how to do opacity....
         p_225623_4_.mulPose(this.entityRenderDispatcher.cameraOrientation());

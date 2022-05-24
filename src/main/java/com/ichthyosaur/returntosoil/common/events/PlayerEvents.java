@@ -2,11 +2,16 @@ package com.ichthyosaur.returntosoil.common.events;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
+import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
 @Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PlayerEvents {
@@ -49,6 +54,20 @@ public class PlayerEvents {
                 event.setAmount(newAmount);
             }
         }
+    }
+
+    //just for proof of concept, doesn't go here.
+    @SubscribeEvent
+    public static void WorldTick (TickEvent.WorldTickEvent event) {
+        if (!event.world.isClientSide()) {
+            ServerMagicEffects.tickMagicEffectList((ServerWorld) event.world);
+        }
+    }
+
+    @SubscribeEvent
+    public static void ServerStart (FMLServerAboutToStartEvent event) {
+
+        ServerMagicEffects.createList();
     }
 
 }

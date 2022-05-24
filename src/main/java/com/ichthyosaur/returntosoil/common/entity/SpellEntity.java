@@ -3,15 +3,22 @@ package com.ichthyosaur.returntosoil.common.entity;
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.client.particle.LightBallParticle;
 import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
+import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -67,11 +74,34 @@ public class SpellEntity extends AbstractSpellEntity{
             this.level.addParticle(ParticleTypesInit.LIGHT_BALL_PARTICLE.get(),
                     this.getX(), this.getY()+0.4, this.getZ(),0,0,0);*/
 
-        super.tick();
 
+        super.tick();
     }
 
+    @Override
+    protected boolean canHitEntity(Entity p_230298_1_) {
+        return true;
+    }
 
+    @Override
+    protected void onHit(RayTraceResult p_70227_1_) {
+
+        RayTraceResult.Type raytraceresult$type = p_70227_1_.getType();
+        if (raytraceresult$type == RayTraceResult.Type.ENTITY) {
+            this.onHitEntity((EntityRayTraceResult)p_70227_1_);
+        }
+        else if (raytraceresult$type == RayTraceResult.Type.BLOCK) {
+            this.onHitBlock((BlockRayTraceResult)p_70227_1_);
+        }
+        super.onHit(p_70227_1_);
+    }
+
+    @Override
+    protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
+        ReturnToSoil.LOGGER.info(""+p_213868_1_.getEntity().getStringUUID());
+        ServerMagicEffects.addEffect(p_213868_1_.getEntity().getStringUUID());
+        super.onHitEntity(p_213868_1_);
+    }
 
     @Override
     protected float getInertia() {

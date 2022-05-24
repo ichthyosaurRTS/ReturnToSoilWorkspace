@@ -5,6 +5,7 @@ import com.ichthyosaur.returntosoil.client.entity.renderer.MoonSpellRenderer;
 import com.ichthyosaur.returntosoil.common.entity.*;
 import com.ichthyosaur.returntosoil.core.config.RTSConfig;
 import com.ichthyosaur.returntosoil.core.init.*;
+import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.state.BooleanProperty;
@@ -16,6 +17,8 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -47,6 +50,9 @@ public class ReturnToSoil
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
+        //can we not find a server event for this?
+        //ServerMagicEffects.createList();
+
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RTSConfig.SPEC, "returntosoil-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -70,6 +76,8 @@ public class ReturnToSoil
             GlobalEntityTypeAttributes.put(EntityTypesInit.GAWANHEAD.get(), GawanHeadEntity.setCustomAttributes().build());
 
         });
+
+
     }
 
     // no clue what this does
