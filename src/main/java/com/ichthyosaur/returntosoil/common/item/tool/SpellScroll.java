@@ -51,7 +51,6 @@ public class SpellScroll extends AbstractSpellTool{
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
 
-        //why does serveriside motionlerps have no effect? it doesnt work on an actual server either!
         if (!world.isClientSide()) {
             //ServerMagicEffects.addEffect(player.getStringUUID());
         }

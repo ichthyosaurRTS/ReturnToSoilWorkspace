@@ -93,7 +93,7 @@ public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {
 
         //if the texture is cut out, make sure the model matches up correctly to the texture.
         IVertexBuilder ivertexbuilder = net.minecraft.client.renderer.ItemRenderer.getFoilBufferDirect(p_225623_5_, RENDER_TYPE, false,false);
-        this.model.renderToBuffer(p_225623_4_, ivertexbuilder, p_225623_6_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.model.renderToBuffer(p_225623_4_, ivertexbuilder, 240, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         p_225623_4_.popPose();
 
