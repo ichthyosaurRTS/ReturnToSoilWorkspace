@@ -28,6 +28,11 @@ public class EntityTypesInit {
                     .sized(0.8f,0.8f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "dragonfly").toString()));
 
+    public static final RegistryObject<EntityType<GaraGogaEntity>> GARAGOGA = ENTITY_TYPES.register("garagoga",
+            () -> EntityType.Builder.of(GaraGogaEntity::new, EntityClassification.MONSTER)
+                    .sized(0.8f,0.8f)
+                    .build(new ResourceLocation(ReturnToSoil.MOD_ID, "garagoga").toString()));
+
     public static final RegistryObject<EntityType<BaruGaruEntity>> BARUGARU = ENTITY_TYPES.register("baru_garu",
             () -> EntityType.Builder.of(BaruGaruEntity::new, EntityClassification.AMBIENT)
                     .sized(0.7f,0.7f)

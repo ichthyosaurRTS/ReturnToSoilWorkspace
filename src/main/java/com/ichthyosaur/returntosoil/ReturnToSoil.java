@@ -74,6 +74,7 @@ public class ReturnToSoil
             GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.GAWANHEAD.get(), GawanHeadEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.GARAGOGA.get(), GaraGogaEntity.setCustomAttributes().build());
 
         });
 
