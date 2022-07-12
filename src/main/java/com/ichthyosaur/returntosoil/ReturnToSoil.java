@@ -50,9 +50,6 @@ public class ReturnToSoil
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
-        //can we not find a server event for this?
-        //ServerMagicEffects.createList();
-
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RTSConfig.SPEC, "returntosoil-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -75,6 +72,7 @@ public class ReturnToSoil
             GlobalEntityTypeAttributes.put(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.GAWANHEAD.get(), GawanHeadEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.GARAGOGA.get(), GaraGogaEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.CANNONMOLLUSC.get(), CannonMolluscEntity.setCustomAttributes().build());
 
         });
 

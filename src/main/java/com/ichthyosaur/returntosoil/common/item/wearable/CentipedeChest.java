@@ -28,7 +28,7 @@ public class CentipedeChest extends RTSDescWBItem {
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
         //just testing
-        player.lerpMotion(1,1,1);
+        //player.lerpMotion(1,1,1);
     }
 
     @Nullable

@@ -95,6 +95,8 @@ public class GaraGogaEntity extends MonsterEntity {
                     float f = (float) (MathHelper.atan2(vector3d1.z, vector3d1.x) * (double) (180F / (float) Math.PI)) - 90.0F;
                     float f1 = MathHelper.wrapDegrees(f - this.yRot);
                     this.zza = 0.5F;
+
+                    //this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().x/20, this.getLookAngle().y/40, this.getLookAngle().z/20));
                     //this.yRot += f1;
 
                     double xDistance = this.targetPosition.getX() - this.getX();

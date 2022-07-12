@@ -272,6 +272,8 @@ public class JawBeetleModel <T extends JawBeetleEntity> extends EntityModel<JawB
 
     @Override
     public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+        //matrixStack.scale((float)3.5,(float)3.5,(float)3.5);
+        //matrixStack.translate(0,-1.2,0);
         all.render(matrixStack, buffer, packedLight, packedOverlay);
     }
 

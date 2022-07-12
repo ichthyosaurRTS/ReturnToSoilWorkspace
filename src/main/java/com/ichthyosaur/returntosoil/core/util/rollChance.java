@@ -4,6 +4,7 @@ import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.ArrayList;
@@ -47,4 +48,16 @@ public class rollChance {
         return origDeg;
     }
 
+    public static float rotLerp(float p_70663_1_, float p_70663_2_, float p_70663_3_) {
+        float f = MathHelper.wrapDegrees(p_70663_2_ - p_70663_1_);
+        if (f > p_70663_3_) {
+            f = p_70663_3_;
+        }
+
+        if (f < -p_70663_3_) {
+            f = -p_70663_3_;
+        }
+
+        return p_70663_1_ + f;
+    }
 }

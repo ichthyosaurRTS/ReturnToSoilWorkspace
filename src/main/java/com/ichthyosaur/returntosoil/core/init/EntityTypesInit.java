@@ -69,4 +69,8 @@ public class EntityTypesInit {
                     .sized(0.2f,0.2f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "spell").toString()));
 
+    public static final RegistryObject<EntityType<CannonMolluscEntity>> CANNONMOLLUSC = ENTITY_TYPES.register("cannon_mollusc",
+            () -> EntityType.Builder.of(CannonMolluscEntity::new, EntityClassification.MONSTER)
+                    .sized(2.0f,2.0f)
+                    .build(new ResourceLocation(ReturnToSoil.MOD_ID, "cannon_mollusc").toString()));
 }

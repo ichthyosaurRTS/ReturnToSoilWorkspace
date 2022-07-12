@@ -208,6 +208,7 @@ public class GaraGogaModel<T extends GaraGogaEntity> extends EntityModel<T> {
 
 
     public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+        matrixStack.scale((float)0.2,(float)0.2,(float)0.2);
         redfish.render(matrixStack, buffer, packedLight, packedOverlay);
     }
 

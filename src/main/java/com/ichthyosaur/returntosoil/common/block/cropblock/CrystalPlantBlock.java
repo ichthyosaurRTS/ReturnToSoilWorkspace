@@ -47,6 +47,7 @@ public class CrystalPlantBlock extends RTSCropsBlock implements IPottable{
     }
 
 
+
     @Override
     public ItemStack getPotItem() {
         return new ItemStack(ItemInit.CRYSTAL_PLANT_POTTED_ITEM.get());
