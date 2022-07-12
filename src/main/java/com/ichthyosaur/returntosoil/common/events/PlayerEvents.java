@@ -12,6 +12,8 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.model.IBakedModel;
+import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.player.PlayerEntity;
@@ -96,6 +98,9 @@ public class PlayerEvents {
     public static void onRenderPlayerPre (RenderPlayerEvent.Pre event) {
 
         JawBeetleModel model = new JawBeetleModel();
+        Minecraft instance = Minecraft.getInstance();
+
+        PlayerEntity player = event.getPlayer();
 
         event.setCanceled(true);
 
@@ -104,17 +109,18 @@ public class PlayerEvents {
         stack.pushPose();
         stack.translate(0,1.5,0);
         stack.scale(1F, 1F, 1F);
-        stack.mulPose(Vector3f.YP.rotationDegrees(rollChance.rotLerp(oldYRot, -event.getPlayer().getYHeadRot(),10)));
+        float newRot = rollChance.rotLerp(oldYRot, -player.getYHeadRot(),10);
+        stack.mulPose(Vector3f.YP.rotationDegrees(-instance.gameRenderer.getMainCamera().getYRot()));
         stack.mulPose(Vector3f.XP.rotationDegrees(180.0F));
 
+        instance.gameRenderer.getMainCamera().getYRot();
         //Minecraft.getInstance().getItemRenderer().renderAndDecorateFakeItem(new ItemStack(Items.DIRT), 1, 1);
 
         IVertexBuilder ivertexbuilder = net.minecraft.client.renderer.ItemRenderer.getFoilBufferDirect(event.getBuffers(), RenderType.entityTranslucent(new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/jaw_beetle/jaw_beetle_1.png")), false,false);
-        model.renderToBuffer(stack, ivertexbuilder, 240, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.renderToBuffer(stack, ivertexbuilder, event.getLight(), OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         stack.popPose();
-
-        oldYRot = -event.getPlayer().getYHeadRot();
+        oldYRot = newRot;
     }
 
     @SubscribeEvent
