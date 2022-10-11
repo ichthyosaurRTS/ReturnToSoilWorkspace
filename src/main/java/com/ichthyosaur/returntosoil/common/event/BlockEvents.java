@@ -1,8 +1,7 @@
-package com.ichthyosaur.returntosoil.common.events;
+package com.ichthyosaur.returntosoil.common.event;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
-import com.ichthyosaur.returntosoil.common.block.cropblock.TotemStalkBlock;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -20,8 +19,6 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockEvents {

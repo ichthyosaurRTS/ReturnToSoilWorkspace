@@ -1,26 +1,10 @@
-package com.ichthyosaur.returntosoil.common.events;
+package com.ichthyosaur.returntosoil.common.event;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.client.entity.model.JawBeetleModel;
-import com.ichthyosaur.returntosoil.client.entity.renderer.JawBeetleRenderer;
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.client.renderer.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderNameplateEvent;
@@ -33,7 +17,6 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
 @Mod.EventBusSubscriber(modid = ReturnToSoil.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PlayerEvents {
@@ -97,6 +80,7 @@ public class PlayerEvents {
     @SubscribeEvent
     public static void onRenderPlayerPre (RenderPlayerEvent.Pre event) {
 
+        /*
         JawBeetleModel model = new JawBeetleModel();
         Minecraft instance = Minecraft.getInstance();
 
@@ -120,7 +104,7 @@ public class PlayerEvents {
         model.renderToBuffer(stack, ivertexbuilder, event.getLight(), OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         stack.popPose();
-        oldYRot = newRot;
+        oldYRot = newRot;*/
     }
 
     @SubscribeEvent
@@ -131,16 +115,16 @@ public class PlayerEvents {
     @SubscribeEvent
     public static void onEntitySize(EntityEvent.Size event)
     {
-        if(event.getEntity() instanceof PlayerEntity)
+        /*if(event.getEntity() instanceof PlayerEntity)
         {
             event.setNewSize(new EntitySize(1,1, true));
             event.setNewEyeHeight(0.5F);
-        }
+        }*/
     }
 
     @SubscribeEvent
     public static void onRenderHand(RenderHandEvent event) {
-        event.setCanceled(true);
+        //event.setCanceled(true);
     }
 
 

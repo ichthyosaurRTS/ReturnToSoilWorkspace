@@ -1,17 +1,14 @@
-package com.ichthyosaur.returntosoil.common.events;
+package com.ichthyosaur.returntosoil.common.event;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
 import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
-import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
