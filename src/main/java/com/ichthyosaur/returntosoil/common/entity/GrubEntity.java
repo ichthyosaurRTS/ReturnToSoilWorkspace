@@ -19,11 +19,11 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class HuskLarvaeEntity extends TameableEntity{
+public class GrubEntity extends TameableEntity{
 
 
 
-    public HuskLarvaeEntity(EntityType<? extends TameableEntity> type, World worldIn) {
+    public GrubEntity(EntityType<? extends TameableEntity> type, World worldIn) {
         super(type, worldIn);
     }
 

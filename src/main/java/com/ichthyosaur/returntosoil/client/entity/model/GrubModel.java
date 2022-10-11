@@ -1,12 +1,12 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
+import com.ichthyosaur.returntosoil.common.entity.GrubEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class HuskLarvaeEntityModel<T extends HuskLarvaeEntity> extends EntityModel<HuskLarvaeEntity> {
+public class GrubModel<T extends GrubEntity> extends EntityModel<GrubEntity> {
 
     private final ModelRenderer torso;
     private final ModelRenderer head;
@@ -14,7 +14,7 @@ public class HuskLarvaeEntityModel<T extends HuskLarvaeEntity> extends EntityMod
     public float torsoMovementModifier;
     public boolean upOrDown;
 
-    public HuskLarvaeEntityModel() {
+    public GrubModel() {
 
         texHeight = 32;
         texWidth = 32;
@@ -41,7 +41,7 @@ public class HuskLarvaeEntityModel<T extends HuskLarvaeEntity> extends EntityMod
 
 
     @Override
-    public void setupAnim(HuskLarvaeEntity p_225597_1_,  float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(GrubEntity p_225597_1_, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         //this.head.yRot = p_225597_5_ * ((float)Math.PI / 1000F);
 
 

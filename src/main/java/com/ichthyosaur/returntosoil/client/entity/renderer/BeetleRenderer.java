@@ -1,16 +1,16 @@
 package com.ichthyosaur.returntosoil.client.entity.renderer;
 
-import com.ichthyosaur.returntosoil.client.entity.model.JawBeetleModel;
+import com.ichthyosaur.returntosoil.client.entity.model.BeetleModel;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class JawBeetleRenderer extends MobRenderer<JawBeetleEntity, JawBeetleModel<JawBeetleEntity>> {
+public class BeetleRenderer extends MobRenderer<JawBeetleEntity, BeetleModel<JawBeetleEntity>> {
 
 
-    public JawBeetleRenderer(EntityRendererManager manager) {
-        super(manager, new JawBeetleModel<>(), 0.4f);
+    public BeetleRenderer(EntityRendererManager manager) {
+        super(manager, new BeetleModel<>(), 0.4f);
 
     }
 

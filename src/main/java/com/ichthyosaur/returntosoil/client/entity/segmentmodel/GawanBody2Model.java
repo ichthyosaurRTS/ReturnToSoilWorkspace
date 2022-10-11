@@ -1,10 +1,10 @@
 package com.ichthyosaur.returntosoil.client.entity.segmentmodel;
 
 import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
-import com.ichthyosaur.returntosoil.common.entity.GeneralFlyingSegmentEntity;
+import com.ichthyosaur.returntosoil.common.entity.GeneralPartEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class GawanBody2Model<T extends GeneralFlyingSegmentEntity> extends EmptyModel<T > {
+public class GawanBody2Model<T extends GeneralPartEntity> extends EmptyModel<T > {
 
     private final ModelRenderer all;
     private final ModelRenderer body2;
@@ -38,7 +38,7 @@ public class GawanBody2Model<T extends GeneralFlyingSegmentEntity> extends Empty
         modelRenderer.zRot = z;
     }
 
-    public void setupAnim(GeneralFlyingSegmentEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(GeneralPartEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 	    super.setupAnim(entity,limbSwing, limbSwingAmount, ageInTicks,  netHeadYaw,  headPitch);
     }
 

@@ -5,7 +5,6 @@ import com.ichthyosaur.returntosoil.client.entity.renderer.*;
 import com.ichthyosaur.returntosoil.client.particle.GoneParticle;
 import com.ichthyosaur.returntosoil.client.particle.LightBallParticle;
 import com.ichthyosaur.returntosoil.client.screen.RefinementBaAdvScreen;
-import com.ichthyosaur.returntosoil.client.terender.HoldingStaffTileEntityRenderer;
 import com.ichthyosaur.returntosoil.core.init.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
@@ -34,25 +33,15 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(BlockInit.LILYPAD_LANTERN_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.VESSEL_VINE_BLOCK.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlockInit.VESSEL_SAC_BLOCK.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(BlockInit.WARDEN_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.CRYSTAL_PLANT_POTTED_BLOCK.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.TOTEM_STALK_BLOCK.get(), RenderType.cutout());
 
-        RenderTypeLookup.setRenderLayer(BlockInit.HOLDING_STAFF_BLOCK.get(), RenderType.cutout());
-        ClientRegistry.bindTileEntityRenderer(TileEntityTypesInit.HOLDING_STAFF_TILE_ENTITY_TYPE.get(), HoldingStaffTileEntityRenderer::new);
-        
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntityRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), JawBeetleRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HUSKLARVAE.get(), GrubRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.JAWBEETLE.get(), BeetleRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.DRAGONFLY.get(), DragonflyRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), BaruGaruRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARU.get(), CentipedeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.BARUGARUSEGMENT.get(), CentipedePartRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VESSEL.get(), VesselRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GENERALFLYINGSEGMENT.get(), GeneralFlyingSegmentRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GAWANHEAD.get(), GawanHeadRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.GARAGOGA.get(), GaraGogaRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.CANNONMOLLUSC.get(), CannonMolluscRenderer::new);
 
         //links entity to renderer
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.SPELL.get(), MoonSpellRenderer::new);

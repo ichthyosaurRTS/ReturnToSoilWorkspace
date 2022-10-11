@@ -19,16 +19,16 @@ import net.minecraft.world.server.ServerWorld;
 import java.util.UUID;
 
 
-public class BaruGaruSegmentEntity extends CreatureEntity {
+public class CentipedePartEntity extends CreatureEntity {
 
     //  careful, only one will have torsoParent not null, rest will have parent not null
-    public BaruGaruEntity mainBody;
+    public CentipedeEntity mainBody;
     private UUID mainBodyUUID;
     public Entity leader;
     private UUID leaderUUID;
 
     //has main body as parent by default to avoid null point (since we create the segment then assign the parent, in that space theres a nullpointer)
-    public BaruGaruSegmentEntity(EntityType<? extends CreatureEntity> p_i48553_1_, World p_i48553_2_) {
+    public CentipedePartEntity(EntityType<? extends CreatureEntity> p_i48553_1_, World p_i48553_2_) {
         super(p_i48553_1_, p_i48553_2_);
     }
 
@@ -81,7 +81,7 @@ public class BaruGaruSegmentEntity extends CreatureEntity {
 
             if (this.mainBody == null) {
                 if (this.mainBodyUUID == null) this.kill();
-                else this.mainBody = (BaruGaruEntity) world.getEntity(this.mainBodyUUID);
+                else this.mainBody = (CentipedeEntity) world.getEntity(this.mainBodyUUID);
             } else if (!this.mainBody.isAlive()) this.kill();
 
             if (this.leader == null)
@@ -111,7 +111,7 @@ public class BaruGaruSegmentEntity extends CreatureEntity {
 
 
             //  gets angle in radians, converts to degrees
-            double wantedSpace = BaruGaruEntity.segmentDistance; //hypotenuse for us
+            double wantedSpace = CentipedeEntity.segmentDistance; //hypotenuse for us
             double radianRotation = MathHelper.atan2(xDistance, zDistance); // having this backwards makes them spaz out
             double degreeRotation = radianRotation * (180F / (float) Math.PI);//
 

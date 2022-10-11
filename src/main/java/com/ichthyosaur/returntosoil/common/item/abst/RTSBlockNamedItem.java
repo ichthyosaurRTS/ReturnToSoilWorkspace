@@ -16,11 +16,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class RTSDescBNItem extends BlockNamedItem {
+public class RTSBlockNamedItem extends BlockNamedItem {
 
     TextFormatting textColour = TextFormatting.GRAY;
 
-    public RTSDescBNItem(Block p_i50041_1_, Properties p_i50041_2_,TextFormatting colour ) {
+    public RTSBlockNamedItem(Block p_i50041_1_, Properties p_i50041_2_, TextFormatting colour ) {
         super(p_i50041_1_, p_i50041_2_);
         this.textColour = colour;
     }

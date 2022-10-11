@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.UUID;
 
 
-public abstract class AbstractFlyingSegmentEntity extends AnimalEntity {
+public abstract class AbstractPartEntity extends AnimalEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
     public Entity leader;
@@ -24,7 +24,7 @@ public abstract class AbstractFlyingSegmentEntity extends AnimalEntity {
     boolean noPhysics = true;
     private UUID leaderUUID;
 
-    protected AbstractFlyingSegmentEntity(EntityType<? extends AnimalEntity> p_i48578_1_, World p_i48578_2_) {
+    protected AbstractPartEntity(EntityType<? extends AnimalEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 

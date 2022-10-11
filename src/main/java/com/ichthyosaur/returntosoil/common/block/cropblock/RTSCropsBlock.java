@@ -1,10 +1,9 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.common.entity.HuskLarvaeEntity;
+import com.ichthyosaur.returntosoil.common.entity.GrubEntity;
 import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
-import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.*;
@@ -88,18 +87,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
 
             if (!world.isClientSide()) {
 
-                if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((player.getName().getString()), (int)rollChance.returnRoll(200));
-
-                if (this instanceof IPottable)  {
-                    ItemStack itemstack = player.getItemInHand(hand);
-                    Item item = itemstack.getItem();
-                    if (item == Items.FLOWER_POT) {
-                        itemstack.shrink(1);
-                        popResource(world, pos, ((IPottable) this).getPotItem());
-                        world.setBlock(pos, Blocks.AIR.defaultBlockState(), 1);
-                        return ActionResultType.SUCCESS;
-                    }
-                }
+                //if (rollChance.roll(100)) RTSConfigMisc.cListIncrease((player.getName().getString()), (int)rollChance.returnRoll(200));
                 popResource(world, pos, new ItemStack(this.getNonSeedDrop()));
                 if (this.useSeedDrop()) popResource(world, pos, new ItemStack(this.getSeed()));
 
@@ -118,7 +106,6 @@ public abstract class RTSCropsBlock extends CropsBlock {
         List<ItemStack> drops = new ArrayList<>();
 
         if (state.getValue(INFESTED)) return drops;
-
 
         if (state.getValue(AGE)==7) {
 
@@ -164,7 +151,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
     }
 
     public static void spawnLarvae(ServerWorld world, BlockPos pos) {
-        HuskLarvaeEntity entity = EntityTypesInit.HUSKLARVAE.get().create(world);
+        GrubEntity entity = EntityTypesInit.HUSKLARVAE.get().create(world);
         spawnMobEntity(world, pos, entity);
     }
 

@@ -1,8 +1,8 @@
 package com.ichthyosaur.returntosoil.client.entity.layer;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruModel;
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
+import com.ichthyosaur.returntosoil.client.entity.model.CentipedeModel;
+import com.ichthyosaur.returntosoil.common.entity.CentipedeEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -16,10 +16,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 
 @OnlyIn(Dist.CLIENT)
-public class BaruGaruGreenLayer<T extends BaruGaruEntity> extends LayerRenderer<T, BaruGaruModel<T>> {
-    private final BaruGaruModel<T> model = new BaruGaruModel<>();
+public class CentipedeGreenLayer<T extends CentipedeEntity> extends LayerRenderer<T, CentipedeModel<T>> {
+    private final CentipedeModel<T> model = new CentipedeModel<>();
 
-    public BaruGaruGreenLayer(IEntityRenderer<T, BaruGaruModel<T>> renderer) {
+    public CentipedeGreenLayer(IEntityRenderer<T, CentipedeModel<T>> renderer) {
             super(renderer);
         }
         public static final ResourceLocation TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/baru_garu/baru_garu_blue.png");

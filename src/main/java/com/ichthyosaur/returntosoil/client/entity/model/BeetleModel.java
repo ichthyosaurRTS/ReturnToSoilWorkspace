@@ -7,7 +7,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class JawBeetleModel <T extends JawBeetleEntity> extends EntityModel<JawBeetleEntity> {
+public class BeetleModel<T extends JawBeetleEntity> extends EntityModel<JawBeetleEntity> {
 
     private final ModelRenderer all;
     private final ModelRenderer torso;
@@ -48,7 +48,7 @@ public class JawBeetleModel <T extends JawBeetleEntity> extends EntityModel<JawB
     private boolean Increasing;
     private boolean Increasing2;
 
-    public JawBeetleModel() {
+    public BeetleModel() {
         texWidth = 64;
         texHeight = 64;
 

@@ -1,7 +1,6 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
+import com.ichthyosaur.returntosoil.common.entity.CentipedeEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -15,7 +14,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.server.ServerWorld;
 
 //the beginning of many things, forgotten to the world.
-public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
+public class OriginBerryBlock extends RTSCropsBlock{
 
     //IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
     //BooleanProperty INFESTED = ReturnToSoil.INFESTED;
@@ -60,12 +59,8 @@ public class OriginBerryBlock extends RTSCropsBlock implements IPottable{
 
 
     private static void spawnBaruGaru(ServerWorld world, BlockPos pos) {
-        BaruGaruEntity entity = EntityTypesInit.BARUGARU.get().create(world);
+        CentipedeEntity entity = EntityTypesInit.BARUGARU.get().create(world);
         spawnMobEntity(world, pos, entity);
     }
 
-    @Override
-    public ItemStack getPotItem() {
-        return new ItemStack (ItemInit.ORIGIN_BERRY_POTTED_ITEM.get());
-    }
 }

@@ -1,10 +1,8 @@
 package com.ichthyosaur.returntosoil.common.item.misc;
 
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSBlockNamedItem;
 import net.minecraft.block.Block;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.ActionResult;
@@ -12,18 +10,10 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.text.IFormattableTextComponent;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
-public class LilypadLanternSeed extends RTSDescBNItem {
+public class LilypadLanternSeed extends RTSBlockNamedItem {
     public LilypadLanternSeed(Block p_i50041_1_, Properties p_i50041_2_) {
         super(p_i50041_1_, p_i50041_2_, TextFormatting.GREEN);
     }

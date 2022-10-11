@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
+import com.ichthyosaur.returntosoil.common.entity.CentipedeEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -9,7 +9,7 @@ import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class BaruGaruModel<T extends BaruGaruEntity> extends EntityModel<T> {
+public class CentipedeModel<T extends CentipedeEntity> extends EntityModel<T> {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
@@ -61,7 +61,7 @@ public class BaruGaruModel<T extends BaruGaruEntity> extends EntityModel<T> {
     private final ModelRenderer cube_r24;
     private final ModelRenderer cube_r25;
 
-    public BaruGaruModel() {
+    public CentipedeModel() {
         texWidth = 128;
         texHeight = 128;
 
@@ -330,7 +330,7 @@ public class BaruGaruModel<T extends BaruGaruEntity> extends EntityModel<T> {
 
 
 
-    public void setupAnim(BaruGaruEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(CentipedeEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         this.head.yRot = netHeadYaw/4 * ((float)Math.PI / 180F);
         this.skull.yRot = netHeadYaw/8 * ((float)Math.PI / 180F);
 

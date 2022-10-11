@@ -1,29 +1,21 @@
 package com.ichthyosaur.returntosoil;
 
 
-import com.ichthyosaur.returntosoil.client.entity.renderer.MoonSpellRenderer;
 import com.ichthyosaur.returntosoil.common.entity.*;
 import com.ichthyosaur.returntosoil.core.config.RTSConfig;
 import com.ichthyosaur.returntosoil.core.init.*;
-import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.function.Supplier;
 
 @Mod("returntosoil")
 public class ReturnToSoil
@@ -46,7 +38,7 @@ public class ReturnToSoil
         ItemInit.ITEMS.register(bus);
         TileEntityTypesInit.TILE_ENTITY_TYPE.register(bus);
         ContainerTypesInit.CONTAINER_TYPES.register(bus);
-        EffectInit.EFFECTS.register(bus);
+
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
@@ -62,18 +54,14 @@ public class ReturnToSoil
 
         event.enqueueWork(() -> {
 
-            GlobalEntityTypeAttributes.put(EntityTypesInit.HUSKLARVAE.get(), HuskLarvaeEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.HUSKLARVAE.get(), GrubEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.JAWBEETLE.get(), JawBeetleEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.DRAGONFLY.get(), DragonflyEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARU.get(), BaruGaruEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), BaruGaruSegmentEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARU.get(), CentipedeEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), CentipedePartEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.VESSEL.get(), VesselEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractFlyingSegmentEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.WARRARUPEHEAD.get(), WarraRupeHeadEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.GENERALFLYINGSEGMENT.get(), AbstractPartEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.GAWANHEAD.get(), GawanHeadEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.GARAGOGA.get(), GaraGogaEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.CANNONMOLLUSC.get(), CannonMolluscEntity.setCustomAttributes().build());
-
         });
 
 

@@ -1,35 +1,17 @@
 package com.ichthyosaur.returntosoil.client.entity.renderer;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.client.entity.layer.BaruGaruGreenLayer;
-import com.ichthyosaur.returntosoil.client.entity.model.BaruGaruModel;
 import com.ichthyosaur.returntosoil.client.entity.model.spell.MoonModel;
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruEntity;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
-import com.ichthyosaur.returntosoil.core.init.ItemInit;
-import com.ichthyosaur.returntosoil.core.util.rollChance;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.model.TridentModel;
-import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.entity.projectile.TridentEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Matrix3f;
-import net.minecraft.util.math.vector.Matrix4f;
-import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3f;
 
 public class MoonSpellRenderer extends EntityRenderer<SpellEntity> {

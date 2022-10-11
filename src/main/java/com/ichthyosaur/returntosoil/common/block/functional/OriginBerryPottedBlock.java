@@ -1,6 +1,5 @@
 package com.ichthyosaur.returntosoil.common.block.functional;
 
-import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import javafx.scene.paint.Color;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -38,7 +37,7 @@ public class OriginBerryPottedBlock extends RTSPottedBlock{
     @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 
-        if (world.isClientSide()){
+        /*if (world.isClientSide()){
 
             int lvl =  RTSConfigMisc.cListGetLvl(player.getName().getString());
             StringTextComponent text = new StringTextComponent("Cultivation Level: "+lvl);
@@ -59,7 +58,7 @@ public class OriginBerryPottedBlock extends RTSPottedBlock{
             }
             player.displayClientMessage( text, true);
             return ActionResultType.SUCCESS;
-        }
+        }  */
         return super.use(state, world, pos, player, hand, p_225533_6_);
 
     }

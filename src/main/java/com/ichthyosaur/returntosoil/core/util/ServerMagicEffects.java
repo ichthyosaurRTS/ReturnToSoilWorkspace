@@ -1,7 +1,6 @@
 package com.ichthyosaur.returntosoil.core.util;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.common.effect.MagicEffectDraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.server.ServerWorld;

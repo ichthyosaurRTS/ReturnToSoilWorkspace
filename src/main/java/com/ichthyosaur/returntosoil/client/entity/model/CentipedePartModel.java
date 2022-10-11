@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.BaruGaruSegmentEntity;
+import com.ichthyosaur.returntosoil.common.entity.CentipedePartEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -9,7 +9,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.logging.Logger;
 
-public class BaruGaruSegmentModel<T extends BaruGaruSegmentEntity> extends EntityModel<T> {
+public class CentipedePartModel<T extends CentipedePartEntity> extends EntityModel<T> {
     Logger logger = Logger.getLogger("logger");;
 
     private final ModelRenderer segment;
@@ -27,7 +27,7 @@ public class BaruGaruSegmentModel<T extends BaruGaruSegmentEntity> extends Entit
     private final ModelRenderer gem;
     private final ModelRenderer cube_r6;
 
-    public BaruGaruSegmentModel() {
+    public CentipedePartModel() {
         texWidth = 128;
         texHeight = 128;
 
@@ -109,7 +109,7 @@ public class BaruGaruSegmentModel<T extends BaruGaruSegmentEntity> extends Entit
 
 
     @Override
-    public void setupAnim(BaruGaruSegmentEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(CentipedePartEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         float headX = headPitch * ((float)Math.PI / 180F); //actually refers to segments up down rot
         this.fakehead.xRot = headX; //headX is radians, headPitch is degrees
         //z starts 7 back (z=7) at 180 degrees, the head will be brought forward by (180/20 =) 9; otherwise sits into child on upward slope

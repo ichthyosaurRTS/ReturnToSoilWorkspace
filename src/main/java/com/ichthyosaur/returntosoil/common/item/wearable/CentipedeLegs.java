@@ -1,8 +1,6 @@
 package com.ichthyosaur.returntosoil.common.item.wearable;
 
-import com.ichthyosaur.returntosoil.client.wearable.model.CentipedeChestModel;
 import com.ichthyosaur.returntosoil.client.wearable.model.CentipedeLegsModel;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -10,7 +8,6 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 

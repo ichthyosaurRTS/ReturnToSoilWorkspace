@@ -117,9 +117,9 @@ public class RefinementBarrelTileEntity extends TileEntity implements ITickableT
 
         int i = (int) rollChance.returnRoll(100);
         if (i == 1) return new ItemStack(ItemInit.VESSEL_SEED.get());  //1%
-        else if (i < 7) return new ItemStack(ItemInit.TOTEM_SHOOT_ITEM.get()); //5%
+
         else if (i < 22) return new ItemStack(ItemInit.LILYPAD_LANTERN_SEED.get()); //15%
-        else if (i < 62) return new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get(),1); //40%
+
         else return new ItemStack(ItemInit.ORIGIN_BERRY_SEED.get(),1);// 39%
 
     }

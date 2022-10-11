@@ -1,7 +1,6 @@
 package com.ichthyosaur.returntosoil.common.event;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,7 +22,7 @@ public class PlayerEvents {
 
     static float oldYRot;
 
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void CultivationDefenseBonus (LivingDamageEvent event) {
         if (event.getEntity() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity)event.getEntity();
@@ -61,7 +60,7 @@ public class PlayerEvents {
                 event.setAmount(newAmount);
             }
         }
-    }
+    }*/
 
     //just for proof of concept, doesn't go here.
     @SubscribeEvent
@@ -81,7 +80,7 @@ public class PlayerEvents {
     public static void onRenderPlayerPre (RenderPlayerEvent.Pre event) {
 
         /*
-        JawBeetleModel model = new JawBeetleModel();
+        BeetleModel model = new BeetleModel();
         Minecraft instance = Minecraft.getInstance();
 
         PlayerEntity player = event.getPlayer();

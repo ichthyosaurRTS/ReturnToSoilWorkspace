@@ -15,10 +15,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class RTSDescItem extends Item {
+public class RTSItem extends Item {
     TextFormatting textColour = TextFormatting.GRAY;
 
-    public RTSDescItem(Properties p_i50041_2_, TextFormatting colour ) {
+    public RTSItem(Properties p_i50041_2_, TextFormatting colour ) {
         super(p_i50041_2_);
         this.textColour = colour;
     }

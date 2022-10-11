@@ -20,14 +20,14 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class BaruGaruEntity extends TameableEntity {
+public class CentipedeEntity extends TameableEntity {
 
     //Lets use uuids next time rather than removing and respawning the segments every time the world restarts alright?
     public static final double segmentDistance = 0.7D;
     static final int segmentMaxNumber = 10;
     private UUID[] segmentList = new UUID[segmentMaxNumber];
 
-    public BaruGaruEntity(EntityType<? extends TameableEntity> p_i48574_1_, World p_i48574_2_) {
+    public CentipedeEntity(EntityType<? extends TameableEntity> p_i48574_1_, World p_i48574_2_) {
         super(p_i48574_1_, p_i48574_2_);
     }
 
@@ -86,7 +86,7 @@ public class BaruGaruEntity extends TameableEntity {
             if (this.segmentList[i] == null) {}
             else {
                 ServerWorld world = (ServerWorld) this.getCommandSenderWorld();
-                BaruGaruSegmentEntity segment = (BaruGaruSegmentEntity) world.getEntity(this.segmentList[i]);
+                CentipedePartEntity segment = (CentipedePartEntity) world.getEntity(this.segmentList[i]);
                 segment.moveTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
             }
         }
@@ -119,7 +119,7 @@ public class BaruGaruEntity extends TameableEntity {
 
         if(number<segmentMaxNumber) {
 
-            BaruGaruSegmentEntity segment;
+            CentipedePartEntity segment;
 
             World world = this.getCommandSenderWorld();
 

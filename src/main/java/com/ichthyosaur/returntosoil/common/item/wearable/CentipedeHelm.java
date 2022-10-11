@@ -1,7 +1,7 @@
 package com.ichthyosaur.returntosoil.common.item.wearable;
 
 import com.ichthyosaur.returntosoil.client.wearable.model.CentipedeHelmModel;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSWearableItem;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -15,7 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 
 //double damage to jaw beetles
-public class CentipedeHelm extends RTSDescWBItem {
+public class CentipedeHelm extends RTSWearableItem {
 
 
     public CentipedeHelm(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_, TextFormatting colour) {

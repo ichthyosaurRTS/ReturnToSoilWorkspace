@@ -1,8 +1,7 @@
 package com.ichthyosaur.returntosoil.common.item.wearable;
 
 import com.ichthyosaur.returntosoil.client.wearable.model.CentipedeChestModel;
-import com.ichthyosaur.returntosoil.client.wearable.model.CentipedeHelmModel;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSWearableItem;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -18,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 
 //Limits damage to 19
-public class CentipedeChest extends RTSDescWBItem {
+public class CentipedeChest extends RTSWearableItem {
 
 
     public CentipedeChest(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_, TextFormatting colour) {

@@ -76,7 +76,6 @@ public class RefinementBaAdvTileEntity extends LockableTileEntity implements ITi
 
                     top.shrink(1);
 
-                    ItemStack crystalSeed = new ItemStack(ItemInit.CRYSTAL_PLANT_SEED.get());
                     ItemStack result = RefinementBarrelTileEntity.randomSeedResult();
 
                     //assuming theres piping out, the bottom will probably be empty every time

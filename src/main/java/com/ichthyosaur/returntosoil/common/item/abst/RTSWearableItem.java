@@ -16,11 +16,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class RTSDescWBItem extends ArmorItem {
+public class RTSWearableItem extends ArmorItem {
 
     TextFormatting textColour = TextFormatting.GRAY;
 
-    public RTSDescWBItem(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_,  TextFormatting colour) {
+    public RTSWearableItem(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_, TextFormatting colour) {
         super(p_i48534_1_, p_i48534_2_, p_i48534_3_);
         this.textColour = colour;
     }

@@ -3,8 +3,8 @@ package com.ichthyosaur.returntosoil.core.init;
 import com.google.common.collect.Sets;
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSArmorMaterial;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescBNItem;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSBlockNamedItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSItem;
 import com.ichthyosaur.returntosoil.common.item.abst.RTSItemTier;
 import com.ichthyosaur.returntosoil.common.item.misc.LilypadLanternSeed;
 import com.ichthyosaur.returntosoil.common.item.misc.VesselSacItem;
@@ -36,7 +36,7 @@ public class ItemInit {
 
     //Crops
 
-    //Origin Berry------------------------------------------------------------------------------------------------------
+    //Origin Berry
 
     public static final Food ORIGIN_BERRY_FOOD = (new Food.Builder()).nutrition(2).saturationMod(0.1F).build();
     public static final RegistryObject<Item> ORIGIN_BERRY_ITEM = ITEMS.register("origin_berry_item", () ->
@@ -48,44 +48,18 @@ public class ItemInit {
     public static final RegistryObject<Item> ORIGIN_BERRY_POTTED_ITEM = ITEMS.register("origin_berry_potted_item", () ->
             new BlockItem(BlockInit.ORIGIN_BERRY_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //Rarity Common (1) ------------------------------------------------------------------------------------------------
-
-    //crystal plant
-    public static final RegistryObject<Item> CRYSTAL_PLANT_SEED = ITEMS.register("crystal_plant_seed", () ->
-            new RTSDescBNItem(BlockInit.CRYSTAL_PLANT_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
-    public static final RegistryObject<Item> SPIRIT_CRYSTAL_ITEM = ITEMS.register("spirit_crystal_item", () ->
-            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Item> SPIRIT_LEAF_ITEM = ITEMS.register("spirit_leaf_item", () ->
-            new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Item> CRYSTAL_PLANT_POTTED_ITEM = ITEMS.register("crystal_plant_potted_item", () ->
-            new BlockItem(BlockInit.CRYSTAL_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
-
     //Lily lantern
     public static final RegistryObject<Item> LILYPAD_LANTERN_SEED = ITEMS.register("lilypad_lantern_seed", () ->
             new LilypadLanternSeed(BlockInit.LILYPAD_LANTERN_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
     public static final RegistryObject<Item> LILYPAD_FLOWER_ITEM = ITEMS.register("lilypad_flower_item", () ->
             new Item(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
-    //Dragon-------------------------------------------------------------------------------------------------
-
-    //Totem stalk
-    public static final RegistryObject<Item> TOTEM_SHOOT_ITEM = ITEMS.register("totem_shoot_item", () ->
-            new RTSDescBNItem(BlockInit.TOTEM_STALK_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),spirit));
-
-
-    //Warden Plant
-    public static final RegistryObject<Item> WARDEN_PLANT_POTTED_ITEM = ITEMS.register("warden_plant_potted_item", () ->
-            new BlockItem(BlockInit.WARDEN_PLANT_POTTED_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-    public static final RegistryObject<Item> GLASSY_EYEBALL_ITEM = ITEMS.register("glassy_eyeball_item", () ->
-            new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),common));
-
 
     //Rarity Dark (-) --------------------------------------------------------------------------------------------------
 
     //Vessel Vine
     public static final RegistryObject<Item> VESSEL_SEED = ITEMS.register("vessel_seed", () ->
-            new RTSDescBNItem(BlockInit.VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), dark));
+            new RTSBlockNamedItem(BlockInit.VESSEL_VINE_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), dark));
     public static final RegistryObject<Item> VESSEL_SAC_ITEM = ITEMS.register("vessel_sac_item", () ->
             new VesselSacItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL), dark));
 
@@ -106,7 +80,7 @@ public class ItemInit {
 
     //Magical Blood
     public static final RegistryObject<Item> MAGICAL_BLOOD_ITEM = ITEMS.register("magical_blood_item", () ->
-            new RTSDescItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),dark));
+            new RTSItem(new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL),dark));
 
     //Husk Larvae stuffs
     public static final RegistryObject<Item> GRUB_MANTLE_ITEM = ITEMS.register("grub_mantle_item", () ->
@@ -137,10 +111,6 @@ public class ItemInit {
     //Standalone; Nothing personal kid
     public static final RegistryObject<Item> ABYSS_SCALPEL = ITEMS.register("abyss_scalpel", () ->
             new AbyssScalpelItem(1.0F, 1.0F, RTSItemTier.ABYSS_SCRAPINGS, Sets.newHashSet(), (new Item.Properties()).tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
-
-    //Holding staff
-    public static final RegistryObject<Item> HOLDING_STAFF_ITEM = ITEMS.register("holding_staff_item", () ->
-            new BlockNamedItem(BlockInit.HOLDING_STAFF_BLOCK.get(), new Item.Properties().tab(ReturnToSoilItemGroup.RETURN_TO_SOIL)));
 
     //draft scroll
     public static final RegistryObject<SpellScroll> SPELL_SCROLL_ITEM = ITEMS.register("spell_scroll_item", () ->

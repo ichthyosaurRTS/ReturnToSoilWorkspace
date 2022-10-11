@@ -1,12 +1,11 @@
 package com.ichthyosaur.returntosoil.common.item.wearable;
 
 import com.ichthyosaur.returntosoil.client.wearable.model.BeetleBackpackModel;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescWBItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSWearableItem;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
@@ -17,7 +16,7 @@ import javax.annotation.Nullable;
 
 //nibble from your roasted beetle while you farm!
 
-public class BeetleBackpack extends RTSDescWBItem {
+public class BeetleBackpack extends RTSWearableItem {
 
 
     public BeetleBackpack(IArmorMaterial p_i48534_1_, EquipmentSlotType p_i48534_2_, Properties p_i48534_3_, TextFormatting colour) {

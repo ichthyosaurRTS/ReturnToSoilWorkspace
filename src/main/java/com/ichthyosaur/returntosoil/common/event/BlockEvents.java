@@ -2,7 +2,6 @@ package com.ichthyosaur.returntosoil.common.event;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.block.cropblock.RTSCropsBlock;
-import com.ichthyosaur.returntosoil.core.config.RTSConfigMisc;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.block.Block;
@@ -44,7 +43,7 @@ public class BlockEvents {
             if (state.getValue(CropsBlock.AGE)==7 && rollChance.roll(100))  {
 
             PlayerEntity player = event.getPlayer();
-            RTSConfigMisc.cListIncrease((player.getName().getString()), (int)rollChance.returnRoll(200));
+            //RTSConfigMisc.cListIncrease((player.getName().getString()), (int)rollChance.returnRoll(200));
             }
         }
     }

@@ -1,18 +1,13 @@
 package com.ichthyosaur.returntosoil.common.item.misc;
 
 import com.ichthyosaur.returntosoil.common.entity.VesselEntity;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSDescItem;
+import com.ichthyosaur.returntosoil.common.item.abst.RTSItem;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.AirBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -23,7 +18,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class VesselSacItem extends RTSDescItem {
+public class VesselSacItem extends RTSItem {
 
     //rushed so no wonder if it crashes everything
 

@@ -1,14 +1,12 @@
 package com.ichthyosaur.returntosoil.common.entity;
 
 import net.minecraft.entity.*;
-import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -17,14 +15,14 @@ import org.apache.logging.log4j.Logger;
 
 
 //For small hit-boxes, using layers to reduce entity ids
-public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
+public class GeneralPartEntity extends AbstractPartEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
     private boolean hasRefreshed = false;
-    private static final DataParameter<String> ENTITY_MODEL = EntityDataManager.defineId(GeneralFlyingSegmentEntity.class, DataSerializers.STRING);
+    private static final DataParameter<String> ENTITY_MODEL = EntityDataManager.defineId(GeneralPartEntity.class, DataSerializers.STRING);
 
-    public GeneralFlyingSegmentEntity(EntityType<? extends AbstractFlyingSegmentEntity> p_i48578_1_, World p_i48578_2_) {
+    public GeneralPartEntity(EntityType<? extends AbstractPartEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 
@@ -69,7 +67,7 @@ public class GeneralFlyingSegmentEntity extends AbstractFlyingSegmentEntity {
 
     @Override
     public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
-        if (this.getLeader() instanceof GeneralFlyingSegmentEntity) return ((GeneralFlyingSegmentEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
+        if (this.getLeader() instanceof GeneralPartEntity) return ((GeneralPartEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
         else if (this.getLeader() instanceof AbstractContractEntity) return ((AbstractContractEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
         else return super.mobInteract(p_230254_1_, p_230254_2_);
     }

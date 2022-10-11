@@ -1,14 +1,11 @@
 package com.ichthyosaur.returntosoil.core.util;
 
-import com.ichthyosaur.returntosoil.common.entity.AbstractFlyingSegmentEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.server.ServerWorld;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
