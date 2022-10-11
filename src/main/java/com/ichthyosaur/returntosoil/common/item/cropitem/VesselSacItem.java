@@ -1,7 +1,7 @@
-package com.ichthyosaur.returntosoil.common.item.misc;
+package com.ichthyosaur.returntosoil.common.item.cropitem;
 
 import com.ichthyosaur.returntosoil.common.entity.VesselEntity;
-import com.ichthyosaur.returntosoil.common.item.abst.RTSItem;
+import com.ichthyosaur.returntosoil.common.item.itemclass.RTSItem;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import net.minecraft.block.AirBlock;
 import net.minecraft.entity.SpawnReason;

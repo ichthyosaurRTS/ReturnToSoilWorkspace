@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.item.tool;
+package com.ichthyosaur.returntosoil.common.item.toolitem;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;

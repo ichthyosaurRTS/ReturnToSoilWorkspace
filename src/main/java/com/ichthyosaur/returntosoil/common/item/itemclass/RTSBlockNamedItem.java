@@ -1,8 +1,8 @@
-package com.ichthyosaur.returntosoil.common.item.abst;
+package com.ichthyosaur.returntosoil.common.item.itemclass;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -15,11 +15,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class RTSItem extends Item {
+public class RTSBlockNamedItem extends BlockNamedItem {
+
     TextFormatting textColour = TextFormatting.GRAY;
 
-    public RTSItem(Properties p_i50041_2_, TextFormatting colour ) {
-        super(p_i50041_2_);
+    public RTSBlockNamedItem(Block p_i50041_1_, Properties p_i50041_2_, TextFormatting colour ) {
+        super(p_i50041_1_, p_i50041_2_);
         this.textColour = colour;
     }
 
@@ -31,4 +32,5 @@ public class RTSItem extends Item {
     public IFormattableTextComponent getDisplayName() {
         return new TranslationTextComponent(this.getDescriptionId() + ".desc");
     }
+
 }

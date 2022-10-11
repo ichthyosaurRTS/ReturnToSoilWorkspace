@@ -2,7 +2,7 @@ package com.ichthyosaur.returntosoil.common.entity;
 
 import com.google.common.collect.Maps;
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
+import com.ichthyosaur.returntosoil.common.item.wearableitem.CentipedeHelm;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
 import net.minecraft.entity.EntityType;

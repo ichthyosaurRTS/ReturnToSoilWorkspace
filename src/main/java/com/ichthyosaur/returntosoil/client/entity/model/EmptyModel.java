@@ -1,6 +1,6 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.GeneralPartEntity;
+import com.ichthyosaur.returntosoil.common.entity.PartEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -9,7 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class EmptyModel <T extends GeneralPartEntity> extends EntityModel<T> {
+public class EmptyModel <T extends PartEntity> extends EntityModel<T> {
 
     public final ModelRenderer EmptyAll;
 
@@ -22,7 +22,7 @@ public class EmptyModel <T extends GeneralPartEntity> extends EntityModel<T> {
     }
 
     @Override
-    public void setupAnim(GeneralPartEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(PartEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         this.EmptyAll.xRot = headPitch * ((float)Math.PI / 180F);
         this.EmptyAll.yRot = netHeadYaw * ((float)Math.PI / 180F);
 

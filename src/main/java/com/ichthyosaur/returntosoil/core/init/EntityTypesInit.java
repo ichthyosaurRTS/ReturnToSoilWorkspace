@@ -44,8 +44,8 @@ public class EntityTypesInit {
                     .sized(0.5f,0.4f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "vessel").toString()));
 
-    public static final RegistryObject<EntityType<GeneralPartEntity>> GENERALFLYINGSEGMENT = ENTITY_TYPES.register("general_flying_segment",
-            () -> EntityType.Builder.of(GeneralPartEntity::new, EntityClassification.CREATURE)
+    public static final RegistryObject<EntityType<PartEntity>> GENERALFLYINGSEGMENT = ENTITY_TYPES.register("general_flying_segment",
+            () -> EntityType.Builder.of(PartEntity::new, EntityClassification.CREATURE)
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "general_flying_segment").toString()));
 

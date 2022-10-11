@@ -1,6 +1,5 @@
-package com.ichthyosaur.returntosoil.common.item.abst;
+package com.ichthyosaur.returntosoil.common.item.itemclass;
 
-import com.ichthyosaur.returntosoil.core.init.BlockInit;
 import com.ichthyosaur.returntosoil.core.init.ItemInit;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;

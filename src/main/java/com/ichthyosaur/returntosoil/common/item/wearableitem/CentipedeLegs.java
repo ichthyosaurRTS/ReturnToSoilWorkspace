@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.item.wearable;
+package com.ichthyosaur.returntosoil.common.item.wearableitem;
 
 import com.ichthyosaur.returntosoil.client.wearable.model.CentipedeLegsModel;
 import net.minecraft.client.renderer.entity.model.BipedModel;
@@ -23,7 +23,7 @@ public class CentipedeLegs extends ArmorItem {
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        return "returntosoil:textures/wearable/centipede_armor.png";
+        return "returntosoil:textures/wearableitem/centipede_armor.png";
     }
 
 

@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.item.tool;
+package com.ichthyosaur.returntosoil.common.item.toolitem;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.IItemTier;

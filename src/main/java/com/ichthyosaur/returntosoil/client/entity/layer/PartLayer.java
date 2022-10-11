@@ -1,16 +1,16 @@
 package com.ichthyosaur.returntosoil.client.entity.layer;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.client.entity.segmentmodel.*;
+import com.ichthyosaur.returntosoil.client.entity.partmodel.*;
 import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
-import com.ichthyosaur.returntosoil.common.entity.GeneralPartEntity;
+import com.ichthyosaur.returntosoil.common.entity.PartEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class GeneralPartLayer<T extends GeneralPartEntity> extends LayerRenderer<T, EmptyModel<T>> {
+public class PartLayer<T extends PartEntity> extends LayerRenderer<T, EmptyModel<T>> {
 
     private static final ResourceLocation GAWAN_FULLBODY_TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/gawan/gawan_fullbody.png");
     private final GawanNeckModel<T> gawanNeckModel = new GawanNeckModel<T>();
@@ -22,7 +22,7 @@ public class GeneralPartLayer<T extends GeneralPartEntity> extends LayerRenderer
     private final GawanTailModel<T> gawanTailModel = new GawanTailModel<T>();
 
 
-    public GeneralPartLayer(IEntityRenderer<T, EmptyModel<T>> renderer) {
+    public PartLayer(IEntityRenderer<T, EmptyModel<T>> renderer) {
         super(renderer);
     }
 

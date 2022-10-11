@@ -15,14 +15,14 @@ import org.apache.logging.log4j.Logger;
 
 
 //For small hit-boxes, using layers to reduce entity ids
-public class GeneralPartEntity extends AbstractPartEntity {
+public class PartEntity extends AbstractPartEntity {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
     private boolean hasRefreshed = false;
-    private static final DataParameter<String> ENTITY_MODEL = EntityDataManager.defineId(GeneralPartEntity.class, DataSerializers.STRING);
+    private static final DataParameter<String> ENTITY_MODEL = EntityDataManager.defineId(PartEntity.class, DataSerializers.STRING);
 
-    public GeneralPartEntity(EntityType<? extends AbstractPartEntity> p_i48578_1_, World p_i48578_2_) {
+    public PartEntity(EntityType<? extends AbstractPartEntity> p_i48578_1_, World p_i48578_2_) {
         super(p_i48578_1_, p_i48578_2_);
     }
 
@@ -67,7 +67,7 @@ public class GeneralPartEntity extends AbstractPartEntity {
 
     @Override
     public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
-        if (this.getLeader() instanceof GeneralPartEntity) return ((GeneralPartEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
+        if (this.getLeader() instanceof PartEntity) return ((PartEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
         else if (this.getLeader() instanceof AbstractContractEntity) return ((AbstractContractEntity)this.getLeader()).mobInteract(p_230254_1_, p_230254_2_);
         else return super.mobInteract(p_230254_1_, p_230254_2_);
     }

@@ -254,7 +254,7 @@ public class GawanHeadEntity extends AbstractContractEntity {
     }
 
     private void createSegments(Entity leader, int segmentNumber){
-        GeneralPartEntity segment;
+        PartEntity segment;
         World world = this.getCommandSenderWorld();
 
         if (segmentNumber == 0) {

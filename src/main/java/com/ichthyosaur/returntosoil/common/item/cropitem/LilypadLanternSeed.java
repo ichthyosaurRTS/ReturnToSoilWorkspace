@@ -1,6 +1,6 @@
-package com.ichthyosaur.returntosoil.common.item.misc;
+package com.ichthyosaur.returntosoil.common.item.cropitem;
 
-import com.ichthyosaur.returntosoil.common.item.abst.RTSBlockNamedItem;
+import com.ichthyosaur.returntosoil.common.item.itemclass.RTSBlockNamedItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

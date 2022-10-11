@@ -1,10 +1,10 @@
 package com.ichthyosaur.returntosoil.common.event;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.common.item.wearable.BeetleBackpack;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeChest;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeHelm;
-import com.ichthyosaur.returntosoil.common.item.wearable.CentipedeLegs;
+import com.ichthyosaur.returntosoil.common.item.wearableitem.BeetleBackpack;
+import com.ichthyosaur.returntosoil.common.item.wearableitem.CentipedeChest;
+import com.ichthyosaur.returntosoil.common.item.wearableitem.CentipedeHelm;
+import com.ichthyosaur.returntosoil.common.item.wearableitem.CentipedeLegs;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;

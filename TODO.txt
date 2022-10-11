@@ -3,59 +3,13 @@ TODO
 
 QUALITY AND DEPTH OVER QUANTITY AND VARIETY
 
-1  dot/eot dot effect draft
-1  animated particle sprite draft
-1  see how spell entities attached to people look.
-1  write listtostring and stringtolist functions for saving and loading?
-1  find workaround for concurrentwriting
 
+1 AbstractContractEntity class for all rts entities
+1 AbstractPartEntity and PartEntity from extending animalEntity to extending Entity
+1 Maggot, demon, eyeball
 
-1  adv barrel blockstates, auto add stack rather than opening menu
-
-1  barrel anim textures
-
-1  jellyfish on lantern?
-
-1  lilypad redesign m
-
-1  dragonfly bright layer, dragonfly carrying egg layer and drop/dragonfly remodel
-
-1  separate serverside and clientside code in like everything- is the reason for head glitchy-ness on serpent mobs
-
-1  check for whether children of head are following behind or not- if not, kill and rebuild
-
-1  either use a different proj class or design some particles that are invisible and disappear instantly to use as trails
-
-1  change abstract seg entity to extend entity rather than animal entity
-
-
-2  some cool as model tile entities
-2  Multiblock spell crafting system
-2  Does o berry potted use work on server?
-2  Composter crop + mob
-2  upside down void crop
-2  spirit collector and distributor
-2  Droplet crop
-2  Spawn eggs for non-contract mobs
-2  Firefly dragon
-2  Add green jaw beetle drop uses/ craft items + fix arm rot
-2  Grain crop
-2  Gas plant
-2  Lightning plant
-2  Small Golem plant
-2  Repulsor plant
-2  Compostor plant
-2  beetlesoup backpack lava sound;
-
-3  Add ghost jaw beetle drops
-3  out of position bug
-3  BaruGaru drops
-3  Re-texture o-berry item
+2 Basic spells/runes
 
 4  Pocket dimension
 4  Dragon head weapons (projectiles, floating)
-4  Baru Garu tame item, tame code
-4  Add spell circles
-4  LOVE mod
 
-test2

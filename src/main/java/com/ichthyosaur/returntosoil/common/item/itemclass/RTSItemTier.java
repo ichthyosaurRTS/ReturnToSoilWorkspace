@@ -1,4 +1,4 @@
-package com.ichthyosaur.returntosoil.common.item.abst;
+package com.ichthyosaur.returntosoil.common.item.itemclass;
 
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
