@@ -1,8 +1,8 @@
 package com.ichthyosaur.returntosoil.common.block.cropblock;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
+import com.ichthyosaur.returntosoil.common.entity.BeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.GrubEntity;
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.tileentity.RefinementBarrelTileEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
 import com.ichthyosaur.returntosoil.core.util.rollChance;
@@ -146,7 +146,7 @@ public abstract class RTSCropsBlock extends CropsBlock {
     }
 
     public static void spawnJawBeetle(ServerWorld world, BlockPos pos) {
-        JawBeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
+        BeetleEntity entity = EntityTypesInit.JAWBEETLE.get().create(world);
         spawnMobEntity(world, pos, entity);
     }
 

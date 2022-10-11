@@ -48,7 +48,7 @@ public class CentipedeEntity extends TameableEntity {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false)); //that float is move speed
         this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0f));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, JawBeetleEntity.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, BeetleEntity.class, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 
     }

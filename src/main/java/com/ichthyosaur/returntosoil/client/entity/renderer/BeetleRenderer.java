@@ -1,12 +1,12 @@
 package com.ichthyosaur.returntosoil.client.entity.renderer;
 
 import com.ichthyosaur.returntosoil.client.entity.model.BeetleModel;
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.entity.BeetleEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class BeetleRenderer extends MobRenderer<JawBeetleEntity, BeetleModel<JawBeetleEntity>> {
+public class BeetleRenderer extends MobRenderer<BeetleEntity, BeetleModel<BeetleEntity>> {
 
 
     public BeetleRenderer(EntityRendererManager manager) {
@@ -15,7 +15,7 @@ public class BeetleRenderer extends MobRenderer<JawBeetleEntity, BeetleModel<Jaw
     }
 
     @Override
-    public ResourceLocation getTextureLocation(JawBeetleEntity entity) {
+    public ResourceLocation getTextureLocation(BeetleEntity entity) {
         return entity.getResourceLocation();
     }
 }

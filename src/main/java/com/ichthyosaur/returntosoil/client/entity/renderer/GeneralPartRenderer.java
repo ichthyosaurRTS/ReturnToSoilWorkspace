@@ -1,18 +1,18 @@
 package com.ichthyosaur.returntosoil.client.entity.renderer;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.client.entity.layer.SerpentPartLayer;
+import com.ichthyosaur.returntosoil.client.entity.layer.GeneralPartLayer;
 import com.ichthyosaur.returntosoil.client.entity.model.EmptyModel;
 import com.ichthyosaur.returntosoil.common.entity.GeneralPartEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class GeneralFlyingSegmentRenderer extends MobRenderer<GeneralPartEntity, EmptyModel<GeneralPartEntity>> {
+public class GeneralPartRenderer extends MobRenderer<GeneralPartEntity, EmptyModel<GeneralPartEntity>> {
 
-    public GeneralFlyingSegmentRenderer(EntityRendererManager manager) {
+    public GeneralPartRenderer(EntityRendererManager manager) {
         super(manager, new EmptyModel<>(), 0.3f);
-        this.addLayer(new SerpentPartLayer<>(this));
+        this.addLayer(new GeneralPartLayer<>(this));
     }
 
 

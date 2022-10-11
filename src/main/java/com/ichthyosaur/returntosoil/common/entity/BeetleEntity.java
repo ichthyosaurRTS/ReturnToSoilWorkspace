@@ -32,12 +32,12 @@ import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.Random;
 
-public class JawBeetleEntity extends MonsterEntity {
+public class BeetleEntity extends MonsterEntity {
 
     //private final int COLOUR_INT;
     private static final DataParameter<Integer> COLOUR_INT = EntityDataManager.defineId(CatEntity.class, DataSerializers.INT);
 
-    public JawBeetleEntity(EntityType<? extends MonsterEntity> p_i48576_1_, World p_i48576_2_) {
+    public BeetleEntity(EntityType<? extends MonsterEntity> p_i48576_1_, World p_i48576_2_) {
         super(p_i48576_1_, p_i48576_2_);
     }
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {

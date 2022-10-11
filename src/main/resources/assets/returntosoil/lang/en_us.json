@@ -4,14 +4,6 @@
   "item.returntosoil.vessel_seed": "Vessel Seed",
   "item.returntosoil.vessel_seed.desc": "Is it... wriggling?",
 
-  "item.returntosoil.totem_shoot_item": "Totem Shoot",
-
-  "item.returntosoil.warden_plant_seed.desc": "You feel it watching you",
-
-  "item.returntosoil.crystal_plant_seed": "Crystal Seed",
-  "item.returntosoil.crystal_plant_seed.desc": "Shiny",
-  "item.returntosoil.spirit_crystal_item": "Spirit Crystal",
-  "item.returntosoil.spirit_leaf_item": "Spirit Leaf",
 
   "item.returntosoil.origin_berry_seed": "Origin Seed",
   "block.returntosoil.origin_berry_block": "Origin Berry Crop",
@@ -37,13 +29,10 @@
 
   "block.returntosoil.origin_berry_potted_block": "Origin Plant",
   "block.returntosoil.crystal_plant_potted_block": "Crystal Plant",
-  "block.returntosoil.warden_plant_potted_block": "Warden Plant",
 
   "block.returntosoil.refinement_barrel_block": "Refinement Barrel",
   "block.returntosoil.refinement_barrel_adv_block": "Advanced Refinement Barrel",
 
-  "entity.returntosoil.warra_rupe_head": "Warra Rupe",
-  "item.returntosoil.holding_staff_item": "Holding Staff",
 
   "item.returntosoil.vessel_sac_item": "Vessel Sac",
   "item.returntosoil.vessel_sac_item.desc": "A faint heartbeat",

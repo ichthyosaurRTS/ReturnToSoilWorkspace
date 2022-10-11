@@ -55,7 +55,7 @@ public class ReturnToSoil
         event.enqueueWork(() -> {
 
             GlobalEntityTypeAttributes.put(EntityTypesInit.HUSKLARVAE.get(), GrubEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(EntityTypesInit.JAWBEETLE.get(), JawBeetleEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(EntityTypesInit.JAWBEETLE.get(), BeetleEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.DRAGONFLY.get(), DragonflyEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARU.get(), CentipedeEntity.setCustomAttributes().build());
             GlobalEntityTypeAttributes.put(EntityTypesInit.BARUGARUSEGMENT.get(), CentipedePartEntity.setCustomAttributes().build());

@@ -1,13 +1,13 @@
 package com.ichthyosaur.returntosoil.client.entity.model;
 
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
+import com.ichthyosaur.returntosoil.common.entity.BeetleEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class BeetleModel<T extends JawBeetleEntity> extends EntityModel<JawBeetleEntity> {
+public class BeetleModel<T extends BeetleEntity> extends EntityModel<BeetleEntity> {
 
     private final ModelRenderer all;
     private final ModelRenderer torso;
@@ -244,7 +244,7 @@ public class BeetleModel<T extends JawBeetleEntity> extends EntityModel<JawBeetl
 
 
     @Override
-    public void setupAnim(JawBeetleEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(BeetleEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
         this.head.yRot = netHeadYaw * ((float)Math.PI / 1000F);
 

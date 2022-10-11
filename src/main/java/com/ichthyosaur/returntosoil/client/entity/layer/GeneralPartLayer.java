@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class SerpentPartLayer<T extends GeneralPartEntity> extends LayerRenderer<T, EmptyModel<T>> {
+public class GeneralPartLayer<T extends GeneralPartEntity> extends LayerRenderer<T, EmptyModel<T>> {
 
     private static final ResourceLocation GAWAN_FULLBODY_TEXTURE = new ResourceLocation(ReturnToSoil.MOD_ID, "textures/entity/gawan/gawan_fullbody.png");
     private final GawanNeckModel<T> gawanNeckModel = new GawanNeckModel<T>();
@@ -22,7 +22,7 @@ public class SerpentPartLayer<T extends GeneralPartEntity> extends LayerRenderer
     private final GawanTailModel<T> gawanTailModel = new GawanTailModel<T>();
 
 
-    public SerpentPartLayer(IEntityRenderer<T, EmptyModel<T>> renderer) {
+    public GeneralPartLayer(IEntityRenderer<T, EmptyModel<T>> renderer) {
         super(renderer);
     }
 

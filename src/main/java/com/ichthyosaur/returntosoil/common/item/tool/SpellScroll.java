@@ -1,37 +1,17 @@
 package com.ichthyosaur.returntosoil.common.item.tool;
 
 import com.ichthyosaur.returntosoil.ReturnToSoil;
-import com.ichthyosaur.returntosoil.client.particle.LightBallParticle;
-import com.ichthyosaur.returntosoil.common.entity.JawBeetleEntity;
 import com.ichthyosaur.returntosoil.common.entity.SpellEntity;
 import com.ichthyosaur.returntosoil.core.init.EntityTypesInit;
-import com.ichthyosaur.returntosoil.core.init.ParticleTypesInit;
-import com.ichthyosaur.returntosoil.core.util.ServerMagicEffects;
-import jdk.nashorn.internal.objects.annotations.Attribute;
-import net.minecraft.advancements.criterion.NBTPredicate;
 import net.minecraft.block.Block;
-import net.minecraft.client.util.NBTQueryManager;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.command.arguments.EntityAnchorArgument;
-import net.minecraft.command.arguments.NBTCompoundTagArgument;
-import net.minecraft.command.arguments.NBTPathArgument;
-import net.minecraft.command.arguments.NBTTagArgument;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.NBTDynamicOps;
-import net.minecraft.nbt.NBTUtil;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
-import net.minecraftforge.common.crafting.NBTIngredient;
 
 import java.util.Objects;
 import java.util.Set;

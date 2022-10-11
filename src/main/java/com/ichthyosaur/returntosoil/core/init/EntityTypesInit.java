@@ -18,8 +18,8 @@ public class EntityTypesInit {
                     .sized(0.7f,0.7f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "husk_larvae").toString()));
 
-    public static final RegistryObject<EntityType<JawBeetleEntity>> JAWBEETLE = ENTITY_TYPES.register("jaw_beetle",
-            () -> EntityType.Builder.of(JawBeetleEntity::new, EntityClassification.MONSTER)
+    public static final RegistryObject<EntityType<BeetleEntity>> JAWBEETLE = ENTITY_TYPES.register("jaw_beetle",
+            () -> EntityType.Builder.of(BeetleEntity::new, EntityClassification.MONSTER)
                     .sized(1.0f,1.0f)
                     .build(new ResourceLocation(ReturnToSoil.MOD_ID, "jaw_beetle").toString()));
 
